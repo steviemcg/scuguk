@@ -1,0 +1,70 @@
+@import '../../theme/settings/index.scss';
+
+.fullScreenhero{
+    display: flex;
+    align-content: center;
+    justify-content: center; 
+    flex-direction: column;
+    height: auto;
+    min-height: 80vh;
+    padding: 4rem 0 8rem;
+    position: relative;
+    background: $sc_black; 
+    color: white;    
+    text-align: center;
+    overflow: hidden;
+
+    h1{
+        text-shadow: 0px 0px 14px $sc_black;
+    }
+
+    span{
+        display: block;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.5;
+    }
+
+    &__panel{
+        width: 525px;
+        padding: 3rem;
+        position: relative;
+
+        @include tablet(){
+            max-width: 75vw;
+        }
+
+        @include mobile(){
+            max-width: 100%;
+        }
+
+        &:after{
+            content: "";
+            margin: auto;
+            border-radius: 0 0 0.5rem 0.5rem;
+            box-shadow: 0px 0.1rem 1rem 0 rgba(0,0,0,0.2);
+            border-bottom: 3px solid white;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            background: $sc_black;
+            opacity: 0.75;
+        }
+    }
+
+    &__content{
+        position: relative;
+        z-index: 1;
+        text-align: left;
+    }
+}

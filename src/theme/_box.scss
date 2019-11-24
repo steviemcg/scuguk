@@ -1,0 +1,53 @@
+.theme__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1200px;
+    max-width: 100%;      
+    min-height: 70vh; 
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    padding: 6rem $gutterDesktop;
+    position: relative;
+    box-shadow: 0px 0.1rem 1rem 0 rgba(0,0,0,0.2);
+    background: white;
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    .button{
+        margin-top: 2rem;
+        margin-left: auto;
+    }
+
+    @include tablet(){
+        padding: 4rem $gutterTablet;
+        min-height: 60vh; 
+    }
+    @include mobile(){
+        padding: 2rem $gutterMobile;
+        min-height: 50vh; 
+    }
+
+    h2{
+        margin: 0;
+    }
+
+    &--small{
+        min-height: 0;
+    }
+
+    &--green{
+        border-bottom: 3px solid $sc_green; 
+    }
+
+    &--red{
+        border-bottom: 3px solid $sc_red; 
+    }
+
+    &--white{
+        border-bottom: 3px solid $sc_grey_dark; 
+    }
+
+    &:last-child{
+        margin-bottom: 3rem;
+    }
+}

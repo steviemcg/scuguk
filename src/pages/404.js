@@ -1,25 +1,31 @@
-import React from "react";
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import Layout from '../components/Layout/layout'
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import abductionIllustration from "../images/abduction-illustration.svg";
-
-function NotFoundPage() {
-  return (
-    <Layout>
-      <SEO title="404: Not found" />
-      <div>
-        <img
-          alt="Ghost getting abducted by aliens"
-          className="block mx-auto w-1/2"
-          src={abductionIllustration}
-        />
-        <h2 className="bg-yellow-400 text-2xl font-bold inline-block my-8 p-3">
+export const NotFoundPageTemplate = () => (
+  <>
+      <div className="container notFound" style={{textAlign: "center"}}>
+        <img style={{width: "620px"}} alt="Ghost getting abducted by aliens" src="/img/abduction-illustration.svg" />
+        <h3>
           Looks like this page is a ghost that got abducted by aliens...
-        </h2>
+        </h3>
       </div>
-    </Layout>
-  );
+  </>
+ )
+
+const NotFoundPage = () => {
+  return (
+    <>   
+      <Helmet>
+        <title>404: Not found</title>
+        <meta name="description" content="Abducted by aliens?" />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <Layout>
+        <NotFoundPageTemplate />
+      </Layout>
+    </>
+  )
 }
 
-export default NotFoundPage;
+export default NotFoundPage

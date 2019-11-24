@@ -1,0 +1,60 @@
+backend:
+  name: git-gateway
+  branch: master
+editor:
+  preview: false
+media_folder: static/img
+public_folder: /img
+logo_url: /img/cms-logo.png
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Home Page"
+        name: "index-page"
+        fields:
+          - {label: Google Meta Data, name: meta, widget: object, collapsed: true, fields: [
+              {label: Meta Title, name: metaTitle, widget: text},
+              {label: Meta Description, name: metaDescription, widget: text},
+              {label: Robots, name: robots, widget: text}
+          ]}
+      - file: "src/pages/events.md"
+        label: "Events Listing Page"
+        name: "events-listing-page"
+        fields:
+          - {label: Google Meta Data, name: meta, widget: object, collapsed: true, fields: [
+              {label: Meta Title, name: metaTitle, widget: text},
+              {label: Meta Description, name: metaDescription, widget: text},
+              {label: Robots, name: robots, widget: text}
+          ]}
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"    
+    folder: "src/pages/events"
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Sup", name: "sup", widget: "text"}
+      - {label: "Details", name: "details", widget: "object", collapsed: false, fields: [
+          {label: Sponsors, name: sponsors, widget: string},
+          {label: Date, name: date, widget: 'datetime', dateFormat: 'DD-MM-YYYY', timeFormat: 'HH:mm', format: 'DD-MM-YYYY HH:mm'},
+          {label: Timings, name: timings, widget: string},
+          {label: Food, name: food, widget: string}
+      ]}
+      - {label: "Venue", name: "venue", widget: "object", collapsed: false, fields: [
+          {label: Location, name: location, widget: string},
+          {label: Details, name: details, widget: text}
+      ]}
+      - {label: "Agenda", name: "agenda", widget: "text"}
+      - {label: Speakers, name: speakers, widget: list, fields: [
+          {label: Who, name: who, widget: string},
+          {label: Intro, name: intro, widget: text},
+          {label: Description, name: description, widget: text}
+      ]}
+      - {label: Google Meta Data, name: meta, widget: object, collapsed: true, fields: [
+          {label: Meta Title, name: metaTitle, widget: string},
+          {label: Meta Description, name: metaDescription, widget: text},
+          {label: Robots, name: robots, widget: text}
+      ]}
