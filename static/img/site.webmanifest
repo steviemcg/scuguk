@@ -1,0 +1,8 @@
+{
+    "name": "Sitecore User Group UK",
+    "short_name": "SUGUK",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "https://scug.co.uk/",
+    "display": "standalone"
+}

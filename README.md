@@ -1,41 +1,29 @@
 # Sitecore User Group UK
-
 <a href="https://scug.co.uk/">www.scug.co.uk</a>
-
-## What is Tailwind?
-
-> "Tailwind is a utility-first CSS framework for rapidly building custom user interfaces."
-> –[Tailwind](https://tailwindcss.com)
-
-## What is Gatsby?
-
-> "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps." -[Gatsby](https://www.gatsbyjs.org/)
-
-## Get started
-
-Build stylesheet from Tailwind config and run the project in development mode:
-
-```sh
-cd my-new-website
-npm run develop
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys)
+**Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
+This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
+It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+## Prerequisites
+- Node v10.16.0 or higher
+- [Gatsby CLI](https://www.gatsbyjs.org/docs/)
+### Access Locally
 ```
-
-## Format and lint
-
-- `npm run analyze` - See what ESLint and Prettier can fix
-- `npm run fix` - Run Prettier and ESLint with the `--fix` option
-
-## Build your site
-
-Use `npm run build` to build your site for production.
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/steviemcg/scuguk)
-
-## Resources
-
-- [Gatsby documentation](https://www.gatsbyjs.org/docs/)
-- [Tailwind documentation](https://tailwindcss.com/docs/what-is-tailwind/)
-- [Prettier documentation](https://prettier.io/docs/en/index.html)
-- [ESLint documentation](https://eslint.org/docs/user-guide/configuring)
+Fork from https://github.com/steviemcg/scuguk
+$ cd [REPO_NAME]
+$ npm i
+$ npm run start
+```
+To test the CMS locally, you'll need run a production build of the site:
+```
+$ npm run build
+$ npm run serve
+```
+## Debugging
+Windows users might encounter ```node-gyp``` errors when trying to npm install.
+To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
+```
+npm config set python python2.7
+npm install --global --production windows-build-tools
+```
+[Full details here](https://www.npmjs.com/package/node-gyp 'NPM node-gyp page')
