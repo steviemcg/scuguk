@@ -9,7 +9,7 @@ import ContactForm from "../components/ContactForm/contactForm";
 export const ContactPageTemplate = ({ heading, description }) => (
   <>
     <Hero heading={heading} theme={"green"} small={true} />
-    <main>
+    <div role="main">
       <div className="container">
         <div className="theme__box theme__box--small theme__box--white">
           <div className="form">
@@ -18,7 +18,7 @@ export const ContactPageTemplate = ({ heading, description }) => (
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </>
 );
 

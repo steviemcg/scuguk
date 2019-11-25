@@ -12,7 +12,7 @@ export const NewsletterPageTemplate = ({
 }) => (
   <>
     <Hero heading={heading}/>    
-    <main>   
+    <div role="main">   
       <div className="container">
         <div className="theme__box theme__box--small theme__box--white">
           <div className="form">
@@ -21,7 +21,7 @@ export const NewsletterPageTemplate = ({
           </div>
         </div>
       </div>            
-    </main>
+    </div>
   </>
 )
 

@@ -10,13 +10,14 @@ const Box = props => (
     >
       <h2>{props.heading}</h2>
       <p>{props.description}</p>
-      <a
-        className={`button ${props.linkPath ? "" : "hide"}`}
-        href={props.linkPath}
-        target="_self"
-      >
-        {props.linkText}
-      </a>
+      <div className="theme__box-button">
+        <a
+          className={`button ${props.linkPath ? "" : "hide"}`}
+          href={props.linkPath}
+          target="_self"
+        > {props.linkText}
+        </a>
+      </div>       
       <div>{props.children}</div>
     </section>
   </div>

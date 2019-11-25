@@ -15,10 +15,6 @@ class EventsList extends React.Component {
               className="theme__box theme__box--small event"
               key={event.id}
             >
-              <section className="event__hero">
-                <img src="#" alt="" />
-              </section>
-
               <div className="container">
                 <section>
                   <h2>
