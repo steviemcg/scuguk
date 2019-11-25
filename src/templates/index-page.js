@@ -15,11 +15,11 @@ export const IndexPageTemplate = ({
 }) => (
   <>
     <FullScreenHero heroImage={heroImage} heading={heading} />
-    <main> 
+    <div role="main">
       <Box theme={"green"} heading={box1.heading} description={box1.description} linkPath={box1.linkPath} linkText={box1.linkText} />
       <Box theme={"red"} heading={box2.heading} description={box2.description} linkPath={box2.linkPath} linkText={box2.linkText} />
       <Box theme={"white"} heading={box3.heading} description={box3.description} linkPath={box3.linkPath} linkText={box3.linkText} />
-    </main>
+    </div>
   </>
 )
 

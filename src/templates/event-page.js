@@ -18,12 +18,12 @@ export const EventPageTemplate = ({
   return (
     <>
       <Hero heading={title}/>   
-      <main>
+      <div role="main">
         <div className="container">
           <article className="theme__box theme__box--small">
 
             <section className="event__hero">
-              <img src="#" alt="" />
+              <img src="{image}" alt="" />
             </section>
 
             <div className="container">
@@ -60,13 +60,13 @@ export const EventPageTemplate = ({
 
           </article>
         </div>
-      </main>
+      </div>
     </>
   );
 };
 
 EventPageTemplate.propTypes = {
-  heading: PropTypes.string,
+  title: PropTypes.string,
   image: PropTypes.string,
   sup: PropTypes.string,
   details: PropTypes.object,
@@ -89,7 +89,7 @@ const Event = ({ data }) => {
       </Helmet>
       <Layout>
         <EventPageTemplate
-          heading={event.frontmatter.heading}
+          title={event.frontmatter.title}
           image={event.frontmatter.image}
           sup={event.frontmatter.sup}
           details={event.frontmatter.details}
@@ -118,7 +118,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
-        heading
+        title
         sup
         details {
           sponsors

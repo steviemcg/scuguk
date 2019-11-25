@@ -8,6 +8,7 @@
     z-index: 10;
     background: white;
     @include transition();
+
     .container{
         display: flex;
         align-items: center;
@@ -20,7 +21,6 @@
         width: 40vw;
         svg{
             width: 100%;
-            height: auto;
         }
     }
 

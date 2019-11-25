@@ -1,10 +1,6 @@
 .theme__box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 1200px;
     max-width: 100%;      
-    min-height: 70vh; 
     margin: 0 auto;
     margin-bottom: 3rem;
     padding: 6rem $gutterDesktop;
@@ -13,18 +9,22 @@
     background: white;
     border-radius: 0 0 0.5rem 0.5rem;
 
-    .button{
-        margin-top: 2rem;
-        margin-left: auto;
+    &-button{
+        text-align: right;
+        .button{
+            margin: auto;
+            margin-top: 2rem;
+            position: relative;
+            right: 0;
+        }
     }
+    
 
     @include tablet(){
         padding: 4rem $gutterTablet;
-        min-height: 60vh; 
     }
     @include mobile(){
         padding: 2rem $gutterMobile;
-        min-height: 50vh; 
     }
 
     h2{
