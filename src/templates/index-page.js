@@ -6,6 +6,14 @@ import Layout from '../components/Layout/layout'
 import Box from '../components/Box/box'
 import FullScreenHero from '../components/FullScreenHero/fullScreenHero'
 
+export const ensureInternal = (to) => {
+  if (!to || to.startsWith("/")) {
+    return to;
+  }
+
+  return "/" + to;
+}
+
 export const IndexPageTemplate = ({
   heroImage,
   heading,
@@ -13,15 +21,15 @@ export const IndexPageTemplate = ({
   box2,
   box3
 }) => (
-  <>
-    <FullScreenHero heroImage={heroImage} heading={heading} />
-    <div role="main">
-      <Box theme={"green"} heading={box1.heading} description={box1.description} linkPath={box1.linkPath} linkText={box1.linkText} />
-      <Box theme={"red"} heading={box2.heading} description={box2.description} linkPath={box2.linkPath} linkText={box2.linkText} />
-      <Box theme={"white"} heading={box3.heading} description={box3.description} linkPath={box3.linkPath} linkText={box3.linkText} />
-    </div>
-  </>
-)
+    <>
+      <FullScreenHero heroImage={heroImage} heading={heading} />
+      <div role="main">
+        <Box theme={"green"} heading={box1.heading} description={box1.description} linkPath={ensureInternal(box1.linkPath)} linkText={box1.linkText} />
+        <Box theme={"red"} heading={box2.heading} description={box2.description} linkPath={ensureInternal(box2.linkPath)} linkText={box2.linkText} />
+        <Box theme={"white"} heading={box3.heading} description={box3.description} linkPath={ensureInternal(box3.linkPath)} linkText={box3.linkText} />
+      </div>
+    </>
+  )
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -45,7 +53,7 @@ const IndexPage = ({ data }) => {
 }
 
 IndexPageTemplate.propTypes = {
-  heading: PropTypes.string,  
+  heading: PropTypes.string,
   heroImage: PropTypes.string,
   box1: PropTypes.object,
   box2: PropTypes.object,
