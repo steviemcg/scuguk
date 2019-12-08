@@ -10,24 +10,24 @@ export const NewsletterPageTemplate = ({
   heading,
   description
 }) => (
-  <>
-    <Hero heading={heading}/>    
-    <div role="main">   
-      <div className="container">
-        <div className="theme__box theme__box--small theme__box--white">
-          <div className="form">
-            <p>{description}</p>
-            <NewsletterForm/>
+    <>
+      <Hero heading={heading} />
+      <div role="main">
+        <div className="container">
+          <div className="theme__box theme__box--small theme__box--white">
+            <div className="form">
+              <p>{description}</p>
+              <NewsletterForm />
+            </div>
           </div>
         </div>
-      </div>            
-    </div>
-  </>
-)
+      </div>
+    </>
+  )
 
 NewsletterPageTemplate.propTypes = {
-    heading: PropTypes.string,  
-    description: PropTypes.string
+  heading: PropTypes.string,
+  description: PropTypes.string
 }
 
 const NewsletterPage = ({ data }) => {
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
       frontmatter {
         heading
         description
-        meta{
+        meta {
           metaTitle
           metaDescription
         }

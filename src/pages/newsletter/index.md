@@ -8,6 +8,3 @@ meta:
   metaDescription: Sign up to our Newsletter top recieve the latest updates
   metaKeywords: sitecore, user group, london, bristol, cardiff, manchester, leeds, uk, united kingdom, england, wales
 ---
-
-            
-
