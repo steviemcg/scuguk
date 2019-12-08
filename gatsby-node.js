@@ -33,6 +33,11 @@ exports.createPages = ({ actions, graphql }) => {
 
     posts.forEach(edge => {
       const id = edge.node.id
+
+      if (!edge.node.frontmatter.templateKey) {
+        return;
+      }
+
       const componentPath = path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.js`)
       if (!fs.existsSync(componentPath)) {
         console.log(`Page template for ${String(edge.node.frontmatter.templateKey)} does not exist at ${componentPath}`)
@@ -58,10 +63,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+
     createNodeField({
       name: `slug`,
       node,
       value,
     })
+
+    if (node.frontmatter && node.frontmatter.templateKey === `event-page`) {
+      var isFuture = new Date(node.frontmatter.date) > new Date()
+
+      createNodeField({
+        node,
+        name: `isFuture`,
+        value: isFuture
+      })
+    }
   }
 }

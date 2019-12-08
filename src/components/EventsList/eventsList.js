@@ -24,31 +24,19 @@ class EventsList extends React.Component {
                   </h2>
                   <p>{event.frontmatter.sup}</p>
                 </section>
-
-                {/* <section>
-                        <h2>Event Details</h2>
-                        <p>{event.frontmatter.details.sponsors}</p>
-                    </section>> */}
-
-                {/* <section>
-                        <h2>Venue</h2>
-                        <p>{event.frontmatter.venue.location}</p>
-                        <p>{event.frontmatter.venue.deta}</p>
-                    </section> */}
-
-
-                {/* <section>
-                        <h2>Speakers</h2>
-                        <ul>
-                            {event.frontmatter.speakers.map((speaker) => (
-                                <li key={speaker.who}>
-                                    <h3>{speaker.who}</h3>
-                                    <p>{speaker.info}</p>
-                                    <p>{speaker.description}</p>
-                                </li>                    
-                            ))}
-                        </ul>
-                    </section>                     */}
+                <section>
+                  <dl>
+                    <dt>Date</dt>
+                    <dd>{event.frontmatter.date}</dd>
+                    <dt>Venue</dt>
+                    <dd>{event.frontmatter.venue.name}, {event.frontmatter.venue.address}</dd>
+                    <dt>Sponsors</dt>
+                    <dd>{event.frontmatter.sponsors}</dd>
+                  </dl>
+                </section>
+                <div className="theme__box-button">
+                  <Link className="button" to={event.fields.slug}>Read more...</Link>
+                </div>
               </div>
             </article>
           ))}
@@ -69,9 +57,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query EventsListQuery {
-        allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "event-page" } } }
-        ) {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event-page"}}, fields: {isFuture: {eq: true}}}) {
           edges {
             node {
               id
@@ -80,7 +66,8 @@ export default () => (
               }
               frontmatter {
                 title
-                date
+                sup
+                date(formatString: "MMMM D, YYYY - HH:mm")
                 sponsors
                 venue {
                   name
