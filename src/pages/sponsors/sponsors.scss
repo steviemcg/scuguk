@@ -1,0 +1,20 @@
+.sponsor {
+    border-radius: .25rem;
+    margin-bottom: 1rem
+}
+
+.sponsor-image {
+    height: 3em;
+    margin: auto;
+    display: block;
+}
+
+.sponsor-badge {
+    border-radius: 9999px;
+    background-color: #f7fafc;
+    font-weight: 600;
+
+    a {
+        color: #4a5568;
+    }
+}

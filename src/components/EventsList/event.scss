@@ -1,13 +1,21 @@
 @import '../../theme/settings/index.scss';
 
 .event {
-    h2 a{
+    h2 a {
         color: $sc_green;
     }
 }
 
+.agenda-title {
+    font-weight: 700;
+}
+
 h4.talk-who {
-    margin-top: -20px;
     font-style: italic;
     line-height: 1.2em;
+    font-size: 1.2em;
+}
+
+.talk-description {
+    color: #444444;
 }

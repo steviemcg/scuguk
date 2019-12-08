@@ -1,5 +1,5 @@
 ---
-templateKey: sponsor
+contentType: sponsor
 title: Kagool
 image: kagool.svg
 website: http://www.bekagool.com/

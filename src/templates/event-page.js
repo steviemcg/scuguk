@@ -9,15 +9,15 @@ import '../components/EventsList/event.scss'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
 export const Agenda = ({ time, value }) => (
-  <div>
-    <h3>{time} - {value}</h3>
+  <div className="mb-4">
+    <h3 className="agenda-title">{time} - {value}</h3>
   </div>
 )
 
 export const Talk = ({ time, who, intro, description }) => (
-  <div>
-    <h3>{time} - {intro}</h3>
-    <h4 className="talk-who">{who}</h4>
+  <div className="mb-4">
+    <h3 className="mb-0 agenda-title">{time} - {intro}</h3>
+    <h4 className="talk-who mb-3">{who}</h4>
     <div className="talk-description">{description}</div>
   </div>
 )
@@ -98,7 +98,7 @@ export const EventPageTemplate = ({
               <Venue venue={venue} />
 
               <section>
-                <h2>Agenda</h2>
+                <h2 className="mb-4">Agenda</h2>
                 {agenda.map(speaker => {
                   return speaker.value
                     ? <Agenda time={speaker.time} value={speaker.value} key={speaker.time} />

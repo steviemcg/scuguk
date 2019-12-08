@@ -6,17 +6,19 @@ import Hero from '../../components/Hero/hero'
 
 export const ThanksPageTemplate = () => (
   <>
-    <Hero Heading="Thanks!" />
-    <div className="pageContent pageContent__noAnimate contact">
-      <div className="pageContent__inner">
-        <div className="theme__box theme__box--small">
+    <Hero heading="Thanks!" theme={"green"} small={true} />
+    <div role="main">
+      <div className="container">
+        <div className="theme__box theme__box--small theme__box--white">
           <div className="container">
             <div className="content">
               <h2>Success!</h2>
               <p>Thanks for submitting the Contact Form, we've got your details and will be in touch soon!</p>
-              <Link className="btn" to="/">
-                Go Back
+              <div className="theme__box-button">
+                <Link className="button" to="/">
+                  Go Back
               </Link>
+              </div>
             </div>
           </div>
         </div>

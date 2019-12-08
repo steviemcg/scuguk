@@ -2,41 +2,42 @@ import React from 'react'
 import { Helmet } from "react-helmet"
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout/layout'
-import Hero from '../components/Hero/hero'
+import Layout from '../../components/Layout/layout'
+import Hero from '../../components/Hero/hero'
+import './sponsors.scss';
 
 const SponsorsPage = ({ data }) => {
     const sponsors = data.allMarkdownRemark.nodes
     return (
         <>
             <Helmet>
-                <title>Sponsors</title>
+                <title>Sponsors | Sitecore User Group UK</title>
                 <meta name="description" content="Sponsors of the UK Sitecore User Group" />
             </Helmet>
             <Layout>
                 <Hero heading="Sponsors" />
                 <div role="main">
                     <div className="container">
-
                         <div className="theme__box theme__box--small theme__box--white">
+                            <p className="mt-0">Our events rely completely on our sponsors, so we'd like to give our huge thanks to the following:</p>
+
                             <div className="row">
                                 {sponsors.map(sponsor => (
-                                    <div key={sponsor.id} className="col-xs-12 col-md-3">
-                                        <div className="bg-gray-200 rounded shadow-lg">
-                                            <div className="px-6 pt-4 mx-auto">
+                                    <div key={sponsor.id} className="col-sm-6 sponsor">
+                                        <div className="shadow-lg">
+                                            <div className="px-4 pt-4 mx-auto">
                                                 <a href={sponsor.frontmatter.website} target="_blank">
-                                                    <img src={sponsor.frontmatter.image.publicURL} alt={sponsor.frontmatter.title}
-                                                        className="h-12 mx-auto" />
+                                                    <img src={sponsor.frontmatter.image.publicURL} alt={sponsor.frontmatter.title} className="sponsor-image" />
                                                 </a>
                                             </div>
-                                            <div className="px-6 py-4">
-                                                <div className="font-bold text-xl mb-2">{sponsor.frontmatter.title}</div>
-                                                <p className="text-gray-700 text-base">
+                                            <div className="px-4 py-4">
+                                                <div className="font-weight-bold mb-2 lead">{sponsor.frontmatter.title}</div>
+                                                <p className="my-0">
                                                     {sponsor.excerpt}
                                                 </p>
                                             </div>
-                                            <div className="px-6 py-4">
-                                                <span className="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                                            <div className="pl-2 pb-4">
+                                                <span className="inline-block rounded-full px-3 py-1 mr-2 sponsor-badge">
                                                     <a href={sponsor.frontmatter.website} target="_blank">#website</a>
                                                 </span>
                                             </div>

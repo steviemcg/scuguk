@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import Header from '../Header/header'
 import Footer from '../Footer/footer'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../theme/index.scss'
 
 const TemplateWrapper = ({ children }) => {
@@ -26,9 +27,9 @@ const TemplateWrapper = ({ children }) => {
 
         <meta charSet="utf-8" />
         <meta name="robots" content="noindex, nofollow" />
-        
+
       </Helmet>
-      <Header />   
+      <Header />
       {children}
       <Footer />
     </>
