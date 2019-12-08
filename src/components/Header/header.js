@@ -5,13 +5,13 @@ import './header.scss';
 
 function Header() {
   const [mobileNavActive, toggleMobileNav] = useState(false);
-  const handleClick = () => {toggleMobileNav(!mobileNavActive)}
+  const handleClick = () => { toggleMobileNav(!mobileNavActive) }
 
   return (
     <header className={`header ${mobileNavActive ? "header--mobileNavActive" : ""}`}>
       <div className="container">
-        
-        <Link className="header__logo" activeClassName="active" to="/"> 
+
+        <Link className="header__logo" activeClassName="active" to="/">
           <Logo />
         </Link>
 
@@ -22,23 +22,28 @@ function Header() {
         <nav className="header__nav" >
           <ul role="navigation" aria-label="main-navigation">
             <li>
-              <Link activeClassName="active" to="/events" > 
+              <Link activeClassName="active" to="/events" >
                 <span>Events</span>
               </Link>
             </li>
             <li>
-              <Link activeClassName="active" to="/newsletter" > 
+              <Link activeClassName="active" to="/newsletter" >
                 <span>Newsletter</span>
               </Link>
             </li>
             <li>
-              <Link activeClassName="active" to="/contact" > 
+              <Link activeClassName="active" to="/sponsors" >
+                <span>Sponsors</span>
+              </Link>
+            </li>
+            <li>
+              <Link activeClassName="active" to="/contact" >
                 <span>Contact</span>
               </Link>
             </li>
-          </ul>   
-        </nav> 
-      </div>       
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }
@@ -46,4 +51,4 @@ function Header() {
 export default Header
 
 
-  
+
