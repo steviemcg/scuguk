@@ -64,7 +64,7 @@ export default SponsorsPage
 
 export const pageQuery = graphql`
 query SponsorsPageQuery {
-  allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___title]}, filter: {frontmatter: {templateKey: {eq: "sponsor"}}}) {
+  allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___title]}, filter: {frontmatter: {contentType: {eq: "sponsor"}}}) {
     nodes {
       id
       excerpt(pruneLength: 400)

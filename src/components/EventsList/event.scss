@@ -1,7 +1,13 @@
 @import '../../theme/settings/index.scss';
 
-.event{
+.event {
     h2 a{
         color: $sc_green;
     }
+}
+
+h4.talk-who {
+    margin-top: -20px;
+    font-style: italic;
+    line-height: 1.2em;
 }

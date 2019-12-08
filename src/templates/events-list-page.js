@@ -9,26 +9,26 @@ import EventsList from '../components/EventsList/eventsList'
 export const EventsListPageTemplate = ({
   heading
 }) => (
-  <>
-    <Hero heading={heading}/>   
-    <div role="main">
+    <>
+      <Hero heading={heading} />
+      <div role="main">
         <div class="container">
-            <EventsList />
+          <EventsList />
         </div>
-    </div>
-  </>
-)
+      </div>
+    </>
+  )
 
 EventsListPageTemplate.propTypes = {
-    heroImage: PropTypes.string,
-    heading: PropTypes.string
+  heroImage: PropTypes.string,
+  heading: PropTypes.string
 }
 
 
 const EventsListPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
-    <>    
+    <>
       <Helmet>
         <title>{frontmatter.meta.metaTitle}</title>
         <meta name="description" content={frontmatter.meta.metaDescription} />
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
       frontmatter {
         heroImage
         heading
-        meta{
+        meta {
           metaTitle
           metaDescription
         }

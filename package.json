@@ -21,6 +21,7 @@
     "IE 10"
   ],
   "dependencies": {
+    "@react-google-maps/api": "^1.8.0",
     "gatsby": "^2.17.14",
     "gatsby-image": "^2.2.33",
     "gatsby-plugin-netlify": "^2.1.25",

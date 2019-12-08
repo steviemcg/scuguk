@@ -47,13 +47,14 @@ collections:
           {label: Location, name: location, widget: string},
           {label: Details, name: details, widget: text}
       ]}
-      - {label: "Agenda", name: "agenda", widget: "text"}
-      - {label: Speakers, name: speakers, widget: list, fields: [
+      - {label: "Agenda", name: "agenda", widget: "list", collapsed: false, fields[
+          {label: Time, name: time, widget: time},
+          {label: Value, name: value, widget: string},
           {label: Who, name: who, widget: string},
           {label: Intro, name: intro, widget: text},
           {label: Description, name: description, widget: text}
       ]}
-      - {label: Google Meta Data, name: meta, widget: object, collapsed: true, fields: [
+       - {label: Google Meta Data, name: meta, widget: object, collapsed: true, fields: [
           {label: Meta Title, name: metaTitle, widget: string},
           {label: Meta Description, name: metaDescription, widget: text},
           {label: Robots, name: robots, widget: text}

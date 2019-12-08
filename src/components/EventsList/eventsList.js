@@ -36,10 +36,6 @@ class EventsList extends React.Component {
                         <p>{event.frontmatter.venue.deta}</p>
                     </section> */}
 
-                {/* <section>
-                        <h2>Agenda</h2>
-                        <p>{event.frontmatter.agenda}</p>
-                    </section> */}
 
                 {/* <section>
                         <h2>Speakers</h2>
@@ -84,22 +80,11 @@ export default () => (
               }
               frontmatter {
                 title
-                sup
-                details {
-                  sponsors
-                  date
-                  timings
-                  food
-                }
+                date
+                sponsors
                 venue {
-                  location
-                  details
-                }
-                agenda
-                speakers {
-                  who
-                  intro
-                  description
+                  name
+                  address
                 }
               }
             }
