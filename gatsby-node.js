@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
+const fs = require('fs')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
@@ -32,12 +33,16 @@ exports.createPages = ({ actions, graphql }) => {
 
     posts.forEach(edge => {
       const id = edge.node.id
+      const componentPath = path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.js`)
+      if (!fs.existsSync(componentPath)) {
+        console.log(`Page template for ${String(edge.node.frontmatter.templateKey)} does not exist at ${componentPath}`)
+        return;
+      }
+
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
+        component: componentPath,
         // additional data can be passed via context
         context: {
           id,
