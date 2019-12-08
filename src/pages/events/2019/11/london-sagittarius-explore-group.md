@@ -1,6 +1,6 @@
 ---
 templateKey: 'event-page'
-title: London Sagittarius Explore Group 
+title: Sitecore User Group - London - December 2019
 sup: London’s Technical User Group is back with post-symposium goodness! 🙌🏼
 date: 2019-11-14 18:00
 image: ./london-sagittarius-explore-group/images/huckletree.jpg
@@ -45,7 +45,7 @@ agenda:
     time: "21:00"
     value: Networking
 meta:
-  metaTitle: London Sagittarius Explore Group 
+  metaTitle: Sitecore User Group - London December 2019 -  Sagittarius &amp; Explore Group 
   metaDescription: London’s Technical User Group is back with post-symposium goodness!
   metaKeywords: sitecore, user group, london, sagittarius, explore group
 ---

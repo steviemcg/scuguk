@@ -1,6 +1,6 @@
 ---
 templateKey: 'event-page'
-title: Sitecore Discussion Club 
+title: Sitecore Discussion Club - London - December 2019
 sup: Sitecore Discussion Club is back!
 date: 2019-12-10 18:30
 image: ../../../../img/discussion-club.jpg
@@ -31,6 +31,6 @@ agenda:
     value: Networking      
 meta:
   metaTitle: Sitecore Discussion Club, December 10, 2019, 6:30pm
-  metaDescription: Sitecore Discussion Club is back!
-  metaKeywords: sitecore, discussion club, 
+  metaDescription: Sitecore Discussion Club is back! Sponsored by Merkle
+  metaKeywords: sitecore, discussion club, merkle
 ---
