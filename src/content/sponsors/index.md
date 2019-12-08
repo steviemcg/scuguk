@@ -1,5 +1,0 @@
----
-templateKey: 'sponsors'
-
----
-
