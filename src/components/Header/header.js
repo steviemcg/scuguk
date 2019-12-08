@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'gatsby'
-import Logo from '../Logo/logo';
+import Logo from '../../img/logo.svg';
 import './header.scss';
 
 function Header() {
@@ -12,7 +12,7 @@ function Header() {
       <div className="container">
 
         <Link className="header__logo" activeClassName="active" to="/">
-          <Logo />
+          <img src={Logo} />
         </Link>
 
         <button className="header__mobileNav" onClick={handleClick}>

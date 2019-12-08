@@ -1,8 +1,4 @@
-import React from 'react'
-
-const LogoCircle = () => {
-  return(
-    <svg className="logoCircle" version="1.1" x="0px" y="0px" width="47.452px" height="47.82px" viewBox="0 0 47.452 47.82" enable-background="new 0 0 47.452 47.82">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" className="logoCircle" version="1.1" x="0px" y="0px" width="47.452px" height="47.82px" viewBox="0 0 47.452 47.82" enable-background="new 0 0 47.452 47.82">
       <g id="Symbols">
         <g id="_x30_5.-Components-_x2F_-Header" transform="translate(-59.000000, -59.000000)">
           <g id="_x30_1-Branding-_x2F_-Sitecore-Logo" transform="translate(59.000000, 59.000000)">
@@ -31,7 +27,3 @@ const LogoCircle = () => {
         </g>
       </g>
     </svg>
-  )
-}
-
-export default LogoCircle
