@@ -8,7 +8,7 @@ export default class NewsletterForm extends React.Component {
         method="post"
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
-        class="validate"
+        className="validate"
         target="_blank"
       >
         <fieldset>
@@ -131,7 +131,7 @@ export default class NewsletterForm extends React.Component {
             </label>
           </div>
         </fieldset>
-        <div class="submit">
+        <div className="submit">
           <button className="button" type="submit">
             Subscribe
           </button>

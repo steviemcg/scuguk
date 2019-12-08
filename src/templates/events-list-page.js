@@ -12,7 +12,7 @@ export const EventsListPageTemplate = ({
     <>
       <Hero heading={heading} />
       <div role="main">
-        <div class="container">
+        <div className="container">
           <EventsList />
         </div>
       </div>

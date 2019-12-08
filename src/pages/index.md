@@ -12,7 +12,7 @@ box1:
       Programmers, marketers, content authors, CMS users and others are all welcome.  
       Our events wouldn't be possible without the kind support of our Sponsors!
   background: ""
-  linkPath: "" 
+  linkPath: "/" 
   linkText: ""
 box2: 
   heading: Events
