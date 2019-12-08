@@ -117,10 +117,10 @@ EventPageTemplate.propTypes = {
   title: PropTypes.string,
   image: PropTypes.object,
   sup: PropTypes.string,
-  date: PropTypes.date,
+  date: PropTypes.string,
   sponsors: PropTypes.string,
   venue: PropTypes.object,
-  agenda: PropTypes.object
+  agenda: PropTypes.array
 };
 
 const Event = ({ data }) => {
