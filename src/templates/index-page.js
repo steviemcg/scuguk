@@ -18,15 +18,13 @@ export const IndexPageTemplate = ({
   heroImage,
   heading,
   box1,
-  box2,
-  box3
+  box2
 }) => (
     <>
       <FullScreenHero heroImage={heroImage} heading={heading} />
       <div role="main">
         <Box theme={"green"} heading={box1.heading} description={box1.description} linkPath={ensureInternal(box1.linkPath)} linkText={box1.linkText} />
-        <Box theme={"red"} heading={box2.heading} description={box2.description} linkPath={ensureInternal(box2.linkPath)} linkText={box2.linkText} />
-        <Box theme={"white"} heading={box3.heading} description={box3.description} linkPath={ensureInternal(box3.linkPath)} linkText={box3.linkText} />
+        <Box theme={"white"} heading={box2.heading} description={box2.description} linkPath={ensureInternal(box2.linkPath)} linkText={box2.linkText} />
       </div>
     </>
   )
@@ -45,7 +43,6 @@ const IndexPage = ({ data }) => {
           heroImage={frontmatter.heroImage}
           box1={frontmatter.box1}
           box2={frontmatter.box2}
-          box3={frontmatter.box3}
         />
       </Layout>
     </>
@@ -56,8 +53,7 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   heroImage: PropTypes.string,
   box1: PropTypes.object,
-  box2: PropTypes.object,
-  box3: PropTypes.object
+  box2: PropTypes.object
 }
 
 IndexPage.propTypes = {
@@ -74,27 +70,20 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        meta{
+        meta {
           metaTitle
           metaDescription
         }
         heroImage
         heading
-        box1{
+        box1 {
           heading
           description
           background
           linkPath
           linkText  
         }
-        box2{
-          heading
-          description
-          background
-          linkPath
-          linkText  
-        }
-        box3{
+        box2 {
           heading
           description
           background
