@@ -1,14 +1,14 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import Layout from '../../components/Layout/layout'
 import Hero from '../../components/Hero/hero'
 
 export const ThanksPageTemplate = () => (
   <>
     <Hero Heading="Thanks!" />
-    <div className="pageContent pageContent__noAnimate contact">  
-      <div className="pageContent__inner">         
+    <div className="pageContent pageContent__noAnimate contact">
+      <div className="pageContent__inner">
         <div className="theme__box theme__box--small">
           <div className="container">
             <div className="content">
@@ -23,12 +23,11 @@ export const ThanksPageTemplate = () => (
       </div>
     </div>
   </>
- )
+)
 
-const ThanksPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const ThanksPage = () => {
   return (
-    <>    
+    <>
       <Helmet>
         <title>Thanks!</title>
         <meta name="description" content="Thanks for getting in touch" />

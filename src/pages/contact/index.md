@@ -10,6 +10,3 @@ meta:
   metaDescription: Leave us a message and we'll get back to you as soon as possible.
   metaKeywords: sitecore, user group, london, bristol, cardiff, manchester, leeds, uk, united kingdom, england, wales
 ---
-
-            
-
