@@ -26,8 +26,6 @@ const TemplateWrapper = ({ children }) => {
         />
 
         <meta charSet="utf-8" />
-        <meta name="robots" content="noindex, nofollow" />
-
       </Helmet>
       <Header />
       {children}
