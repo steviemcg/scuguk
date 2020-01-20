@@ -23,16 +23,24 @@ export const Talk = ({ time, who, intro, description }) => (
 )
 
 export const Venue = ({ venue }) => {
+  if (venue == null || !venue.name) {
+    return null;
+  }
+
   const mapContainerStyle = {
     height: "400px",
     width: "100%",
     marginBottom: "20px"
   }
 
-  const positionArr = venue.position.split(",")
-  const position = {
-    lat: parseFloat(positionArr[0]),
-    lng: parseFloat(positionArr[1])
+  let position = null;
+
+  if (venue.position) {
+    const positionArr = venue.position.split(",")
+    position = {
+      lat: parseFloat(positionArr[0]),
+      lng: parseFloat(positionArr[1])
+    }
   }
 
   return (
@@ -42,17 +50,27 @@ export const Venue = ({ venue }) => {
       <dl>
         <dt>Name</dt>
         <dd>{venue.name}</dd>
-        <dt>Address</dt>
-        <dd>{venue.address}</dd>
-        <dt>Details</dt>
-        <dd>{venue.details}</dd>
+        {venue.address &&
+          <>
+            <dt>Address</dt>
+            <dd>{venue.address}</dd>
+          </>
+        }
+        {venue.details &&
+          <>
+            <dt>Details</dt>
+            <dd>{venue.details}</dd>
+          </>
+        }
       </dl>
 
-      <LoadScript id="script-loader" googleMapsApiKey="AIzaSyBr85EicbttnsTYoDQbZ64QOomCXbGMx_M">
-        <GoogleMap id='venue-map' center={position} zoom={15} mapContainerStyle={mapContainerStyle}>
-          <Marker position={position} title={venue.name + ' - ' + venue.address} />
-        </GoogleMap>
-      </LoadScript>
+      {position !== null &&
+        <LoadScript id="script-loader" googleMapsApiKey="AIzaSyBr85EicbttnsTYoDQbZ64QOomCXbGMx_M">
+          <GoogleMap id='venue-map' center={position} zoom={15} mapContainerStyle={mapContainerStyle}>
+            <Marker position={position} title={venue.name + ' - ' + venue.address} />
+          </GoogleMap>
+        </LoadScript>
+      }
     </section>
   )
 }
@@ -76,9 +94,13 @@ export const EventPageTemplate = ({
       <div role="main">
         <div className="container">
           <article className="theme__box theme__box--small">
-            <section className="event__hero">
-              <Img fluid={image.childImageSharp.fluid} />
-            </section>
+            {image &&
+              <>
+                <section className="event__hero">
+                  <Img fluid={image.childImageSharp.fluid} />
+                </section>
+              </>
+            }
 
             <div className="container">
               <section>
@@ -88,8 +110,13 @@ export const EventPageTemplate = ({
                 <h2>Event Details</h2>
 
                 <dl>
-                  <dt>Sponsors</dt>
-                  <dd>{sponsors}</dd>
+                  {sponsors &&
+                    <>
+                      <dt>Sponsors</dt>
+                      <dd>{sponsors}</dd>
+                    </>
+                  }
+
                   <dt>Date</dt>
                   <dd>{date}</dd>
                 </dl>
@@ -140,7 +167,7 @@ const Event = ({ data }) => {
           title={event.frontmatter.title}
           image={event.frontmatter.image}
           sup={event.frontmatter.sup}
-          date={event.frontmatter.date}
+          date={event.frontmatter.dateConfirmed ? event.frontmatter.date : event.frontmatter.dateVague}
           sponsors={event.frontmatter.sponsors}
           venue={event.frontmatter.venue}
           agenda={event.frontmatter.agenda}
@@ -174,7 +201,9 @@ export const pageQuery = graphql`
           }
         }        
         title
+        dateConfirmed
         date(formatString: "MMMM D, YYYY - HH:mm")
+        dateVague: date(formatString: "MMMM YYYY")
         sponsors
         sup
         venue {
