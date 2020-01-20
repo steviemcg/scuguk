@@ -4,4 +4,4 @@ title: Kagool
 image: kagool.svg
 website: http://www.bekagool.com/
 ---
-Sitecore partner based in London, Manchester and Cardiff.
+Sitecore Platinum partner based in London, Manchester and Cardiff.
