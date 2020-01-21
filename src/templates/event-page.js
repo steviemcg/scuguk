@@ -7,6 +7,7 @@ import Layout from "../components/Layout/layout";
 import Hero from "../components/Hero/hero";
 import '../components/EventsList/event.scss'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import Breadcrumb from "../components/Breadcrumb/breadcrumb";
 
 export const Agenda = ({ time, value }) => (
   <div className="mb-4">
