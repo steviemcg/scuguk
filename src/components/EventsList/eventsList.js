@@ -27,11 +27,28 @@ class EventsList extends React.Component {
                 <section>
                   <dl>
                     <dt>Date</dt>
-                    <dd>{event.frontmatter.date}</dd>
-                    <dt>Venue</dt>
-                    <dd>{event.frontmatter.venue.name}, {event.frontmatter.venue.address}</dd>
-                    <dt>Sponsors</dt>
-                    <dd>{event.frontmatter.sponsors}</dd>
+                    <dd>{event.frontmatter.dateConfirmed ? event.frontmatter.date : event.frontmatter.dateVague}</dd>
+
+                    {event.frontmatter.venue &&
+                      <>
+                        <dt>Venue</dt>
+                        <dd>{event.frontmatter.venue.name}
+
+                          {event.frontmatter.venue.address &&
+                            <>
+                              , {event.frontmatter.venue.address}
+                            </>
+                          }
+                        </dd>
+                      </>
+                    }
+
+                    {event.frontmatter.sponsors &&
+                      <>
+                        <dt>Sponsors</dt>
+                        <dd>{event.frontmatter.sponsors}</dd>
+                      </>
+                    }
                   </dl>
                 </section>
                 <div className="theme__box-button">
@@ -57,7 +74,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query EventsListQuery {
-        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event-page"}}, fields: {isFuture: {eq: true}}}) {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event-page"}}, fields: {isFuture: {eq: true}}}, sort: {order: ASC, fields: frontmatter___date}) {
           edges {
             node {
               id
@@ -67,7 +84,9 @@ export default () => (
               frontmatter {
                 title
                 sup
+                dateConfirmed
                 date(formatString: "MMMM D, YYYY - HH:mm")
+                dateVague: date(formatString: "MMMM YYYY")
                 sponsors
                 venue {
                   name
