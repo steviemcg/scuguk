@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Img from "gatsby-image"
 import Layout from "../components/Layout/layout";
 import Hero from "../components/Hero/hero";
@@ -96,6 +96,11 @@ export const EventPageTemplate = ({
       <div role="main">
         <div className="container">
           <article className="theme__box theme__box--small">
+            <ul class="breadcrumbs">
+              <li><Link activeClassName="active" to="/" >Home</Link></li>
+              <li><Link activeClassName="active" to="/events" >Events</Link></li>
+              <li>{title}</li>
+            </ul>
             {image &&
               <>
                 <section className="event__hero">

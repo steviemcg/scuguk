@@ -3,3 +3,17 @@
 @import "typography";
 @import "forms";
 @import "box";
+
+ul.breadcrumbs {
+    list-style: none;
+    li {
+        display: inline;
+        text-transform: capitalize;
+    }
+
+    li+li:before {
+        content: "/\00a0";
+        padding: 10px 10px;
+
+    }
+}
