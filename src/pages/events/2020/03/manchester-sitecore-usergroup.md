@@ -1,9 +1,9 @@
 ---
 templateKey: 'event-page'
-title: Manchester - February 2020
+title: Manchester - March 2020
 sup: Join us for the first Sitecore Technical User Group of the year in Manchester! 
-date: 2020-02-20 18:00
-dateConfirmed: false
+date: 2020-03-11 18:00
+dateConfirmed: true
 sponsors: 
 venue:
   name: TBC
@@ -36,7 +36,7 @@ agenda:
     time: "20:30"
     value: Networking
 meta:
-  metaTitle: Sitecore User Group - Manchester - February 2020
+  metaTitle: Sitecore User Group - Manchester - March 2020
   metaDescription: Join us for the first Sitecore Technical User Group of the year in Manchester! 
   metaKeywords: sitecore, user group, manchester
 ---
