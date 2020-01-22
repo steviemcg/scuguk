@@ -95,6 +95,7 @@ export const EventPageTemplate = ({
       <div role="main">
         <div className="container">
           <article className="theme__box theme__box--small">
+          <Breadcrumb />
             {image &&
               <>
                 <section className="event__hero">

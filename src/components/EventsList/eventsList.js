@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
+import BreadCrumbs from "../Breadcrumb/breadcrumb";
 
 class EventsList extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class EventsList extends React.Component {
               className="theme__box theme__box--small event"
               key={event.id}
             >
+              <BreadCrumbs />
               <div className="container">
                 <section>
                   <h2>

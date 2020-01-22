@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import Hero from '../components/Hero/hero'
 import NewsletterForm from '../components/NewsletterForm/newsletterForm'
+import BreadCrumbs from '../components/Breadcrumb/breadcrumb'
 
 export const NewsletterPageTemplate = ({
   heading,
@@ -15,6 +16,7 @@ export const NewsletterPageTemplate = ({
       <div role="main">
         <div className="container">
           <div className="theme__box theme__box--small theme__box--white">
+            <BreadCrumbs />
             <div className="form">
               <p>{description}</p>
               <NewsletterForm />

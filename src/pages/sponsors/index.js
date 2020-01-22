@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/Layout/layout'
 import Hero from '../../components/Hero/hero'
 import './sponsors.scss';
+import BreadCrumbs from '../../components/Breadcrumb/breadcrumb'
 
 const SponsorsPage = ({ data }) => {
     const sponsors = data.allMarkdownRemark.nodes
@@ -19,6 +20,7 @@ const SponsorsPage = ({ data }) => {
                 <div role="main">
                     <div className="container">
                         <div className="theme__box theme__box--small theme__box--white">
+                            <BreadCrumbs />
                             <p className="mt-0">Our events rely completely on our sponsors, so we'd like to give our huge thanks to the following:</p>
 
                             <div className="row">
