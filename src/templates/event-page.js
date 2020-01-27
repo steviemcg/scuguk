@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image"
 import Layout from "../components/Layout/layout";
 import Hero from "../components/Hero/hero";
+import EventAttendance from "../components/Event/eventAttendance";
 import '../components/EventsList/event.scss'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
@@ -80,6 +81,7 @@ Venue.propTypes = {
 }
 
 export const EventPageTemplate = ({
+  eventId,
   title,
   image,
   sup,
@@ -132,6 +134,8 @@ export const EventPageTemplate = ({
                     : <Talk time={speaker.time} who={speaker.who} intro={speaker.intro} description={speaker.description} key={speaker.time} />
                 })}
               </section>
+
+              <EventAttendance eventId={eventId} />
             </div>
           </article>
         </div>
@@ -141,6 +145,7 @@ export const EventPageTemplate = ({
 };
 
 EventPageTemplate.propTypes = {
+  eventId: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.object,
   sup: PropTypes.string,
@@ -164,6 +169,7 @@ const Event = ({ data }) => {
       </Helmet>
       <Layout>
         <EventPageTemplate
+          eventId={event.frontmatter.eventId}
           title={event.frontmatter.title}
           image={event.frontmatter.image}
           sup={event.frontmatter.sup}
@@ -193,6 +199,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
+        eventId
         image {
           childImageSharp {
             fluid {

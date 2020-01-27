@@ -22,6 +22,7 @@
     "IE 10"
   ],
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.6.2",
     "@react-google-maps/api": "^1.8.0",
     "bootstrap": "^4.4.1",
     "gatsby": "^2.18.7",
@@ -59,12 +60,8 @@
   },
   "scripts": {
     "clean": "gatsby clean",
-    "start:app": "npm run develop",
-    "start:lambda": "netlify-lambda serve src/lambda",
-    "start": "run-p start:**",
-    "build:app": "npm run clean && gatsby build",
-    "build:lambda": "netlify-lambda build src/lambda",
-    "build": "run-p build:**",
+    "start": "npm run develop",
+    "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",

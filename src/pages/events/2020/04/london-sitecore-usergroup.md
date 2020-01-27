@@ -1,5 +1,6 @@
 ---
 templateKey: 'event-page'
+eventId: 0CF1347E-2DA4-4366-A310-6963F3572467
 title: London - April 2020
 sup: Come join us at London’s Technical User Group! 
 date: 2020-04-01 18:00

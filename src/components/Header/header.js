@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { Link } from 'gatsby'
 import Logo from '../../img/logo.svg';
 import './header.scss';
+import { useAuth0 } from "../../react-auth0-spa";
 
 function Header() {
   const [mobileNavActive, toggleMobileNav] = useState(false);
   const handleClick = () => { toggleMobileNav(!mobileNavActive) }
+  const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
+
+  const logoutWithRedirect = () =>
+    logout({
+      returnTo: window.location.origin
+    });
 
   return (
     <header className={`header ${mobileNavActive ? "header--mobileNavActive" : ""}`}>
@@ -41,6 +48,18 @@ function Header() {
                 <span>Contact</span>
               </Link>
             </li>
+            <li>
+              {isAuthenticated &&
+                <a onClick={() => logoutWithRedirect()}>
+                  Log out {user && user.name}
+                </a>
+              }
+              {!isAuthenticated &&
+                <a onClick={() => loginWithPopup()}>
+                  Log in
+                </a>
+              }
+            </li>
           </ul>
         </nav>
       </div>
@@ -49,6 +68,3 @@ function Header() {
 }
 
 export default Header
-
-
-

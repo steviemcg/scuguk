@@ -1,5 +1,6 @@
 ---
 templateKey: 'event-page'
+eventId: F0E45ED6-13B3-4242-9B92-F073F3BB0109
 title: London - November 2020
 sup: Join us for London's last Sitecore Technical User Group of the year! 
 date: 2020-11-01 18:00
