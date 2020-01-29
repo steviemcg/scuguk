@@ -7,8 +7,8 @@ dateConfirmed: true
 sponsors: Avanade
 venue:
   name: Avanade
-  address: 100 Cannon Street
-  position: 51.511060,-0.088507
+  address: 30 Cannon Street
+  position: 51.512350,-0.094488
   details: 
 agenda:
   - agenda-item:
@@ -21,7 +21,7 @@ agenda:
     description:
   - talk:
     time: "19:00"
-    who: Martin Davies, Solution Architect & Sitecore MVP
+    who: Jeremy Davis, Solution Architect @ Kagool
     intro: TBC
     description:
   - agenda-item:
@@ -29,7 +29,7 @@ agenda:
     value: Break
   - talk:
     time: "20:00"
-    who:
+    who: Steve McGill, Sitecore Technology Director @ ParTech IT
     intro: TBC
     description:
   - agenda-item:
