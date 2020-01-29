@@ -21,7 +21,7 @@ agenda:
     description:
   - talk:
     time: "19:00"
-    who: TBC
+    who: José Domínguez, Solutions Architect & Sitecore MVP
     intro: TBC
     description:
   - agenda-item:
