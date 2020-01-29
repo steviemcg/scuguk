@@ -4,7 +4,6 @@ title: London - June 2020
 sup: Join us for the last Sitecore Technical User Group in London before the summer break! 
 date: 2020-06-01 18:00
 dateConfirmed: false
-image: ../../../../img/placeholder.png
 sponsors: Delete
 venue:
   name: TBC
