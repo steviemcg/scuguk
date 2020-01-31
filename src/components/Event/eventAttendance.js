@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import MyFetch from "../../services/apiClient"
 import { useAuth0 } from "../../react-auth0-spa";
 import './eventAttendance.scss'
+import { TabContent, TabPane, Nav, NavItem, NavLink, Button, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
 
 const RenderAttendees = ({ attendees }) => (
-    <>
+    <Row>
         {attendees.map((user) => (
-            <div className="attendee" key={user.userId}>
-                <div className="attendee-name">{user.name}</div>
-                {user.avatar && <img src={user.avatar} className="attendee-avatar" />}
-            </div>
+            <Col key={user.userId} md="3" xs="6" className="attendee">
+                <Row>
+                    <Col xs="3" className="attendee-avatar">{user.avatar && <img src={user.avatar} />}</Col>
+                    <Col xs="9"><div className="attendee-name">{user.name}</div></Col>
+                </Row>
+            </Col>
         ))}
-    </>
+    </Row>
 )
 
 const EventAttendance = ({ eventId }) => {
@@ -19,10 +23,14 @@ const EventAttendance = ({ eventId }) => {
         return null;
     }
 
-    const { loading, isAuthenticated, getIdTokenClaims, loginWithRedirect } = useAuth0();
-
+    const { loading, isAuthenticated, getIdTokenClaims, loginWithPopup } = useAuth0();
     const [eventStats, setEventStats] = useState();
     const [eventAttendance, setEventAttendance] = useState();
+    const [activeTab, setActiveTab] = useState('1');
+
+    const toggle = tab => {
+        if (activeTab !== tab) setActiveTab(tab);
+    }
 
     async function fetchEventStats() {
         const responseData = await MyFetch(`/event/${eventId}`, isAuthenticated, getIdTokenClaims);
@@ -39,7 +47,7 @@ const EventAttendance = ({ eventId }) => {
             fetchEventStats();
             fetchAttendees();
         }
-    }, [loading, getIdTokenClaims]);
+    }, [loading, getIdTokenClaims, activeTab]);
 
     if (!eventStats || !eventAttendance) {
         return null;
@@ -52,42 +60,92 @@ const EventAttendance = ({ eventId }) => {
         fetchEventStats();
     }
 
+    const showAttendees = eventStats.attendingYes > 0 || eventStats.attendingWaiting > 0 || eventStats.attendingNo > 0;
+
     return (
         <section>
             <h2 className="mb-4">Attendees</h2>
-            <div className="attendees">
-                {eventStats.attendingYes > 0 &&
-                    <div className="attendees-list attendees-yes">
-                        <h3>Yes ({eventStats.attendingYes})</h3>
-                        <RenderAttendees attendees={eventAttendance.yes} />
-                    </div>
-                }
-                {eventStats.attendingWaiting > 0 &&
-                    <div className="attendees-list attendees-waiting">
-                        <h3>Waiting ({eventStats.attendingWaiting})</h3>
-                        <RenderAttendees attendees={eventAttendance.waiting} />
-                    </div>
-                }
-                {eventStats.attendingNo > 0 &&
-                    <div className="attendees-list attendees-no">
-                        <h3>No ({eventStats.attendingNo})</h3>
-                        <RenderAttendees attendees={eventAttendance.no} />
-                    </div>
-                }
-            </div>
+
             {isAuthenticated &&
                 <div>
+                    <p>
+                        <strong>Attending:</strong>&nbsp;
+                    {!eventAttendance.loggedInUserAttending && <span>No</span>}
+                        {eventAttendance.loggedInUserAttending && eventAttendance.loggedInUserWaiting && <span>On the waitlist</span>}
+                        {eventAttendance.loggedInUserAttending && !eventAttendance.loggedInUserWaiting && <span>Yes</span>}
+                    </p>
+
                     {!eventAttendance.loggedInUserAttending &&
-                        <button className="btn btn-primary" onClick={() => rsvp(true)}>Attend!</button>
+                        <Button color="primary" onClick={() => rsvp(true)}>I'll be there!</Button>
                     }
                     {eventAttendance.loggedInUserAttending &&
-                        <button className="btn btn-primary" onClick={() => rsvp(false)}>Can't make it :-(</button>
+                        <div>Thanks for signing up! Can you no longer make it? Click here: &nbsp;&nbsp;
+                            <Button color="danger" onClick={() => rsvp(false)}>Can't make it :-(</Button>
+                        </div>
                     }
                 </div>
             }
             {!isAuthenticated &&
                 <div>
-                    Please <a onClick={() => loginWithRedirect()}>log in / sign up</a> to be able to RSVP!
+                    Please <a onClick={() => loginWithPopup()}>log in / sign up</a> to be able to RSVP!
+                </div>
+            }
+
+            {showAttendees &&
+                <div className="attendees">
+                    <Nav tabs>
+                        {eventStats.attendingYes > 0 &&
+                            <NavItem>
+                                <NavLink
+                                    className={classnames({ active: activeTab === '1' })}
+                                    onClick={() => { toggle('1'); }}>
+                                    Yes ({eventStats.attendingYes})
+                                </NavLink>
+                            </NavItem>
+                        }
+                        {eventStats.attendingWaiting > 0 &&
+                            <NavItem>
+                                <NavLink
+                                    className={classnames({ active: activeTab === '2' })}
+                                    onClick={() => { toggle('2'); }}>
+                                    Waiting ({eventStats.attendingWaiting})
+                                </NavLink>
+                            </NavItem>
+                        }
+                        {eventStats.attendingNo > 0 &&
+                            <NavItem>
+                                <NavLink
+                                    className={classnames({ active: activeTab === '3' })}
+                                    onClick={() => { toggle('3'); }}>
+                                    No ({eventStats.attendingNo})
+                                </NavLink>
+                            </NavItem>
+                        }
+                    </Nav>
+
+                    <TabContent activeTab={activeTab}>
+                        {eventStats.attendingYes > 0 &&
+                            <TabPane tabId="1">
+                                <div className="attendees-list attendees-yes">
+                                    <RenderAttendees attendees={eventAttendance.yes} />
+                                </div>
+                            </TabPane>
+                        }
+                        {eventStats.attendingWaiting > 0 &&
+                            <TabPane tabId="2">
+                                <div className="attendees-list attendees-waiting">
+                                    <RenderAttendees attendees={eventAttendance.waiting} />
+                                </div>
+                            </TabPane>
+                        }
+                        {eventStats.attendingNo > 0 &&
+                            <TabPane tabId="3">
+                                <div className="attendees-list attendees-no">
+                                    <RenderAttendees attendees={eventAttendance.no} />
+                                </div>
+                            </TabPane>
+                        }
+                    </TabContent>
                 </div>
             }
         </section>

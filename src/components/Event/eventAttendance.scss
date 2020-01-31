@@ -1,13 +1,19 @@
-.attendees-list {
-    margin-bottom: 20px;
+.attendees {
+    margin-top: 25px;
 }
 
-.attendee-name {
-    display: inline-block;
-    padding-right: 20px;
+.attendees-list {
+    margin-top: 10px;
 }
 
 .attendee-avatar {
-    max-width: 50px;
-    max-height: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+
+    img {
+        max-width: 50px;
+        max-height: 50px;
+    }
 }
