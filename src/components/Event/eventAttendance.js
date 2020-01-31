@@ -8,7 +8,7 @@ import classnames from 'classnames';
 const RenderAttendees = ({ attendees }) => (
     <Row>
         {attendees.map((user) => (
-            <Col key={user.userId} md="3" xs="6" className="attendee">
+            <Col key={user.userId} xs="12" sd="6" md="4" className="attendee">
                 <Row>
                     <Col xs="3" className="attendee-avatar">{user.avatar && <img src={user.avatar} />}</Col>
                     <Col xs="9"><div className="attendee-name">{user.name}</div></Col>
