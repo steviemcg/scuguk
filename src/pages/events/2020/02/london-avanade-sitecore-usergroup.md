@@ -30,7 +30,7 @@ agenda:
     value: Break
   - talk:
     time: "20:00"
-    who: Steve McGill, Sitecore Technology Director @ ParTech IT
+    who: Richard James, Technology Lead @ Nationwide Building Society
     intro: TBC
     description:
   - agenda-item:

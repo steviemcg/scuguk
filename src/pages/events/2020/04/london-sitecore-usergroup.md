@@ -3,13 +3,13 @@ templateKey: 'event-page'
 eventId: 0CF1347E-2DA4-4366-A310-6963F3572467
 title: London - April 2020
 sup: Come join us at London’s Technical User Group! 
-date: 2020-04-01 18:00
-dateConfirmed: false
+date: 2020-04-21 18:00
+dateConfirmed: true
 sponsors: Sitecore
 venue:
-  name: TBC
-  address: 
-  position: 
+  name: Millbank Tower
+  address: Millbank Tower, Westminster
+  position: 51.49216385, -0.12610808871463713 
   details: 
 agenda:
   - agenda-item:
@@ -31,7 +31,7 @@ agenda:
   - talk:
     time: "20:00"
     who: TBC
-    intro: TBC
+    intro: Steve McGill, Sitecore Technology Director @ ParTech IT
     description:
   - agenda-item:
     time: "20:30"
