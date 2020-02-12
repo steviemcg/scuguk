@@ -22,9 +22,9 @@ agenda:
     description:
   - talk:
     time: "19:00"
-    who: Jeremy Davis, Solution Architect @ Kagool
-    intro: TBC
-    description:
+    who: Jeremy Davis, Sitecore Solution Architect @ Kagool
+    intro: Big site, little site, put it in a box!
+    description: Your first steps developing for Sitecore using Docker
   - agenda-item:
     time: "19:30"
     value: Break
