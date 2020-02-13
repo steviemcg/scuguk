@@ -18,8 +18,8 @@ agenda:
   - talk:
     time: "18:30"
     who: Julius Angwenyi, Senior Consultant @ Avanade
-    intro: TBC
-    description:
+    intro: Sitecore Host & Horizon
+    description: What's new in Sitecore Horizon 9.3 plus a closer look at creating and extending Sitecore Host plugins
   - talk:
     time: "19:00"
     who: Jeremy Davis, Sitecore Solution Architect @ Kagool
@@ -39,5 +39,5 @@ agenda:
 meta:
   metaTitle: Sitecore User Group - London February 2020 -  Avanade 
   metaDescription: London’s Technical User Group is back in 2020!
-  metaKeywords: sitecore, user group, london, avanade
+  metaKeywords: sitecore, user group, london, avanade, horizon, host, jss, docker
 ---
