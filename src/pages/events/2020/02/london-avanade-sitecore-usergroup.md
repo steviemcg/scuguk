@@ -31,8 +31,8 @@ agenda:
   - talk:
     time: "20:00"
     who: Richard James, Technology Lead @ Nationwide Building Society
-    intro: TBC
-    description:
+    intro: Sitecore Decoupled
+    description: Our journey to a headless CMS and a microservice architecture with Sitecore JSS
   - agenda-item:
     time: "20:30"
     value: Networking
