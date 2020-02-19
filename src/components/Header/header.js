@@ -3,11 +3,13 @@ import { Link } from 'gatsby'
 import Logo from '../../img/logo.svg';
 import './header.scss';
 import { useAuth0 } from "../../react-auth0-spa";
+import PropTypes from "prop-types";
 
-function Header() {
+function Header({ data }) {
   const [mobileNavActive, toggleMobileNav] = useState(false);
   const handleClick = () => { toggleMobileNav(!mobileNavActive) }
   const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
+  const { edges: archiveLinks } = data.allMarkdownRemark;
 
   const logoutWithRedirect = () =>
     logout({
@@ -32,6 +34,26 @@ function Header() {
               <Link activeClassName="active" to="/events" >
                 <span>Events</span>
               </Link>
+            </li>
+            <li className="dropdown">
+              <Link activeClassName="active" to="/archive" >
+                <span>Events Archive</span>
+              </Link>
+              <ul className="dropdown-content">
+                {archiveLinks.map(({node: archiveLink })=> (
+                  <li
+                    key={archiveLink.frontmatter.title}
+                    style={{
+                      listStyleType: `none`,
+                      padding: `1rem`,
+                    }}
+                  >
+                    <Link to={archiveLink.fields.slug}>
+                      {archiveLink.frontmatter.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </li>
             <li>
               <Link activeClassName="active" to="/newsletter" >
@@ -66,5 +88,13 @@ function Header() {
     </header>
   )
 }
+
+Header.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array
+    })
+  })
+};
 
 export default Header
