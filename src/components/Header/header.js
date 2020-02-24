@@ -9,7 +9,8 @@ function Header({ data }) {
   const [mobileNavActive, toggleMobileNav] = useState(false);
   const handleClick = () => { toggleMobileNav(!mobileNavActive) }
   const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
-  const { edges: archiveLinks } = data.allMarkdownRemark;
+  const { edges: archiveLinks } = data.archive;
+  const { edges: upComingLinks } = data.future;
 
   const logoutWithRedirect = () =>
     logout({
@@ -30,31 +31,58 @@ function Header({ data }) {
 
         <nav className="header__nav" >
           <ul role="navigation" aria-label="main-navigation">
-            <li>
+            <li className="dropdown">
               <Link activeClassName="active" to="/events" >
                 <span>Events</span>
               </Link>
-            </li>
-            <li className="dropdown">
-              <Link activeClassName="active" to="/archive" >
-                <span>Events Archive</span>
-              </Link>
-              <ul className="dropdown-content">
-                {archiveLinks.map(({node: archiveLink })=> (
-                  <li
-                    key={archiveLink.frontmatter.title}
-                    style={{
-                      listStyleType: `none`,
-                      padding: `1rem`,
-                    }}
-                  >
-                    <Link to={archiveLink.fields.slug}>
+              <div className="dropdown-content">
+                <div className="two-column">
+                  <div><h3>Upcoming</h3></div>
+                  {upComingLinks.map(({node: upComingLink })=> (
+                    <div
+                      key={upComingLink.frontmatter.title}
+                      style={{
+                        listStyleType: `none`,
+                      }}
+                    >
+                      {
+                      upComingLink.frontmatter.externalLink ? 
+                      <a href={upComingLink.frontmatter.externalLink}>{upComingLink.frontmatter.title}</a> 
+                      :
+                      <Link to={upComingLink.fields.slug}>
+                      {upComingLink.frontmatter.title}
+                    </Link>
+                    }
+                    </div>
+                  ))}
+                </div>
+                <div className="two-column">
+                  <div>
+                      <h3>Archive</h3>
+                  </div>
+                  {archiveLinks.map(({node: archiveLink })=> (
+                    <div
+                      key={archiveLink.frontmatter.title}
+                      style={{
+                        listStyleType: `none`,
+                      }}
+                    >
+                      {
+                      archiveLink.frontmatter.externalLink ? 
+                      <a href={archiveLink.frontmatter.externalLink}>{archiveLink.frontmatter.title}</a> 
+                      :
+                      <Link to={archiveLink.fields.slug}>
                       {archiveLink.frontmatter.title}
                     </Link>
-                  </li>
-                ))}
-              </ul>
+                    }
+                    </div>
+                  ))}
+                </div>
+              </div>
             </li>
+            
+
+            
             <li>
               <Link activeClassName="active" to="/newsletter" >
                 <span>Newsletter</span>
@@ -91,7 +119,10 @@ function Header({ data }) {
 
 Header.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    archive: PropTypes.shape({
+      edges: PropTypes.array
+    }),
+    future: PropTypes.shape({
       edges: PropTypes.array
     })
   })
