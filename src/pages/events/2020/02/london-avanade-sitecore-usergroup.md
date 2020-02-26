@@ -30,14 +30,15 @@ agenda:
     value: Break
   - talk:
     time: "20:00"
-    who: Richard James, Technology Lead @ Nationwide Building Society
-    intro: Sitecore Decoupled
-    description: Our journey to a headless CMS and a microservice architecture with Sitecore JSS
+    who: Steve McGill, Sitecore Technology Director @ ParTech
+    intro: Auditing what the customer sees in JSS + GraphQL
+    description: >
+      An industry sometimes has strict regulations on having to prove how a (potential) customer interacts with the brand and what data they were shown in response. The headless nature of JSS + GraphQL gives a good opportunity to capture this raw data without the extra markup and styling. Steve will discuss his solution of storing this sensitive information and presenting it in a fast React UI.
   - agenda-item:
     time: "20:30"
     value: Networking
 meta:
   metaTitle: Sitecore User Group - London February 2020 -  Avanade 
   metaDescription: London’s Technical User Group is back in 2020!
-  metaKeywords: sitecore, user group, london, avanade, horizon, host, jss, docker
+  metaKeywords: sitecore, user group, london, avanade, horizon, host, jss, docker, audit
 ---
