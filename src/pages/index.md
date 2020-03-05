@@ -23,6 +23,6 @@ box2:
   linkText: "Contact Us"
 meta:
   metaTitle: Sitecore User Group UK
-  metaDescription: The official website for the Sitecore User Group UK
-  metaKeywords: sitecore, user group, london, bristol, cardiff, manchester, leeds, uk, united kingdom, england, wales
+  metaDescription: The official website for the Sitecore User Group UK. We meet each quarter for networking and sharing our learnings about Sitecore. Programmers, marketers, authors, or just interested in Sitecore? Swing by during our next usergroup. 
+  metaKeywords: sitecore, experience platform, experience management, cms, user group, london, bristol, cardiff, manchester, leeds, uk, united kingdom, england, wales
 ---
