@@ -2,7 +2,7 @@
 templateKey: 'event-page'
 eventId: 2AF20122-5113-47D2-ABE9-007F45F98D25
 title: Manchester - March 2020
-sup: The Manchester Sitecore User Group is back for the first meetup of 2020 ahead of SUGCON. Hear from Sitecore Experts sharing their knowledge and experience & network with the Sitecore Community over a few drinks and some pizza. This Sitecore User Group is kindly hosted by Valtech in their offices in Manchester.
+sup: The Manchester Sitecore User Group is back for the first meetup of 2020 ahead of SUGCON. Hear from Sitecore Experts sharing their knowledge and experience & network with the Sitecore Community over a few drinks and some pizza. This Sitecore User Group is kindly hosted by Valtech in their offices in Manchester. We have many great speakers joining us, and will be digging into testing personalization and optimization, using Docker with Sitecore and have a look at the new Horizon editor. If you're planning to attend, please register below.
 date: 2020-03-11 18:00
 dateConfirmed: true
 image: ./assets/images/valtech-venue.jpg
@@ -31,14 +31,14 @@ agenda:
     value: Break
   - talk:
     time: "20:00"
-    who: 
-    intro: TBC
-    description: 
+    who: Adam Seabridge, Freelance Sitecore Developer & Consultant
+    intro: On The Horizon
+    description: An overview and demo of the new Horizon page editor experience and considerations for the future
   - agenda-item:
     time: "20:30"
     value: Networking
 meta:
   metaTitle: Sitecore User Group - Manchester - March 2020
-  metaDescription: Join us for the first Sitecore Technical User Group of the year in Manchester! 
-  metaKeywords: sitecore, user group, manchester
+  metaDescription: Join us for the first Sitecore Technical User Group of the year in Manchester! We have many great speakers joining us, and will be digging into testing personalization and optimization, using Docker with Sitecore and have a look at the new Horizon editor. If you're planning to attend, please register below.
+  metaKeywords: sitecore, user group, manchester, horizon, docker, testing, release process
 ---
