@@ -92,7 +92,6 @@ export default () => (
                 dateConfirmed
                 date(formatString: "MMMM D, YYYY - HH:mm")
                 dateVague: date(formatString: "MMMM YYYY")
-                externalLink
                 sponsors
                 venue {
                   name
