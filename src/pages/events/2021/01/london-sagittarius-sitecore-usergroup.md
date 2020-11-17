@@ -3,7 +3,7 @@ templateKey: 'event-page'
 eventId: 167DB672-14F2-4497-A3C4-E77F95876797
 title: London - January 2021
 sup: Join us for London's first Sitecore Technical User Group of the year! 
-date: 2020-01-21 17:00
+date: 2021-01-21 17:00
 dateConfirmed: false
 sponsors: 
 venue:
