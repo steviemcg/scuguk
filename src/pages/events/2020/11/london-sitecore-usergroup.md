@@ -29,7 +29,7 @@ agenda:
     time: "17:55"
     who: Adam Seabridge, Freelance Sitecore Developer & Consultant
     intro: Building Components in Sitecore 10 using the ASP.NET Rendering SDK
-    description:
+    description: Adam will demo using the Getting Started template to build .Net Core Components for Sitecore 10 including and overview of the ASP.Net Rendering Host SDK and some useful Tips too. Plus there is Baby Yoda too, what more do you want?
   - agenda-item:
     time: "18:20"
     value: Close
