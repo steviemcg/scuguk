@@ -2,7 +2,7 @@
 templateKey: 'event-page'
 eventId: 167DB672-14F2-4497-A3C4-E77F95876797
 title: London - January 2021
-sup: Join us for London's first Sitecore Technical User Group of the year! 
+sup: Join us for London's first Sitecore Technical User Group of the year! We will kick off the new year with a group of fantastic speakers and Sitecore technical goodness to get you ready for the year ahead.
 date: 2021-01-21 17:00
 dateConfirmed: false
 sponsors: 
@@ -17,12 +17,12 @@ agenda:
     value: Arrival and opening
   - talk:
     time: "17:05"
-    who: TBC
+    who: Mark van Aalst, Technical Evangilist @ Sitecore
     intro: TBC
     description: TBC
   - talk:
     time: "17:30"
-    who: TBC
+    who: Peter Clisby - Sagittarius
     intro:  TBC
     description: TBC
   - talk:
