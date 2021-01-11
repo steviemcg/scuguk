@@ -23,8 +23,8 @@ agenda:
   - talk:
     time: "17:30"
     who: Peter Clisby - Sagittarius
-    intro:  TBC
-    description: TBC
+    intro:  Using JSS with React Native
+    description: An overview of fundamentals getting started with React Native, leading into how to build a React Native JSS powered app that is compatible with IoS and Android. Using React syntax familiar to most frontend Sitecore developers and concepts that apply to any JSS app, along with some pain points for those new to mobile app development and other general considerations.
   - talk:
     time: "17:55"
     who: TBC
