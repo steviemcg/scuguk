@@ -2,12 +2,12 @@
 templateKey: 'event-page'
 eventId: 167DB672-14F2-4497-A3C4-E77F95876797
 title: London - January 2021
-sup: Join us for London's first Sitecore Technical User Group of the year! We will kick off the new year with a group of fantastic speakers and Sitecore technical goodness to get you ready for the year ahead.
+sup: Join us for the first of 2021s Sitecore Technical User Groups sponsored by Sagittarius! We will kick off the new year with a group of fantastic speakers and Sitecore technical goodness to get you ready for the year ahead. Please sign in and RSVP at the bottom of this page, so we can send you the meeting details closer to the date. 
 date: 2021-01-21 17:00
-dateConfirmed: false
-sponsors: 
+dateConfirmed: true
+sponsors: Sagittarius
 venue:
-  name: Online
+  name: Online - meeting details to follow closer to the date via email after signing up. 
   address: 
   position: 
   details: 
@@ -17,9 +17,9 @@ agenda:
     value: Arrival and opening
   - talk:
     time: "17:05"
-    who: Mark van Aalst, Technical Evangilist @ Sitecore
-    intro: TBC
-    description: TBC
+    who: Mark van Aalst, Technical Evangelist @ Sitecore
+    intro: SXA Frontend Myths
+    description: There are many assumptions and misconceptions about working with SXA. In this session, I will go over the most frequent ones and will give examples of how you can customize default SXA behavior to meet your requirements.
   - talk:
     time: "17:30"
     who: Peter Clisby - Sagittarius
@@ -35,6 +35,6 @@ agenda:
     value: Close
 meta:
   metaTitle: Sitecore User Group - London January 2021  
-  metaDescription: Join us for London's first Sitecore Technical User Group of the year!
-  metaKeywords: sitecore, user group, london, sagittarius
+  metaDescription: Join us for the first of 2021s Sitecore Technical User Groups sponsored by Sagittarius!
+  metaKeywords: sitecore, user group, london, sagittarius, sxa, sitecore experience accelerator, jss, react native
 ---
