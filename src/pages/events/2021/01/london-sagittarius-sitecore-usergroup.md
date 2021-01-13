@@ -27,11 +27,14 @@ agenda:
     description: An overview of fundamentals getting started with React Native, leading into how to build a React Native JSS powered app that is compatible with IoS and Android. Using React syntax familiar to most frontend Sitecore developers and concepts that apply to any JSS app, along with some pain points for those new to mobile app development and other general considerations.
   - talk:
     time: "17:55"
-    who: TBC
+    who: Ishraq Al Fataftah - Founder & CTO @ ApplezTech
     intro: TBC
     description: TBC
   - agenda-item:
     time: "18:20"
+    value: Q & A
+  - agenda-item:
+    time: "18:40"
     value: Close
 meta:
   metaTitle: Sitecore User Group - London January 2021  
