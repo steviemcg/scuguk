@@ -32,9 +32,9 @@ agenda:
     description: Ishraq will go through how to boost your personalization strategy beyond the Sitecore Personalization rules and provide an extended omnichannel experience using The Next Best Action Marketing approach. We will cover mainly two concepts: integration with third-party systems and using taxonomies to personalize at scale.
   - agenda-item:
     time: "18:20"
-    value: Q & A
+    value: Q&A
   - agenda-item:
-    time: "18:20"
+    time: "18:40"
     value: Close
 meta:
   metaTitle: Sitecore User Group - London January 2021  
