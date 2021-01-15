@@ -27,11 +27,14 @@ agenda:
     description: An overview of fundamentals getting started with React Native, leading into how to build a React Native JSS powered app that is compatible with IoS and Android. Using React syntax familiar to most frontend Sitecore developers and concepts that apply to any JSS app, along with some pain points for those new to mobile app development and other general considerations.
   - talk:
     time: "17:55"
-    who: TBC
-    intro: TBC
-    description: TBC
+    who: Ishraq Al Fataftah - Founder & CTO @ ApplezTech
+    intro: Boost your marketing personalization strategy beyond the Personalization rules
+    description: Ishraq will go through how to boost your personalization strategy beyond the Sitecore Personalization rules and provide an extended omnichannel experience using The Next Best Action Marketing approach. We topics we will mainly cover are integration with third-party systems and using taxonomies to personalize at scale.
   - agenda-item:
     time: "18:20"
+    value: Q&A
+  - agenda-item:
+    time: "18:40"
     value: Close
 meta:
   metaTitle: Sitecore User Group - London January 2021  
