@@ -34,7 +34,7 @@ agenda:
     time: "18:20"
     value: Q & A
   - agenda-item:
-    time: "18:40"
+    time: "18:20"
     value: Close
 meta:
   metaTitle: Sitecore User Group - London January 2021  
