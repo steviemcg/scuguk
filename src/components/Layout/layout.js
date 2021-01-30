@@ -6,7 +6,40 @@ import Footer from '../Footer/footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../theme/index.scss'
 
+import { useStaticQuery, graphql } from "gatsby"
+
 const TemplateWrapper = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      archive: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event-page"}}, fields: {isFuture: {eq: false}}}, sort: {order: ASC, fields: frontmatter___date}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              externalLink
+            }
+          }
+        }
+      }
+      future: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event-page"}}, fields: {isFuture: {eq: true}}}, sort: {order: ASC, fields: frontmatter___date}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              externalLink
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <>
       <Helmet>
@@ -27,7 +60,7 @@ const TemplateWrapper = ({ children }) => {
 
         <meta charSet="utf-8" />
       </Helmet>
-      <Header />
+      <Header data={ data } />
       {children}
       <Footer />
     </>
