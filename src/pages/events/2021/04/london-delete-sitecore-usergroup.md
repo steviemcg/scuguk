@@ -4,8 +4,8 @@ eventId: 72ec0d89-b353-452c-afa9-62bd9be7b8b5
 title: London - April 2021
 sup: Join us for the April Sitecore Technical User Group! Please sign in and RSVP at the bottom of this page, so we can send you the meeting details closer to the date. 
 date: 2021-04-27 17:00
-dateConfirmed: false
-sponsors: Delete
+dateConfirmed: true
+sponsors: Delete / Kagool
 venue:
   name: Online - meeting details to follow closer to the date via email after signing up. 
   address: 
@@ -17,7 +17,7 @@ agenda:
     value: Arrival and opening
   - talk:
     time: "17:05"
-    who: TBC @ Delete
+    who: TBC @ Delete / Kagool
     intro: TBC
     description: TBC
   - talk:
@@ -39,5 +39,5 @@ agenda:
 meta:
   metaTitle: Sitecore User Group - London April 2021  
   metaDescription: Join us for the April Sitecore Technical User Group! 
-  metaKeywords: sitecore, user group, london, delete
+  metaKeywords: sitecore, user group, london, delete, kagool, content hub, jamstack, graphql
 ---
