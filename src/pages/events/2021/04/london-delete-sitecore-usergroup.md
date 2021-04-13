@@ -23,20 +23,18 @@ agenda:
   - talk:
     time: "17:30"
     who: Daniel Ionita, Sales Engineer @ Sitecore
-    intro: Expanding Sitecore Content Hub’s capabilities using the .NET SDK
+    intro:  Expanding Sitecore Content Hub’s capabilities using the .NET SDK
     description: In this presentation you will see an overview of Sitecore Content Hub integrating with downstream systems and a detailed demonstration of combining  Content Hub DAM with Microsoft Office PowerPoint which will ultimately allow users to insert DAM images into slides directly from PowerPoint.
   - talk:
     time: "17:55"
     who: Akshay Sura, Partner @ Konabos Consulting
-    intro: The Sitecore Experience Edge: Headless Content Delivery At-Scale by Akshay Sura
-    description: 	
-	  + Sitecore Experience Edge for Content Hub Benefits
-	  + How does it help to deliver omnichannel content?
-	  + Content Hub 4.0 walkthrough.
-	  + Deliver to Edge functionality.
-	  + Querying Sitecore Experience Edge using the GraphQL endpoint, GraphQL Playground.
+    intro: The Sitecore Experience Edge - Headless Content Delivery At-Scale by Akshay Sura
+    description: Akshay will talk us through the following; Sitecore Experience Edge for Content Hub Benefits, how does it help to deliver omnichannel content?, Content Hub 4.0 walkthrough, Deliver to Edge functionality, Querying Sitecore Experience Edge using the GraphQL endpoint, GraphQL Playground.
   - agenda-item:
     time: "18:20"
+    value: Q&A
+  - agenda-item:
+    time: "18:40"
     value: Close
 meta:
   metaTitle: Sitecore User Group - London April 2021  
