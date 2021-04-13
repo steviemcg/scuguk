@@ -74,7 +74,8 @@ const EventAttendance = ({ eventId }) => {
                         {eventAttendance.loggedInUserAttending && eventAttendance.loggedInUserWaiting && <span>On the waitlist</span>}
                         {eventAttendance.loggedInUserAttending && !eventAttendance.loggedInUserWaiting && <span>Yes</span>}
                     </p>
-
+        
+                    <p><strong>By signing up, you are consenting that SCUG can use your email to send you information about this event </strong></p>
                     {!eventAttendance.loggedInUserAttending &&
                         <Button color="primary" onClick={() => rsvp(true)}>I'll be there!</Button>
                     }
