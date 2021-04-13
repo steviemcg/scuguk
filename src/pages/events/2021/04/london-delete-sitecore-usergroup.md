@@ -4,7 +4,7 @@ eventId: 72ec0d89-b353-452c-afa9-62bd9be7b8b5
 title: London - April 2021
 sup: Join us for the April Sitecore Technical User Group! Please sign in and RSVP at the bottom of this page, so we can send you the meeting details closer to the date. 
 date: 2021-04-27 17:00
-dateConfirmed: false
+dateConfirmed: true
 sponsors: Delete
 venue:
   name: Online - meeting details to follow closer to the date via email after signing up. 
