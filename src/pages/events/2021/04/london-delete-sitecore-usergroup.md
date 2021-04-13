@@ -29,11 +29,12 @@ agenda:
     time: "17:55"
     who: Akshay Sura, Partner @ Konabos Consulting
     intro: The Sitecore Experience Edge: Headless Content Delivery At-Scale by Akshay Sura
-    description: 	+ Sitecore Experience Edge for Content Hub Benefits
-					+ How does it help to deliver omnichannel content?
-					+ Content Hub 4.0 walkthrough.
-					+ Deliver to Edge functionality.
-					+ Querying Sitecore Experience Edge using the GraphQL endpoint, GraphQL Playground.
+    description: 	
+	  + Sitecore Experience Edge for Content Hub Benefits
+	  + How does it help to deliver omnichannel content?
+	  + Content Hub 4.0 walkthrough.
+	  + Deliver to Edge functionality.
+	  + Querying Sitecore Experience Edge using the GraphQL endpoint, GraphQL Playground.
   - agenda-item:
     time: "18:20"
     value: Close
