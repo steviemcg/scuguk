@@ -4,7 +4,7 @@ import "./hero.scss";
 
 const Hero = props => (
   <section className="hero">
-    <img src={LogoCircle} />
+    <img className="logoCircle" src={LogoCircle} />
     <div className="container">
       <h1>{props.heading}</h1>
     </div>
