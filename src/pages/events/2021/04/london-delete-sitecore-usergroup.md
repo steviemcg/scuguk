@@ -2,7 +2,7 @@
 templateKey: 'event-page'
 eventId: 72ec0d89-b353-452c-afa9-62bd9be7b8b5
 title: London - April 2021
-sup: Join us for the April Sitecore Technical User Group! Please sign in and RSVP at the bottom of this page, so we can send you the meeting details closer to the date. 
+sup: Join us for the April Sitecore Technical User Group! Get insights in leveraging Microsoft Dynamics data with Sitecore, as well as looking at Content Hub's Experience Edge and customizations to Content Hub itself. Please sign in and RSVP at the bottom of this page, so we can send you the meeting details closer to the date. 
 date: 2021-04-27 17:00
 dateConfirmed: true
 sponsors: Delete / Kagool
@@ -17,9 +17,9 @@ agenda:
     value: Arrival and opening
   - talk:
     time: "17:05"
-    who: TBC @ Delete / Kagool
-    intro: TBC
-    description: TBC
+    who: Kate Orlova, Sitecore Strategy MVP and Head of Solutions Architecture  & Anna Gevel, Sitecore Strategy MVP and Solutions Architect @ Delete / Kagool
+    intro: Two-way integration of Contacts between Sitecore xDB and MS Dynamics in real-time
+    description: In this presentation you will learn how to merge Sitecore xDB profile data with Microsoft Dynamics customer data to achieve a single customer view. This includes pushing Sitecore xDB contacts and profile scores captured online to Microsoft Dynamics when users register, submit a form or download assets as well as pulling Microsoft Dynamics customer data captured offline via phone calls or physical store visits. We will share our tried and tested approach for powering timely and accurate personalised experiences from richer user profiles. 
   - talk:
     time: "17:30"
     who: Daniel Ionita, Sales Engineer @ Sitecore
@@ -39,5 +39,5 @@ agenda:
 meta:
   metaTitle: Sitecore User Group - London April 2021  
   metaDescription: Join us for the April Sitecore Technical User Group! 
-  metaKeywords: sitecore, user group, london, delete, kagool, content hub, jamstack, graphql
+  metaKeywords: sitecore, user group, london, delete, kagool, content hub, jamstack, graphql, xDb, experience database, dynamics, integration
 ---
