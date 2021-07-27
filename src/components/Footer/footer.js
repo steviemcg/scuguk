@@ -14,6 +14,7 @@ const Footer = () => (
       </Link>
 
       <p>Copyright &copy; {dt.getFullYear()} Sitecore User Group UK</p>
+      <a href="/privacy-policy">Privacy policy</a>
     </div>
   </footer>
 );
