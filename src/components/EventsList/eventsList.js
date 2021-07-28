@@ -18,9 +18,14 @@ class EventsList extends React.Component {
               <div className="container">
                 <section>
                   <h2>
-                    <Link to={event.fields.slug}>
+                    {
+                      event.frontmatter.externalLink ? 
+                      <a href={event.frontmatter.externalLink}>{event.frontmatter.title}</a> 
+                      :
+                      <Link to={event.fields.slug}>
                       {event.frontmatter.title}
                     </Link>
+                    }
                   </h2>
                   <p>{event.frontmatter.sup}</p>
                 </section>
@@ -52,7 +57,7 @@ class EventsList extends React.Component {
                   </dl>
                 </section>
                 <div className="theme__box-button">
-                  <Link className="button" to={event.fields.slug}>Read more...</Link>
+                  {event.frontmatter.externalLink ? <a href={event.frontmatter.externalLink} className="button">Read more...</a> : <Link className="button" to={event.fields.slug}>Read more...</Link>}
                 </div>
               </div>
             </article>

@@ -19,9 +19,9 @@ agenda:
     value: Arrival and networking
   - talk:
     time: "18.15"
-    who: James Simm, Sitecore MVP & Head Of Engineering @ Debt 
+    who: James Simm, Head Of Engineering @ Dept 
     intro: Shared components with JSS
-    description: TBC
+    description: James will present on how Dept used JSS to create a number of shared components to use for the London Marathon website.
   - talk: 
     time: "19:00"
     who: TBC
