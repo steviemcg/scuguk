@@ -24,14 +24,15 @@ agenda:
     description: James will present on how Dept used JSS to create a number of shared components to use for the London Marathon website.
   - talk: 
     time: "19:00"
-    who: TBC
-    intro:  TBC
-    description: TBC
+    who: Adam Seabridge, Freelance Sitecore Developer & Consultant @Flux Digital
+    intro:  Debate Session - Sitecore Aquisitions
+    description: Adam will talk briefly about the recent Sitecore aquistions (Moosend, Boxever, Four51 etc) and what they are. 
+    We can then debate how Sitecore might utilise them within their product offering in the near future.
   - talk:
     time: "19:40"
-    who: TBC
-    intro: TBC
-    description: TBC
+    who: Daniel Ionita, Sales Engineer @ Sitecore UK
+    intro:  Exposing assets to any channel with Sitecore Content Hub Experience Edge
+    description: In this presentation, you will see an overview of Sitecore Content Hub Experience Edge and a detailed demonstration of combining Content Hub DAM with Microsoft Teams which will ultimately allow users to insert DAM pre-approved images into Teams messages.
   - agenda-item:
     time: "20:20"
     value: Networking
@@ -41,5 +42,5 @@ agenda:
 meta:
   metaTitle: Sitecore User Group - Manchester August 2021  
   metaDescription: Join us for the first In-Person Manchester Sitecore Technical User Group meetup in well over a year! 
-  metaKeywords: sitecore, user group, manchester, dept, jss
+  metaKeywords: sitecore, user group, manchester, dept, jss, DAM, content hub, aquistions, experience edge
 ---
