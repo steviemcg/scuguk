@@ -26,8 +26,7 @@ agenda:
     time: "19:00"
     who: Adam Seabridge, Freelance Sitecore Developer & Consultant @Flux Digital
     intro:  Debate Session - Sitecore Aquisitions
-    description: Adam will talk briefly about the recent Sitecore aquistions (Moosend, Boxever, Four51 etc) and what they are. 
-    We can then debate how Sitecore might utilise them within their product offering in the near future.
+    description: Adam will talk briefly about the recent Sitecore aquistions (Moosend, Boxever, Four51 etc) and what they are. We can then debate how Sitecore might utilise them within their product offering in the near future.
   - talk:
     time: "19:40"
     who: Daniel Ionita, Sales Engineer @ Sitecore UK
