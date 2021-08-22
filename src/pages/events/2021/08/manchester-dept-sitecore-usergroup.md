@@ -1,6 +1,5 @@
 ---
 templateKey: 'event-page'
-eventId: 78fbca88-9f00-421c-9511-f5526fa9b284
 title: Manchester - August 2021
 sup: Join us for the first In-Person Manchester Sitecore Technical User Group meetup in well over a year!
  We will have a Talk from Dept and other Experts from the Sitecore Community, it will be hosted at Dept and they are kindly providing Beer and Pizza too. We will be following government advice for hosting events to ensure that all attendees are safe and will update this page with further information nearer the event.
