@@ -96,7 +96,7 @@ export const EventPageTemplate = ({
       <div role="main">
         <div className="container">
           <article className="theme__box theme__box--small">
-            <ul class="breadcrumbs">
+            <ul className="breadcrumbs">
               <li><Link activeClassName="active" to="/" >Home</Link></li>
               <li><Link activeClassName="active" to="/events" >Events</Link></li>
               <li>{title}</li>

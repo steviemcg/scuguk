@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MyFetch from "../../services/apiClient";
 import { useAuth0 } from "../../react-auth0-spa";
+import Online from "../../img/online.svg";
 import "./eventAttendance.scss";
 import {
   TabContent,
@@ -23,7 +24,10 @@ const RenderAttendees = ({ attendees }) => (
             {user.avatar && <img src={user.avatar} />}
           </Col>
           <Col xs="9">
-            <div className="attendee-name">{user.name}</div>
+            <div className="attendee-name">
+              {user.name}&nbsp;
+              {user.isOnline && <><img src={Online} width="24" height="24" /></>}
+            </div>
           </Col>
         </Row>
       </Col>
@@ -79,10 +83,10 @@ const EventAttendance = ({ eventId }) => {
     return null;
   }
 
-  async function rsvp(isAttending) {
+  async function rsvp(isAttending, isOnline) {
     var rsvp = isAttending ? "true" : "false";
     await MyFetch(
-      `/attendance/event/${eventId}/rsvp/${rsvp}`,
+      `/attendance/event/${eventId}/rsvp/${rsvp}/${isOnline ? "true" : "false"}`,
       isAuthenticated,
       getIdTokenClaims
     );
@@ -119,15 +123,20 @@ const EventAttendance = ({ eventId }) => {
             </strong>
           </p>
           {!eventAttendance.loggedInUserAttending && (
-            <Button color="primary" onClick={() => rsvp(true)}>
-              I'll be there!
-            </Button>
+            <>
+              <Button color="primary mr-3" onClick={() => rsvp(true, false)}>
+                I'll attend in person
+              </Button>
+              <Button color="info" onClick={() => rsvp(true, true)}>
+                I'll watch online
+              </Button>
+            </>
           )}
           {eventAttendance.loggedInUserAttending && (
             <div>
               Thanks for signing up! Can you no longer make it? Click here:
               &nbsp;&nbsp;
-              <Button color="danger" onClick={() => rsvp(false)}>
+              <Button color="danger" onClick={() => rsvp(false, false)}>
                 Can't make it :-(
               </Button>
             </div>
