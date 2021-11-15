@@ -26,7 +26,7 @@ const RenderAttendees = ({ attendees }) => (
           <Col xs="9">
             <div className="attendee-name">
               {user.name}&nbsp;
-              {user.isOnline && <><img src={Online} width="24" height="24" /></>}
+              {user.isOnline && <img src={Online} width="24" height="24" />}
             </div>
           </Col>
         </Row>
@@ -86,7 +86,9 @@ const EventAttendance = ({ eventId }) => {
   async function rsvp(isAttending, isOnline) {
     var rsvp = isAttending ? "true" : "false";
     await MyFetch(
-      `/attendance/event/${eventId}/rsvp/${rsvp}/${isOnline ? "true" : "false"}`,
+      `/attendance/event/${eventId}/rsvp/${rsvp}/${
+        isOnline ? "true" : "false"
+      }`,
       isAuthenticated,
       getIdTokenClaims
     );
@@ -134,11 +136,35 @@ const EventAttendance = ({ eventId }) => {
           )}
           {eventAttendance.loggedInUserAttending && (
             <div>
-              Thanks for signing up! Can you no longer make it? Click here:
-              &nbsp;&nbsp;
-              <Button color="danger" onClick={() => rsvp(false, false)}>
-                Can't make it :-(
-              </Button>
+              <p>Thanks for signing up!</p>
+              {eventStats.isOnline && (
+                <div style={{ backgroundColor: "#efefef", padding: "15px" }}>
+                  <div style={{ fontWeight: 700 }}>
+                    Online Meeting Details{" "}
+                    <img
+                      src={Online}
+                      width="24"
+                      height="24"
+                      style={{ marginBottom: "10px" }}
+                    />
+                  </div>
+                  <div
+                    className="panel-body"
+                    dangerouslySetInnerHTML={{
+                      __html: eventStats.onlineDetails
+                        ? eventStats.onlineDetails
+                        : "Details for the online meeting will be published soon",
+                    }}
+                  />
+                </div>
+              )}
+
+              <p>
+                Can you no longer make it? Click here: &nbsp;&nbsp;
+                <Button color="danger" onClick={() => rsvp(false, false)}>
+                  Can't make it :-(
+                </Button>
+              </p>
             </div>
           )}
         </div>
