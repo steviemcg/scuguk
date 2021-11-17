@@ -23,8 +23,8 @@ const RenderAttendees = ({ attendees }) => (
           <Col xs="3" className="attendee-avatar">
             {user.avatar && <img src={user.avatar} />}
           </Col>
-          <Col xs="9">
-            <div className="attendee-name">
+          <Col xs="9" className="attendee-name">
+            <div>
               {user.name}&nbsp;
               {user.isOnline && <img src={Online} width="24" height="24" />}
             </div>
@@ -138,14 +138,13 @@ const EventAttendance = ({ eventId }) => {
             <div>
               <p>Thanks for signing up!</p>
               {eventStats.isOnline && (
-                <div style={{ backgroundColor: "#efefef", padding: "15px" }}>
-                  <div style={{ fontWeight: 700 }}>
+                <div className="online-attendance">
+                  <div className="online-attendance-header">
                     Online Meeting Details{" "}
                     <img
                       src={Online}
                       width="24"
                       height="24"
-                      style={{ marginBottom: "10px" }}
                     />
                   </div>
                   <div
