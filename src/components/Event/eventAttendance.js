@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MyFetch from "../../services/apiClient";
 import { useAuth0 } from "../../react-auth0-spa";
 import Online from "../../img/online.svg";
+import DefaultProfile from "../../img/default-profile.svg";
 import "./eventAttendance.scss";
 import {
   TabContent,
@@ -21,7 +22,7 @@ const RenderAttendees = ({ attendees }) => (
       <Col key={user.userId} xs="12" sd="6" md="4" className="attendee">
         <Row>
           <Col xs="3" className="attendee-avatar">
-            {user.avatar && <img src={user.avatar} />}
+            {user.avatar && <img src={user.avatar} onError={(e) => { e.target.onerror=null; e.target.src=DefaultProfile;}} />}
           </Col>
           <Col xs="9" className="attendee-name">
             <div>
