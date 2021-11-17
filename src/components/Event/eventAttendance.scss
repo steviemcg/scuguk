@@ -6,14 +6,43 @@
     margin-top: 10px;
 }
 
-.attendee-avatar {
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    margin: 0 0 10px 0;
+.attendee {
+    margin-bottom: 10px;
 
-    img {
-        max-width: 50px;
-        max-height: 50px;
+    .attendee-avatar {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+
+        img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+    }
+
+    .attendee-name {
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.online-attendance {
+
+    background-color: #efefef;
+    padding: 15px;
+
+    .online-attendance-header {
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        
+        img {
+            margin-left: 5px;
+        }
     }
 }
