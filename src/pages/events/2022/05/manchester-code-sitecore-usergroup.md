@@ -14,8 +14,8 @@ venue:
   address: 4th Floor, Sevendale House, Dale Street, Manchester, M1 1JA
   position: 
   details: The main entrance is on Dale Street, which is open from 8am-6pm. For events after 6pm, please follow the instructions below 
-  - From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
-  - About half way down the street, you’ll find a large, locked gate on the right – that’s us! Your event organiser will be able to provide you with access to our office from there.
+  ~ From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
+  ~ About half way down the street, you’ll find a large, locked gate on the right – that’s us! Your event organiser will be able to provide you with access to our office from there.
 agenda:
   - agenda-item:
     time: "18:00"
