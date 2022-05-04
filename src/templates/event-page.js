@@ -88,7 +88,8 @@ export const EventPageTemplate = ({
   date,
   sponsors,
   venue,
-  agenda
+  agenda,
+  showOnlineRsvp
 }) => {
   return (
     <>
@@ -140,7 +141,7 @@ export const EventPageTemplate = ({
                 })}
               </section>
 
-              <EventAttendance eventId={eventId} />
+              <EventAttendance eventId={eventId} showOnlineRsvp={showOnlineRsvp}/>
             </div>
           </article>
         </div>
@@ -157,7 +158,8 @@ EventPageTemplate.propTypes = {
   date: PropTypes.string,
   sponsors: PropTypes.string,
   venue: PropTypes.object,
-  agenda: PropTypes.array
+  agenda: PropTypes.array,
+  showOnlineRsvp: PropTypes.bool
 };
 
 const Event = ({ data }) => {
@@ -182,6 +184,7 @@ const Event = ({ data }) => {
           sponsors={event.frontmatter.sponsors}
           venue={event.frontmatter.venue}
           agenda={event.frontmatter.agenda}
+          showOnlineRsvp={event.frontmatter.showOnlineRsvp ? event.frontmatter.showOnlineRsvp : false}
         />
       </Layout>
     </>

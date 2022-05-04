@@ -8,6 +8,7 @@ sup: Join us for the first Manchester Sitecore Technical User Group meetup of 20
  Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks. 
 date: 2022-05-26 18:00
 dateConfirmed: true
+showOnlineRsvp: false
 sponsors: Code
 venue:
   name: Code Computer Love 
