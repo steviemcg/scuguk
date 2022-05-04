@@ -36,7 +36,7 @@ const RenderAttendees = ({ attendees }) => (
   </Row>
 );
 
-const EventAttendance = ({ eventId }) => {
+const EventAttendance = ({ eventId, showOnlineRsvp }) => {
   if (!eventId) {
     return null;
   }
@@ -130,9 +130,10 @@ const EventAttendance = ({ eventId }) => {
               <Button color="primary mr-3" onClick={() => rsvp(true, false)}>
                 I'll attend in person
               </Button>
-              <Button color="info" onClick={() => rsvp(true, true)}>
-                I'll watch online
-              </Button>
+              {showOnlineRsvp && (
+               <Button color="info" onClick={() => rsvp(true, true)}>
+                 I'll watch online
+               </Button>)}
             </>
           )}
           {eventAttendance.loggedInUserAttending && (
