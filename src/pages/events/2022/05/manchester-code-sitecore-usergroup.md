@@ -3,9 +3,9 @@ templateKey: 'event-page'
 eventId: 4084ee39-b0d9-43ec-80cb-1adedb0c64f1
 title: Manchester - May 2022
 sup: Join us for the first Manchester Sitecore Technical User Group meetup of 2022. 
-We have some great Talks from 4 Experts from the Sitecore Community and the oportunity to catchup with other Sitecore developers and network too. 
-The event will be hosted at Code Computer Love in their amazing offices in the Northern Quarter, and they are kindly providing Beer and Pizza too.
-Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks. 
+ We have some great Talks from 4 Experts from the Sitecore Community and the oportunity to catchup with other Sitecore developers and network too. 
+ The event will be hosted at Code Computer Love in their amazing offices in the Northern Quarter, and they are kindly providing Beer and Pizza too.
+ Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks. 
 date: 2022-05-26 18:00
 dateConfirmed: true
 sponsors: Code
