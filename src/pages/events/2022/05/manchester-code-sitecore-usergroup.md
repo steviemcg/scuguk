@@ -14,33 +14,33 @@ venue:
   name: Code Computer Love 
   address: 4th Floor, Sevendale House, Dale Street, Manchester, M1 1JA
   position: 
-  details: The main entrance is on Dale Street, which is open from 8am-6pm. For events after 6pm, please follow the instructions below
-   ~ From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
-   ~ About half way down the street, you’ll find a large, locked gate on the right – that’s us!.
+  details: "The main entrance is on Dale Street, which is closed at 6pm, therefore please follow the instructions below:\n\n
+   - From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
+   - About half way down the street, you'll find a large, locked gate on the right - that's us!."
 agenda:
   - agenda-item:
     time: "18:00"
     value: Arrival and networking
   - talk:
-    time: "18.15"
-    who: Matt Knowles - Solutions Architect @EPAM Systems 
-    intro: Content Hub CMP - SXA, editorial enhancements and lessons learned
-    description: CMP provides a great way of pushing content to many destinations.SXA gives editors the ability to quickly create engaging content. Let's combine the two, using Content Hub scripting and extending the CMP import pipelines, to create a combined workflow where CMP pushes into SXA pages and components creating a CMP -> SXA workflow, extending both to provide a great editorial experience.
+    time: "18:15"
+    who: "Matt Knowles - Solutions Architect @ EPAM Systems"
+    intro: "Content Hub CMP - SXA, editorial enhancements and lessons learned"
+    description: "CMP provides a great way of pushing content to many destinations.SXA gives editors the ability to quickly create engaging content. Let's combine the two, using Content Hub scripting and extending the CMP import pipelines, to create a combined workflow where CMP pushes into SXA pages and components creating a CMP -> SXA workflow, extending both to provide a great editorial experience."
   - talk: 
     time: "18:45"
-    who: Neil Shack - Technical Architect @Ethisys
-    intro: Composable DXP
-    description: Neil will talk about his experience with Composable DXP.
+    who: "Neil Killen - Technical Director & Sitecore MVP @ Valtech"
+    intro: "Composing the DXP with Sitecore"
+    description: "Neil will demonstrate how to compose your digital experience platform using Sitecore's newly acquired products."
   - talk:
     time: "19:15"
-    who: someone
-    intro:  Customization of Layout services for JSS
-    description: In this presentation, you will see an overview of how an Customization for the Layout services for JSS was implemented and used.
+    who: "someone"
+    intro: "Customization of Layout services for JSS"
+    description: "In this presentation, you will see an overview of how an Customization for the Layout services for JSS was implemented and used."
   - talk:
     time: "19:45"
-    who: Sumith - Product Team @ Sitecore UK
-    intro:  Discover Discover
-    description: Sumith will present on Reflektion and demonstrate the product capabilities.
+    who: "Sumith Damodaran - Sr. Product Manager - Experience Platform @ Sitecore UK"
+    intro:  "Discover Discover"
+    description: "Sumith will present on Reflektion and demonstrate the product capabilities."
   - agenda-item:
     time: "20:20"
     value: Networking
