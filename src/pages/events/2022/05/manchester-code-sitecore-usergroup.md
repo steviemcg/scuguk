@@ -14,9 +14,9 @@ venue:
   name: Code Computer Love 
   address: 4th Floor, Sevendale House, Dale Street, Manchester, M1 1JA
   position: 
-  details: "The main entrance is on Dale Street, which is closed at 6pm, therefore please follow the instructions below:\n\n
-   - From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
-   - About half way down the street, you'll find a large, locked gate on the right - that's us!."
+  details: "The main entrance is on Dale Street, which is closed at 6pm, therefore please follow the instructions below: </br></br>
+   </br> - From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
+   </br> - About half way down the street, you'll find a large, locked gate on the right - that's us!."
 agenda:
   - agenda-item:
     time: "18:00"
@@ -33,14 +33,14 @@ agenda:
     description: "Neil will demonstrate how to compose your digital experience platform using Sitecore's newly acquired products."
   - talk:
     time: "19:15"
-    who: "someone"
-    intro: "Customization of Layout services for JSS"
-    description: "In this presentation, you will see an overview of how an Customization for the Layout services for JSS was implemented and used."
+    who: "Naga Bethu, Sitecore Lead @ HCL"
+    intro: "Upgrading MVC to JSS - My Journey"
+    description: "Naga will share his journey of upgrading Sitecore from MVC to JSS. This covers out of the box deployment topologies for production, migration to dynamic placeholders, Rest vs GraphQl consideration and more!"
   - talk:
     time: "19:45"
-    who: "Sumith Damodaran - Sr. Product Manager - Experience Platform @ Sitecore UK"
+    who: "Sumith Damodaran - Sr. Product Manager - Experience Platform @ Sitecore, Rui Ewald - Director - Product Management @ Sitecore"
     intro:  "Discover Discover"
-    description: "Sumith will present on Reflektion and demonstrate the product capabilities."
+    description: "Sumith will present on Discover and demonstrate the product capabilities."
   - agenda-item:
     time: "20:20"
     value: Networking
