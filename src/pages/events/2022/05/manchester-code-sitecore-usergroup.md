@@ -5,7 +5,7 @@ title: Manchester - May 2022
 sup: Join us for the first Manchester Sitecore Technical User Group meetup of 2022. 
  We have some great Talks from 4 Experts from the Sitecore Community and the oportunity to catchup with other Sitecore developers and network too. 
  The event will be hosted at Code Computer Love in their amazing offices in the Northern Quarter, and they are kindly providing Beer and Pizza too.
- <br> Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks. 
+ Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks. 
 date: 2022-05-26 18:00
 dateConfirmed: true
 showOnlineRsvp: false
@@ -15,9 +15,7 @@ venue:
   name: Code Computer Love 
   address: 4th Floor, Sevendale House, Dale Street, Manchester, M1 1JA
   position: 
-  details: "The main entrance is on Dale Street, which is closed at 6pm, therefore please follow the instructions below: <br><br>
-   <br> - From the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. 
-   <br> - About half way down the street, you'll find a large, locked gate on the right - that's us!."
+  details: "The main entrance is on Dale Street, which is closed at 6pm, therefore from the main entrance on Dale Street, walk round the corner to Spear Street on the left hand side of the building. About half way down the street, you'll find a large, locked gate on the right - that's us!."
 agenda:
   - agenda-item:
     time: "18:00"
