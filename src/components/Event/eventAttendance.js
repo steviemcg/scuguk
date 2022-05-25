@@ -172,7 +172,7 @@ const EventAttendance = ({ eventId, showOnlineRsvp }) => {
       )}
       {!isAuthenticated && (
         <div>
-          Please <a onClick={() => loginWithPopup()}>log in / sign up</a> to be
+          Please <a className="login" onClick={() => loginWithPopup()}>log in / sign up</a> to be
           able to RSVP!
         </div>
       )}

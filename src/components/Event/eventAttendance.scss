@@ -1,3 +1,13 @@
+a.login {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .attendees {
     margin-top: 25px;
 }

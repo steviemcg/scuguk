@@ -2,7 +2,7 @@
 templateKey: 'event-page'
 eventId: 9f892c69-61be-4130-a832-9662ebcf85e8
 title: London - June 2022
-sup: Join us for the first Sitecore Technical User Group meetup of 2022. As Sitecore embarks on a transformation journey towards composable DXP, listen to experts as they talk about the latest and greatest in the world of Sitecore. Meet Sitecore enthusiasts and network over food and drinks at the Traitors Gate, Tower Hill. 
+sup: Join us for the first Sitecore Technical User Group meetup of 2022 in London. As Sitecore embarks on a transformation journey towards composable DXP, listen to experts as they talk about the latest and greatest in the world of Sitecore. Meet Sitecore enthusiasts and network over food and drinks at the Traitors Gate, Tower Hill. 
 date: 2022-06-23 18:30
 dateConfirmed: true
 showOnlineRsvp: false
@@ -25,7 +25,7 @@ agenda:
     time: "19:05"
     who: "Sandeep Pote - Senior Commerce Architect @ Assurex"
     intro: "Getting started with Sitecore OrderCloud"
-    description: "In this session, Sandeep will walk about what you need to get started with development in Sitecore OrderCloud. The session will start with brief introduction to OrderCloud, setup up development environments, API console overview and working with OrderCloud Headstart."
+    description: "In this session, Sandeep will talk about what you need to get started with development in Sitecore OrderCloud. The session will start with brief introduction to OrderCloud, setup up development environments, API console overview and working with OrderCloud Headstart."
   - agenda-item:
     time: "19:30"
     value: "Drinks, food and more networking"
