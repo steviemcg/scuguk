@@ -3,7 +3,7 @@ templateKey: 'event-page'
 eventId: 9f892c69-61be-4130-a832-9662ebcf85e8
 title: London - June 2022
 sup: Join us for the first Sitecore Technical User Group meetup of 2022 in London. As Sitecore embarks on a transformation journey towards composable DXP, listen to experts as they talk about the latest and greatest in the world of Sitecore. Meet Sitecore enthusiasts and network over food and drinks at the Traitors Gate, Tower Hill. 
-date: 2022-06-23 18:30
+date: 2022-06-29 18:30
 dateConfirmed: true
 showOnlineRsvp: false
 sponsors: Assurex
