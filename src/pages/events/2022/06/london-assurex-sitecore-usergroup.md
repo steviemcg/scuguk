@@ -14,15 +14,15 @@ venue:
   details:
 agenda:
   - agenda-item:
-    time: "18:30"
+    time: "18:00"
     value: Arrival, drinks and networking
   - talk:
-    time: "19:00"
+    time: "18:45"
     who: "Saurabh Sachdeva - Founder @ Assurex"
     intro: "Welcome and kick-off"
     description:
   - talk: 
-    time: "19:05"
+    time: "19:00"
     who: "Sandeep Pote - Senior Commerce Architect @ Assurex"
     intro: "Getting started with Sitecore OrderCloud"
     description: "In this session, Sandeep will talk about what you need to get started with development in Sitecore OrderCloud. The session will start with brief introduction to OrderCloud, setup up development environments, API console overview and working with OrderCloud Headstart."
@@ -30,13 +30,13 @@ agenda:
     time: "19:30"
     value: "Drinks, food and more networking"
   - talk:
-    time: "20:10"
+    time: "20:15"
     who: "Sumith Damodaran - Sr. Product Manager - Experience Platform @ Sitecore"
     intro:  "Discover Discover"
     description: "Sumith will Introduce Discover (the new Product Discovery Platform from Sitecore), and demonstrate the platform capabilities and integration options it provides. A demo will also be given on how Pages & Widgets can be created using the platform."
   - agenda-item:
     time: "20:45"
-    value: Networking
+    value: Drinks and Networking
   - agenda-item:
     time: "21:00"
     value: Close
