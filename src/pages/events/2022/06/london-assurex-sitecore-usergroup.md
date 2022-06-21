@@ -6,7 +6,7 @@ sup: Join us for the first Sitecore Technical User Group meetup of 2022 in Londo
 date: 2022-06-29 18:00
 dateConfirmed: true
 showOnlineRsvp: false
-sponsors: Assurex
+sponsors: Assurex & SearchStax
 venue:
   name: The Traitors Gate 
   address: 14 Trinity Square, Tower Hill, London, EC3N 4AA
