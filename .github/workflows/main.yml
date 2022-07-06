@@ -2,7 +2,7 @@ name: Schedule Netlify Build
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 * * * *' # Every 15 minutes
+    - cron: '0 2 * * *' # Every day at 2am
 jobs:
   build:
     name: Request Netlify Webhook
