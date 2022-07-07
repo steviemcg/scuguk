@@ -23,9 +23,9 @@ agenda:
     description:
   - talk: 
     time: "19:00"
-    who: "Timothy March - Solution Architect II @ EPAM Systems"
+    who: "Timothy Marsh - Solution Architect II @ EPAM Systems"
     intro: "Getting started with Sitecore Content Publisher"
-    description: "In this session, Timothy will talk about Introduction to Sitecore Content Publisher and a live demo of the tool, API Integration options, and extension possibilities."
+    description: "In this session, Timothy will give an introduction to Sitecore Content Publisher and a live demo of the tool, API Integration options, and extension possibilities."
   - agenda-item:
     time: "19:30"
     value: "Drinks, food and more networking"
