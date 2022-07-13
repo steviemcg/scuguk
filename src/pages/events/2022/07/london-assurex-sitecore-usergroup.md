@@ -31,9 +31,9 @@ agenda:
     value: "Drinks, food and more networking"
   - talk:
     time: "20:15"
-    who: "Malcolm Lightbody - Data Science and AI Product Manager, Sitecore"
-    intro:  "Deep Dive into Discover AI"
-    description:"Get to know Sitecore Discover under the hood. An in-depth session which will cover Discover's AI capabilities, data sets, recipes and algorithm." 
+    who: "Malcolm Lightbody - Data Science and AI Product Manager @ Sitecore"
+    intro: "Deep Dive into Discover AI"
+    description: "Get to know Sitecore Discover under the hood. An in-depth session which will cover Discover's AI capabilities, data sets, recipes and algorithm."
   - agenda-item:
     time: "20:45"
     value: Drinks and Networking
