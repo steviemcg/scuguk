@@ -4,14 +4,15 @@ eventId: 179c6edc-fe8b-4720-a421-538b31d3d137
 title: Manchester - November 2022
 sup: Join us for the 2nd Manchester Sitecore Technical User Group meetup of 2022. 
  We have some great Talks from Experts from the Sitecore Community and the oportunity to catchup with other Sitecore developers and network too. 
+ Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks. 
 date: 2022-11-15 18:00
 dateConfirmed: true
 showOnlineRsvp: false
 image: ../../../../img/dept-event-space.jpg
 sponsors: Dept
 venue:
-  name: TBC 
-  address: TBC
+  name: Dept 
+  address: 9th Floor, Bridgewater House, Whitworth Street, M1 6LT Manchester
   position: 
   details: "TBC"
 agenda:
