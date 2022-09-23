@@ -32,7 +32,7 @@ agenda:
     time: "19:15"
     who: "Jeremy Davis - Architect at UNRVLD & Dominic Hurst - Senior Consultant at Infinity Works"
     intro: "Sitecore Symposium Hightlights"
-    description: "This will be our first meet-up after the "Sitecore Symposium" conference in Chicago. That's always a time for product announcements, new roadmaps and news about where Sitecore are heading in the coming year. Join us to find out what those announcements were, and get some insight into how they might affect you and your work."
+    description: "This will be our first meet-up after the 'Sitecore Symposium' conference in Chicago. That's always a time for product announcements, new roadmaps and news about where Sitecore are heading in the coming year. Join us to find out what those announcements were, and get some insight into how they might affect you and your work."
   - talk:
     time: "19:45"
     who: "TBC"
