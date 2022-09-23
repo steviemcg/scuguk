@@ -2,9 +2,11 @@
 templateKey: 'event-page'
 eventId: 179c6edc-fe8b-4720-a421-538b31d3d137
 title: Manchester - November 2022
-sup: "Join us for the 2nd Manchester Sitecore Technical User Group meetup of 2022. <br />
-It will be Hosted at DEPT® and they are kindly providing Refreshments and Pizza too. We have some great Talks from Experts from the Sitecore Community and the oportunity to catchup with other Sitecore developers and network too. <br />
-Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks."
+sup: "Join us for the 2nd Manchester Sitecore Technical User Group meetup of 2022.
+It will be Hosted at DEPT® and they are kindly providing Refreshments and Pizza for everyone. 
+We have some great Talks from Experts from the Sitecore Community and the oportunity to catchup with other Sitecore developers and network.
+Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for Food and Drinks.
+Looking forward to seeing you all there."
 date: 2022-11-15 18:00
 dateConfirmed: true
 showOnlineRsvp: false
@@ -14,7 +16,7 @@ venue:
   name: DEPT® 
   address: 9th Floor, Bridgewater House, Whitworth Street, M1 6LT Manchester
   position: 
-  details: "TBC"
+  details: ""
 agenda:
   - agenda-item:
     time: "18:00"
@@ -48,5 +50,5 @@ agenda:
 meta:
   metaTitle: Sitecore User Group - Manchester November 2022  
   metaDescription: Join us for the 2nd Manchester Sitecore Technical User Group meetup of 2022 
-  metaKeywords: sitecore, user group, manchester, DEPT
+  metaKeywords: sitecore, user group, manchester, DEPT, Symposium, SPE, Cloud
 ---
