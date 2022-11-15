@@ -38,7 +38,10 @@ agenda:
     time: "19:15"
     who: "Harivola Loic Rabehaja - Solution Architect at DEPT®"
     intro: "A Composable Sitecore XP: Pave the road towards HEADLESS"
-    description: "Loic will share his experience of following the Composable model with Sitecore XP."
+    description: "In a world where composable directly translates to agility, flexibility, and agility, often times our clients might be lost in an overwhelming number of options and pathways.
+    So many choices that when you take a closer look at them might be scary from a technology, business, budget, and resourcing point of view. 
+    As a consultant, our duty is to advise the client the best we can to be a front-runner in their respective field and help them answer their most important question: 'where and how do I start?' 
+    Loic will share with you how it helped their client leverage its Sitecore XP architecture and pave its way into the composable world."
   - talk:
     time: "19:45"
     who: "Adam Seabridge - Sitecore Consultant & Developer Flux Digital"
