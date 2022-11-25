@@ -85,6 +85,7 @@ export const EventPageTemplate = ({
   eventId,
   title,
   image,
+  sup,
   intro,
   date,
   sponsors,
@@ -113,7 +114,7 @@ export const EventPageTemplate = ({
 
             <div className="container">
               <section>
-                <Markdown options={{ forceBlock: true }}>{intro}</Markdown>
+                { intro ? <Markdown options={{ forceBlock: true }}>{intro}</Markdown> : <p>{sup}</p> }
               </section>
               <section>
                 <h2>Event Details</h2>
@@ -155,6 +156,7 @@ EventPageTemplate.propTypes = {
   eventId: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.object,
+  sup: PropTypes.string,
   details: PropTypes.string,
   date: PropTypes.string,
   sponsors: PropTypes.string,
@@ -180,6 +182,7 @@ const Event = ({ data }) => {
           eventId={event.frontmatter.eventId}
           title={event.frontmatter.title}
           image={event.frontmatter.image}
+          sup={event.frontmatter.sup}
           intro={event.frontmatter.intro}
           date={event.frontmatter.dateConfirmed ? event.frontmatter.date : event.frontmatter.dateVague}
           sponsors={event.frontmatter.sponsors}
