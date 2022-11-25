@@ -37,6 +37,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event-page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Sup", name: "sup", widget: "text"}
+      - {label: "Intro", name: "intro", widget: "text"}
       - {label: "Details", name: "details", widget: "object", collapsed: false, fields: [
           {label: Sponsors, name: sponsors, widget: string},
           {label: Date, name: date, widget: 'datetime', dateFormat: 'DD-MM-YYYY', timeFormat: 'HH:mm', format: 'DD-MM-YYYY HH:mm'},

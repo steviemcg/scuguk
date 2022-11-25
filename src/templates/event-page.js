@@ -8,6 +8,7 @@ import Hero from "../components/Hero/hero";
 import EventAttendance from "../components/Event/eventAttendance";
 import '../components/EventsList/event.scss'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import Markdown from 'markdown-to-jsx';
 
 export const Agenda = ({ time, value }) => (
   <div className="mb-4">
@@ -85,6 +86,7 @@ export const EventPageTemplate = ({
   title,
   image,
   sup,
+  intro,
   date,
   sponsors,
   venue,
@@ -112,7 +114,7 @@ export const EventPageTemplate = ({
 
             <div className="container">
               <section>
-                <p>{sup}</p>
+                { intro ? <Markdown options={{ forceBlock: true }}>{intro}</Markdown> : <p>{sup}</p> }
               </section>
               <section>
                 <h2>Event Details</h2>
@@ -155,6 +157,7 @@ EventPageTemplate.propTypes = {
   title: PropTypes.string,
   image: PropTypes.object,
   sup: PropTypes.string,
+  details: PropTypes.string,
   date: PropTypes.string,
   sponsors: PropTypes.string,
   venue: PropTypes.object,
@@ -180,6 +183,7 @@ const Event = ({ data }) => {
           title={event.frontmatter.title}
           image={event.frontmatter.image}
           sup={event.frontmatter.sup}
+          intro={event.frontmatter.intro}
           date={event.frontmatter.dateConfirmed ? event.frontmatter.date : event.frontmatter.dateVague}
           sponsors={event.frontmatter.sponsors}
           venue={event.frontmatter.venue}
@@ -221,6 +225,7 @@ export const pageQuery = graphql`
         dateVague: date(formatString: "MMMM YYYY")
         sponsors
         sup
+        intro
         venue {
           name
           address
