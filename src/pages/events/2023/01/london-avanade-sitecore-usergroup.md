@@ -28,9 +28,6 @@ agenda:
   - agenda-item:
     time: "18:00"
     value: Arrival and networking
-  - agenda-item:
-    time: "18:00"
-    value: Arrival and networking
   - talk:
     time: "TBC"
     who: "Sumith Damodaran - Sr. Product Manager, Experience Platform at Sitecore"
