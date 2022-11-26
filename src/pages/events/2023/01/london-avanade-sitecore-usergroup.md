@@ -29,8 +29,16 @@ agenda:
     time: "18:00"
     value: Arrival and networking
   - agenda-item:
+    time: "18:00"
+    value: Arrival and networking
+  - talk:
+    time: "TBC"
+    who: "Sumith Damodaran - Sr. Product Manager, Experience Platform at Sitecore"
+    intro: "Unwrapping the new Engagement Cloud JS SDK"
+    description: "TBC"
+  - agenda-item:
     time: "TBD"
-    value: Talks are yet to be scheduled. Please contact us if you are interested in presenting.
+    value: The rest of the talks are yet to be scheduled. Please contact us if you are interested in presenting.
   - agenda-item:
     time: "20:30"
     value: Close
