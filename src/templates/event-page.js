@@ -11,16 +11,20 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import Markdown from 'markdown-to-jsx';
 
 export const Agenda = ({ time, value }) => (
-  <div className="mb-4">
-    <h3 className="agenda-title">{time} - {value}</h3>
+  <div className="mb-4 row">
+    <div className="col-md-2 col-lg-1 agenda-time">{time}</div>
+    <div className="col-md-10 col-lg-11"><h3 className="agenda-item">{value}</h3></div>
   </div>
 )
 
 export const Talk = ({ time, who, intro, description }) => (
-  <div className="mb-4">
-    <h3 className="mb-0 agenda-title">{time} - {intro}</h3>
-    <h4 className="talk-who mb-3">{who}</h4>
-    <div className="talk-description">{description}</div>
+  <div className="mb-4 row">
+    <div className="col-md-2 col-lg-1 agenda-time">{time}</div>
+    <div className="col-md-10 col-lg-11">
+      <h3 className="mb-0 agenda-title">{intro}</h3>
+      <h4 className="talk-who mb-3">{who}</h4>
+      <div className="talk-description">{description}</div>
+    </div>
   </div>
 )
 
@@ -47,7 +51,7 @@ export const Venue = ({ venue }) => {
 
   return (
     <section>
-      <h2>Venue</h2>
+      <h2 className="mb-4">Venue</h2>
 
       <dl>
         <dt>Name</dt>
@@ -91,7 +95,8 @@ export const EventPageTemplate = ({
   sponsors,
   venue,
   agenda,
-  showOnlineRsvp
+  showOnlineRsvp,
+  talksTbc
 }) => {
   return (
     <>
@@ -117,7 +122,7 @@ export const EventPageTemplate = ({
                 { intro ? <Markdown options={{ forceBlock: true }}>{intro}</Markdown> : <p>{sup}</p> }
               </section>
               <section>
-                <h2>Event Details</h2>
+                <h2 className="mb-4">Event Details</h2>
 
                 <dl>
                   {sponsors &&
@@ -136,6 +141,12 @@ export const EventPageTemplate = ({
 
               <section>
                 <h2 className="mb-4">Agenda</h2>
+
+                {talksTbc && (
+                  <div class='alert alert-info'>The talks for this event are yet to be scheduled. 
+                  Please <Link activeClassName="active" to="/contact" ><span>contact us</span></Link> if you are interested in presenting.
+                </div>)}
+
                 {agenda.map(speaker => {
                   return speaker.value
                     ? <Agenda time={speaker.time} value={speaker.value} key={speaker.time} />
@@ -162,7 +173,8 @@ EventPageTemplate.propTypes = {
   sponsors: PropTypes.string,
   venue: PropTypes.object,
   agenda: PropTypes.array,
-  showOnlineRsvp: PropTypes.bool
+  showOnlineRsvp: PropTypes.bool,
+  talksTbc: PropTypes.bool
 };
 
 const Event = ({ data }) => {
@@ -185,6 +197,7 @@ const Event = ({ data }) => {
           sup={event.frontmatter.sup}
           intro={event.frontmatter.intro}
           date={event.frontmatter.dateConfirmed ? event.frontmatter.date : event.frontmatter.dateVague}
+          talksTbc={event.frontmatter.talksTbc}
           sponsors={event.frontmatter.sponsors}
           venue={event.frontmatter.venue}
           agenda={event.frontmatter.agenda}
@@ -221,7 +234,8 @@ export const pageQuery = graphql`
         }        
         title
         dateConfirmed
-        date(formatString: "MMMM D, YYYY - HH:mm")
+        talksTbc
+        date(formatString: "ddd MMMM Do, YYYY")
         dateVague: date(formatString: "MMMM YYYY")
         sponsors
         sup

@@ -15,9 +15,10 @@ intro: "<p>**Join us for the 1st Sitecore Technical User Group meetup of 2023, a
 <p>Looking forward to seeing you all there.</p>
 
 <p>One more thing, if you're considering a new role then check out [open Avanade Sitecore careers](https://careers.avanade.com/jobsengb/SearchJobs/sitecore?3_56_3=19799).</p>"
-date: 2023-02-01 18:00
+date: 2023-02-01 17:45
 dateConfirmed: true
 showOnlineRsvp: false
+talksTbc: true
 sponsors: Avanade
 venue:
   name: Avanade 
@@ -26,21 +27,23 @@ venue:
   details: ""
 agenda:
   - agenda-item:
-    time: "18:00"
+    time: "17:45"
     value: Arrival and networking
   - talk:
     time: "TBC"
-    who: "James Darrell - European Practice Lead (Sitecore) at Avanade"
+    who: "James Darrall - European Practice Lead (Sitecore) at Avanade"
     intro: "Lessons Learned and Experience Gained Implementing Content Hub at Scale"
-    description: "TBC"    
+    description: ""    
   - talk:
     time: "TBC"
     who: "Sumith Damodaran - Sr. Product Manager, Experience Platform at Sitecore"
     intro: "Unwrapping the new Engagement Cloud JS SDK"
-    description: "TBC"
-  - agenda-item:
-    time: "TBD"
-    value: The rest of the talks are yet to be scheduled. Please contact us if you are interested in presenting.
+    description: ""
+  - talk:
+    time: "TBC"
+    who: "Sarah O'Reilly - Principal Solution Engineer at Sitecore"
+    intro: "Leverage Sitecore Connect for Sitecore CDP"
+    description: ""    
   - agenda-item:
     time: "20:30"
     value: Close
