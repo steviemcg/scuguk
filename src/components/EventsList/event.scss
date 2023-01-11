@@ -6,14 +6,37 @@
     }
 }
 
-.agenda-title {
+.talks-tbc {
+    margin: 20px;
+    padding: 10px;
+    //border: 1px solid black;
+    border-radius: 7px;
+    background: rgb(207, 237, 247);
+}
+
+h3.agenda-item { 
     font-weight: 700;
+    font-size: 1.4em;
+    line-height: 1.6;
+}
+
+.agenda-time { 
+    font-size: 1.4em;
+    font-weight: 500;
+    color:#6e6e6e;
+    font-family: 'heading';
+}
+
+h3.agenda-title {
+    font-weight: 700;
+    font-size: 1.4em;
 }
 
 h4.talk-who {
     font-style: italic;
-    line-height: 1.2em;
-    font-size: 1.2em;
+    line-height: 1.1em;
+    font-size: 1.1em;
+    color:#6e6e6e;
 }
 
 .talk-description {

@@ -18,6 +18,7 @@ intro: "<p>**Join us for the 1st Sitecore Technical User Group meetup of 2023, a
 date: 2023-02-01 18:00
 dateConfirmed: true
 showOnlineRsvp: false
+talksTbc: true
 sponsors: Avanade
 venue:
   name: Avanade 
@@ -38,9 +39,6 @@ agenda:
     who: "Sumith Damodaran - Sr. Product Manager, Experience Platform at Sitecore"
     intro: "Unwrapping the new Engagement Cloud JS SDK"
     description: "TBC"
-  - agenda-item:
-    time: "TBD"
-    value: The rest of the talks are yet to be scheduled. Please contact us if you are interested in presenting.
   - agenda-item:
     time: "20:30"
     value: Close
