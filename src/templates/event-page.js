@@ -119,7 +119,13 @@ export const EventPageTemplate = ({
 
             <div className="container">
               <section>
-                { intro ? <Markdown options={{ forceBlock: true }}>{intro}</Markdown> : <p>{sup}</p> }
+                { intro ? <Markdown options={{ forceBlock: true, overrides: {
+                a: {
+                    props: {
+                        target: `_blank`
+                    },
+                },
+            }, }}>{intro}</Markdown> : <p>{sup}</p> }
               </section>
               <section>
                 <h2 className="mb-4">Event Details</h2>
