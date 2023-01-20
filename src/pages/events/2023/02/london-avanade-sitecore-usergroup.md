@@ -4,7 +4,9 @@ eventId: ebed2abe-aefb-4ad5-8c9c-edd8fb92332a
 title: London - February 2023
 sup: "Join us for the 1st Sitecore Technical User Group meetup of 2023, along with pizza and drinks.
 Hosted at Avanade's London Office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections."
-intro: "<p>**Join us for the 1st Sitecore Technical User Group meetup of 2023, along with pizza and drinks.**</p>
+intro: "<p>**Please note this event was previously scheduled for Feb 1st, but has now moved to Feb 8th due to [announced train strikes](https://www.nationalrail.co.uk/service_disruptions/industrialaction.aspx#IA_FEB).**</p>
+
+<p>Join us for the 1st Sitecore Technical User Group meetup of 2023, along with pizza and drinks.</p>
 
 <p>Hosted at Avanade's London Office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
 
@@ -15,10 +17,10 @@ intro: "<p>**Join us for the 1st Sitecore Technical User Group meetup of 2023, a
 <p>Looking forward to seeing you all there.</p>
 
 <p>One more thing, if you're considering a new role then check out [open Avanade Sitecore careers](https://careers.avanade.com/jobsengb/SearchJobs/sitecore?3_56_3=19799).</p>"
-date: 2023-02-01 17:45
+date: 2023-02-08 17:45
 dateConfirmed: true
 showOnlineRsvp: false
-talksTbc: true
+talksTbc: false
 sponsors: Avanade
 venue:
   name: Avanade 
