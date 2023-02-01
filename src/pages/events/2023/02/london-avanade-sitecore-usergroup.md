@@ -32,22 +32,22 @@ agenda:
     time: "17:45"
     value: Arrival and networking
   - talk:
-    time: "TBC"
-    who: "James Darrall - European Practice Lead (Sitecore) at Avanade"
-    intro: "Lessons Learned and Experience Gained Implementing Content Hub at Scale"
-    description: ""    
-  - talk:
-    time: "TBC"
+    time: "18:15"
     who: "Sumith Damodaran - Sr. Product Manager, Experience Platform at Sitecore"
     intro: "Unwrapping the new Engagement Cloud JS SDK"
-    description: ""
+    description: "Sumith will talk through the new Engagement Cloud JS SDK for React Apps. The talk will include a showcase demo of  functionality, along with details of how the community can contribute."
   - talk:
-    time: "TBC"
+    time: "18:45"
+    who: "James Darrall - European Practice Lead (Sitecore) at Avanade"
+    intro: "Lessons Learned and Experience Gained Implementing Content Hub at Scale"
+    description: "James will guide us through some of the Dos and Don'ts for approaching Content Hub projects; a few lessons learned from projects Avanade have been involved in; and some advice for teams planning Content Hub projects at large organizations."
+  - talk:
+    time: "19:15"
     who: "Sarah O'Reilly - Principal Solution Engineer at Sitecore"
     intro: "Leverage Sitecore Connect for Sitecore CDP"
-    description: ""    
+    description: "Sarah will inform us how Sitecore Connect can be used to import data from an external database or CRM to Sitecore CDP, including the setup of recipes and data mapping."
   - agenda-item:
-    time: "20:30"
+    time: "20:00"
     value: Close
 meta:
   metaTitle: Sitecore User Group - London February 2023
