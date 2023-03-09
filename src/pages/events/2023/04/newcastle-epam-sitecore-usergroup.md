@@ -2,13 +2,11 @@
 templateKey: 'event-page'
 eventId: ad54e986-a15c-404b-aa68-3755989018aa
 title: Newcastle - April 2023
-sup: "Join us for the 2nd Sitecore Technical User Group meetup of 2023, along with pizza and drinks.
+sup: "Join us in the North for the 2nd Sitecore Technical User Group meetup of 2023, along with pizza and drinks.
 Hosted at EPAM's Newcastle Office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections."
-intro: "<p>Join us for the 2nd Sitecore Technical User Group meetup of 2023, along with pizza and drinks.</p>
+intro: "<p>Join us in the North for the 2nd Sitecore Technical User Group meetup of 2023, along with pizza and drinks.</p>
 
-<p>Hosted at EPAM's Newcastle Office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
-
-<p>We will be following all government advice for hosting events to ensure that attendees are safe and comfortable.</p>
+<p>Hosted at EPAM's Newcastle Office, there are great talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
 
 <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
 
@@ -29,14 +27,14 @@ agenda:
     value: Arrival and networking
   - talk:
     time: "18:15"
-    who: "TBC"
-    intro: "-"
-    description: "-"
+    who: "Jeremy Davis - Architect at UNRVLD"
+    intro: "What’s this Kubernetes business then?"
+    description: "There's a lot of talk about using Docker for Sitecore development (some of it Jeremy's previous user-group talks!), but what does it mean to take a container-based solution to production? What do you need to think about, and how is it different to a PaaS or IaaS deployment? This talk will give you a beginner's introduction to this topic, and help you understand what you need to think about for your projects."
   - talk:
     time: "18:45"
-    who: "TBC"
-    intro: "-"
-    description: "-"
+    who: "Matt Knowles - Solutions Architect at EPAM Systems"
+    intro: "Content Hub One - a deep dive"
+    description: "Matt will take us through Content Hub One, including setting up content types, the 2 clients (.NET Core & Next) and more. A great oportunity to learn more about one of Sitecore's newest offerings."
   - talk:
     time: "19:15"
     who: "TBC"
@@ -47,6 +45,6 @@ agenda:
     value: Close
 meta:
   metaTitle: Sitecore User Group - Newcastle April 2023
-  metaDescription: Join us for the 2nd Sitecore Technical User Group meetup of 2023
+  metaDescription: Join us in the North for the 2nd Sitecore Technical User Group meetup of 2023
   metaKeywords: sitecore, user group, Newcastle, EPAM
 ---
