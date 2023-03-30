@@ -14,7 +14,8 @@ intro: "<p>Join us in the North for the 2nd Sitecore Technical User Group meetup
 date: 2023-04-24 17:45
 dateConfirmed: true
 showOnlineRsvp: false
-talksTbc: true
+image: ../../../../img/epam-newcastle-event.jpg
+talksTbc: false
 sponsors: EPAM
 venue:
   name: EPAM 
@@ -27,7 +28,7 @@ agenda:
     value: Arrival and networking
   - talk:
     time: "18:15"
-    who: "Jeremy Davis - Architect at UNRVLD"
+    who: "Jeremy Davis - Solutions Architect at UNRVLD"
     intro: "What’s this Kubernetes business then?"
     description: "There's a lot of talk about using Docker for Sitecore development (some of it Jeremy's previous user-group talks!), but what does it mean to take a container-based solution to production? What do you need to think about, and how is it different to a PaaS or IaaS deployment? This talk will give you a beginner's introduction to this topic, and help you understand what you need to think about for your projects."
   - talk:
@@ -37,9 +38,9 @@ agenda:
     description: "Matt will take us through Content Hub One, including setting up content types, the 2 clients (.NET Core & Next) and more. A great oportunity to learn more about one of Sitecore's newest offerings."
   - talk:
     time: "19:15"
-    who: "TBC"
-    intro: "-"
-    description: "-"
+    who: "Kate Orlova - Head of Solutions Architecture at UNRVLD"
+    intro: "Sitecore CDP & Personalize – targeting the real-time audience in experiences"
+    description: "In this presentation you will learn how to setup an experience in the Sitecore CDP & Personalize and run it on a website. This includes building your targeted audience in real-time, flexible options for content editing and a few practical examples"
   - agenda-item:
     time: "20:00"
     value: Close
