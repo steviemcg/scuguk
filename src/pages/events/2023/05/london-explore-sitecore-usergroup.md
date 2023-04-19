@@ -6,7 +6,7 @@ sup: "Join us for our next Sitecore Technical User Group meetup of 2023, along w
 Kindly hosted at Explore Group's London office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections."
 intro: "<p><strong>Join us for the next Sitecore Technical User Group meetup of 2023.</strong></p>
 <p>Kindly hosted by <a href='https://www.explore-group.com/' target='_blank'>Explore Group</a> at their new London office, there will be talks from members from the Sitecore community as well as time to catch up with contacts and make new connections. Food and refreshments will be provided.</p>
-<p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
+<p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks. In addition, please <a href='/contact'>reach out to us</a> if you are interested in speaking at this event.</p>
 <p>We look forward to seeing you all there!</p>"
 date: 2023-05-11 17:30
 dateConfirmed: true
