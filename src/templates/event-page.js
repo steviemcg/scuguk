@@ -150,7 +150,7 @@ export const EventPageTemplate = ({
 
                 {talksTbc && (
                   <div class='alert alert-info'>The talks for this event are yet to be scheduled. 
-                  Please <Link activeClassName="active" to="/contact" ><span>contact us</span></Link> if you are interested in presenting.
+                  Please <Link activeClassName="active" to="/contact" ><span>contact us</span></Link> if you are interested in presenting. We welcome speakers of all levels of experience and want to particulary encourage first-time speakers.
                 </div>)}
 
                 {agenda.map(speaker => {
