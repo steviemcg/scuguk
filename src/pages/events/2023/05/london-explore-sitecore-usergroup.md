@@ -22,9 +22,11 @@ agenda:
   - agenda-item:
     time: "17:30"
     value: Arrival and networking
-  - agenda-item:
+  - talk:
     time: "18:00"
-    value: Talk 1 - TBD
+    who: "Timothy Marsh - Solution Architect II at EPAM Systems"
+    intro: "The versatility of Sitecore Content Hub"
+    description: "Sitecore Content Hub is a fantastic product that is extremely versatile for customers. However customers, partners and developers only think of this as DAM. It's so much more than this and Tim is going to give you a deep dive on all of the areas that make up Content Hub. Building upon this to talk through future possibilities and a demo of what could be possible."
   - agenda-item:
     time: "18:30"
     value: Talk 2 - TBD
