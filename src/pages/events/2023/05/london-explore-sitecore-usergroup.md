@@ -32,7 +32,12 @@ agenda:
     value: Talk 2 - TBD
   - agenda-item:
     time: "19:00"
-    value: Talk 3 - TBD
+    value: Comfort break
+  - talk:
+    time: "19:15"
+    who: "Daniela Militaru - Senior Sales Engineer at Sitecore"
+    intro: "A brief technical look into the magic of Sitecore Content Search"
+    description: "This session will look into the Customer Engagement Console (CEC) of Sitecore Search using a real example; will briefly show how to setup Web Crawlers, Extractors, use of the API Explorer and Event Monitor, to understand the search result and monitor the experience of end users on a page."
   - agenda-item:
     time: "20:00"
     value: Close
