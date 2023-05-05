@@ -11,7 +11,7 @@ intro: "<p><strong>Join us for the next Sitecore Technical User Group meetup of 
 date: 2023-05-11 17:30
 dateConfirmed: true
 showOnlineRsvp: false
-talksTbc: true
+talksTbc: false
 sponsors: Explore Group
 venue:
   name: Explore Group
@@ -27,9 +27,11 @@ agenda:
     who: "Timothy Marsh - Solution Architect II at EPAM Systems"
     intro: "The versatility of Sitecore Content Hub"
     description: "Sitecore Content Hub is a fantastic product that is extremely versatile for customers. However customers, partners and developers only think of this as DAM. It's so much more than this and Tim is going to give you a deep dive on all of the areas that make up Content Hub. Building upon this to talk through future possibilities and a demo of what could be possible."
-  - agenda-item:
+  - talk:
     time: "18:30"
-    value: Talk 2 - TBD
+    who: "Christine Bookless - Lead Sitecore Optimisation Consultant at Sagittarius"
+    intro: "Becoming a Sitecore Scientist – How Personalise can scale your programme of digital experimentation"
+    description: "Sitecore Personalise delivers advanced digital experimentation at scale. In this session we will explore what it takes to progress your testing maturity, from building a culture of experimentation through to applying full-stack interactive experiments across the customer experience."
   - agenda-item:
     time: "19:00"
     value: Comfort break
