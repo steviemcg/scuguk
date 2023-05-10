@@ -15,7 +15,7 @@ talksTbc: false
 sponsors: Explore Group
 venue:
   name: Explore Group
-  address: 3rd floor, 155-157 Minories, London, EC3N 1LJ
+  address: Portsoken House (3rd floor), 155-157 Minories, London, EC3N 1LJ
   position:
   details: ""
 agenda:
