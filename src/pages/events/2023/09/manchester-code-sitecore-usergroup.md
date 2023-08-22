@@ -10,7 +10,8 @@ intro: "<p><strong>Join us for the 3rd UK Sitecore Technical User Group meetup o
 <p>We look forward to seeing you all there!</p>"
 date: 2023-09-20 17:30
 dateConfirmed: true
-showOnlineRsvp: true
+image: ../../../../img/code-sep-event.jpg
+showOnlineRsvp: false
 talksTbc: true
 sponsors: Code Computer Love
 venue:
