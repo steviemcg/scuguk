@@ -8,3 +8,9 @@
 
 [[plugins]]
   package = "netlify-plugin-chromium"
+
+[[redirects]]
+  from = "/events/2023/09/manchester-code-sitecore-usergroup"
+  to = "/events/2023-09-manchester-code-sitecore-usergroup"
+  status = 301
+  force = false
