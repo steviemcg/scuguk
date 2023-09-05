@@ -5,3 +5,6 @@
 
 [dev]
   targetPort = 8000
+
+[[plugins]]
+  package = "netlify-plugin-chromium"
