@@ -1,0 +1,22 @@
+@use '/src/styles/theme/settings/colors';
+
+.footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.7rem;
+  background: colors.$sc_grey_light;
+
+  &__logo {
+    display: inline-block;
+    max-width: 40%;
+    width: 160px;
+    svg {
+      max-width: 100%;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,45 @@
+@use '/src/styles/theme/settings/colors';
+@use '/src/styles/theme/settings/media';
+@use '/src/styles/theme/settings/vars';
+
+@import '/node_modules/bootstrap/scss/functions';
+@import '/node_modules/bootstrap/scss/variables';
+
+.sponsorBox {
+  border-radius: 0.25rem;
+  margin-bottom: $spacer * 3;
+  padding: $spacer * 2;
+
+  &__imageWrapper {
+    margin-bottom: $spacer * 2;
+
+    img {
+      max-width: 100%;
+      height: 3em;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: $spacer * 0.5;
+  }
+
+  p {
+    margin: 0 0 $spacer * 1.5 0;
+  }
+
+  &__badge {
+    border-radius: 9999px;
+    background-color: #f7fafc;
+    font-weight: 600;
+    padding: $spacer * 0.25 $spacer;
+    margin-left: -$spacer;
+
+    a {
+      color: #4a5568;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use '/src/styles/theme/settings/colors';
+@use '/src/styles/theme/settings/media';
+@use '/src/styles/theme/settings/vars';
+
+.box {
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  padding: 3rem vars.$gutterDesktop;
+  position: relative;
+  box-shadow: 0px 0.1rem 1rem 0 rgba(0, 0, 0, 0.2);
+  background: white;
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  &__button-wrapper {
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  @include media.tablet() {
+    padding: 4rem vars.$gutterTablet;
+  }
+  @include media.mobile() {
+    padding: 2rem vars.$gutterMobile;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  &--small {
+    padding: 1rem vars.$gutterDesktop;
+  }
+
+  &--green {
+    border-bottom: 3px solid colors.$sc_green;
+  }
+
+  &--red {
+    border-bottom: 3px solid colors.$sc_red;
+  }
+
+  &--white {
+    border-bottom: 3px solid colors.$sc_grey_dark;
+  }
+
+  &:last-child {
+    margin-bottom: 3rem;
+  }
+}

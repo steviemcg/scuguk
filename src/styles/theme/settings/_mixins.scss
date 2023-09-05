@@ -1,0 +1,35 @@
+@use '_colors';
+
+// @mixin transition($property: all, $speed: 300ms, $ease: cubic-bezier(0.39, 0.575, 0.565, 1), $delay: 0s) {
+//   transition: $property $speed $ease $delay;
+// }
+
+$defaultTime: 300ms;
+$defaultEase: cubic-bezier(0.39, 0.575, 0.565, 1);
+
+@mixin transition($prop: all, $time: $defaultTime, $easing: $defaultEase, $delay: 0s) {
+  $transition: ();
+  @for $i from 1 through length($prop) {
+    @for $j from 0 to (length($prop)) - (length($time)) {
+      $time: join($time, nth($time, -1));
+    }
+    @for $j from 0 to (length($prop)) - (length($easing)) {
+      $easing: join($easing, nth($easing, -1));
+    }
+    @for $j from 0 to (length($prop)) - (length($delay)) {
+      $delay: join($delay, nth($delay, -1));
+    }
+
+    $transition: append(
+      $transition,
+      (nth($prop, $i) nth($time, $i) nth($easing, $i) nth($delay, $i)),
+      $separator: comma
+    );
+  }
+  transition: $transition;
+}
+
+@mixin outline {
+  outline: 2px solid colors.$sc_green;
+  outline-offset: 4px;
+}

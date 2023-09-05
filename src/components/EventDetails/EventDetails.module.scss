@@ -1,0 +1,10 @@
+.eventDetails {
+  > p,
+  div > p {
+    margin-top: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,3 +1,0 @@
-@mixin transition($property:all, $speed:300ms, $ease:cubic-bezier(0.39, 0.575, 0.565, 1), $delay: 0s){
-    transition: $property $speed $ease $delay;
-}

@@ -1,0 +1,31 @@
+@use '/src/styles/theme/settings/colors';
+@use '/src/styles/theme/settings/mixins';
+
+.button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font: inherit;
+  font-weight: bold;
+  line-height: normal;
+  overflow: visible;
+  text-decoration: none;
+  outline: none;
+  background: colors.$sc_grey_light;
+  border-top: 2px solid colors.$sc_grey_medium;
+  border-bottom: 3px solid colors.$sc_grey_dark;
+  color: colors.$sc_black;
+  @include mixins.transition(background color);
+
+  &:hover,
+  &:focus {
+    background: colors.$sc_green;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    @include mixins.outline;
+  }
+}

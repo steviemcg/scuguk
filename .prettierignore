@@ -1,3 +1,5 @@
-.cache
-node_modules
-public
+# ignore
+**/coverage
+**/node_modules
+**/.next
+
