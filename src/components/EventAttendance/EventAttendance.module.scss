@@ -1,0 +1,89 @@
+@use '/src/styles/theme/settings/media';
+@use '/src/styles/theme/settings/mixins';
+@use '/src/styles/theme/settings/colors';
+
+.eventAttendance {
+  position: relative;
+
+  &__attendees {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-auto-flow: row;
+    row-gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  &__attendee {
+    display: flex;
+    flex-direction: row;
+    //min-width: 220px;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  &__profileWrapper {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__profile,
+  &__profile-fallback {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  &__actionYes,
+  &__actionNo {
+    background: colors.$sc_grey_light;
+    padding: 10px 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    color: black;
+    text-decoration: none;
+    @include mixins.transition();
+
+    svg {
+      fill: colors.$sc_grey_medium;
+      width: 25px;
+      @include mixins.transition();
+    }
+
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  &__actionYes {
+    &:hover,
+    &--active {
+      background: colors.$sc_green_light;
+      svg {
+        fill: colors.$sc_green;
+      }
+    }
+  }
+
+  &__actionNo {
+    &:hover,
+    &--active {
+      background: colors.$sc_red_light;
+      svg {
+        fill: colors.$sc_red;
+      }
+    }
+  }
+}

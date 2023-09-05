@@ -1,0 +1,25 @@
+@use '/src/styles/theme/settings/media';
+@use '/src/styles/theme/settings/vars';
+
+.container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 vars.$gutterDesktop;
+  position: relative;
+  overflow: visible;
+
+  @include media.tablet() {
+    padding: 0 vars.$gutterTablet;
+  }
+
+  @include media.mobile() {
+    padding: 0 vars.$gutterMobile;
+  }
+
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}

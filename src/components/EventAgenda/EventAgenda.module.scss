@@ -1,0 +1,80 @@
+@use '/src/styles/theme/settings/media';
+
+.eventAgenda {
+  margin-top: 2rem;
+
+  &__entry {
+    .eventAgenda__time {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      background: white;
+      font-size: 1.2em;
+      color: grey;
+
+      @include media.mobile() {
+        text-align: left;
+        font-weight: bold;
+      }
+
+      &:before {
+        position: absolute;
+        z-index: 1;
+        width: 2px;
+        left: 50%;
+        top: 37px;
+        height: calc(100% + 8px);
+        content: ' ';
+        border-left: 2px solid rgb(233, 233, 233);
+
+        @include media.mobile() {
+          display: none;
+        }
+      }
+    }
+
+    &:last-child {
+      .eventAgenda__time {
+        &:before {
+          height: 0;
+        }
+      }
+    }
+
+    & + .eventAgenda__entry {
+      margin-top: 50px;
+    }
+  }
+
+  &__speaker {
+    display: flex;
+    column-gap: 1rem;
+  }
+
+  &__speakerDetailsColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__profileImage {
+    border-radius: 50%;
+    width: 60px;
+  }
+
+  &__title {
+    font-weight: bold;
+
+    &--tbd {
+      font-style: italic;
+    }
+  }
+
+  &__speakerName {
+    font-weight: bold;
+  }
+
+  &__speakerTitle {
+    color: grey;
+  }
+}

@@ -1,0 +1,47 @@
+eventId: ebed2abe-aefb-4ad5-8c9c-edd8fb92332a
+title: London - February 2023
+excerpt: >
+  Join us for the 1st Sitecore Technical User Group meetup of 2023, along with pizza and drinks.
+  Hosted at Avanade's London Office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p>**Please note this event was previously scheduled for Feb 1st, but has now moved to Feb 8th due to [announced train strikes](https://www.nationalrail.co.uk/service_disruptions/industrialaction.aspx#IA_FEB).**</p>
+  <p>Join us for the 1st Sitecore Technical User Group meetup of 2023, along with pizza and drinks.</p>
+  <p>Hosted at Avanade's London Office, there will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
+  <p>We will be following all government advice for hosting events to ensure that attendees are safe and comfortable.</p>
+  <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
+  <p>Looking forward to seeing you all there.</p>
+  <p>One more thing, if you're considering a new role then check out [open Avanade Sitecore careers](https://careers.avanade.com/jobsengb/SearchJobs/sitecore?3_56_3=19799).</p>
+date: !!timestamp 2023-08-10 16:45:00
+duration: 135
+dateConfirmed: true
+showOnlineRsvp: false
+sponsors:
+  - avanade
+venue:
+  name: Avanade
+  address: 30 Cannon St, London, EC4M 6XH
+location: London
+agenda:
+  - type: item
+    time: '17:45'
+    description: Arrival and networking
+  - type: talk
+    time: '18:15'
+    speaker: sumithdamodaran
+    title: 'Unwrapping the new Engagement Cloud JS SDK'
+    description: 'Sumith will talk through the new Engagement Cloud JS SDK for React Apps. The talk will include a showcase demo of functionality, along with details of how the community can contribute.'
+  - type: talk
+    time: '18:45'
+    speaker: jamesdarrall
+    title: 'Lessons Learned and Experience Gained Implementing Content Hub at Scale'
+    description: "James will guide us through some of the Dos and Don'ts for approaching Content Hub projects; a few lessons learned from projects Avanade have been involved in; and some advice for teams planning Content Hub projects at large organizations."
+  - type: talk
+    time: '19:15'
+    speaker: sarahoreilly
+    title: 'Leverage Sitecore Connect for Sitecore CDP'
+    description: 'Sarah will inform us how Sitecore Connect can be used to import data from an external database or CRM to Sitecore CDP, including the setup of recipes and data mapping.'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the 1st London Sitecore Technical User Group meetup of 2023

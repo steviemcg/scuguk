@@ -1,0 +1,45 @@
+@use '/src/styles/theme/settings/colors';
+@use '/src/styles/theme/settings/media';
+
+.hero {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  padding: 3rem 0 7rem;
+  position: relative;
+  background: colors.$sc_black;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  min-height: 0;
+  background: colors.$sc_green;
+  color: white;
+
+  h1 {
+    text-shadow: 0px 0px 14px colors.$sc_black;
+  }
+
+  svg {
+    min-height: 100vh;
+    min-width: 60vw;
+    max-width: 1000px;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    path {
+      fill: colors.$sc_black;
+    }
+
+    @include media.mobile() {
+      min-width: 65vw;
+    }
+
+    @include media.mobile-small() {
+      min-width: 85vw;
+    }
+  }
+}

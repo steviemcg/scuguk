@@ -1,0 +1,24 @@
+.eventSponsors {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  row-gap: 0.5rem;
+
+  &__imageWrapper {
+    img {
+      max-width: 100%;
+      height: 4em;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  &--small {
+    .eventSponsors__imageWrapper {
+      img {
+        height: 2em;
+      }
+    }
+  }
+}
