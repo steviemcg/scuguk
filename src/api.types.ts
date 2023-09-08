@@ -15,16 +15,15 @@ export type EventApiItem = {
 };
 
 export type EventApiAttendance = {
+  loggedInUserResponded: boolean;
   loggedInUserAttending: boolean;
   loggedInUserWaiting: boolean;
   yes: EventApiAttendanceUser[];
-  no: EventApiAttendanceUser[];
   waitlist: EventApiAttendanceUser[];
 };
 
 export type EventApiAttendanceUser = {
   name: string;
-  userId: string;
   isOnline: boolean;
   avatar: string;
 };

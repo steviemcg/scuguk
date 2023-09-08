@@ -72,7 +72,8 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
             <div className={styles.eventAttendance__actions}>
               <button
                 className={cn(styles.eventAttendance__actionYes, {
-                  [styles['eventAttendance__actionYes--active']]: eventAttendance.loggedInUserAttending,
+                  [styles['eventAttendance__actionYes--active']]:
+                    eventAttendance.loggedInUserResponded && eventAttendance.loggedInUserAttending,
                 })}
                 onClick={() => {
                   if (!eventAttendance.loggedInUserAttending) {
@@ -84,7 +85,8 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
               </button>
               <button
                 className={cn(styles.eventAttendance__actionNo, {
-                  [styles['eventAttendance__actionNo--active']]: !eventAttendance.loggedInUserAttending,
+                  [styles['eventAttendance__actionNo--active']]:
+                    eventAttendance.loggedInUserResponded && !eventAttendance.loggedInUserAttending,
                 })}
                 onClick={() => {
                   if (eventAttendance.loggedInUserAttending) {
