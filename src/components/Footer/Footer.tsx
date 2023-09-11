@@ -7,7 +7,7 @@ import Container from '../Container';
 const Footer = () => (
   <footer className={styles.footer}>
     <Container>
-      <Link className={styles.footer__logo} href='/'>
+      <Link className={styles.footer__logo} aria-label='Sitecore UG Homepage' href='/'>
         <SitecoreUGLogo />
       </Link>
 

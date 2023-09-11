@@ -22,7 +22,7 @@ const EventDetails = ({ intro, excerpt, eventKey, showEventImage }: EventDetails
   <section className={styles.eventDetails}>
     {showEventImage && (
       <p>
-        <img src={`/data/events/${eventKey}.jpg`} />
+        <img alt='' src={`/data/events/${eventKey}.jpg`} />
       </p>
     )}
     {intro ? <Markdown options={{ ...markdownOptions }}>{intro}</Markdown> : <p>{excerpt}</p>}

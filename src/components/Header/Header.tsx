@@ -53,7 +53,7 @@ const Header = () => {
       className={cn(styles.header, { [styles['header--mobileNavActive']]: mobileNavActive })}
     >
       <Container className={styles['header-container']}>
-        <Link className={styles.header__logo} href='/'>
+        <Link className={styles.header__logo} aria-label='Sitecore UG Homepage' href='/'>
           <SitecoreUGLogo />
         </Link>
 
