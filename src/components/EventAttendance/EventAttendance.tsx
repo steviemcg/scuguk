@@ -59,10 +59,10 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
   );
 
   useEffect(() => {
-    if (!authIsLoading) {
+    if (!authIsLoading && isAuthenticated) {
       fetchAttendees();
     }
-  }, [authIsLoading, fetchAttendees]);
+  }, [authIsLoading, fetchAttendees, isAuthenticated]);
 
   return (
     <section className={styles.eventAttendance}>
