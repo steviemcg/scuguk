@@ -31,8 +31,11 @@ agenda:
     speaker: peterclisby
     title: 'XM Cloud Components Using Another CMS as Datasource'
     description: 'An overview of how XM Cloud Components can use most other platforms as a datasource for components, even another CMS. It will also briefly review the overall landscape of Hybrid vs Pure Headless CMS offerings, FaaS, DXO, DXC, integration tools like Sitecore Connect, and hosting composition options such as Gatsby Plugins.'
-  - type: tbd
+  - type: talk
     time: '18:40'
+    speaker: adamseabridge
+    title: 'Debate Session - Is SaaS and Headless right for everyone?'
+    description: 'Adam will lead a discussion on whether SaaS and Headless is the ultimate solution for all clients, or if certain challenges and limitations could be prohibitive for some businesses. Please bring your own viewpoints and experiences to the discussion.'
   - type: talk
     time: '19:20'
     speaker: dominichurst
