@@ -18,24 +18,22 @@ import cn from 'classnames';
 
 type EventAdvertTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker: SpeakerContent };
 
-const EventAdvertTalk = ({ speaker }: EventAdvertTalkProps) => (
+const EventAdvertTalk = ({ title, speaker }: EventAdvertTalkProps) => (
   <div className={styles.eventAdvert__entry}>
     <div className={styles.eventAdvert__speaker}>
       {speaker.image ? (
         <Image
           className={styles.eventAdvert__profileImage}
           src={`/data/speakers/${speaker.image}`}
-          width='125'
-          height='125'
+          width='180'
+          height='180'
           alt={`Profile photo of ${speaker.name}`}
         />
       ) : (
         <DefaultProfileImage className={styles.eventAdvert__profileImage} />
       )}
       <span className={styles.eventAdvert__speakerName}>{speaker.name}</span>
-      <span className={styles.eventAdvert__speakerTitle}>
-        {speaker.title} at {speaker.company}
-      </span>
+      <span className={styles.eventAdvert__speakerTitle}>{title}</span>
     </div>
   </div>
 );

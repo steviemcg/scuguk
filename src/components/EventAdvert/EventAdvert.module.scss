@@ -4,7 +4,7 @@
   margin-top: 2rem;
 
   &__logo {
-    width: 300px;
+    width: 250px;
   }
 
   &__talks {
@@ -29,7 +29,7 @@
   &__profileImage {
     border-radius: 50%;
     margin-bottom: 0.5rem;
-    width: 80%;
+    width: 70%;
     height: auto;
   }
 
@@ -38,20 +38,20 @@
   }
 
   &__speakerName {
-    font-weight: bold;
-    margin-bottom: 0.2rem;
+    color: grey;
+    margin-bottom: 1rem;
   }
 
   &__speakerTitle {
-    color: grey;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   &__city {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    margin: 40px 0 0;
+    margin: 30px 0 0;
   }
 
   &__date {
