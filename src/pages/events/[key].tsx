@@ -66,7 +66,7 @@ const EventPage = ({ event, sponsors, speakers }: EventPageProps) => {
       <Head>
         <title>{`${event.title} | Sitecore User Group UK`}</title>
         <meta name='description' content={event.meta.description} />
-        <meta name='og:image' content={getAbsoluteUrl(`events/${event.eventKey}-image.jpg`)} />
+        <meta property='og:image' content={getAbsoluteUrl(`events/${event.eventKey}-image.jpg`)} />
       </Head>
       <Hero heading={event.title} />
       <main>
