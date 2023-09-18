@@ -29,7 +29,7 @@ agenda:
   - type: talk
     time: '18:00'
     speaker: peterclisby
-    title: 'XM Cloud Components Using Another CMS as Datasource'
+    title: 'XM Cloud Components Using Another CMS as a Datasource'
     description: 'An overview of how XM Cloud Components can use most other platforms as a datasource for components, even another CMS. It will also briefly review the overall landscape of Hybrid vs Pure Headless CMS offerings, FaaS, DXO, DXC, integration tools like Sitecore Connect, and hosting composition options such as Gatsby Plugins.'
   - type: talk
     time: '18:40'
@@ -40,7 +40,7 @@ agenda:
     time: '19:20'
     speaker: dominichurst
     title: 'Increased Content Productivity with XM Cloud'
-    description: 'Dominic will talk about his recent Client Case - BDR Therma. A 9 month project to deliver a content rich suite of digital experiences with Sitecore XM Cloud at its core. He will cover the connection with Design tokens, Architecture used and how this was ultimately built for the client and its diverse content teams.'
+    description: 'Dominic will talk about his recent Client Case - BDR Thermea. A 9 month project to deliver a content rich suite of digital experiences with Sitecore XM Cloud at its core. He will cover the connection with Design tokens, Architecture used and how this was ultimately built for the client and its diverse content teams.'
   - type: item
     time: '20:00'
     description: Close
