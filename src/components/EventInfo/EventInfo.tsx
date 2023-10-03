@@ -12,7 +12,8 @@ type EventInfoProps = Omit<EventContent, 'date'> & {
   dateTimestamp: number;
 };
 
-const formatMapLink = (address: string): string => `http://maps.apple.com/?address=${encodeURIComponent(address)},&t=m`;
+const formatMapLink = (address: string): string =>
+  `https://maps.apple.com/?address=${encodeURIComponent(address)},&t=m`;
 
 const EventInfo = ({ dateTimestamp, title, duration, venue: { name, address } }: EventInfoProps) => {
   const date = new Date(dateTimestamp);
