@@ -12,6 +12,7 @@ import styles from './EventAgenda.module.scss';
 import DefaultProfileImage from './default-profile.svg';
 import Link from 'next/link';
 import cn from 'classnames';
+import YoutubeEmbed from '../YoutubeEmbed';
 
 type EventAgendaItemProps = EventAgendaItemData;
 
@@ -26,7 +27,7 @@ const EventAgendaItem = ({ time, description }: EventAgendaItemProps) => (
 
 type EventAgendaTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker: SpeakerContent };
 
-const EventAgendaTalk = ({ time, title, description, speaker }: EventAgendaTalkProps) => (
+const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId }: EventAgendaTalkProps) => (
   <Row className={styles.eventAgenda__entry}>
     <Col className={styles.eventAgenda__time} md={2}>
       {time}
@@ -53,6 +54,7 @@ const EventAgendaTalk = ({ time, title, description, speaker }: EventAgendaTalkP
         </div>
       </div>
       <p>{description}</p>
+      {youtubeVideoId && <YoutubeEmbed videoId={youtubeVideoId} />}
     </Col>
   </Row>
 );
