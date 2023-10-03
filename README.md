@@ -4,9 +4,7 @@ Now with NextJS!
 
 ## Wishlist
 
-In no particular order:
-
-- Post-event view of page with downloads / YouTube links for talks.
+Add something here if you want it worked on!
 
 ## Getting Started
 
