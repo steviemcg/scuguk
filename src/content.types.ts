@@ -40,6 +40,10 @@ export type EventAgendaTalk = {
   title: string;
   description: string;
   youtubeVideoId?: string;
+  links?: {
+    text: string;
+    url: string;
+  }[];
 };
 
 export type EventAgendaItem = {
