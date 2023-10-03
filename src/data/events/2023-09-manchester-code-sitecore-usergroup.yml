@@ -32,16 +32,25 @@ agenda:
     speaker: peterclisby
     title: 'XM Cloud Components Using Another CMS as a Datasource'
     description: 'An overview of how XM Cloud Components can use most other platforms as a datasource for components, even another CMS. It will also briefly review the overall landscape of Hybrid vs Pure Headless CMS offerings, FaaS, DXO, DXC, integration tools like Sitecore Connect, and hosting composition options such as Gatsby Plugins.'
+    links:
+      - text: SUG Youtube Video
+        url: https://www.youtube.com/watch?v=WVAcZfrmYQA&t=328s
   - type: talk
     time: '18:40'
     speaker: adamseabridge
     title: 'Debate Session - Is SaaS and Headless right for everyone?'
     description: 'Adam will lead a discussion on whether SaaS and Headless is the ultimate solution for all clients, or if certain challenges and limitations could be prohibitive for some businesses. Please bring your own viewpoints and experiences to the discussion.'
+    links:
+      - text: SUG Youtube Video
+        url: https://www.youtube.com/watch?v=WVAcZfrmYQA&t=2836s
   - type: talk
     time: '19:20'
     speaker: dominichurst
     title: 'Increased Content Productivity with XM Cloud'
     description: 'Dominic will talk about his recent Client Case - BDR Thermea. A 9 month project to deliver a content rich suite of digital experiences with Sitecore XM Cloud at its core. He will cover the connection with Design tokens, Architecture used and how this was ultimately built for the client and its diverse content teams.'
+    links:
+      - text: SUG Youtube Video
+        url: https://www.youtube.com/watch?v=WVAcZfrmYQA&t=4448s
   - type: item
     time: '20:00'
     description: Close
