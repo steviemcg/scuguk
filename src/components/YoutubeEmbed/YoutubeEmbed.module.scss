@@ -1,0 +1,21 @@
+@use '/src/styles/theme/settings/colors';
+@use '/src/styles/theme/settings/media';
+@use '/src/styles/theme/settings/vars';
+
+@import '/node_modules/bootstrap/scss/functions';
+@import '/node_modules/bootstrap/scss/variables';
+
+.youtubeEmbed {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}

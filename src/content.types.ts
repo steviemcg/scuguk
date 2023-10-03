@@ -39,6 +39,7 @@ export type EventAgendaTalk = {
   speaker: string;
   title: string;
   description: string;
+  youtubeVideoId?: string;
 };
 
 export type EventAgendaItem = {
