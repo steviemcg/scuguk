@@ -77,4 +77,21 @@
   &__speakerTitle {
     color: grey;
   }
+
+  &__youtubeEmbed {
+    margin-bottom: 20px;
+  }
+
+  &__linksHeading {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  &__links {
+    padding-left: 1rem;
+
+    li {
+      list-style: none;
+    }
+  }
 }

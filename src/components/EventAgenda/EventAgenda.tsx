@@ -27,7 +27,7 @@ const EventAgendaItem = ({ time, description }: EventAgendaItemProps) => (
 
 type EventAgendaTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker: SpeakerContent };
 
-const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId }: EventAgendaTalkProps) => (
+const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId, links }: EventAgendaTalkProps) => (
   <Row className={styles.eventAgenda__entry}>
     <Col className={styles.eventAgenda__time} md={2}>
       {time}
@@ -54,7 +54,25 @@ const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId }: 
         </div>
       </div>
       <p>{description}</p>
-      {youtubeVideoId && <YoutubeEmbed videoId={youtubeVideoId} />}
+      {youtubeVideoId && (
+        <div className={styles.eventAgenda__youtubeEmbed}>
+          <YoutubeEmbed videoId={youtubeVideoId} />
+        </div>
+      )}
+      {links && links.length && (
+        <>
+          <h4 className={styles.eventAgenda__linksHeading}>Links</h4>
+          <ul className={styles.eventAgenda__links}>
+            {links.map(({ text, url }) => (
+              <li key={url}>
+                <a href={url} rel='noreferrer' target='_blank'>
+                  {text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </Col>
   </Row>
 );
