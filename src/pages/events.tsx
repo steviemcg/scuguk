@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<EventListingProps> = async () => {
       pastEvents: allEvents
         .filter((e) => e.date < today)
         .map(mapEvent)
-        .sort((a, b) => a.dateTimestamp - b.dateTimestamp),
+        .sort((a, b) => b.dateTimestamp - a.dateTimestamp),
       upcomingEvents: allEvents.filter((e) => e.date >= today).map(mapEvent),
       sponsors: sponsors.map(({ lastSponsorDate, ...fields }) => fields),
     },
