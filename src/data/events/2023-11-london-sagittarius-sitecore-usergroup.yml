@@ -1,0 +1,45 @@
+eventId: 4b2c8619-b9a6-40d0-9209-61659cee76f3
+title: London Sitecore User Group at Sagittarius - November 2023
+excerpt: >
+  Join us for the 4th UK Sitecore Technical User Group meetup of 2023, along with food and drinks.
+  Kindly hosted by Sagittarius in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for the 4th UK Sitecore Technical User Group meetup of 2023.</strong></p>
+  <p>Kindly hosted by Sagittarius in their London Shoreditch office, just a short walk from Shoreditch High Street and Old Street stations.</p>
+  <p>There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections. Expect talks on Sitecore Search, Content Hub and Headless SXA. For the full agenda, see below!</p>
+  <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
+date: !!timestamp 2023-11-09 17:30:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: false
+showEventImage: false
+sponsors:
+  - sagittarius
+venue:
+  name: Sagittarius
+  address: Cosmopolitan House, 2 Phipp Street, London, EC2A 4BP
+location: London
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: talk
+    time: '18:00'
+    speaker: seancarter
+    title: 'Sitecore Content Search: Building a frontend for Sitecore Search results'
+    description: 'With the announcement of XM Cloud Plus, Sitecore Search becomes even more interesting. In this session Sean will outline some of the challenges around adoption of Sitecore Search and highlight the approach for building a UI frontend for Sitecore Search results.'
+  - type: talk
+    time: '18:40'
+    speaker: juliusangwenyi
+    title: 'Streaming Seamlessly: Integrating Content Hub with your existing video streaming platform'
+    description: 'A hands-on demo on how you can integrate Content Hub with your existing video delivery platforms for your end users. Julius will cover use of Action scripts, APIs, Web SDK, C# Azure Func app and more.'
+  - type: talk
+    time: '19:20'
+    speaker: alexwashtell
+    title: 'From JSS to Headless SXA'
+    description: 'On your Sitecore journey you might have worked with both JSS and SXA, allbeit separately. Sitecore now offers Headless SXA - available in Sitecore 10.3, and the default headless approach in XM Cloud. Alex will look at what is included and how you can get started with Headless SXA.'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the 4rd UK Sitecore Technical User Group meetup of 2023 hosted by Sagittarius

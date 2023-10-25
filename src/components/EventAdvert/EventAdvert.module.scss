@@ -3,8 +3,20 @@
 .eventAdvert {
   margin-top: 2rem;
 
+  &__imagesBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__logo {
     width: 250px;
+  }
+
+  &__sponsorImage {
+    max-width: 250px;
+    max-height: 50px;
   }
 
   &__talks {
@@ -73,44 +85,5 @@
     justify-content: flex-end;
     align-items: center;
     position: relative;
-
-    &:before {
-      content: '';
-      background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.5));
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 0;
-    }
-
-    &--darkSponsor {
-      &:before {
-        background: linear-gradient(rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.5));
-      }
-    }
-  }
-
-  &__sponsor {
-    margin-bottom: 50px;
-    width: 50%;
-  }
-
-  &__sponsorText {
-    padding: 3px 10px;
-    background: black;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    margin-bottom: 10px;
-    width: fit-content;
-    z-index: 1;
-    font-size: 0.8rem;
-  }
-
-  &__sponsorImage {
-    width: 50%;
-    margin-bottom: 20px;
-    z-index: 1;
-    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
   }
 }
