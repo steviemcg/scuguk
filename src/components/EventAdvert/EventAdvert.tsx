@@ -55,7 +55,15 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
       <section className={styles.eventAdvert}>
         <Row>
           <Col md={8}>
-            <SitecoreUGLogo className={styles.eventAdvert__logo} />
+            <div className={styles.eventAdvert__imagesBar}>
+              <SitecoreUGLogo className={styles.eventAdvert__logo} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className={styles.eventAdvert__sponsorImage}
+                src={`/data/sponsors/${sponsor.image}`}
+                alt={sponsor.title}
+              />
+            </div>
             <section className={styles.eventAdvert__city}>{event.location}</section>
             <section className={styles.eventAdvert__date}>{formatDate(date, 'MMMM do, h:mmaaa')}</section>
             <section className={styles.eventAdvert__address}>{event.venue.address}</section>
@@ -67,19 +75,9 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
           </Col>
           <Col
             md={4}
-            className={cn(styles.eventAdvert__location, {
-              [styles['eventAdvert__location--darkSponsor']]: sponsor.darkImage,
-            })}
+            className={styles.eventAdvert__location}
             style={{ backgroundImage: `url(/data/locations/${event.location.toLowerCase()}.jpg)` }}
-          >
-            <span className={styles.eventAdvert__sponsorText}>kindly sponsored by</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className={styles.eventAdvert__sponsorImage}
-              src={`/data/sponsors/${sponsor.image}`}
-              alt={sponsor.title}
-            />
-          </Col>
+          ></Col>
         </Row>
       </section>
     </Container>
