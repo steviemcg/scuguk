@@ -1,4 +1,4 @@
-import { EventApiAttendance } from '@/api.types';
+import { EventApiAttendance, EventApiItem } from '@/api.types';
 import { IdToken } from '@auth0/auth0-react';
 import { boolToString } from '../util';
 
@@ -17,6 +17,8 @@ const apiFetch = async <T = void>(url: string, authToken: IdToken | undefined): 
   const contentType = response.headers.get('content-type');
   return (contentType && contentType.indexOf('application/json') > -1 ? response.json() : response) as T;
 };
+
+export const fetchEvent = async (eventId: string) => apiFetch<EventApiItem>(`/event/${eventId}`, undefined);
 
 export const fetchEventAttendance = async (eventId: string, authToken: IdToken | undefined) => {
   const response = await apiFetch<EventApiAttendance>(`/attendance/event/${eventId}`, authToken);

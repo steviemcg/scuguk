@@ -5,20 +5,20 @@ import DefaultProfileImage from './default-profile.svg';
 import ThumbsUpIcon from './thumbs-up.svg';
 import ThumbsDownIcon from './thumbs-down.svg';
 import styles from './EventAttendance.module.scss';
-import { fetchEventAttendance, updateEventAttendance } from '@/util/api/api';
-import { EventApiAttendance } from '@/api.types';
+import { fetchEvent, fetchEventAttendance, updateEventAttendance } from '@/util/api/api';
+import { EventApiAttendance, EventApiItem } from '@/api.types';
 import ImageHideOnError from '../ImageHideOnError';
 import cn from 'classnames';
 
 type EventAttendanceProps = Pick<EventContent, 'eventId'>;
 
-type EventAttendeesDetailsProps = EventApiAttendance;
+type EventAttendeesDetailsProps = EventApiAttendance & { capacity: number };
 
 const EventAttendeesDetails = (eventAttendance: EventAttendeesDetailsProps) => {
   return (
     <>
       <p>
-        This event has capacity for <strong>50</strong> attendees.
+        This event has capacity for <strong>{eventAttendance.capacity}</strong> attendees.
         <br />
         There are currently <strong>{eventAttendance.yes.length}</strong> attending:
       </p>
@@ -44,11 +44,17 @@ const EventAttendeesDetails = (eventAttendance: EventAttendeesDetailsProps) => {
 const EventAttendance = ({ eventId }: EventAttendanceProps) => {
   const { isLoading: authIsLoading, isAuthenticated, getIdTokenClaims, loginWithPopup } = useAuth0();
   const [eventAttendance, setEventAttendance] = useState<EventApiAttendance | undefined>(undefined);
+  const [eventItem, setEventItem] = useState<EventApiItem | undefined>(undefined);
 
   const fetchAttendees = useCallback(async () => {
     const attendance = await fetchEventAttendance(eventId, await getIdTokenClaims());
     setEventAttendance(attendance);
   }, [eventId, getIdTokenClaims]);
+
+  const fetchEventItem = useCallback(async () => {
+    const eventItem = await fetchEvent(eventId);
+    setEventItem(eventItem);
+  }, [eventId]);
 
   const updateAttendance = useCallback(
     async (isAttending: boolean, isOnline: boolean) => {
@@ -60,13 +66,15 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
 
   useEffect(() => {
     if (!authIsLoading && isAuthenticated) {
+      fetchEventItem();
       fetchAttendees();
     }
-  }, [authIsLoading, fetchAttendees, isAuthenticated]);
+  }, [authIsLoading, fetchEventItem, fetchAttendees, isAuthenticated]);
 
   return (
     <section className={styles.eventAttendance}>
       {isAuthenticated ? (
+        eventItem &&
         eventAttendance && (
           <>
             <div className={styles.eventAttendance__actions}>
@@ -97,7 +105,7 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
                 I will not attend <ThumbsDownIcon />
               </button>
             </div>
-            <EventAttendeesDetails {...eventAttendance} />
+            <EventAttendeesDetails capacity={eventItem.capacity} {...eventAttendance} />
           </>
         )
       ) : (

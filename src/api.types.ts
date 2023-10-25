@@ -9,9 +9,6 @@ export type EventApiItem = {
   attendingNo: number;
   attendingWaiting: number;
   capacityRemaining: number;
-  isInPerson: boolean;
-  isOnline: boolean;
-  onlineDetails: boolean;
 };
 
 export type EventApiAttendance = {
