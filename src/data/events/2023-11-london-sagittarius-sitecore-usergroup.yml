@@ -37,7 +37,7 @@ agenda:
     time: '19:20'
     speaker: alexwashtell
     title: 'From JSS to Headless SXA'
-    description: 'JSS and SXA have been a large part of the Sitecore platform since Sitecore 9. With the release of Sitecore 10.3 and XM Cloud, we now have Headless SXA. Alex will look at what this means, what is included, and show how you can get started with Headless SXA.'
+    description: 'JSS and SXA have been a large part of the Sitecore platform for some time now. With the release of Sitecore 10.3 and XM Cloud, we now have Headless SXA. Alex will look at what this means, what is included, and show how you can get started with Headless SXA.'
   - type: item
     time: '20:00'
     description: Close
