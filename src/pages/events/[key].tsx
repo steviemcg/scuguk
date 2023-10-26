@@ -67,6 +67,10 @@ const EventPage = ({ event, sponsors, speakers }: EventPageProps) => {
         <title>{`${event.title} | Sitecore User Group UK`}</title>
         <meta name='description' content={event.meta.description} />
         <meta property='og:image' content={getAbsoluteUrl(`events/${event.eventKey}-image.jpg`)} />
+        <meta property='og:type' content='website' />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content={event.title} />
+        <meta name='twitter:site' content='@SitecoreUGUK' />
       </Head>
       <Hero heading={event.title} />
       <main>
