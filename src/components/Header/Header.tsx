@@ -75,6 +75,9 @@ const Header = () => {
                     [styles['header__link--active']]: router.pathname === href,
                   })}
                   href={href}
+                  onClick={() => {
+                    toggleMobileNav(false);
+                  }}
                 >
                   {text}
                 </Link>
