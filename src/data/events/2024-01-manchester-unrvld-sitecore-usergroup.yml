@@ -1,0 +1,40 @@
+eventId: 498ecff2-88d0-4af8-9194-d26fbbdf7eca
+title: Manchester Sitecore User Group at UNRVLD - March 2024
+excerpt: >
+  Join us for the 1st UK Sitecore Technical User Group meetup of 2024, along with food and drinks.
+  We're back at UNRVLD's Manchester office for this event, There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for the 1st UK Sitecore Technical User Group meetup of 2024.</strong></p>
+  <p>Hosted at <a href='https://www.google.co.uk/maps/place/UNRVLD+Agency+Manchester/@53.4776449,-2.2485141,17z/data=!3m2!4b1!5s0x487bade6f6843e2f:0x25b2edc9d4eadbe0!4m6!3m5!1s0x487bb1b0843abb99:0xd07ea13c2a17cdb8!8m2!3d53.4776449!4d-2.2459338!16s%2Fg%2F11ngpgc58d?entry=ttu' target='_blank'>UNRVLD's Manchester offices</a> near the Central Library.
+  There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
+  <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
+  <h5>Attendee Access</h5>
+  <p>Please head to reception at St George's House. We'll have someone there to greet you, and send you up in the lifts to UNRVLD on the 5th floor.</p>
+  <p>We look forward to seeing you all there!</p>
+date: !!timestamp 2024-03-06 17:30:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: false
+talksTbc: true
+showEventImage: true
+sponsors:
+  - unrvld
+venue:
+  name: UNRVLD
+  address: 5th Floor, St George's House, 56 Peter Street, Manchester, M2 3NQ
+location: Manchester
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: tbd
+    time: '18:00'
+  - type: tbd
+    time: '18:40'
+  - type: tbd
+    time: '19:20'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the 1st UK Sitecore Technical User Group meetup of 2024 hosted by UNRVLD in Manchester
