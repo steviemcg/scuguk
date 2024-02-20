@@ -14,3 +14,9 @@
   to = "/events/2023-09-manchester-code-sitecore-usergroup"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/events/2024-01-manchester-unrvld-sitecore-usergroup"
+  to = "/events/2024-03-manchester-unrvld-sitecore-usergroup"
+  status = 301
+  force = false
