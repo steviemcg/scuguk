@@ -40,8 +40,8 @@ agenda:
   - type: talk
     time: '19:20'
     speaker: mattknowles
-    title: 'To be announced'
-    description: ''
+    title: 'CDP / Personalize demystified'
+    description: 'CDP and Personalise are the new composable replacements for xDB. They have a new way of thinking about data collection and user experience, so let\'s investigate!'
   - type: item
     time: '20:00'
     description: Close
