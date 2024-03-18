@@ -16,12 +16,12 @@ import SitecoreUGLogo from './logo.svg';
 import DefaultProfileImage from './default-profile.svg';
 import cn from 'classnames';
 
-type EventAdvertTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker: SpeakerContent };
+type EventAdvertTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker?: SpeakerContent };
 
 const EventAdvertTalk = ({ title, speaker }: EventAdvertTalkProps) => (
   <div className={styles.eventAdvert__entry}>
     <div className={styles.eventAdvert__speaker}>
-      {speaker.image ? (
+      {speaker && speaker.image ? (
         <Image
           className={styles.eventAdvert__profileImage}
           src={`/data/speakers/${speaker.image}`}
@@ -32,7 +32,7 @@ const EventAdvertTalk = ({ title, speaker }: EventAdvertTalkProps) => (
       ) : (
         <DefaultProfileImage className={styles.eventAdvert__profileImage} />
       )}
-      <span className={styles.eventAdvert__speakerName}>{speaker.name}</span>
+      <span className={styles.eventAdvert__speakerName}>{speaker && speaker.name}</span>
       <span className={styles.eventAdvert__speakerTitle}>{title}</span>
     </div>
   </div>
@@ -69,7 +69,11 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
             <section className={styles.eventAdvert__address}>{event.venue.address}</section>
             <section className={styles.eventAdvert__talks}>
               {event.agenda.filter(isTalk).map((agendaItem, i) => (
-                <EventAdvertTalk key={i} {...agendaItem} speaker={speakers[agendaItem.speaker]} />
+                <EventAdvertTalk
+                  key={i}
+                  {...agendaItem}
+                  speaker={agendaItem.speaker ? speakers[agendaItem.speaker] : undefined}
+                />
               ))}
             </section>
           </Col>

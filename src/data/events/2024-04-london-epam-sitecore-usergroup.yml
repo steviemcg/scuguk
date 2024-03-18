@@ -24,12 +24,20 @@ agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: tbd
+  - type: talk
     time: '18:00'
-  - type: tbd
-    time: '18:40'
-  - type: tbd
-    time: '19:20'
+    speaker: haraldgreve
+    title: Sitecore XP Upgrades - Challenges and lessons learned
+    description: Having gone through a Sitecore XP upgrade to 10.2 and move to Sitecore Managed Cloud last year, Harald will be sharing how the team overcame some of the technical challenges, share some lessons learned for future upgrades, and talk about how they are implementing a blue/green deployment strategy on Sitecore Managed Cloud.
+  - type: talk
+    time: '18:45'
+    speaker: timothymarsh
+    title: SUGCON 2024 Round-up
+    description: Couldn't make SUGCON 2024, or you did but couldn't quite make all the talks you wanted to? Tim will take us on a round up of his highlights, new discoveries and lessons learned from this year's SUGCON held in Dublin.
+  - type: talk
+    time: '19:15'
+    title: Sitecore Discussion and Q&A
+    description: An extended opportunity for several members of the Sitecore UK community to share their thoughts on the state of Sitecore in 2024, with key takeaways from SUGCON 2024 in mind. Alongside this discussion, there will be an opportunity for audience members to contribute their thoughts and provide questions.
   - type: item
     time: '20:00'
     description: Close

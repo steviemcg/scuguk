@@ -25,7 +25,7 @@ const EventAgendaItem = ({ time, description }: EventAgendaItemProps) => (
   </Row>
 );
 
-type EventAgendaTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker: SpeakerContent };
+type EventAgendaTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker?: SpeakerContent };
 
 const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId, links }: EventAgendaTalkProps) => (
   <Row className={styles.eventAgenda__entry}>
@@ -34,25 +34,27 @@ const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId, li
     </Col>
     <Col md={10}>
       <h3 className={styles.eventAgenda__title}>{title}</h3>
-      <div className={styles.eventAgenda__speaker}>
-        {speaker.image ? (
-          <Image
-            className={styles.eventAgenda__profileImage}
-            src={`/data/speakers/${speaker.image}`}
-            width='60'
-            height='60'
-            alt={`Profile photo of ${speaker.name}`}
-          />
-        ) : (
-          <DefaultProfileImage className={styles.eventAgenda__profileImage} />
-        )}
-        <div className={styles.eventAgenda__speakerDetailsColumn}>
-          <span className={styles.eventAgenda__speakerName}>{speaker.name}</span>
-          <span className={styles.eventAgenda__speakerTitle}>
-            {speaker.title} at {speaker.company}
-          </span>
+      {speaker && (
+        <div className={styles.eventAgenda__speaker}>
+          {speaker.image ? (
+            <Image
+              className={styles.eventAgenda__profileImage}
+              src={`/data/speakers/${speaker.image}`}
+              width='60'
+              height='60'
+              alt={`Profile photo of ${speaker.name}`}
+            />
+          ) : (
+            <DefaultProfileImage className={styles.eventAgenda__profileImage} />
+          )}
+          <div className={styles.eventAgenda__speakerDetailsColumn}>
+            <span className={styles.eventAgenda__speakerName}>{speaker.name}</span>
+            <span className={styles.eventAgenda__speakerTitle}>
+              {speaker.title} at {speaker.company}
+            </span>
+          </div>
         </div>
-      </div>
+      )}
       <p>{description}</p>
       {youtubeVideoId && (
         <div className={styles.eventAgenda__youtubeEmbed}>
@@ -112,7 +114,13 @@ const EventAgenda = ({ event: { agenda }, speakers }: EventAgendaProps) => (
       } else if (agendaItem.type == 'tbd') {
         return <EventAgendaTbdTalk key={i} {...agendaItem} />;
       } else {
-        return <EventAgendaTalk key={i} {...agendaItem} speaker={speakers[agendaItem.speaker]} />;
+        return (
+          <EventAgendaTalk
+            key={i}
+            {...agendaItem}
+            speaker={agendaItem.speaker ? speakers[agendaItem.speaker] : undefined}
+          />
+        );
       }
     })}
   </section>
