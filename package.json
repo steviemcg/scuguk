@@ -19,7 +19,7 @@
     "prebuild": "concurrently \"yarn:prebuild:*\"",
     "prebuild:locations": "copyfiles -f \"./src/data/locations/*.+(jpg)\" ./public/data/locations",
     "prebuild:sponsors": "copyfiles -f \"./src/data/sponsors/*.+(png|svg)\" ./public/data/sponsors",
-    "prebuild:speakers": "copyfiles -f \"./src/data/speakers/*.+(jpg)\" ./public/data/speakers",
+    "prebuild:speakers": "copyfiles -f \"./src/data/speakers/*.+(webp|jpg|png)\" ./public/data/speakers",
     "prebuild:events": "copyfiles -f \"./src/data/events/*.+(jpg)\" ./public/data/events",
     "postexport": "ts-node ./scripts/export-event-ads.ts"
   },

@@ -34,7 +34,8 @@ export const getStaticProps: GetStaticProps<EventPageProps> = async ({ params })
   const speakerMap = await Promise.all(
     eventContent.agenda
       .filter(isTalk)
-      .map(async (i) => [i.speaker, await getSpeaker(i.speaker)] as [string, SpeakerContent])
+      .filter((t) => t.speaker != undefined)
+      .map(async (i) => [i.speaker, await getSpeaker(i.speaker!)] as [string, SpeakerContent])
   );
   const speakers = speakerMap.reduce(
     (obj, item) => ((obj[item[0]] = item[1]), obj),

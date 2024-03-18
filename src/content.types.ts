@@ -36,7 +36,7 @@ export type EventAgendaEntry = EventAgendaTalk | EventAgendaItem | EventAgendaTb
 export type EventAgendaTalk = {
   type: 'talk';
   time: string;
-  speaker: string;
+  speaker?: string;
   title: string;
   description: string;
   youtubeVideoId?: string;
