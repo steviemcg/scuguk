@@ -4,16 +4,19 @@ import SitecoreUGLogo from './logo.svg';
 import styles from './Footer.module.scss';
 import Container from '../Container';
 
-const Footer = () => (
-  <footer className={styles.footer}>
-    <Container>
-      <Link className={styles.footer__logo} aria-label='Sitecore UG Homepage' href='/'>
-        <SitecoreUGLogo />
-      </Link>
+const Footer = () => {
+  const year = new Date().getFullYear();
+  return (
+    <footer className={styles.footer}>
+      <Container>
+        <Link className={styles.footer__logo} aria-label='Sitecore UG Homepage' href='/'>
+          <SitecoreUGLogo />
+        </Link>
 
-      <p>Copyright &copy; 2023 Sitecore User Group UK</p>
-    </Container>
-  </footer>
-);
+        <p>Copyright &copy; {year} Sitecore User Group UK</p>
+      </Container>
+    </footer>
+  );
+};
 
 export default Footer;
