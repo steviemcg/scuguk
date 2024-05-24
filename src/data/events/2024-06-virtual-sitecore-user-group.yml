@@ -1,0 +1,32 @@
+eventId: 927fcbf5-4480-4e3d-8a6f-955607d3b024
+title: June 2024 Virtual Sitecore User Group
+excerpt: >
+  Join us virtually for our next UK Sitecore Technical User Group meetup of 2024. On the night you'll be able to join our live stream.
+  Petar Mitev has over 8 years of deep specialisation in Sitecore Content Hub, Content Operations and DAM (Digital Asset Management) and is eager to share his knowledge and experiences with the Sitecore community.
+intro: >
+  <p><strong>Join us virtually for our next UK Sitecore Technical User Group meetup of 2024</strong></p>
+  <p>On the night you'll be able to join our live stream We'll do a brief intro when the event gets started, and we'll stream the presenation.</p>
+  <p>Petar Mitev is the Founder and Principal Consultant at Mitev Consulting - an independent Sitecore Content Hub solutions provider. Recently moved to Sorocaba, Brazil with his wife and two children, he has over 8 years of deep specialisation in Sitecore Content Hub, Content Operations and DAM (Digital Asset Management) and is eager to share his knowledge and experiences with the Sitecore community.</p>
+date: !!timestamp 2024-06-11 17:00:00
+duration: 60
+dateConfirmed: true
+showOnlineRsvp: true
+talksTbc: false
+showEventImage: false
+sponsors:
+  - na
+venue:
+  name: Remote
+  address: Zoom
+location: Online
+agenda:
+  - type: talk
+    time: '17:00'
+    speaker: petarmitev
+    title: Adopting an agile content workflow approach with Content Hub Operations
+    description: To facilitate a comprehensive omnichannel content strategy organizations and marketing teams need to become agile in their content production. In this session I will show practical use cases of how agile content workflows streamline and enhance operational efficiencies in the end to end content lifecycle.
+  - type: item
+    time: '18:00'
+    description: Close
+meta:
+  description: Join us virtually for our next UK Sitecore Technical User Group meetup of 2024.
