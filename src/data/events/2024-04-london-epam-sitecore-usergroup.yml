@@ -8,7 +8,7 @@ intro: >
   <p>Kindly hosted by EPAM at their London office by Liverpool Street.
   There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
   <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
-date: !!timestamp 2024-04-17 17:30:00
+date: !!timestamp 2024-04-17 17:30:00+01:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: false

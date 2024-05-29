@@ -7,7 +7,7 @@ intro: >
   <p><strong>Join us virtually for our next UK Sitecore Technical User Group meetup of 2024</strong></p>
   <p>On the night you'll be able to join our live stream We'll do a brief intro when the event gets started, and we'll stream the presenation.</p>
   <p>Petar Mitev is the Founder and Principal Consultant at Mitev Consulting - an independent Sitecore Content Hub solutions provider. Recently moved to Sorocaba, Brazil with his wife and two children, he has over 8 years of deep specialisation in Sitecore Content Hub, Content Operations and DAM (Digital Asset Management) and is eager to share his knowledge and experiences with the Sitecore community.</p>
-date: !!timestamp 2024-06-11 17:00:00
+date: !!timestamp 2024-06-11 17:00:00+01:00
 duration: 60
 dateConfirmed: true
 showOnlineRsvp: true

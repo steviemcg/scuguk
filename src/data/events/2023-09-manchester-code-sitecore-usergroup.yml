@@ -11,7 +11,7 @@ intro: >
   <h5>Attendee Access</h5>
   <p>Please head to reception through the main entrance - they will scan you in. The event is in the ‘Stopes’ room on the 8th floor.</p>
   <p>We look forward to seeing you all there!</p>
-date: !!timestamp 2023-09-20 17:30:00
+date: !!timestamp 2023-09-20 17:30:00+01:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: false

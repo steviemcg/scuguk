@@ -34,16 +34,5 @@ export const getEvent = async (key: string): Promise<EventContent> => {
 
   const event = { eventKey: key, ...yaml.parse(yamlContent) } as EventContent;
 
-  // Reparse date so it gets parsed as GB time.
-  event.date = new Date(
-    Date.UTC(
-      event.date.getUTCFullYear(),
-      event.date.getUTCMonth(),
-      event.date.getUTCDate(),
-      event.date.getUTCHours(),
-      event.date.getUTCMinutes()
-    )
-  );
-
   return event;
 };
