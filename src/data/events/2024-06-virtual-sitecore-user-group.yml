@@ -13,11 +13,8 @@ dateConfirmed: true
 showOnlineRsvp: true
 talksTbc: false
 showEventImage: false
-sponsors:
-  - na
 venue:
-  name: Remote
-  address: Zoom
+  name: Virtual Webinar
 location: Online
 agenda:
   - type: talk

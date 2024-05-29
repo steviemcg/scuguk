@@ -42,9 +42,11 @@ const EventInfo = ({ dateTimestamp, title, duration, venue: { name, address } }:
         <dd>
           {name}
           <br />
-          <Link href={formatMapLink(address)} target='_blank' rel='noreferrer'>
-            {address}
-          </Link>
+          {address && (
+            <Link href={formatMapLink(address)} target='_blank' rel='noreferrer'>
+              {address}
+            </Link>
+          )}
         </dd>
 
         {futureEvent && (

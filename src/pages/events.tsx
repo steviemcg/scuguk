@@ -57,7 +57,7 @@ const Events = ({ pastEvents, upcomingEvents, sponsors }: EventListingProps) => 
                 <EventListingItem
                   key={i}
                   {...event}
-                  sponsors={sponsors.filter((s) => event.sponsors.includes(s.key))}
+                  sponsors={sponsors.filter((s) => event.sponsors?.includes(s.key))}
                 />
               ))}
             </Box>

@@ -58,11 +58,13 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
             <div className={styles.eventAdvert__imagesBar}>
               <SitecoreUGLogo className={styles.eventAdvert__logo} />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className={styles.eventAdvert__sponsorImage}
-                src={`/data/sponsors/${sponsor.image}`}
-                alt={sponsor.title}
-              />
+              {sponsor && (
+                <img
+                  className={styles.eventAdvert__sponsorImage}
+                  src={`/data/sponsors/${sponsor.image}`}
+                  alt={sponsor.title}
+                />
+              )}
             </div>
             <section className={styles.eventAdvert__city}>{event.location}</section>
             <section className={styles.eventAdvert__date}>{formatDate(date, 'MMMM do, h:mmaaa')}</section>

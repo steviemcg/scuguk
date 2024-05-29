@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<EventPageProps> = async ({ params }) => {
   // TODO: Consider moving this out to data layer
   const { date, ...eventContent } = await getEvent(params!.key as string);
-  const sponsors = await Promise.all(eventContent.sponsors.map((s) => getSponsor(s)));
+  const sponsors = eventContent.sponsors ? await Promise.all(eventContent.sponsors.map((s) => getSponsor(s))) : [];
 
   // TODO: This can surely be simplified
   const speakerMap = await Promise.all(
