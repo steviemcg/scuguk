@@ -12,4 +12,4 @@ export const getAbsoluteUrl = (relativePath: string): string =>
     : `http://localhost:3000/${relativePath}`;
 
 export const formatDate = (date: Date, formatString: string): string =>
-  format(utcToZonedTime(date, 'UTC'), formatString, { timeZone: 'UTC' });
+  format(utcToZonedTime(date, 'Europe/London'), formatString, { timeZone: 'Europe/London' });

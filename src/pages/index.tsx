@@ -67,7 +67,7 @@ const Homepage = ({ nextEvent, sponsors }: HomepageProps) => {
             {nextEvent && (
               <Col lg='6'>
                 <Box theme='white' heading='Next Event'>
-                  <EventNext {...nextEvent} sponsors={sponsors.filter((s) => nextEvent.sponsors.includes(s.key))} />
+                  <EventNext {...nextEvent} sponsors={sponsors.filter((s) => nextEvent.sponsors?.includes(s.key))} />
                 </Box>
               </Col>
             )}

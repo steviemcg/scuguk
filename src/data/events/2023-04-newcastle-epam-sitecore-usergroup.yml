@@ -10,7 +10,7 @@ intro: >
   <p>Hosted at EPAM's Newcastle Office, there are great talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
   <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
   <p>Looking forward to seeing you all there.</p>
-date: !!timestamp 2023-04-24 17:45:00
+date: !!timestamp 2023-04-24 17:45:00+01:00
 duration: 135
 dateConfirmed: true
 showOnlineRsvp: false

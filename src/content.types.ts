@@ -68,7 +68,7 @@ export type EventAbstract = {
   sponsors?: string[];
   venue: {
     name: string;
-    address: string;
+    address?: string;
   };
 };
 
