@@ -18,7 +18,7 @@ export type EventContent = {
   showEventImage: boolean;
   date: Date;
   duration: number;
-  sponsors: string[];
+  sponsors?: string[];
   venue: {
     name: string;
     address: string;
@@ -65,7 +65,7 @@ export type EventAbstract = {
   intro: string;
   excerpt: string;
   date: Date;
-  sponsors: string[];
+  sponsors?: string[];
   venue: {
     name: string;
     address: string;

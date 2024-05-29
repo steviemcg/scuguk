@@ -25,7 +25,7 @@ const EventListingItem = ({ eventKey, excerpt, dateTimestamp, venue, sponsors, t
         </Link>
       </h2>
       <Row>
-        <Col xs={12} md={8}>
+        <Col xs={12} md={sponsors.length > 0 ? 8 : 12}>
           <p>{excerpt}</p>
           <dl>
             <dt>
@@ -41,9 +41,11 @@ const EventListingItem = ({ eventKey, excerpt, dateTimestamp, venue, sponsors, t
             </dd>
           </dl>
         </Col>
-        <Col md={4} className={styles.eventListingItem__sponsor}>
-          <EventSponsors sponsors={sponsors} />
-        </Col>
+        {sponsors.length > 0 && (
+          <Col md={4} className={styles.eventListingItem__sponsor}>
+            <EventSponsors sponsors={sponsors} />
+          </Col>
+        )}
       </Row>
 
       <div className={styles.eventListingItem__button}>
