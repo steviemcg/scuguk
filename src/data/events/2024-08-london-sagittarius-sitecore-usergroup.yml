@@ -1,0 +1,42 @@
+eventId: d07b887e-c377-4eb6-83dd-9519b2dc8db9
+title: London Sitecore User Group at Sagittarius - August 2024
+excerpt: >
+  Join us for our first "Delivery Special" UK Sitecore User Group of 2024.
+  Kindly hosted by Sagittarius in their London Shoreditch office. Focusing on the needs of Project / Delivery Managers and best practices for Sitecore composable projects.
+intro: >
+  <p><strong>Join us for our first "Delivery Special" UK Sitecore User Group.</strong></p>
+  <p>Kindly hosted by Sagittarius in their London Shoreditch office, just a short walk from Shoreditch High Street and Old Street stations.</p>
+  <p>This session will focus on the needs of Project/Delivery Managers and best practice for Sitecore composable projects. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
+  <p>We will be joined by Dan Vella, Director of Professional Services at Sitecore to share the latest advice and cookbooks from his team.</p>
+  <p>The full agenda is TBC and will be updated closer to the event below.</p>
+  <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
+date: !!timestamp 2024-08-14 17:30:00+01:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: false
+showEventImage: false
+talksTbc: true
+sponsors:
+  - sagittarius
+venue:
+  name: Sagittarius
+  address: Cosmopolitan House, 2 Phipp Street, London, EC2A 4BP
+location: London
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: talk
+    time: '18:00'
+    speaker: danvella
+    title: 'Talk title TBD'
+    description: 'Dan will be sharing the latest advice and cookbooks offered by Sitecore. Stay tuned for a full-agenda and description of the talk.'
+  - type: tbd
+    time: '18:40'
+  - type: tbd
+    time: '19:20'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for our first "Delivery Special" UK Sitecore User Group of 2024, hosted by Sagittarius
