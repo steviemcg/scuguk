@@ -4,10 +4,11 @@ excerpt: >
   Join us virtually for our next UK Sitecore Technical User Group meetup of 2024. On the day you'll be able to join our livestream.
   Corey is a Sitecore Technology MVP and independent consultant in Atlanta, GA. He works with his clients to architect and deliver best-of-breed solutions on the Sitecore platform.
 intro: >
+  <p><i><strong>Re-Aranged from: 18/07/2024</strong></i></p>
   <p><strong>Join us virtually for our next UK Sitecore Technical User Group meetup of 2024</strong></p>
   <p>On the day you'll be able to join our livestream. We'll do a brief intro when the event gets started, and we'll stream the presentation.</p>
   <p>Corey is a Sitecore Technology MVP and independent consultant in Atlanta, GA. He works with his clients to architect and deliver best-of-breed solutions on the Sitecore platform.</p>
-date: !!timestamp 2024-07-18 12:00:00+01:00
+date: !!timestamp 2024-07-25 13:00:00+01:00
 duration: 60
 dateConfirmed: true
 showOnlineRsvp: true
@@ -18,12 +19,12 @@ venue:
 location: Online
 agenda:
   - type: talk
-    time: '12:00'
+    time: '13:00'
     speaker: coreysmith
     title: Tips and Tricks for Next.js and Sitecore Headless
     description: In this session, Sitecore MVP Corey Smith covers practical techniques to optimize your Sitecore Headless solution built with Next.js and enhance your development workflow. Corey covers how to make use of features in the Sitecore Next.js starter kit and SDKs to simplify configuration, simplify upgrades, build a better editor experience, optimize code organization, and boost application performance.
   - type: item
-    time: '13:00'
+    time: '14:00'
     description: Close
 meta:
   description: Join us virtually for our next UK Sitecore Technical User Group meetup of 2024.
