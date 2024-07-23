@@ -6,7 +6,8 @@ excerpt: >
 intro: >
   <p><strong>Join us for an exclusive session where we'll share invaluable insights on the effective planning and execution of XM Cloud implementations.</strong></p>
   <p>Kindly hosted by Sagittarius in their London Shoreditch office, just a short walk from Shoreditch High Street and Old Street stations.</p>
-  <p>Sangeeta Brady, Chief Delivery Officer from Sagittarius, will delve into the comprehensive process of planning an XM Cloud implementation based on real-world examples from recent projects. Following Sangeeta, Dan Vella, Professional Services Director for Sitecore will share critical lessons learned from existing XM Cloud implementations.</p>
+  <p>After a short introduction, Dan Vella, Professional Services Director for Sitecore will share critical lessons learned from existing XM Cloud implementations.</p>
+  <p>Following this, Sangeeta Brady, Chief Delivery Officer from Sagittarius, will open up a discussion for all present to discuss the comprehensive process of planning an XM Cloud implementation.</p>
   <p>See the full agenda below for more details. This event is a must-attend for project managers, developers, and digital strategists involved in XM Cloud implementations.</p>
   <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
 date: !!timestamp 2024-08-14 17:30:00+01:00
@@ -25,19 +26,11 @@ agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: talk
+  - type: item
     time: '18:00'
-    speaker: sangeetabrady
-    title: 'Planning an XM Cloud implementation'
-    descriptionHtml: >
-      <p>Sangeeta will delve into the comprehensive process of planning an XM Cloud implementation based on real-world examples from recent projects. Attendees will gain an understanding of:</pl>
-      <ul>
-        <li>How to structure and manage project timelines effectively.</li>
-        <li>Key differences between XM Cloud and XP in terms of technical discovery.</li>
-        <li>Approaches for efficient content planning and management.</li>
-      </ul>
+    description: Introduction and welcome
   - type: talk
-    time: '18:40'
+    time: '18:05'
     speaker: danvella
     title: 'Critical lessons learned from XM Cloud'
     descriptionHtml: >
@@ -46,9 +39,11 @@ agenda:
         <li>An overview of common challenges and solutions encountered in past projects.</li>
         <li>Proven strategies and methodologies to ensure successful XM Cloud deployments though Sitecore’s Best Practices.</li>
       </ul>
-  - type: item
-    time: '19:20'
-    description: Group discussion and an invitation to share experiences
+  - type: talk
+    time: '18:45'
+    speaker: sangeetabrady
+    title: 'Planning an XM Cloud implementation'
+    description: Sangeeta will open a discussion for all in the room to discuss hot topics such as Content Migration, Experience Editor vs Pages, multi-site implementations, Personalization on XM Cloud, and how to navigate existing projects.
   - type: item
     time: '20:00'
     description: Close
