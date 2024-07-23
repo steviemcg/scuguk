@@ -4,11 +4,10 @@ excerpt: >
   Join us for our first "Delivery Special" UK Sitecore User Group of 2024.
   Kindly hosted by Sagittarius in their London Shoreditch office. Focusing on the needs of Project / Delivery Managers and best practices for Sitecore composable projects.
 intro: >
-  <p><strong>Join us for our first "Delivery Special" UK Sitecore User Group.</strong></p>
+  <p><strong>Join us for an exclusive session where we'll share invaluable insights on the effective planning and execution of XM Cloud implementations.</strong></p>
   <p>Kindly hosted by Sagittarius in their London Shoreditch office, just a short walk from Shoreditch High Street and Old Street stations.</p>
-  <p>This session will focus on the needs of Project / Delivery Managers and best practice for Sitecore composable projects. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
-  <p>We will be joined by Dan Vella, Director of Professional Services at Sitecore to share the latest advice and cookbooks from Sitecore's best practices.</p>
-  <p>The full agenda is TBC and will be updated closer to the event below.</p>
+  <p>Sangeeta Brady, Chief Delivery Officer from Sagittarius, will delve into the comprehensive process of planning an XM Cloud implementation based on real-world examples from recent projects. Following Sangeeta, Dan Vella, Professional Services Director for Sitecore will share critical lessons learned from existing XM Cloud implementations.</p>
+  <p>See the full agenda below for more details. This event is a must-attend for project managers, developers, and digital strategists involved in XM Cloud implementations.</p>
   <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
 date: !!timestamp 2024-08-14 17:30:00+01:00
 duration: 150
@@ -28,13 +27,28 @@ agenda:
     description: Arrival and networking
   - type: talk
     time: '18:00'
-    speaker: danvella
-    title: 'Talk title TBD'
-    description: 'Dan will be sharing the latest advice and cookbooks offered by Sitecore. Stay tuned for a full-agenda and description of the talk.'
-  - type: tbd
+    speaker: sangeetabrady
+    title: 'Planning an XM Cloud implementation'
+    descriptionHtml: >
+      <p>Sangeeta will delve into the comprehensive process of planning an XM Cloud implementation based on real-world examples from recent projects. Attendees will gain an understanding of:</pl>
+      <ul>
+        <li>How to structure and manage project timelines effectively.</li>
+        <li>Key differences between XM Cloud and XP in terms of technical discovery.</li>
+        <li>Approaches for efficient content planning and management.</li>
+      </ul>
+  - type: talk
     time: '18:40'
-  - type: tbd
+    speaker: danvella
+    title: 'Critical lessons learned from XM Cloud'
+    descriptionHtml: >
+      <p>Dan will share critical lessons learned from existing XM Cloud implementations, covering:</pl>
+      <ul>
+        <li>An overview of common challenges and solutions encountered in past projects.</li>
+        <li>Proven strategies and methodologies to ensure successful XM Cloud deployments though Sitecore’s Best Practices.</li>
+      </ul>
+  - type: item
     time: '19:20'
+    description: Group discussion and an invitation to share experiences
   - type: item
     time: '20:00'
     description: Close

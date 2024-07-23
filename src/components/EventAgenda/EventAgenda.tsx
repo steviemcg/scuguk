@@ -27,7 +27,15 @@ const EventAgendaItem = ({ time, description }: EventAgendaItemProps) => (
 
 type EventAgendaTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker?: SpeakerContent };
 
-const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId, links }: EventAgendaTalkProps) => (
+const EventAgendaTalk = ({
+  time,
+  title,
+  description,
+  descriptionHtml,
+  speaker,
+  youtubeVideoId,
+  links,
+}: EventAgendaTalkProps) => (
   <Row className={styles.eventAgenda__entry}>
     <Col className={styles.eventAgenda__time} md={2}>
       {time}
@@ -55,7 +63,7 @@ const EventAgendaTalk = ({ time, title, description, speaker, youtubeVideoId, li
           </div>
         </div>
       )}
-      <p>{description}</p>
+      {descriptionHtml ? <div dangerouslySetInnerHTML={{ __html: descriptionHtml }}></div> : <p>{description}</p>}
       {youtubeVideoId && (
         <div className={styles.eventAgenda__youtubeEmbed}>
           <YoutubeEmbed videoId={youtubeVideoId} />
