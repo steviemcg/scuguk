@@ -1,14 +1,14 @@
 eventId: d07b887e-c377-4eb6-83dd-9519b2dc8db9
 title: London Sitecore User Group at Sagittarius - August 2024
 excerpt: >
-  Join us for our first "Delivery Special" UK Sitecore User Group of 2024.
-  Kindly hosted by Sagittarius in their London Shoreditch office. Focusing on the needs of Project / Delivery Managers and best practices for Sitecore composable projects.
+  Join us for our the next London UK Sitecore User Group of 2024.
+  Kindly hosted by Sagittarius in their London Shoreditch office. Featurng talks on XM Cloud implementations and Content Hub.
 intro: >
   <p><strong>Join us for an exclusive session where we'll share invaluable insights on the effective planning and execution of XM Cloud implementations.</strong></p>
   <p>Kindly hosted by Sagittarius in their London Shoreditch office, just a short walk from Shoreditch High Street and Old Street stations.</p>
   <p>After a short introduction, Dan Vella, Professional Services Director for Sitecore will share critical lessons learned from existing XM Cloud implementations.</p>
-  <p>Following this, Sangeeta Brady, Chief Delivery Officer from Sagittarius, will open up a discussion for all present to discuss the comprehensive process of planning an XM Cloud implementation.</p>
-  <p>See the full agenda below for more details. This event is a must-attend for project managers, developers, and digital strategists involved in XM Cloud implementations.</p>
+  <p>Following this, Peter Clisby, Sitecore Architect at SoftServe, will delve into how Content Hub can empower marketers as part of the content-lifecycle, for the point of view of a previously skeptical developer.</p>
+  <p>See the full agenda below for more details. This event is a must-attend for project managers, developers, and digital strategists involved in XM Cloud or Content Hub implementations.</p>
   <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
 date: !!timestamp 2024-08-14 17:30:00+01:00
 duration: 150
@@ -41,9 +41,9 @@ agenda:
       </ul>
   - type: talk
     time: '18:45'
-    speaker: sangeetabrady
-    title: 'Planning an XM Cloud implementation'
-    description: Sangeeta will open a discussion for all in the room to discuss hot topics such as Content Migration, Experience Editor vs Pages, multi-site implementations, Personalization on XM Cloud, and how to navigate existing projects.
+    speaker: peterclisby
+    title: 'Content Hub: Features for Marketers'
+    description: Sitecore Content Hub is an enterprise product that delivers optimal value when used at scale. Peter will outline some of the features that enable marketers through the content life-cycle. Peter will share his own journey understanding the use case for DAM, CMP, and other Content Operations modules, exhibiting functionality which impressed someone whose Sitecore Developer eyes saw it as a fancy media library.
   - type: item
     time: '20:00'
     description: Close
