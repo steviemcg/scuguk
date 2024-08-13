@@ -39,8 +39,11 @@ agenda:
         <li>An overview of common challenges and solutions encountered in past projects.</li>
         <li>Proven strategies and methodologies to ensure successful XM Cloud deployments though Sitecore’s Best Practices.</li>
       </ul>
+  - type: item
+    time: '18:50'
+    description: Extended Q&A and discussion session - How to plan an XM Cloud implementation?
   - type: talk
-    time: '18:45'
+    time: '19:15'
     speaker: peterclisby
     title: 'Content Hub: Features for Marketers'
     description: Sitecore Content Hub is an enterprise product that delivers optimal value when used at scale. Peter will outline some of the features that enable marketers through the content life-cycle. Peter will share his own journey understanding the use case for DAM, CMP, and other Content Operations modules, exhibiting functionality which impressed someone whose Sitecore Developer eyes saw it as a fancy media library.
