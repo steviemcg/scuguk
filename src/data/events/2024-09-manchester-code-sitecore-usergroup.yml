@@ -27,16 +27,16 @@ agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: tbd
+  - type: talk
     time: '18:00'
-    speaker:
-    title: 'To Be Confirmed'
-    description: '-'
+    speaker: kateorlova
+    title: 'Migrating your existing content from Sitecore XM/XP to XM Cloud'
+    description: 'Kate will explain how to Migrate your existing content from Sitecore XM/XP to XM Cloud effortlessly using Sitecore`s XM to XM Cloud Migration tool. Learn about the different options for transferring content, media, and user data using either the GUI or CLI and steps involved.'
   - type: talk
     time: '18:40'
     speaker: adamseabridge
-    title: 'Migrating from TDS to SCS'
-    description: 'SCS is now the de facto standard for Content Serialization for both Sitecore XP and XM Cloud. Adam will take you through the steps and tools he used to migrate his XP project from TDS to SCS. Including considerations, options for converting TDS projects to SCS modules, automating TDS file clean-up, validation, issues & solutions, as well as integation of SCS into the Github Actions release pipeline.'
+    title: 'How to easily move from TDS to Sitecore Content Serialization'
+    description: 'SCS is now the de facto standard for Content Serialization for both Sitecore XP and XM Cloud. Adam will take you through the steps and tools he used to migrate his XP project from TDS to SCS. An overview will be given of the considerations, options for converting TDS projects to SCS modules and issues & solutions. As well as automating TDS file clean-up, validation and integation of SCS into Github Actions.'
   - type: tbd
     time: '19:20'
     speaker:
