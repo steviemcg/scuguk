@@ -1,0 +1,49 @@
+eventId: 0c58d041-3a64-4418-9c5e-40cb415002ae
+title: Manchester Sitecore User Group - September 2024
+excerpt: >
+  Join us for the next UK Sitecore Technical User Group meetup of 2024, along with food and drinks.
+  Kindly hosted at Code Computer Love's WPP Campus office near Spinningfields. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for the next UK Sitecore Technical User Group meetup of 2024.</strong></p>
+  <p>Kindly hosted at Code Computer Love's <a href='https://www.codecomputerlove.com/contact' target='_blank'>WPP Campus office</a> near Spinningfields. 
+  There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.</p>
+  <p>Please sign in and RSVP at the bottom of this page, so we can keep track of numbers for food and drinks.</p>
+  <h5>Attendee Access</h5>
+  <p>Please head to reception through the main entrance - they will scan you in. The event is on the 8th floor.</p>
+  <p>We look forward to seeing you all there!</p>
+date: !!timestamp 2024-09-26 17:30:00+01:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: false
+talksTbc: true
+showEventImage: true
+sponsors:
+  - code
+venue:
+  name: Code Computer Love
+  address: WPP Campus, 1 New Quay Street, Manchester, M3 4BN
+location: Manchester
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: talk
+    time: '18:00'
+    speaker: kateorlova
+    title: 'Migrating your existing content from Sitecore XM/XP to XM Cloud'
+    description: 'Kate will explain how to Migrate your existing content from Sitecore XM/XP to XM Cloud effortlessly using Sitecore`s XM to XM Cloud Migration tool. Learn about the different options for transferring content, media, and user data using either the GUI or CLI and steps involved.'
+  - type: talk
+    time: '18:40'
+    speaker: adamseabridge
+    title: 'How to easily move from TDS to Sitecore Content Serialization'
+    description: 'SCS is now the de facto standard for Content Serialization for both Sitecore XP and XM Cloud. Adam will take you through the steps and tools he used to migrate his XP project from TDS to SCS. An overview will be given of the considerations, options for converting TDS projects to SCS modules and issues & solutions. As well as automating TDS file clean-up, validation and integation of SCS into Github Actions.'
+  - type: tbd
+    time: '19:20'
+    speaker:
+    title: 'To Be Confirmed'
+    description: '-'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the next UK Sitecore Technical User Group meetup of 2024 hosted by Code Computer Love
