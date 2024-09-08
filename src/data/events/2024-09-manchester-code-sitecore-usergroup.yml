@@ -37,11 +37,11 @@ agenda:
     speaker: adamseabridge
     title: 'How to easily move from TDS to Sitecore Content Serialization'
     description: 'SCS is now the de facto standard for Content Serialization for both Sitecore XP and XM Cloud. Adam will take you through the steps and tools he used to migrate his XP project from TDS to SCS. An overview will be given of the considerations, options for converting TDS projects to SCS modules and issues & solutions. As well as automating TDS file clean-up, validation and integation of SCS into Github Actions.'
-  - type: tbd
+  - type: talk
     time: '19:20'
-    speaker:
-    title: 'To Be Confirmed'
-    description: '-'
+    speaker: peterclisby
+    title: 'Content Hub DAM & CMP Fundamentals'
+    description: 'Peter will go through several fundamentals that are a foundation for taking the Content Hub Developer Certification and/or working on a Content Hub project. Basic schema configuration and more complex schema options with their use case and implications for platform users. Alongside many other Content Hub features, their purpose plus how to configure and use them to solve real world requirements.'
   - type: item
     time: '20:00'
     description: Close
