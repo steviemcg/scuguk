@@ -31,7 +31,7 @@ agenda:
     time: '18:00'
     speaker: kateorlova
     title: 'Migrating your existing content from Sitecore XM/XP to XM Cloud'
-    description: 'Kate will explain how to Migrate your existing content from Sitecore XM/XP to XM Cloud effortlessly using Sitecore`s XM to XM Cloud Migration tool. Learn about the different options for transferring content, media, and user data using either the GUI or CLI and steps involved.'
+    description: 'Kate will explain how to migrate your existing content from classic Sitecore XM/XP to XM Cloud effortlessly leveraging Sitecore`s XM to XM Cloud Migration tool. You will learn about the different options for transferring content, media assets, and user data using either the GUI or CLI, considerations and steps involved.'
   - type: talk
     time: '18:40'
     speaker: adamseabridge
