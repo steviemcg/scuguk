@@ -36,7 +36,7 @@ agenda:
     time: '18:40'
     speaker: adamseabridge
     title: 'How to easily move from TDS to Sitecore Content Serialization'
-    description: 'SCS is now the de facto standard for Content Serialization for both Sitecore XP and XM Cloud. Adam will take you through the steps and tools he used to migrate his XP project from TDS to SCS. An overview will be given of the considerations, options for converting TDS projects to SCS modules and issues & solutions. As well as automating TDS file clean-up, validation and integation of SCS into Github Actions.'
+    description: 'SCS is now the de facto standard for Content Serialization for both Sitecore XP and XM Cloud. Adam will take you through the steps and tools he used to migrate his XP project from TDS to SCS. An overview will be given of the considerations, options for converting TDS projects to SCS modules and issues & solutions. As well as automating TDS file clean-up, validation and integration of SCS into Github Actions.'
   - type: talk
     time: '19:20'
     speaker: peterclisby
