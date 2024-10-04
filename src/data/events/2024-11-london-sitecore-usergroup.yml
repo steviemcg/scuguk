@@ -6,7 +6,7 @@ excerpt: >
 intro: >
   <p><strong>Couldn't be in Nashville for Symposium? Never fear, this evening will cover all you need to know about what got announced and give you a chance to discuss it.</strong></p>
   <p>Kindly hosted by Sitecore in their London Paddington office, just a short walk from Paddington train station.</p>
-  <p>After a short introduction, we've got three speakers lined up. They'll cover:</p> 
+  <p>After a short introduction, we've got two speakers lined up. They'll cover:</p> 
   <ul>
     <li>the key messages for developers and architects</li>
     <li>Sitecore's own ideas of what's important from the event</li>
@@ -42,7 +42,7 @@ agenda:
     time: '18:40'
     speaker: chrispurcell
     title: 'Sitecore Symposium Nashville Takeaways'
-    description: Chris will bring Sitecore's official view of the news from Symposium.
+    description: Join Chris and get the best parts of Sitecore's Symposium content directly from the product marketing team, including the onsite announcements, news on Generative AI and what's to come in the next 12 months from Sitecore's product roadmap!
   - type: talk
     time: '19:15'
     title: 'Any questions?'
