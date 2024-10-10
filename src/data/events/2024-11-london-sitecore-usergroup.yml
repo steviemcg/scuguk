@@ -40,9 +40,9 @@ agenda:
     description: As a developer, architect and partner-employee, Jeremy will try to give you the "I'm working on projects now" view of what Sitecore have discussed and announced, plus any interesting corridor conversation that he comes across...
   - type: talk
     time: '18:40'
-    speaker: chrispurcell
+    speaker: kellymasters
     title: 'Sitecore Symposium Nashville Takeaways'
-    description: Join Chris and get the best parts of Sitecore's Symposium content directly from the product marketing team, including the onsite announcements, news on Generative AI and what's to come in the next 12 months from Sitecore's product roadmap!
+    description: Join Kelly and get the best parts of Sitecore's Symposium content directly from the product marketing team, including the onsite announcements, news on Generative AI and what's to come in the next 12 months from Sitecore's product roadmap!
   - type: talk
     time: '19:15'
     title: 'Any questions?'
