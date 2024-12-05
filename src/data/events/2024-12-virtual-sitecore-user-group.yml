@@ -1,0 +1,29 @@
+eventId: 17e478a2-f3a8-4665-a815-09f233139eb5
+title: December 2024 Virtual Sitecore User Group
+excerpt: >
+  Join us virtually for the last UK Sitecore Technical User Group meetup of 2024. On the day you'll be able to join our livestream.
+  Sebastian has been in IT for 20 years, with the past 10 years in the Sitecore ecosystem. Sharing knowledge about XM Cloud, SXA and CHONE, he has been awarded twice as Sitecore MVP, before joining Sitecore, and is now working as a Technical Product Marketer at Sitecore.
+intro: >
+  <p><strong>Join us virtually for the last UK Sitecore Technical User Group meetup of 2024</strong></p>
+  <p>On the day you'll be able to join our livestream. We'll do a brief intro when the event gets started, and we'll stream the presentation.</p>
+  <p>Sebastian has been in IT for 20 years, with the past 10 years in the Sitecore ecosystem. Sharing knowledge about XM Cloud, SXA and Content Hub ONE, he has been awarded twice as Sitecore MVP, before joining Sitecore, and is now working as a Technical Product Marketer at Sitecore.</p>
+date: !!timestamp 2024-12-17 12:00:00+00:00
+duration: 60
+dateConfirmed: true
+showOnlineRsvp: true
+talksTbc: false
+showEventImage: false
+venue:
+  name: Virtual Webinar
+location: Online
+agenda:
+  - type: talk
+    time: '12:00'
+    speaker: sebastianwinter
+    title: Building multisite implementations at scale with XM Cloud
+    description: XM Cloud is known for its enterprise capabilities. But how do you architect and build multisite solutions at scale? There is not one answer to this topic, so get to know the right questions to ask before designing your solution for a future-proof architecture. Find out how we built multisite solutions twice with the SUGCON and MVP sites to explore different aspects.
+  - type: item
+    time: '13:00'
+    description: Close
+meta:
+  description: Join us virtually for the last UK Sitecore Technical User Group meetup of 2024.
