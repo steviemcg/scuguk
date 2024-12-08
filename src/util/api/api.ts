@@ -9,10 +9,13 @@ const apiFetch = async <T = void>(url: string, authToken: IdToken | undefined): 
   const response = await fetch(baseUrl, {
     headers: authToken
       ? {
-          Authorization: `Bearer ${authToken.__raw}`,
-        }
+        Authorization: `Bearer ${authToken.__raw}`,
+      }
       : undefined,
   });
+
+  if (response.status != 200)
+    throw 'Error calling API';
 
   const contentType = response.headers.get('content-type');
   return (contentType && contentType.indexOf('application/json') > -1 ? response.json() : response) as T;
