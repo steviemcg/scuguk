@@ -110,9 +110,7 @@ const EventPage = ({ event, sponsors, speakers }: EventPageProps) => {
             </Col>
             {futureEvent && (
               <Col xs={12}>
-                <Box theme='green' heading='Attendance'>
-                  <EventAttendance eventId={event.eventId} />
-                </Box>
+                <EventAttendance eventId={event.eventId} />
               </Col>
             )}
           </Row>
