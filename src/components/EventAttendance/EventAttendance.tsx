@@ -107,7 +107,7 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
 
   return (
     <>
-      {registeredForEvent && onlineEventWithDetails && <EventOnlineDetails onlineDetails={eventItem.onlineDetails} />}
+      {registeredForEvent && onlineEventWithDetails && <EventOnlineDetails onlineDetails={eventItem.onlineDetails!} />}
       <Box theme='green' heading='Attendance'>
         <section className={styles.eventAttendance}>
           {isAuthenticated ? (
