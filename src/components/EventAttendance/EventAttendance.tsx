@@ -10,6 +10,7 @@ import { EventApiAttendance, EventApiItem } from '@/api.types';
 import ImageHideOnError from '../ImageHideOnError';
 import cn from 'classnames';
 import Box from '../Box';
+import Link from 'next/link';
 
 type EventAttendanceProps = Pick<EventContent, 'eventId'>;
 
@@ -69,6 +70,7 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
   const { isLoading: authIsLoading, isAuthenticated, getIdTokenClaims, loginWithPopup } = useAuth0();
   const [eventAttendance, setEventAttendance] = useState<EventApiAttendance | undefined>(undefined);
   const [eventItem, setEventItem] = useState<EventApiItem | undefined>(undefined);
+  const [error, setError] = useState<boolean>(false);
 
   const fetchAttendees = useCallback(async () => {
     const attendance = await fetchEventAttendance(eventId, await getIdTokenClaims());
@@ -82,8 +84,13 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
 
   const updateAttendance = useCallback(
     async (isAttending: boolean, isOnline: boolean) => {
-      await updateEventAttendance(eventId, isAttending, isOnline, await getIdTokenClaims());
-      fetchAttendees();
+      try {
+        await updateEventAttendance(eventId, isAttending, isOnline, await getIdTokenClaims());
+        fetchAttendees();
+        setError(false);
+      } catch {
+        setError(true);
+      }
     },
     [fetchAttendees, eventId, getIdTokenClaims]
   );
@@ -135,6 +142,15 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
                     I will not attend <ThumbsDownIcon />
                   </button>
                 </div>
+                {error && (
+                  <div className={styles.eventAttendance__error}>
+                    Due to an error we cannot update your attendance details at this time. To register your attendance,
+                    please{' '}
+                    <Link href='/contact'>
+                      <span>contact us</span> directly.
+                    </Link>
+                  </div>
+                )}
                 <EventAttendeesDetails
                   capacityIsLimited={eventItem.capacityIsLimited}
                   capacity={eventItem.capacity}
