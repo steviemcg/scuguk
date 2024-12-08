@@ -28,9 +28,14 @@ agenda:
     description: Arrival and networking
   - type: item
     time: '18:00'
-    description: Introduction and welcome
+    description: Introduction and welcome by Nick Towers, Remarkable Group CEO
   - type: talk
     time: '18:05'
+    speaker: robertmcgovern
+    title: "XM Cloud: An Implementor's Perspective"
+    description: A high-level look at some of our main learnings and takeaways from working on XM Cloud implementations over the last year or two.
+  - type: talk
+    time: '18:20'
     speaker: danvella
     title: 'Critical lessons learned from XM Cloud'
     descriptionHtml: >
@@ -40,15 +45,15 @@ agenda:
         <li>Proven strategies and methodologies to ensure successful XM Cloud deployments though Sitecore’s Best Practices.</li>
       </ul>
   - type: item
-    time: '18:50'
+    time: '19:15'
     description: Extended Q&A and discussion session - How to plan an XM Cloud implementation?
   - type: talk
-    time: '19:15'
+    time: '19:30'
     speaker: peterclisby
     title: 'Content Hub: Features for Marketers'
     description: Sitecore Content Hub is an enterprise product that delivers optimal value when used at scale. Peter will outline some of the features that enable marketers through the content life-cycle. Peter will share his own journey understanding the use case for DAM, CMP, and other Content Operations modules, exhibiting functionality which impressed someone whose Sitecore Developer eyes saw it as a fancy media library.
   - type: item
-    time: '20:00'
+    time: '20:15'
     description: Close
 meta:
   description: Join us for our first "Delivery Special" UK Sitecore User Group of 2024, hosted by Sagittarius.
