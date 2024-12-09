@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",
+    "@sentry/nextjs": "8",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.19",
     "@types/react": "19.0.1",
