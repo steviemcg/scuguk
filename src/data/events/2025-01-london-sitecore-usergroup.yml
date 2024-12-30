@@ -1,0 +1,44 @@
+eventId: 8e7d2e4a-6afc-422e-a47b-12c8dc129231
+title: London Sitecore User Group at Sitecore - January 2025
+excerpt: >
+  Join us for our first London UK Sitecore User Group of 2025.
+  Kindly hosted by Sitecore in their London Paddington office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for our first UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p>Kindly hosted by Sitecore in their London Paddington office, just a short walk from Paddington train station.</p>
+  <p>Peter Lapsopoulos, Sitecore's Global Senior Product Director of Platform DXP will be leading the evening with an informative roadmap session on the next 12-18 months of XM / XP / MC.</p>
+  <p>Currently, our remaining slots are yet to be determined. See below for a link on how to apply if you would be interested in speaking.</p>
+  <p><b><u>Note</u></b> that for security reasons you must RSVP for this event in advance to get in the door.</p>
+date: !!timestamp 2025-01-23 17:30:00+00:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: false
+talksTbc: true
+sponsors:
+  - sitecore
+venue:
+  name: Sitecore
+  address: 10 Eastbourne Terrace, London W2 6LG
+location: London
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: item
+    time: '18:00'
+    description: Introduction and welcome
+  - type: talk
+    time: '18:05'
+    speaker: peterkapsopoulos
+    title: Sitecore XM/XP/MC R&D roadmap
+    description: The XM/XP/MC R&D roadmap outlines Sitecore's strategic vision and key milestones for the upcoming 12-18 months. This roadmap session with Peter ensures alignment with Sitecore's overall product objectives and addresses their customers' evolving needs. In this talk, Peter will explore the vision for the Sitecore Experience Platform (XM/XP) and Managed Cloud (MC) services.
+  - type: tbd
+    time: '18:40'
+  - type: tbd
+    time: '19:15'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the first London Sitecore User Group of 2025 at Sitecore's office in Paddington.
