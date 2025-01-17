@@ -6,15 +6,15 @@ excerpt: >
 intro: >
   <p><strong>Join us for our first UK Sitecore Technical User Group meetup of 2025.</strong></p>
   <p>Kindly hosted by Sitecore in their London Paddington office, just a short walk from Paddington train station.</p>
-  <p>Peter Lapsopoulos, Sitecore's Global Senior Product Director of Platform DXP will be leading the evening with an informative roadmap session on the next 12-18 months of XM / XP / MC.</p>
-  <p>Currently, our remaining slots are yet to be determined. See below for a link on how to apply if you would be interested in speaking.</p>
+  <p>We have a great selection of talks on the XM/XP/MC R&D roadmap, migrating legacy infrastruture to the cloud, and unlocking the secrets of Content Hub. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>See below for the full agenda and to RSVP your place.</p>
   <p><b><u>Note</u></b> that for security reasons you must RSVP for this event in advance to get in the door.</p>
 date: !!timestamp 2025-01-23 17:30:00+00:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
 showEventImage: false
-talksTbc: true
+talksTbc: false
 sponsors:
   - sitecore
 venue:
