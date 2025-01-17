@@ -33,9 +33,15 @@ agenda:
     speaker: peterkapsopoulos
     title: Sitecore XM/XP/MC R&D roadmap
     description: The XM/XP/MC R&D roadmap outlines Sitecore's strategic vision and key milestones for the upcoming 12-18 months. This roadmap session with Peter ensures alignment with Sitecore's overall product objectives and addresses their customers' evolving needs. In this talk, Peter will explore the vision for the Sitecore Experience Platform (XM/XP) and Managed Cloud (MC) services.
-  - type: tbd
+  - type: talk
+    speaker: robertthomas
+    title: Transitioning from legacy infrastructure to cloud-native, headless solutions
+    description: In this talk, Robert will highlight how Netlify with Sitecore simplifies digital transformation by modernizing workflows. Robert will focus on transitioning from legacy infrastructure to cloud-native, headless solutions including build, test and deployment processes, while showcasing recent setups.
     time: '18:40'
-  - type: tbd
+  - type: talk
+    speaker: nickyvadera
+    title: Content Hub - Unlocking Content Hub Success
+    description: This session explores the implementation of Content Hub within a real-world customer project—a full Digital Experience Platform (DXP) transformation that also incorporated XM Cloud and Sitecore Search. Nicky will share how they approached the Content Hub implementation, the challenges they faced, and the key lessons they learned along the way.
     time: '19:15'
   - type: item
     time: '20:00'
