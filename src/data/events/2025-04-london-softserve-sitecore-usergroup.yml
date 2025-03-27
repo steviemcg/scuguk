@@ -5,7 +5,7 @@ excerpt: >
   Kindly hosted by SoftServe in their London Cannon St office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
 intro: >
   <p><strong>Join us for our second UK Sitecore Technical User Group meetup of 2025.</strong></p>
-  <p>Kindly hosted by Sitecore in their London Cannon St office.</p>
+  <p>Kindly hosted by SoftServe in their London Cannon St office.</p>
   <p>We have a great selection of talks on the learnings from SUGCON 2025 and AI in Sitecore. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
   <p>See below for the full agenda and to RSVP your place.</p>
   <p><b><u>Note</u></b> that for security reasons you must RSVP for this event in advance to get in the door.</p>
@@ -39,7 +39,7 @@ agenda:
     description: In this session Adam will talk about AI features available for Sitecore today and the future of AI for the platform. He will discuss some community modules which are available including showcasing S-3PO, his open-source Generative AI Module developed for Sitecore.
     time: '18:40'
   - type: talk
-    speaker: tbc
+    speaker: tbd
     title:
     description:
     time: '19:15'
