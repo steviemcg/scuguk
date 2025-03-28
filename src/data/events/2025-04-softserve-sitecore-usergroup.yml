@@ -38,10 +38,7 @@ agenda:
     title: Exploring AI in Sitecore
     description: In this session Adam will talk about AI features available for Sitecore today and the future of AI for the platform. He will discuss some community modules which are available including showcasing S-3PO, his open-source Generative AI Module developed for Sitecore.
     time: '18:40'
-  - type: talk
-    speaker: tbd
-    title:
-    description:
+  - type: tbd
     time: '19:15'
   - type: item
     time: '20:00'
