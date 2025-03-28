@@ -1,0 +1,47 @@
+eventId: c20f5c55-8c98-4e8d-8b5d-b19cd26c9ee8
+title: London Sitecore User Group at SoftServe
+excerpt: >
+  Join us for our second London UK Sitecore User Group of 2025.
+  Kindly hosted by SoftServe in their London Cannon St office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for our second UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p>Kindly hosted by SoftServe in their London Cannon St office.</p>
+  <p>We have a great selection of talks on the learnings from SUGCON 2025 and AI in Sitecore. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>See below for the full agenda and to RSVP your place.</p>
+  <p><b><u>Note</u></b> that for security reasons you must RSVP for this event in advance to get in the door.</p>
+date: !!timestamp 2025-04-30 17:30:00+00:00
+duration: 25
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: false
+talksTbc: true
+sponsors:
+  - softserve
+venue:
+  name: SoftServe
+  address: 30 Cannon St, City of London, London EC4 6XH
+location: London
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: item
+    time: '18:00'
+    description: Introduction and welcome
+  - type: talk
+    time: '18:05'
+    speaker: jeremydavis
+    title: Summarising SUGCON
+    description: Jeremy will be scribbling notes as fast as he can during interesting-looking sessions at SUGCON in Antwerp, so he can bring back his thoughts on what's new and what's interesting for Sitecore developers and users.
+  - type: talk
+    speaker: adamseabridge
+    title: Exploring AI in Sitecore
+    description: In this session Adam will talk about AI features available for Sitecore today and the future of AI for the platform. He will discuss some community modules which are available including showcasing S-3PO, his open-source Generative AI Module developed for Sitecore.
+    time: '18:40'
+  - type: tbd
+    time: '19:15'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the second London Sitecore User Group of 2025 at SoftServe's Cannon St office.
