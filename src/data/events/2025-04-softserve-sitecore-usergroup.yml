@@ -10,7 +10,7 @@ intro: >
   <p>See below for the full agenda and to RSVP your place.</p>
   <p><b><u>Note</u></b> For security reasons you must RSVP for this event in advance to get in the door.</p>
 date: !!timestamp 2025-04-30 17:30:00+00:00
-duration: 25
+duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
 showEventImage: false
