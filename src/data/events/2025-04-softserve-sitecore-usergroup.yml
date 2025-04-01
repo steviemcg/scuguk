@@ -9,7 +9,7 @@ intro: >
   <p>We have a great selection of talks on the learnings from SUGCON 2025 and AI in Sitecore as well as the latest features in Order Cloud. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by SoftServe.</p>
   <p>See below for the full agenda and to RSVP your place.</p>
   <p><b><u>Note</u></b> For security reasons you must RSVP for this event in advance to get in the door.</p>
-date: !!timestamp 2025-04-30 17:30:00+00:00
+date: !!timestamp 2025-04-30 17:30:00+01:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
