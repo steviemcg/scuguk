@@ -13,9 +13,9 @@ type SponsorsProps = {
 };
 
 export const getStaticProps: GetStaticProps<SponsorsProps> = async () => {
-  const orderedSponsors = (await getSponsorContent()).sort(
-    (a, b) => b.lastSponsorDate.getTime() - a.lastSponsorDate.getTime()
-  );
+  const orderedSponsors = (await getSponsorContent())
+    .filter((s) => !s.hideOnPage)
+    .sort((a, b) => b.lastSponsorDate.getTime() - a.lastSponsorDate.getTime());
 
   return {
     props: {

@@ -6,6 +6,7 @@ export type SponsorContent = {
   website: string;
   lastSponsorDate: Date;
   description: string;
+  hideOnPage?: boolean;
 };
 
 export type EventContent = {
