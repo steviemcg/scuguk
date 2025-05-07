@@ -1,0 +1,46 @@
+eventId: 7358fe93-7bcf-4810-9276-3841b221b75b
+title: London Sitecore User Group at Remarkable
+excerpt: >
+  Join us for our third London UK Sitecore User Group of 2025.
+  Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for our third UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
+  <p>We have a great selection of talks planned from AI code generation to managing assets with CI HUB. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Remarkable.</p>
+  <p>See below for the full agenda and to RSVP your place.</p>
+date: !!timestamp 2025-06-12 17:30:00+01:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: false
+talksTbc: true
+sponsors:
+  - remarkable
+venue:
+  name: Remarkable
+  address: Cosmopolitan House, 2 Phipp Street, London, EC2A 4BP
+location: London
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: item
+    time: '18:00'
+    description: Introduction and welcome
+  - type: talk
+    time: '18:05'
+    speaker: peterclisby
+    title: AI Code Generation for Sitecore JSS with Claude, MS Semantic Kernel & AI Foundry
+    description: Peter will explore Microsoft's Semantic Kernel framework for building AI Agents in C#, in conjunction with AI Foundry - a Microsoft toolset for building GenAI Applications. Showing how we can apply these technologies to Sitecore development using Claude 3.7 Sonnet as the AI model. Peter will exhibit how to build an AI agent capable of generating Sitecore JSS components and solutions, as well as some of the limitations or obstacles to overcome in future.
+  - type: talk
+    speaker: philarnold
+    title: Exploring CI HUB for Sitecore
+    description: In this session, Phil will show the time and cost savings achieved by giving users access to their digital assets directly where they need them. Whether they are stored in Content Hub, Cloud Storage or elsewhere, removing distractions and manual processes frees up your users to focus on creativity in both design and business applications. CI HUB also allows users to work in Content Hub directly in their desktop OS removing the need for a web browser.
+    time: '18:40'
+  - type: tbd
+    time: '19:15'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for the third London Sitecore User Group of 2025 at Remarkables's Shoreditch office.
