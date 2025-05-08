@@ -53,7 +53,13 @@ const generate = async () => {
         { name: 'prefers-reduced-motion', value: 'reduce' },
       ]);
 
-      await page.goto(`http://localhost:3000/events/${event}/ad`, { waitUntil: 'networkidle0' });
+      const eventUrl = `http://localhost:3000/events/${event}/ad`;
+
+      console.log('Navigating to ' + eventUrl);
+
+      await page.goto(eventUrl, { waitUntil: 'networkidle0' });
+
+      console.log('Navigated to ' + eventUrl);
 
       const screenshot = await page.screenshot({
         type: 'jpeg',
@@ -70,7 +76,7 @@ const generate = async () => {
 
       console.log('Saved screenshot for ' + event);
 
-      page.close();
+      await page.close();
       return true;
     })
   );
