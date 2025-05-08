@@ -9,6 +9,7 @@ const captureHeight = 569;
 const clipY = 29;
 const clipX = 40; // Accounts for container padding
 
+const eventHtmlFolder = './out/events';
 const eventsExportFolder = './out/events';
 const localChromePath = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe';
 
@@ -23,7 +24,7 @@ const generate = async () => {
     console.log('Started server on http://localhost:3000');
   });
 
-  const browserPath = process.env.CHROME_PATH ? process.env.CHROME_PATH : localChromePath;
+  const browserPath = process.env.CHROME_PATH || localChromePath;
   console.log('Loading browser from ' + browserPath);
 
   const browser = await puppeteer.launch({
@@ -38,49 +39,58 @@ const generate = async () => {
 
   console.log('Loaded browser');
 
-  const files = await fs.readdir(eventsExportFolder, { withFileTypes: true });
+  const files = await fs.readdir(eventHtmlFolder, { withFileTypes: true });
   const eventFiles = files.filter((f) => f.isFile() && f.name.endsWith('.html'));
 
-  await Promise.all(
-    eventFiles.map(async (file: Dirent) => {
-      const event = file.name.replace('.html', '');
+  const tasks = eventFiles.map((file: Dirent) => async () => {
+    const event = file.name.replace('.html', '');
+    console.log('Loading event ' + event);
 
-      console.log('Loading event ' + event);
+    const page = await browser.newPage();
+    await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
 
-      const page = await browser.newPage();
-      await page.emulateMediaFeatures([
-        // no need for any animations to be going
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ]);
+    const eventUrl = `http://localhost:3000/events/${event}/ad`;
 
-      const eventUrl = `http://localhost:3000/events/${event}/ad`;
+    console.log('Navigating to ' + eventUrl);
+    await page.goto(eventUrl, { waitUntil: 'networkidle0' });
+    console.log('Navigated to ' + eventUrl);
 
-      console.log('Navigating to ' + eventUrl);
+    const screenshot = await page.screenshot({
+      type: 'jpeg',
+      quality: 90,
+      clip: {
+        x: clipX,
+        y: clipY,
+        width: captureWidth,
+        height: captureHeight,
+      },
+    });
 
-      await page.goto(eventUrl, { waitUntil: 'networkidle0' });
+    await fs.writeFile(`${eventsExportFolder}/${event}-image.jpg`, screenshot as Buffer, 'binary');
 
-      console.log('Navigated to ' + eventUrl);
+    console.log('Saved screenshot for ' + event);
+    await page.close();
+  });
 
-      const screenshot = await page.screenshot({
-        type: 'jpeg',
-        quality: 90,
-        clip: {
-          x: clipX,
-          y: clipY,
-          width: captureWidth,
-          height: captureHeight,
-        },
+  // Run tasks with concurrency control
+  const runWithConcurrency = async (limit: number, tasks: (() => Promise<void>)[]) => {
+    const active: Promise<void>[] = [];
+
+    for (const task of tasks) {
+      const p = task().then(() => {
+        active.splice(active.indexOf(p), 1);
       });
+      active.push(p);
+      if (active.length >= limit) {
+        await Promise.race(active);
+      }
+    }
 
-      await fs.writeFile(`${eventsExportFolder}/${event}-image.jpg`, screenshot as Buffer, 'binary');
+    await Promise.all(active);
+  };
 
-      console.log('Saved screenshot for ' + event);
-
-      await page.close();
-      return true;
-    })
-  );
-
+  const concurrencyLimit = 3
+  await runWithConcurrency(concurrencyLimit, tasks);
   await browser.close();
 
   console.log('Closed browser');
