@@ -10,7 +10,7 @@ const clipY = 29;
 const clipX = 40; // Accounts for container padding
 
 const eventHtmlFolder = './out/events';
-const eventsExportFolder = './out/events';
+const eventsExportFolder = './public/events';
 const localChromePath = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe';
 
 const server = http.createServer((request, response) => {
