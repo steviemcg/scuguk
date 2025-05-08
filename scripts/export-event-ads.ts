@@ -89,7 +89,7 @@ const generate = async () => {
     await Promise.all(active);
   };
 
-  const concurrencyLimit = 3
+  const concurrencyLimit = 1;
   await runWithConcurrency(concurrencyLimit, tasks);
   await browser.close();
 
