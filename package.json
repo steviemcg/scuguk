@@ -21,7 +21,7 @@
     "prebuild:sponsors": "copyfiles -f \"./src/data/sponsors/*.+(png|svg)\" ./public/data/sponsors",
     "prebuild:speakers": "copyfiles -f \"./src/data/speakers/*.+(webp|jpg|png)\" ./public/data/speakers",
     "prebuild:events": "copyfiles -f \"./src/data/events/*.+(jpg)\" ./public/data/events",
-    "postexport": "ts-node ./scripts/export-event-ads.ts"
+    "events": "ts-node ./scripts/export-event-ads.ts"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",

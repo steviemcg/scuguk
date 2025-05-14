@@ -4,7 +4,7 @@ Now with NextJS!
 
 ## Wishlist
 
-Add something here if you want it worked on!
+- Add support for dietary requirements when booking attendance
 
 ## Getting Started
 
