@@ -33,6 +33,9 @@ agenda:
     speaker: jeremydavis
     title: Summarising SUGCON
     description: Jeremy will be scribbling notes as fast as he can during interesting-looking sessions at SUGCON in Antwerp, so he can bring back his thoughts on what's new and what's interesting for Sitecore developers and users.
+    links:
+      - text: Slides
+        url: /files/jeremydavis-2025-04-slides.pdf
   - type: talk
     speaker: adamseabridge
     title: Exploring AI in Sitecore
@@ -43,6 +46,9 @@ agenda:
     title: Transcendent Commerce with Sitecore
     description: 'Gabriel will give an update on the latest features and resources available on OrderCloud, the only true "transcendent commerce" SaaS platform designed to integrate suppliers and buyers, with state-of-the art headless architecture. Bonus: how to build striking commerce experiences with XMC, Content Hub, Search and Commerce.'
     time: '19:15'
+    links:
+      - text: Slides
+        url: /files/gabrielzamprogna-2025-04-slides.pdf
   - type: item
     time: '20:00'
     description: Close

@@ -37,7 +37,10 @@ agenda:
     title: Streamlining Content Hub assets with CI HUB
     description: In this session, Phil will show the time and cost savings achieved by giving users access to their digital assets directly where they need them. Whether they are stored in Content Hub, Cloud Storage or elsewhere, removing distractions and manual processes frees up your users to focus on creativity in both design and business applications. CI HUB also allows users to work in Content Hub directly in their desktop OS removing the need for a web browser.
     time: '18:40'
-  - type: tbd
+  - type: talk
+    speaker: nickallen
+    title: Exploring the Sitecore Content SDK for XM Cloud
+    description: Join Nick for a hands-on walkthrough of Sitecore's new Content SDK for XM Cloud. This session will contrast the developer experience, architecture, and integration model of the new SDK with previous approaches, offering practical insights into how the SDK streamlines content access, reduces boilerplate, and supports GraphQL-first development workflows. Nick willl highlight the biggest mindset shifts, demo a basic integration, and discuss what this means for your next Sitecore headless build.
     time: '19:15'
   - type: item
     time: '20:00'
