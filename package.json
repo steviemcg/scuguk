@@ -33,7 +33,7 @@
     "date-fns-tz": "^2.0.0",
     "eslint": "8.33.0",
     "eslint-config-next": "^13.5.4",
-    "next": "^13.5.4",
+    "next": "^14.2.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "4.9.5"
