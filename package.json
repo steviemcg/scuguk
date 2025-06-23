@@ -25,17 +25,18 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",
+    "@sentry/nextjs": "8",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.19",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
     "eslint": "8.33.0",
-    "eslint-config-next": "^13.5.4",
-    "next": "^13.5.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "eslint-config-next": "15.0.4",
+    "next": "15.0.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "typescript": "4.9.5"
   },
   "devDependencies": {
@@ -49,10 +50,15 @@
     "markdown-to-jsx": "^7.1.9",
     "prettier": "^2.8.3",
     "puppeteer-core": "~7.0.0",
-    "reactstrap": "^9.1.5",
+    "reactstrap": "^9.2.3",
     "sass": "^1.58.0",
     "serve-handler": "^6.1.5",
     "ts-node": "^10.9.1",
     "yaml": "^2.2.2"
+  },
+  "resolutions": {
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2",
+    "@babel/runtime": "^7.24.6"
   }
 }
