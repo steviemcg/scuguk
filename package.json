@@ -46,7 +46,7 @@
     "classnames": "^2.3.2",
     "concurrently": "^8.2.0",
     "copyfiles": "^2.4.1",
-    "markdown-to-jsx": "^7.1.9",
+    "markdown-to-jsx": "^7.4.0",
     "prettier": "^2.8.3",
     "puppeteer-core": "~7.0.0",
     "reactstrap": "^9.1.5",
