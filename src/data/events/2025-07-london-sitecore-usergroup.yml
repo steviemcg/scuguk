@@ -1,0 +1,41 @@
+eventId: ff230cf0-4f03-4121-9890-6d1bca44ab0b
+title: London Sitecore User Group at Sitecore - July 2025
+excerpt: >
+  Join us for our summer London UK Sitecore User Group of 2025.
+  Kindly hosted by Sitecore in their London Paddington office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for our summer UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p>Kindly hosted by Sitecore in their London Paddington office, just a short walk from Paddington train station.</p>
+  <p>Our feature talk will be on the latest Sitecore roadmap update - with further talks to be scheduled. See the link below if you're interested in speaking. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>Note - this session is starting a little later than our usual time, in order to allow any attendees of the <a href="https://engage.sitecore.com/summer-session-24-July">Sitecore + XCentium Summer Session</a> to join! Not signed up yet? See the link for the form to register for this free session.</p>
+  <p><b><u>Note</u></b> that for security reasons you must RSVP for this event in advance to get in the door.</p>
+date: !!timestamp 2025-07-24 17:45:00+01:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: false
+talksTbc: true
+sponsors:
+  - sitecore
+venue:
+  name: Sitecore
+  address: 10 Eastbourne Terrace, London W2 6LG
+location: London
+agenda:
+  - type: item
+    time: '17:45'
+    description: Arrival and networking
+  - type: talk
+    time: '18:15'
+    speaker: chrispurcell
+    title: Sitecore mid-2025 roadmap update
+    description: Join Chris to get an update on Sitecore's newest capabilities and innovations across products - created to help marketers and development teams move faster, scale effortlessly, and deliver more relevant, personalized digital experiences.
+  - type: talktbd
+    time: '18:45'
+  - type: tbd
+    time: '19:30'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for our summer London Sitecore User Group of 2025 at Sitecore's office in Paddington.
