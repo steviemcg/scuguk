@@ -1,6 +1,7 @@
 import chromium from 'chrome-aws-lambda';
 import puppeteer from 'puppeteer-core';
 import { Dirent, promises as fs } from 'fs';
+import fsSync from 'fs';
 import handler from 'serve-handler';
 import http from 'http';
 
@@ -44,6 +45,13 @@ const generate = async () => {
 
   const tasks = eventFiles.map((file: Dirent) => async () => {
     const event = file.name.replace('.html', '');
+    const filename = `${eventsExportFolder}/${event}-image.jpg`;
+
+    if (fsSync.existsSync(filename)) {
+      console.log('Skipping existing file ' + filename);
+      return;
+    }
+
     console.log('Loading event ' + event);
 
     const page = await browser.newPage();
@@ -66,7 +74,7 @@ const generate = async () => {
       },
     });
 
-    await fs.writeFile(`${eventsExportFolder}/${event}-image.jpg`, screenshot as Buffer, 'binary');
+    await fs.writeFile(filename, screenshot as Buffer, 'binary');
 
     console.log('Saved screenshot for ' + event);
     await page.close();

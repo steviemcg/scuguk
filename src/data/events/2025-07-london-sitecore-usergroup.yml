@@ -28,12 +28,21 @@ agenda:
   - type: talk
     time: '18:15'
     speaker: chrispurcell
-    title: Sitecore mid-2025 roadmap update
+    title: Sitecore mid-2025 Roadmap update
     description: Join Chris to get an update on Sitecore's newest capabilities and innovations across products - created to help marketers and development teams move faster, scale effortlessly, and deliver more relevant, personalized digital experiences.
-  - type: tbd
+  - type: item
     time: '18:45'
-  - type: tbd
+    description: Break
+  - type: talk
+    time: '19:00'
+    speaker: haraldgreve
+    title: Implementing JSON-LD in Sitecore XP for SEO and Smarter Search
+    description: Join Harald for a walkthrough of how Macmillan developers have implemented schema.org markup across their content, and why this is so important for SEO. Harald will then delve further into how this schema.org markup is now helping them to develop contextual, semantic search with NLWeb, by providing structure to unstructured content.
+  - type: talk
     time: '19:30'
+    speaker: jamesmcsweeney
+    title: Backup and Restore Sitecore using Guided Automation
+    description: James will present a custom built desktop application used at Macmillan designed to streamline the Sitecore installation process for developers, reducing setup time from days/weeks to hours through guided automation that minimizes complexity and errors.
   - type: item
     time: '20:00'
     description: Close
