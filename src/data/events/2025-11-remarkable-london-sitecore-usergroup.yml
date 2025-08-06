@@ -8,7 +8,7 @@ intro: >
   <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
   <p>We're still busy scheduling the talks for this event which will be sure to include news and insights from Sitecore Symposium 2025. If you're interested in giving a talk please use the link below to get in touch! Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
   <p>See below for the full agenda and to RSVP your place.</p>
-date: !!timestamp 2025-11-11 17:30:00+01:00
+date: !!timestamp 2025-11-11 17:30:00+00:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
