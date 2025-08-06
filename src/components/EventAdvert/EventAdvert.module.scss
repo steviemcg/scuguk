@@ -15,8 +15,8 @@
   }
 
   &__sponsorImage {
-    max-width: 250px;
-    max-height: 50px;
+    max-width: 300px;
+    max-height: 75px;
   }
 
   &__talks {
@@ -24,6 +24,10 @@
     flex-direction: row;
     justify-content: center;
     column-gap: 0rem;
+
+    &--empty {
+      margin-bottom: 140px;
+    }
   }
 
   &__entry {
@@ -65,6 +69,10 @@
     font-size: 40px;
     font-weight: bold;
     margin: 30px 0 0;
+
+    &--no-talks {
+      margin: 159px 0 0;
+    }
   }
 
   &__date {
