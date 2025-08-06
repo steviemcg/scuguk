@@ -1,0 +1,40 @@
+eventId: 7d983a8d-7552-4a5b-a1f3-4ea6b9aec1b4
+title: London Sitecore User Group at Sitecore - November 2025
+excerpt: >
+  Join us for our post-Symposium London UK Sitecore User Group of 2025.
+  Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
+intro: >
+  <p><strong>Join us for our post-Symposium UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
+  <p>We're still busy scheduling the talks for this event which will be sure to include news and insights from Sitecore Symposium 2025. If you're interested in giving a talk please use the link below to get in touch! Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>See below for the full agenda and to RSVP your place.</p>
+date: !!timestamp 2025-11-11 17:30:00+01:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: false
+talksTbc: true
+sponsors:
+  - remarkable
+venue:
+  name: Remarkable
+  address: Cosmopolitan House, 2 Phipp Street, London, EC2A 4BP
+location: London
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: tbd
+    time: '18:00'
+  - type: item
+    time: '18:30'
+    description: Break
+  - type: tbd
+    time: '18:45'
+  - type: tbd
+    time: '19:15'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: Join us for our end of summer London Sitecore User Group of 2025 at Sitecore's office in Paddington.

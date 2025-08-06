@@ -49,6 +49,7 @@ type EventAdvertProps = {
 const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
   const date = new Date(event.dateTimestamp);
   const [sponsor] = sponsors;
+  const noTalks = event.agenda.filter(isTalk).length === 0;
 
   return (
     <Container>
@@ -66,10 +67,12 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
                 />
               )}
             </div>
-            <section className={styles.eventAdvert__city}>{event.location}</section>
+            <section className={cn(styles.eventAdvert__city, { [styles[`eventAdvert__city--no-talks`]]: noTalks })}>
+              {event.location}
+            </section>
             <section className={styles.eventAdvert__date}>{formatDate(date, 'MMMM do, h:mmaaa')}</section>
             <section className={styles.eventAdvert__address}>{event.venue.address}</section>
-            <section className={styles.eventAdvert__talks}>
+            <section className={cn(styles.eventAdvert__talks, { [styles[`eventAdvert__talks--empty`]]: noTalks })}>
               {event.agenda.filter(isTalk).map((agendaItem, i) => (
                 <EventAdvertTalk
                   key={i}
