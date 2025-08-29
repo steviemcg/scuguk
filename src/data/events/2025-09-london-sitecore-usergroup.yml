@@ -6,14 +6,14 @@ excerpt: >
 intro: >
   <p><strong>Join us for our end of summer UK Sitecore Technical User Group meetup of 2025.</strong></p>
   <p>Kindly hosted by Sitecore in their London Paddington office, just a short walk from Paddington train station.</p>
-  <p>We're still busy scheduling the talks for this event. If you're interested in giving a talk please use the link below to get in touch! Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>For this event we're featuring an extended double-bill of speakers direct from Sitecore. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
   <p><b><u>Note</u></b> that for security reasons you must RSVP for this event in advance to get in the door.</p>
 date: !!timestamp 2025-09-11 17:30:00+01:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
 showEventImage: false
-talksTbc: true
+talksTbc: false
 sponsors:
   - sitecore
 venue:
@@ -24,15 +24,19 @@ agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: tbd
+  - type: talk
     time: '18:00'
+    speaker: suryashanmugam
+    title: Building content for the age of AI-powered searches
+    description: AI-powered discovery tools like ChatGPT, Perplexity, and Google’s AI Overviews are rewriting the rules of search. Visibility is no longer just about keyword density, it’s about being understood and reused by large language models and AI bots. During this session we'll explore how we should be adopting content strategies for an AI-first landscape, and how Sitecore can support AI-ready content delivery.
   - type: item
-    time: '18:30'
-    description: Break
-  - type: tbd
     time: '18:45'
-  - type: tbd
-    time: '19:15'
+    description: Break
+  - type: talk
+    time: '19:00'
+    speaker: seancarter
+    title: XP to XM Cloud migration strategies
+    description: Migrating from Sitecore XP to XM Cloud is more than a technical upgrade but a business transformation. The shift from a monolithic, on-premises platform to a SaaS-based, headless, and composable model changes how organizations build, deliver, and govern digital experiences. In this session, we’ll break down the differences between XP and XM Cloud and outline migration approaches.
   - type: item
     time: '20:00'
     description: Close
