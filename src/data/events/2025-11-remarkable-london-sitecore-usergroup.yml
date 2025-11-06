@@ -4,16 +4,17 @@ excerpt: >
   Join us for our post-Symposium London UK Sitecore User Group of 2025.
   Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
 intro: >
-  <p><strong>Join us for our post-Symposium UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p class="alert alert-warning">This event was previously scheduled for November 11th and was moved due to scheduling conflicts.</p>
+  <p><strong>Join us for our final UK Sitecore Technical User Group meetup of 2025.</strong></p>
   <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
-  <p>We're still busy scheduling the talks for this event which will be sure to include news and insights from Sitecore Symposium 2025. If you're interested in giving a talk please use the link below to get in touch! Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>We'll be kicking off with a talk from Robert McGovern of Remarkable, and then after a short-break we'll get into a panel focusing on the latest updates from Sitecore Symposium 2025. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
   <p>See below for the full agenda and to RSVP your place.</p>
 date: !!timestamp 2025-11-11 17:30:00+00:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
 showEventImage: false
-talksTbc: true
+talksTbc: false
 sponsors:
   - remarkable
 venue:
@@ -24,15 +25,30 @@ agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: tbd
+  - type: talk
     time: '18:00'
+    speaker: robertmcgovern
+    title: Real-world insights with Sitecore AI
+    descriptionHtml: >
+      <p>Get real-world insights into how Sitecore Stream and Sitecore's AI features can revolutionise the five stages of the content lifecycle from briefing and content planning via Content Hub Operations, to content management with Content Hub DAM, to content creation in XM Cloud, to A/B testing and personalization.</p>
+      <ul>
+      <li>Creating a Brand Kit in Sitecore Stream – Understanding Brand Kits, brand knowledge, and guidelines for uploading brand documents.</li>
+        <li>Content Creation in Content Hub Ops - How Sitecore Stream and Sitecore’s AI features can be used to brief and plan with the content team as well as Brainstorming long form content and even content generation.</li>
+        <li>Content Management in Content Hub DAM - How Sitecore Stream and Sitecore’s AI features can help with content management and tagging etc. using the visual search and grounded image tagging features.</li>
+        <li>Content Optimisation in XM Cloud - How Sitecore Stream can help with content creation and optimisation for a campaign page in XM Cloud.</li>
+        <li>A/B Testing - How Sitecore Stream can streamline A/B Testing in XM Cloud.</li>
+        <li>Personalisation - How Sitecore Stream can assist with personalisation in XM Cloud.</li>
+      </ul>
+    description:
   - type: item
     time: '18:30'
     description: Break
-  - type: tbd
+  - type: talk
     time: '18:45'
-  - type: tbd
-    time: '19:15'
+    title: Sitecore Panel - Straight from Symposium
+    descriptionHtml: >
+      <p>Couldn’t make it to Symposium this year? We’re bringing the highlights to you! Hear directly from Sitecore insiders as they unpack the biggest announcements, new features, and key takeaways from the event.</p>
+      <p>Come ready with your questions — this is your chance to get answers and insights from those at the heart of the platform.</p>
   - type: item
     time: '20:00'
     description: Close
