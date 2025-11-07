@@ -4,16 +4,17 @@ excerpt: >
   Join us for our post-Symposium London UK Sitecore User Group of 2025.
   Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
 intro: >
-  <p><strong>Join us for our post-Symposium UK Sitecore Technical User Group meetup of 2025.</strong></p>
+  <p class="alert alert-warning">This event was previously scheduled for November 11th and was moved due to scheduling conflicts.</p>
+  <p><strong>Join us for our final UK Sitecore Technical User Group meetup of 2025.</strong></p>
   <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
-  <p>We're still busy scheduling the talks for this event which will be sure to include news and insights from Sitecore Symposium 2025. If you're interested in giving a talk please use the link below to get in touch! Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>We'll be kicking off with a talk from Robert McGovern of Remarkable, and then after a short-break we'll get into a panel focusing on the latest updates from Sitecore Symposium 2025. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
   <p>See below for the full agenda and to RSVP your place.</p>
-date: !!timestamp 2025-11-11 17:30:00+00:00
+date: !!timestamp 2025-11-25 17:30:00+00:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
 showEventImage: false
-talksTbc: true
+talksTbc: false
 sponsors:
   - remarkable
 venue:
@@ -24,15 +25,22 @@ agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: tbd
+  - type: talk
     time: '18:00'
+    speaker: robertmcgovern
+    title: Real-world insights with SitecoreAI
+    description: Get real-world insights into how Sitecore's AI features can streamline the five stages of the content lifecycle from briefing and content planning, to asset management, content creation, A/B testing and personalisation, taking into account the launch of SitecoreAI.
   - type: item
     time: '18:30'
     description: Break
-  - type: tbd
+  - type: talk
     time: '18:45'
-  - type: tbd
-    time: '19:15'
+    speaker: kellymasters
+    title: 'Sitecore Panel: Straight from Symposium'
+    descriptionHtml: >
+      <p>Hear from a panel of Sitecore leaders about all the exciting features of SitcoreAI and how Agentic Studio and the Custom SaaS architecture empowers marketers and developers like no other DXP - SaaS without sacrifice.</p>
+      <p>Our esteemed panel will discuss all the new features and reveal some of the future features previewed at Symposium followed by a Q&A session - so have your burning questions ready!</p>
+      <p>Kelly Masters will be joined by Ruadhán Barry, VP of Product Management at Sitecore for this exclusive panel.</p>
   - type: item
     time: '20:00'
     description: Close
