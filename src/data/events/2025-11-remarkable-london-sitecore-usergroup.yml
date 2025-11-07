@@ -9,7 +9,7 @@ intro: >
   <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
   <p>We'll be kicking off with a talk from Robert McGovern of Remarkable, and then after a short-break we'll get into a panel focusing on the latest updates from Sitecore Symposium 2025. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
   <p>See below for the full agenda and to RSVP your place.</p>
-date: !!timestamp 2025-11-11 17:30:00+00:00
+date: !!timestamp 2025-11-25 17:30:00+00:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
@@ -28,27 +28,19 @@ agenda:
   - type: talk
     time: '18:00'
     speaker: robertmcgovern
-    title: Real-world insights with Sitecore AI
-    descriptionHtml: >
-      <p>Get real-world insights into how Sitecore Stream and Sitecore's AI features can revolutionise the five stages of the content lifecycle from briefing and content planning via Content Hub Operations, to content management with Content Hub DAM, to content creation in XM Cloud, to A/B testing and personalization.</p>
-      <ul>
-      <li>Creating a Brand Kit in Sitecore Stream – Understanding Brand Kits, brand knowledge, and guidelines for uploading brand documents.</li>
-        <li>Content Creation in Content Hub Ops - How Sitecore Stream and Sitecore’s AI features can be used to brief and plan with the content team as well as Brainstorming long form content and even content generation.</li>
-        <li>Content Management in Content Hub DAM - How Sitecore Stream and Sitecore’s AI features can help with content management and tagging etc. using the visual search and grounded image tagging features.</li>
-        <li>Content Optimisation in XM Cloud - How Sitecore Stream can help with content creation and optimisation for a campaign page in XM Cloud.</li>
-        <li>A/B Testing - How Sitecore Stream can streamline A/B Testing in XM Cloud.</li>
-        <li>Personalisation - How Sitecore Stream can assist with personalisation in XM Cloud.</li>
-      </ul>
-    description:
+    title: Real-world insights with SitecoreAI
+    description: Get real-world insights into how Sitecore's AI features can streamline the five stages of the content lifecycle from briefing and content planning, to asset management, content creation, A/B testing and personalisation, taking into account the launch of SitecoreAI.
   - type: item
     time: '18:30'
     description: Break
   - type: talk
     time: '18:45'
-    title: Sitecore Panel - Straight from Symposium
+    speaker: kellymasters
+    title: 'Sitecore Panel: Straight from Symposium'
     descriptionHtml: >
-      <p>Couldn’t make it to Symposium this year? We’re bringing the highlights to you! Hear directly from Sitecore insiders as they unpack the biggest announcements, new features, and key takeaways from the event.</p>
-      <p>Come ready with your questions — this is your chance to get answers and insights from those at the heart of the platform.</p>
+      <p>Hear from a panel of Sitecore leaders about all the exciting features of SitcoreAI and how Agentic Studio and the Custom SaaS architecture empowers marketers and developers like no other DXP - SaaS without sacrifice.</p>
+      <p>Our esteemed panel will discuss all the new features and reveal some of the future features previewed at Symposium followed by a Q&A session - so have your burning questions ready!</p>
+      <p>Kelly Masters will be joined by Ruadhán Barry, VP of Product Management at Sitecore for this exclusive panel.</p>
   - type: item
     time: '20:00'
     description: Close
