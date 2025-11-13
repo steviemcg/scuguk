@@ -35,12 +35,13 @@ agenda:
     description: Break
   - type: talk
     time: '18:45'
-    speaker: kellymasters
+    speakers:
+      - jacquelinebaxter
+      - ruadhanbarry
     title: 'Sitecore Panel: Straight from Symposium'
     descriptionHtml: >
       <p>Hear from a panel of Sitecore leaders about all the exciting features of SitcoreAI and how Agentic Studio and the Custom SaaS architecture empowers marketers and developers like no other DXP - SaaS without sacrifice.</p>
       <p>Our esteemed panel will discuss all the new features and reveal some of the future features previewed at Symposium followed by a Q&A session - so have your burning questions ready!</p>
-      <p>Kelly Masters will be joined by Ruadhán Barry, VP of Product Management at Sitecore for this exclusive panel.</p>
   - type: item
     time: '20:00'
     description: Close

@@ -16,22 +16,35 @@
 
   &__sponsorImage {
     max-width: 300px;
-    max-height: 75px;
+    max-height: 50px;
   }
 
   &__talks {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    column-gap: 0rem;
+    column-gap: 10px;
+    height: 270px;
 
     &--empty {
       margin-bottom: 140px;
     }
   }
 
-  &__entry {
-    flex-basis: 33%;
+  &__talk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__speakers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   &__speaker {
@@ -40,6 +53,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    width: 200px;
   }
 
   &__profileImage {
@@ -62,6 +78,7 @@
   &__speakerTitle {
     font-weight: bold;
     font-size: 16px;
+    max-width: 300px;
   }
 
   &__city {

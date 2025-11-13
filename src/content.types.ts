@@ -38,6 +38,7 @@ export type EventAgendaTalk = {
   type: 'talk';
   time: string;
   speaker?: string;
+  speakers?: string[];
   title: string;
   description?: string;
   descriptionHtml?: string;

@@ -16,23 +16,31 @@ import SitecoreUGLogo from './logo.svg';
 import DefaultProfileImage from './default-profile.svg';
 import cn from 'classnames';
 
-type EventAdvertTalkProps = Omit<EventAgendaTalkData, 'speaker'> & { speaker?: SpeakerContent };
+type EventAdvertTalkProps = Omit<EventAgendaTalkData, 'speaker' | 'speakers'> & { speakers?: SpeakerContent[] };
 
-const EventAdvertTalk = ({ title, speaker }: EventAdvertTalkProps) => (
+const EventAdvertTalk = ({ title, speakers }: EventAdvertTalkProps) => (
   <div className={styles.eventAdvert__entry}>
-    <div className={styles.eventAdvert__speaker}>
-      {speaker && speaker.image ? (
-        <Image
-          className={styles.eventAdvert__profileImage}
-          src={`/data/speakers/${speaker.image}`}
-          width='180'
-          height='180'
-          alt={`Profile photo of ${speaker.name}`}
-        />
-      ) : (
-        <DefaultProfileImage className={styles.eventAdvert__profileImage} />
+    <div className={styles.eventAdvert__talk}>
+      {speakers && speakers.length > 0 && (
+        <div className={styles.eventAdvert__speakers}>
+          {speakers.map((speaker) => (
+            <div key={speaker.name} className={styles.eventAdvert__speaker}>
+              {speaker.image ? (
+                <Image
+                  className={styles.eventAdvert__profileImage}
+                  src={`/data/speakers/${speaker.image}`}
+                  width='180'
+                  height='180'
+                  alt={`Profile photo of ${speaker.name}`}
+                />
+              ) : (
+                <DefaultProfileImage className={styles.eventAdvert__profileImage} />
+              )}
+              <span className={styles.eventAdvert__speakerName}>{speaker && speaker.name}</span>
+            </div>
+          ))}
+        </div>
       )}
-      <span className={styles.eventAdvert__speakerName}>{speaker && speaker.name}</span>
       <span className={styles.eventAdvert__speakerTitle}>{title}</span>
     </div>
   </div>
@@ -77,7 +85,9 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
                 <EventAdvertTalk
                   key={i}
                   {...agendaItem}
-                  speaker={agendaItem.speaker ? speakers[agendaItem.speaker] : undefined}
+                  speakers={(agendaItem.speakers ?? [agendaItem.speaker])
+                    .filter((speaker) => speaker !== undefined)
+                    .map((speaker) => speakers[speaker!])}
                 />
               ))}
             </section>
