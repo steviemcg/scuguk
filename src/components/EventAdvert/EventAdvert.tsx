@@ -24,7 +24,7 @@ const EventAdvertTalk = ({ title, speakers }: EventAdvertTalkProps) => (
       {speakers && speakers.length > 0 && (
         <div className={styles.eventAdvert__speakers}>
           {speakers.map((speaker) => (
-            <div className={styles.eventAdvert__speaker}>
+            <div key={speaker.name} className={styles.eventAdvert__speaker}>
               {speaker.image ? (
                 <Image
                   className={styles.eventAdvert__profileImage}
@@ -87,7 +87,7 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
                   {...agendaItem}
                   speakers={(agendaItem.speakers ?? [agendaItem.speaker])
                     .filter((speaker) => speaker !== undefined)
-                    .map((speaker) => speakers[speaker])}
+                    .map((speaker) => speakers[speaker!])}
                 />
               ))}
             </section>

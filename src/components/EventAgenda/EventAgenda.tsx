@@ -45,7 +45,7 @@ const EventAgendaTalk = ({
       {speakers && speakers.length > 0 && (
         <div className={styles.eventAgenda__speakers}>
           {speakers.map((speaker) => (
-            <div className={styles.eventAgenda__speaker}>
+            <div key={speaker.name} className={styles.eventAgenda__speaker}>
               {speaker.image ? (
                 <Image
                   className={styles.eventAgenda__profileImage}
@@ -132,7 +132,7 @@ const EventAgenda = ({ event: { agenda }, speakers }: EventAgendaProps) => (
             {...agendaItem}
             speakers={(agendaItem.speakers ?? [agendaItem.speaker])
               .filter((speaker) => speaker !== undefined)
-              .map((speaker) => speakers[speaker])}
+              .map((speaker) => speakers[speaker!])}
           />
         );
       }
