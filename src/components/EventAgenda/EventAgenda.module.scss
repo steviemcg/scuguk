@@ -46,6 +46,12 @@
     }
   }
 
+  &__speakers {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
   &__speaker {
     display: flex;
     column-gap: 1rem;
