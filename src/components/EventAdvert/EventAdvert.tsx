@@ -56,7 +56,6 @@ type EventAdvertProps = {
 
 const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
   const date = new Date(event.dateTimestamp);
-  const [sponsor] = sponsors;
   const noTalks = event.agenda.filter(isTalk).length === 0;
 
   return (
@@ -67,13 +66,9 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
             <div className={styles.eventAdvert__imagesBar}>
               <SitecoreUGLogo className={styles.eventAdvert__logo} />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {sponsor && (
-                <img
-                  className={styles.eventAdvert__sponsorImage}
-                  src={`/data/sponsors/${sponsor.image}`}
-                  alt={sponsor.title}
-                />
-              )}
+              {sponsors.map(({ image, title }) => (
+                <img className={styles.eventAdvert__sponsorImage} src={`/data/sponsors/${image}`} alt={title} />
+              ))}
             </div>
             <section className={cn(styles.eventAdvert__city, { [styles[`eventAdvert__city--no-talks`]]: noTalks })}>
               {event.location}
