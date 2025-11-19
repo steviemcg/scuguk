@@ -67,7 +67,12 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
               <SitecoreUGLogo className={styles.eventAdvert__logo} />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               {sponsors.map(({ image, title }) => (
-                <img className={styles.eventAdvert__sponsorImage} src={`/data/sponsors/${image}`} alt={title} />
+                <img
+                  key={title}
+                  className={styles.eventAdvert__sponsorImage}
+                  src={`/data/sponsors/${image}`}
+                  alt={title}
+                />
               ))}
             </div>
             <section className={cn(styles.eventAdvert__city, { [styles[`eventAdvert__city--no-talks`]]: noTalks })}>

@@ -15,7 +15,7 @@ const EventSponsors = ({ sponsors, small }: EventSponsorsProps) => {
     >
       <span>sponsored by</span>
       {sponsors.map(({ title, website, image }) => (
-        <div className={styles.eventSponsors__imageWrapper}>
+        <div key={title} className={styles.eventSponsors__imageWrapper}>
           <Link href={website} target='_blank' rel='noreferrer'>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`/data/sponsors/${image}`} alt={title} />
