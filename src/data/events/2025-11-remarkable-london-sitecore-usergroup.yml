@@ -4,10 +4,9 @@ excerpt: >
   Join us for our post-Symposium London UK Sitecore User Group of 2025.
   Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
 intro: >
-  <p class="alert alert-warning">This event was previously scheduled for November 11th and was moved due to scheduling conflicts.</p>
   <p><strong>Join us for our final UK Sitecore Technical User Group meetup of 2025.</strong></p>
-  <p>Kindly hosted by Remarkable in their London Shoreditch office.</p>
-  <p>We'll be kicking off with a talk from Robert McGovern of Remarkable, and then after a short-break we'll get into a panel focusing on the latest updates from Sitecore Symposium 2025. Of course, there will also be time to catch-up with fellow members of the community along with food and refreshments, provided by Sitecore.</p>
+  <p>Kindly hosted by <a href="https://remarkable.global" target="_blank" rel="noreferer nofollow">Remarkable</a> in their London Shoreditch office, with <a href="https://vercel.com" target="_blank" rel="noreferer nofollow">Vercel</a> providing refreshments.</p>
+  <p>We'll be kicking off with a talk from Robert McGovern of Remarkable, and then after a short-break we'll get into a panel focusing on the latest updates from Sitecore Symposium 2025. Bring your questions!</p>
   <p>See below for the full agenda and to RSVP your place.</p>
 date: !!timestamp 2025-11-25 17:30:00+00:00
 duration: 150
@@ -17,6 +16,7 @@ showEventImage: false
 talksTbc: false
 sponsors:
   - remarkable
+  - vercel
 venue:
   name: Remarkable
   address: Cosmopolitan House, 2 Phipp Street, London, EC2A 4BP
