@@ -1,7 +1,7 @@
 eventId: 7d983a8d-7552-4a5b-a1f3-4ea6b9aec1b4
 title: London Sitecore User Group at Sitecore - November 2025
 excerpt: >
-  Join us for our post-Symposium London UK Sitecore User Group of 2025.
+  Join us for our final UK Sitecore Technical User Group meetup of 2025.
   Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
 intro: >
   <p><strong>Join us for our final UK Sitecore Technical User Group meetup of 2025.</strong></p>
@@ -33,8 +33,13 @@ agenda:
   - type: item
     time: '18:30'
     description: Break
+  - item: talk
+    time: '18:40'
+    title: 'Sitecore Quiz'
+    descriptionHtml: >
+      <p>Adam & Alex will host an interactive Slido quiz to test your Sitecore knowledge, the winner will take home some exclusive Sitecore swag.</p>
   - type: talk
-    time: '18:45'
+    time: '19:00'
     speakers:
       - jacquelinebaxter
       - ruadhanbarry
@@ -46,4 +51,4 @@ agenda:
     time: '20:00'
     description: Close
 meta:
-  description: Join us for our end of summer London Sitecore User Group of 2025 at Sitecore's office in Paddington.
+  description: Join us for our final UK Sitecore Technical User Group meetup of 2025.
