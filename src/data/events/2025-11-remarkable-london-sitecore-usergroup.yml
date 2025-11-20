@@ -45,10 +45,10 @@ agenda:
   - type: talk
     time: '19:30'
     speakers:
-      - aseabridge
+      - adamseabridge
     title: 'Sitecore Quiz'
     descriptionHtml: >
-      <p>Adam will host an iteractive Slido quiz to test your Sitecore knowledge, the winner will take home some exclusive Sitecore swag.</p>
+      <p>Adam will host an interactive Slido quiz to test your Sitecore knowledge, the winner will take home some exclusive Sitecore swag.</p>
   - type: item
     time: '20:00'
     description: Close
