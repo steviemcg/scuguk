@@ -1,7 +1,7 @@
 eventId: 7d983a8d-7552-4a5b-a1f3-4ea6b9aec1b4
 title: London Sitecore User Group at Sitecore - November 2025
 excerpt: >
-  Join us for our post-Symposium London UK Sitecore User Group of 2025.
+  Join us for our final UK Sitecore Technical User Group meetup of 2025.
   Kindly hosted by Remarkable in their London Shoreditch office. There will be talks from experts from the Sitecore community as well as time to catch up with contacts and make new connections.
 intro: >
   <p><strong>Join us for our final UK Sitecore Technical User Group meetup of 2025.</strong></p>
@@ -42,8 +42,15 @@ agenda:
     descriptionHtml: >
       <p>Hear from a panel of Sitecore leaders about all the exciting features of SitcoreAI and how Agentic Studio and the Custom SaaS architecture empowers marketers and developers like no other DXP - SaaS without sacrifice.</p>
       <p>Our esteemed panel will discuss all the new features and reveal some of the future features previewed at Symposium followed by a Q&A session - so have your burning questions ready!</p>
+  - type: talk
+    time: '19:30'
+    speakers:
+      - aseabridge
+    title: 'Sitecore Quiz'
+    descriptionHtml: >
+      <p>Adam will host an iteractive Slido quiz to test your Sitecore knowledge, the winner will take home some exclusive Sitecore swag.</p>
   - type: item
     time: '20:00'
     description: Close
 meta:
-  description: Join us for our end of summer London Sitecore User Group of 2025 at Sitecore's office in Paddington.
+  description: Join us for our final UK Sitecore Technical User Group meetup of 2025.
