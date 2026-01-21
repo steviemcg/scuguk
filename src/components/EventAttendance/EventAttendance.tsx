@@ -11,6 +11,7 @@ import ImageHideOnError from '../ImageHideOnError';
 import cn from 'classnames';
 import Box from '../Box';
 import Link from 'next/link';
+import * as Sentry from '@sentry/browser';
 
 type EventAttendanceProps = Pick<EventContent, 'eventId'>;
 
@@ -88,8 +89,9 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
         await updateEventAttendance(eventId, isAttending, isOnline, await getIdTokenClaims());
         fetchAttendees();
         setError(false);
-      } catch {
+      } catch (ex) {
         setError(true);
+        Sentry.captureException(ex);
       }
     },
     [fetchAttendees, eventId, getIdTokenClaims]

@@ -39,11 +39,12 @@ const Sponsors = ({ sponsors }: SponsorsProps) => {
               Our events rely completely on our sponsors, so we&apos;d like to give our huge thanks to the following:
             </p>
             <Row>
-              {sponsors.map((sponsor, i) => (
-                <Col key={i} sm='6'>
-                  <SponsorBox {...sponsor} />
+              {sponsors.map((sponsor, i) => {
+                const { key, ...sponsorProps } = sponsor;
+                return <Col key={i} sm='6'>
+                  <SponsorBox {...sponsorProps} />
                 </Col>
-              ))}
+              })}
             </Row>
           </Box>
         </Container>

@@ -39,3 +39,6 @@ next-env.d.ts
 /public/data
 # Local Netlify folder
 .netlify
+
+# Sentry Config File
+.env.sentry-build-plugin
