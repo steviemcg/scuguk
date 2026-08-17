@@ -1,0 +1,30 @@
+eventId: 3e2f9f77-bf8e-4d42-bcc4-245b81a31f35
+title: Manchester Sitecore Meetup - September 2026
+excerpt: Join us for an informal meetup. Have a drink and chat all things Sitecore.
+intro: >
+  <p>Rather than a formal "listen to talks" type user group, we thought we'd try something different for a change... Come and join us in <b><i>{{name of venue}}</i></b> for a very informal chat and a drink.</p>
+  <p>Bring your questions about anything Sitecore related. Maybe about what Scrunch is, and why Sitecore bought it? Or what's coming with the release of v10.5? Or bring your thoughts on what sort of user group events you're interested in. Vent for sympathy about your project challenges. Or just bring your sparkling wit. All welcome, all topics accepted.</b></p>
+  <p>Depending on whether there's a bunch of sign-ups, we might book a table or two. But the basic plan is to sit about and chat, rather than do anything organised.</p>
+date: !!timestamp 2026-09-10 17:30:00+00:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: true
+talksTbc: false
+sponsors: tbd
+venue: 
+  name: Some pub
+  address: Somewhere in Manchester
+location: Manchester
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: item
+    time: '18:30'
+    description: Break
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: An informal meet-up for anyone doing anything Sitecore related in the Manchester area
