@@ -11,18 +11,14 @@ dateConfirmed: true
 showOnlineRsvp: true
 showEventImage: true
 talksTbc: false
-sponsors: tbd
 venue: 
-  name: Some pub
-  address: Somewhere in Manchester
+  name: BrewDog
+  address: 35 Peter St, Manchester, M2 5BG
 location: Manchester
 agenda:
   - type: item
     time: '17:30'
     description: Arrival and networking
-  - type: item
-    time: '18:30'
-    description: Break
   - type: item
     time: '20:00'
     description: Close
