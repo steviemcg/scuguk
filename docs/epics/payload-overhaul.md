@@ -12,15 +12,21 @@ target: >
 ---
 
 > **Status 2026-09-05.** Discovery done. **Host = Vercel, database = Neon, scope = everything
-> into Payload** — all three decided by Steve on 2026-09-05 and recorded under *Decisions*.
-> Plan 1 (the scaffold) is **built and the public site is verified against production; the
-> Payload admin is not** — there is no database to point it at yet (N5). D4 (attendee login),
-> D5 (Mailchimp) and D6 (handover mechanics) are still open and block nothing immediately.
+> into Payload, repo stays public** — all decided by Steve on 2026-09-05 and recorded under
+> *Decisions* and *D6*. Plan 1 (the scaffold) is **built and the public site is verified against
+> production; the Payload admin is not** — there is no database to point it at yet (N5).
+> D4 (attendee login) and D5 (Mailchimp) are still open and block nothing immediately.
 >
-> **One thing found here wants fixing regardless of what this epic decides:** the SQL row
-> behind the **September 2026** event page has its date stored as **2023-09-26** instead of
-> 2026-09-24, so the RSVP API reports no upcoming events at all. Detail and blast radius in
-> *Current architecture* §2. It needs a one-column `UPDATE`, which needs N2 (database access).
+> **Three things want doing regardless of what this epic decides:**
+>
+> 1. The SQL row behind the **September 2026** event page has its date stored as **2023-09-26**
+>    instead of 2026-09-24, so the RSVP API reports no upcoming events at all. Blast radius in
+>    *Current architecture* §2. A one-column `UPDATE`, needs N2.
+> 2. A **Google Maps API key** sat in the public git history for six years and is still live
+>    unless restricted. *D6 → Audit*, N7.
+> 3. **Prepay the domain and put a GitHub org around the repo** — the two cheapest, largest
+>    reductions in bus-factor available, and neither depends on any decision here. *D6 →
+>    Recommended, not yet done*.
 
 # Epic — collapse the scug.co.uk stack onto Payload
 
@@ -244,11 +250,136 @@ groups), and the API tags RSVP-ers with the event key. Migrating it is a separat
 its own consent questions. *Recommend leaving Mailchimp exactly as it is* and re-pointing only
 the RSVP tagging call.
 
-**D6 — Handover mechanics.**
-The finding in §4 above changes the offer that was made in Slack. Someone has to tell Jeremy
-that transferring the App Service is not the cheap option, and that deleting it is. Also open:
-whether the GitHub repo moves to an organisation (which is the actual multi-owner primitive)
-rather than staying under `steviemcg`.
+---
+
+## D6 — Handover: who holds what when people change
+
+This is Jeremy's original question, and it is answered here rather than in *Decisions still
+open* because most of it is now settled.
+
+### The sorting rule
+
+Not every service needs the same answer. Sort by **what does losing it cost**:
+
+| | Losing it costs | Where it should live |
+|---|---|---|
+| `scug.co.uk` | Unrecoverable — anyone can re-register it, every link and reference dies | Registrar, prepaid, auto-renew, contact address not personal |
+| The GitHub repo | The site and seven years of history | **A GitHub organisation with ≥2 owners** |
+| The Mailchimp list | Unrecoverable — you cannot re-collect consent | Unknown; see N6 |
+| Vercel project / Neon DB / Resend | An afternoon. Rebuildable from the repo. | Whoever's account is convenient |
+
+The last row is the point: the deploy is reproducible, so it does **not** need solving.
+Steve's personal Vercel account is a fine home for it.
+
+### Decided
+
+**Repo stays public** *(decided — Steve, 2026-09-05)*. The reasons are smaller than they first
+look and the decision was made against the strongest counter-argument, so both are recorded:
+
+- *For*: secret scanning is free and automatic on public repos and needs paid Code Security on
+  private ones — so going private to avoid leaking a secret removes the free alarm that catches
+  leaked secrets. Branch restrictions are free on a public repo in a **GitHub Free
+  organisation** and need Team ($4/user/month) on a private one. Vercel's Open Source Program
+  requires it. And going private un-publishes nothing: GitHub detaches existing forks and they
+  **stay public** — there are 5.
+- *Against, and correct*: the repo has had ten contributors and eight are not Steve (Alex
+  Washtell alone has 113 commits to Steve's 46) — but they are organising-committee members who
+  would have been given access to a private repo anyway *(Steve, 2026-09-05)*. The contributor
+  count does not prove public was necessary.
+- **And D3 weakens it further, on Steve's own observation**: once content lives in Payload,
+  nobody PRs an event YAML any more. The "someone can fix their own speaker bio without asking
+  permission" argument expires with plan 3. See *Two risks D3 introduces* below — this one
+  needs an answer, not a note.
+
+There is nothing sensitive in the repo: it holds event listings, speaker bios and sponsor logos
+that are all already published on scug.co.uk. The only genuinely sensitive data in the system —
+attendee RSVPs — is in the database, not the repo, and stays that way under Payload.
+
+**A shared mailbox, as a mailbox — not as a login for everything** *(decided — Steve,
+2026-09-05)*. `contact@scug.co.uk` **on the domain the group already owns**, not a Gmail or
+Outlook address, so it survives changing provider and does not become another account tied to
+whoever registered it. Use it to *receive*: form submissions, service notifications, domain
+renewal warnings, password resets — things that currently land in Steve's inbox and die there
+when he stops reading. Use it as the actual login only for services with no multi-user model.
+Not as the username for all eight services: a shared credential is one that everybody who has
+ever held it keeps, with no record of who did what.
+
+### Recommended, not yet done
+
+- **Create a GitHub organisation and transfer `steviemcg/scuguk` into it, with Steve and Jeremy
+  both as Owners.** Free: GitHub Free for organisations gives unlimited collaborators on public
+  repos, and branch restrictions work on a public repo in a free org, so the protection `master`
+  has today survives. GitHub's own docs recommend the owner role be held by "no less than two
+  people" for ownership continuity. This is the largest bus-factor reduction available and it
+  costs nothing. Watch afterwards: Netlify's GitHub App permissions are scoped to the account
+  that installed it, so the build hook and the required status checks want re-checking.
+  **Do not move `steviemcg/scuguk.api`** — it is private, so it would lose those features, and
+  plan 7 deletes it anyway.
+- **Prepay the domain for ~10 years** (~£86 at €8.60/yr), auto-renew on, registrar contact
+  address pointed at the shared mailbox. Nobody touches a registrar for years at a time, so
+  day-to-day access is not the risk — a silently lapsed renewal is. This removes the failure
+  mode for a decade for the price of a takeaway, and needs no shared password.
+- **Put the Neon database in a Neon organisation with both of them in it from day one.** Neon's
+  free plan allows unlimited organisation members. The database sharing for free while the host
+  does not is an absurd asymmetry, but it is free, so take it.
+- **Apply to the Vercel Open Source Program.** $3,600 in platform credits over three years plus
+  third-party credits; the current cohort closed 2026-09-13, cohorts run quarterly. Criteria are
+  "actively developed and maintained", "hosted on or intended to host on Vercel", "measurable
+  impact", and a Code of Conduct. The page leans toward tools and libraries, so a user-group
+  site is **not** a certainty — but Vercel has sponsored the group since 2025-11-25
+  (`src/data/sponsors/vercel.yml`), so there is plausibly a human to ask. It would resolve both
+  Vercel problems below at once.
+
+### The two Vercel problems this leaves
+
+1. **Hobby is one seat.** Free Vercel has no collaborators at all; Pro is $20/user/month. So
+   "Steve's personal Vercel" means Jeremy cannot get in — acceptable only because the deploy is
+   rebuildable, which is the whole argument of the sorting rule above.
+2. **Hobby is non-commercial only, and the sponsor logos are a real question.** Vercel's fair
+   use guidelines prohibit "the inclusion of advertisements" and "advertising the sale of a
+   product or service" on Hobby, and state explicitly that even asking for donations counts as
+   commercial. This site has a `/sponsors` page and per-event sponsor logos linking to UNRVLD,
+   EPAM and Sitecore. **Counterweight: the site is already on a free individual Netlify plan
+   with the same logos and has been for years without trouble**, so this is not new or acute.
+   Vercel's docs say to ask support if unsure — worth one email before cutting DNS over.
+
+### Audit of the public history (done, 2026-09-05)
+
+All 284 commits across every ref, full patch content, binaries and lockfiles excluded.
+**Nothing found that should not be public** — no passwords, connection strings, private keys or
+API secrets. Public-by-design and fine: the Auth0 SPA client id, the Mailchimp list/user ids,
+the event GUIDs. Removed and clean: `.env.development` (only ever `SCUG_API=<url>`) and
+`auth_config.json` (Auth0 domain, the same public client id, audience).
+
+Three loose ends:
+
+| | What | Action |
+|---|---|---|
+| **1** | **Google Maps browser API key `AIzaSyBr85Ei…`** — added by Steve 2019-12-08 (`5346fce`), removed by Alex Washtell 2023-09-05 (`bd1d962`) in the Next.js migration. Gone from every current tree, permanent in the public history, so readable for ~6 years. Browser Maps keys are meant to be public **but only when referrer-restricted**; unrestricted, anyone can use it and the bill lands on Steve's Google Cloud account. | Restrict to `scug.co.uk` referrers or delete it — nothing uses it. **Billing exposure, not a breach.** Needed regardless of repo visibility: the 5 forks keep the history. |
+| **2** | **Sentry DSN**, added 2024-12-09 (`39e4c73`) by Alex Washtell, since removed. DSNs are public by design — worst case someone posts junk events at the quota. | The real finding is what it implies: **a Sentry account and project nobody has listed.** A ninth service in a stack being shrunk. Close it or record it. |
+| **3** | **Netlify build hook inline** at `.github/workflows/main.yml:12`, public since 2022-07-06 (`42134f0`). Anyone can POST to it and trigger a production build. | Nuisance and build-minutes vector, not a data risk. Would normally belong in a repo secret — but plan 7 deletes the cron, so leave it rather than churn it. |
+
+Also found: **18 open GitHub issues, all filed in January 2020, seventeen by Steve.** A dead
+wishlist nobody has looked at in six and a half years. Close them as part of the handover so
+the next person does not read a 2020 backlog as current intent.
+
+### Two risks D3 introduces — both need an answer before plan 3
+
+Moving content out of git is not free, and neither of these existed before the decision:
+
+1. **The repo stops being a backup of the content.** Today the events, speakers and sponsors
+   live in git — mirrored into 5 forks and every clone anyone has ever made. After plan 3 they
+   live in one Neon free-tier database. Seven years of event history would sit on a single free
+   tier with no second copy. **Proposed mitigation: a scheduled export of the Payload
+   collections back into the repo as JSON.** It restores the off-site copy, and as a bonus it
+   restores the diffable, reviewable property that D3 gives up — a content change would show as
+   a commit again, after the fact rather than before it. *(proposed — mine, 2026-09-05.)*
+2. **Contribution becomes gated on a Payload account.** The "anyone can PR a fix to their own
+   speaker bio" route disappears; someone has to create them a user. That is the gatekeeper
+   problem in a new place, and it is the reason the repo-visibility argument gets weaker after
+   plan 3 rather than stronger. `src/collections/Users.ts` currently lets **any** logged-in user
+   create another, so at least it is not Steve-only — but who holds an account, and how someone
+   gets one, is now a handover question in its own right and nobody has answered it.
 
 ---
 
@@ -261,6 +392,8 @@ rather than staying under `steviemcg`.
 | N3 | **Tell Jeremy what D3 costs him** — content moves out of git, so no more PR review of an event page before it publishes | Decided without him on 2026-09-05; he is the one who will be adding events, so he should get the chance to push back before plan 3 makes it irreversible. | Steve → Jeremy |
 | N4 | **Auth0 tenant access** (`scug.eu.auth0.com`) | Only if D4 lands on "keep Auth0". | Steve |
 | N5 | **A Postgres to point at** — either say "provision Neon through the Vercel Marketplace" (free tier, and it creates a Vercel project + starts deploying, which is why it has not been done unasked) or start Docker Desktop for a local one | `/admin` has never been loaded. Plan 1 is not finishable without it. | Steve |
+| N6 | **Whether Mailchimp's free tier allows a second user** | It is the third of the three irreplaceable assets in D6 and the one least is known about. If it is single-user, it is the strongest case for the shared mailbox being the actual login. | Steve |
+| N7 | **The Google Maps key in the public history** — restrict to `scug.co.uk` referrers or delete it | Six years exposed; billing exposure on Steve's Google Cloud account. Independent of every decision in this doc. | Steve |
 
 ---
 
