@@ -15,7 +15,7 @@ export const getSponsorContent = async (): Promise<SponsorContent[]> => {
         const yamlContent = await fs.promises.readFile(path.join(baseDir, file), 'utf-8');
 
         return { ...(yaml.parse(yamlContent) as SponsorContent), key: file.slice(0, -4) };
-      })
+      }),
   );
 };
 

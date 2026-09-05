@@ -8,8 +8,11 @@
 @font-face {
   font-family: 'heading';
   src: url('/static/fonts/light.eot');
-  src: url('/fonts/light.eot?#iefix') format('embedded-opentype'), url('/fonts/light.woff') format('woff'),
-    url('/fonts/light.ttf') format('truetype'), url('/fonts/light.svg') format('svg');
+  src:
+    url('/fonts/light.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/light.woff') format('woff'),
+    url('/fonts/light.ttf') format('truetype'),
+    url('/fonts/light.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }

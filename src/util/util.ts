@@ -8,8 +8,8 @@ export const getAbsoluteUrl = (relativePath: string): string =>
   process.env.URL
     ? `${process.env.URL}/${relativePath}`
     : global.document?.location?.origin
-    ? `${global.document.location.origin}/${relativePath}`
-    : `http://localhost:3000/${relativePath}`;
+      ? `${global.document.location.origin}/${relativePath}`
+      : `http://localhost:3000/${relativePath}`;
 
 export const formatDate = (date: Date, formatString: string): string =>
   format(toZonedTime(date, 'Europe/London'), formatString, { timeZone: 'Europe/London' });

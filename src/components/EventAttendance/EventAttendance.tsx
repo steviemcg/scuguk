@@ -92,7 +92,7 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
         setError(true);
       }
     },
-    [fetchAttendees, eventId, getIdTokenClaims]
+    [fetchAttendees, eventId, getIdTokenClaims],
   );
 
   const registeredForEvent = isAuthenticated && eventAttendance && eventAttendance.loggedInUserAttending;

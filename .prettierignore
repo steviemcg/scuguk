@@ -14,3 +14,7 @@ src/app/(payload)/admin/importMap.js
 # Content, not code. Reformatting these rewrites event copy and breaks the
 # `!!timestamp` tags the YAML loader relies on.
 src/data/
+
+# Prose, not code. Prettier pads markdown tables to their widest cell, which makes
+# the epic doc and AGENTS.md materially harder to edit by hand.
+*.md

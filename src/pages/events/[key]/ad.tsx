@@ -33,11 +33,11 @@ export const getStaticProps: GetStaticProps<EventPageProps> = async ({ params })
       .filter(isTalk)
       .filter((t) => t.speaker !== undefined || t.speakers !== undefined)
       .flatMap((t) => t.speakers ?? [t.speaker])
-      .map(async (i) => [i, await getSpeaker(i!)] as [string, SpeakerContent])
+      .map(async (i) => [i, await getSpeaker(i!)] as [string, SpeakerContent]),
   );
   const speakers = speakerMap.reduce(
     (obj, item) => ((obj[item[0]] = item[1]), obj),
-    {} as Record<string, SpeakerContent>
+    {} as Record<string, SpeakerContent>,
   );
 
   return {

@@ -41,7 +41,7 @@ const Header = () => {
           toggleMobileNav(false);
         }
       }, 150),
-    [toggleMobileNav]
+    [toggleMobileNav],
   );
 
   return (
