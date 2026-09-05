@@ -41,3 +41,7 @@ next-env.d.ts
 /public/data
 # Local Netlify folder
 .netlify
+
+# Claude Code — worktrees and session scratch (the rest of .claude/ is tracked)
+/.claude/worktrees/
+/.remember/
