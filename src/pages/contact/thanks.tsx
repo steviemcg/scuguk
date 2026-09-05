@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Hero from '@/components/Hero';
 import Box from '@/components/Box';
 import Container from '@/components/Container';
-import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
   return (

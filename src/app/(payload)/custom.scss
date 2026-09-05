@@ -1,0 +1,3 @@
+/* Admin-specific style overrides go here. Payload's own admin CSS is loaded by
+ * `import '@payloadcms/next/css'` in layout.tsx. Nothing in src/styles applies
+ * to /admin — that stylesheet belongs to the public site only. */

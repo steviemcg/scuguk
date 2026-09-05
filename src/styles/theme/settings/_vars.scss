@@ -1,3 +1,9 @@
 $gutterDesktop: 3rem;
 $gutterTablet: 2rem;
 $gutterMobile: 1.5rem;
+
+// Bootstrap's default $spacer, restated locally. SponsorBox was the only
+// stylesheet pulling in bootstrap/scss just to read this one value, and reaching
+// into another package's Sass source broke under Turbopack: an @import resolved
+// through a loadPath cannot then resolve Bootstrap's own relative imports.
+$spacer: 1rem;

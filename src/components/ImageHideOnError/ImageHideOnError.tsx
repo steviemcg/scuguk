@@ -15,7 +15,7 @@ const ImageHideOnError = ({
   }, [visible]);
 
   // eslint-disable-next-line @next/next/no-img-element
-  return <img ref={imgRef} onError={(e) => setVisible(false)} alt={alt} {...props} />;
+  return <img ref={imgRef} onError={() => setVisible(false)} alt={alt} {...props} />;
 };
 
 export default ImageHideOnError;

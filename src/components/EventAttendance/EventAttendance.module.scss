@@ -1,6 +1,6 @@
-@use '/src/styles/theme/settings/media';
-@use '/src/styles/theme/settings/mixins';
-@use '/src/styles/theme/settings/colors';
+@use '../../styles/theme/settings/media';
+@use '../../styles/theme/settings/mixins';
+@use '../../styles/theme/settings/colors';
 
 .eventAttendance {
   position: relative;

@@ -6,7 +6,7 @@ import {
   EventContent,
   SpeakerContent,
 } from '@/content.types';
-import { Col, Row } from 'reactstrap';
+import { Col, Row } from '@/components/Grid';
 import Image from 'next/image';
 import styles from './EventAgenda.module.scss';
 import DefaultProfileImage from './default-profile.svg';

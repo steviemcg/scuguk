@@ -1,7 +1,7 @@
 {
   "name": "scuguk",
   "description": "Sitecore User Group UK",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "repository": "https://github.com/steviemcg/scuguk",
   "keywords": [
     "Sitecore",
@@ -11,48 +11,69 @@
   ],
   "license": "MIT",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev -p 8000",
     "build": "next build",
     "start": "next start -p 8000",
-    "lint": "next lint",
-    "prebuild": "concurrently \"yarn:prebuild:*\"",
+    "lint": "eslint . && prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "concurrently \"npm:prebuild:*\"",
     "prebuild:locations": "copyfiles -f \"./src/data/locations/*.+(jpg)\" ./public/data/locations",
     "prebuild:sponsors": "copyfiles -f \"./src/data/sponsors/*.+(png|svg)\" ./public/data/sponsors",
     "prebuild:speakers": "copyfiles -f \"./src/data/speakers/*.+(webp|jpg|png)\" ./public/data/speakers",
     "prebuild:events": "copyfiles -f \"./src/data/events/*.+(jpg)\" ./public/data/events",
-    "events": "ts-node ./scripts/export-event-ads.ts"
+    "payload": "payload",
+    "payload:generate:types": "payload generate:types",
+    "payload:generate:importmap": "payload generate:importmap",
+    "payload:migrate": "payload migrate",
+    "payload:migrate:create": "payload migrate:create",
+    "lint:fix": "eslint . --fix && prettier --write ."
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",
-    "@svgr/webpack": "^6.5.1",
-    "@types/node": "18.11.19",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "date-fns": "^2.30.0",
-    "date-fns-tz": "^2.0.0",
-    "eslint": "8.33.0",
-    "eslint-config-next": "^13.5.4",
-    "next": "^13.5.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "4.9.5"
+    "@payloadcms/db-postgres": "3.83.0",
+    "@payloadcms/next": "3.83.0",
+    "@payloadcms/richtext-lexical": "3.83.0",
+    "@payloadcms/storage-vercel-blob": "3.83.0",
+    "bootstrap": "^5.3.3",
+    "calendar-link": "^2.4.0",
+    "classnames": "^2.5.1",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "graphql": "^16.13.2",
+    "markdown-to-jsx": "^7.7.0",
+    "next": "16.2.4",
+    "payload": "3.83.0",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "sharp": "^0.34.5",
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
-    "@types/serve-handler": "^6.1.1",
-    "bootstrap": "^5.2.3",
-    "calendar-link": "^2.4.0",
-    "chrome-aws-lambda": "~7.0.0",
-    "classnames": "^2.3.2",
-    "concurrently": "^8.2.0",
+    "@eslint/js": "^9.20.0",
+    "@next/eslint-plugin-next": "16.2.4",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.1.2",
     "copyfiles": "^2.4.1",
-    "markdown-to-jsx": "^7.1.9",
-    "prettier": "^2.8.3",
-    "puppeteer-core": "~7.0.0",
-    "reactstrap": "^9.1.5",
-    "sass": "^1.58.0",
-    "serve-handler": "^6.1.5",
-    "ts-node": "^10.9.1",
-    "yaml": "^2.2.2"
+    "eslint": "^9.20.0",
+    "prettier": "^3.4.2",
+    "sass": "^1.83.4",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "esbuild",
+      "@swc/core",
+      "unrs-resolver"
+    ]
   }
 }

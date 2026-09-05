@@ -1,7 +1,7 @@
 import { EventAbstract, SponsorContent } from '@/content.types';
 import Link from 'next/link';
 import React from 'react';
-import { Col, Row } from 'reactstrap';
+import { Col, Row } from '@/components/Grid';
 import ClockIcon from '../Icons/clock-icon.svg';
 import MapIcon from '../Icons/map-icon.svg';
 import Button from '../Button';

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import FullScreenHero from '@/components/FullScreenHero';
 import Box from '@/components/Box';
 import Container from '@/components/Container';
-import { Col, Row } from 'reactstrap';
+import { Col, Row } from '@/components/Grid';
 import { getEvents } from '@/util/data/events';
 import { getSponsorContent } from '@/util/data/sponsors';
 import { EventAbstract, SponsorContent } from '@/content.types';

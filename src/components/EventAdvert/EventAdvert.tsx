@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  EventAgendaItem as EventAgendaItemData,
   EventAgendaTalk as EventAgendaTalkData,
   EventContent,
   isTalk,
   SpeakerContent,
   SponsorContent,
 } from '@/content.types';
-import { Col, Row } from 'reactstrap';
+import { Col, Row } from '@/components/Grid';
 import Image from 'next/image';
 import styles from './EventAdvert.module.scss';
 import Container from '../Container';
@@ -65,8 +64,8 @@ const EventAdvert = ({ event, speakers, sponsors }: EventAdvertProps) => {
           <Col md={8}>
             <div className={styles.eventAdvert__imagesBar}>
               <SitecoreUGLogo className={styles.eventAdvert__logo} />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               {sponsors.map(({ image, title }) => (
+                // eslint-disable-next-line @next/next/no-img-element -- sponsor logos are SVGs served from /public; next/image adds nothing
                 <img
                   key={title}
                   className={styles.eventAdvert__sponsorImage}

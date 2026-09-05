@@ -1,9 +1,6 @@
-@use '/src/styles/theme/settings/colors';
-@use '/src/styles/theme/settings/media';
-@use '/src/styles/theme/settings/vars';
-
-@import '/node_modules/bootstrap/scss/functions';
-@import '/node_modules/bootstrap/scss/variables';
+@use '../../styles/theme/settings/colors';
+@use '../../styles/theme/settings/media';
+@use '../../styles/theme/settings/vars';
 
 .youtubeEmbed {
   overflow: hidden;

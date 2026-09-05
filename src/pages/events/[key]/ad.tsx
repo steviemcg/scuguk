@@ -4,9 +4,6 @@ import { getEvent, getEventKeys } from '@/util/data/events';
 import { EventContent, isTalk, SpeakerContent, SponsorContent } from '@/content.types';
 import { getSponsor } from '@/util/data/sponsors';
 import { getSpeaker } from '@/util/data/speakers';
-import Image from 'next/image';
-import Container from '@/components/Container';
-import { Col, Row } from 'reactstrap';
 import EventAdvert from '@/components/EventAdvert';
 
 type EventPageProps = {

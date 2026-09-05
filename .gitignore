@@ -45,3 +45,6 @@ next-env.d.ts
 # Claude Code — worktrees and session scratch (the rest of .claude/ is tracked)
 /.claude/worktrees/
 /.remember/
+
+# Payload local media fallback (used only when BLOB_READ_WRITE_TOKEN is unset)
+/media/

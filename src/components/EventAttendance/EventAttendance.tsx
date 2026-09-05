@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { EventContent } from '@/content.types';
 import { useAuth0 } from '@auth0/auth0-react';
 import DefaultProfileImage from './default-profile.svg';

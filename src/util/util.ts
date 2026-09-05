@@ -1,4 +1,4 @@
-import { format, utcToZonedTime } from 'date-fns-tz';
+import { format, toZonedTime } from 'date-fns-tz';
 
 export const boolToString = (value: boolean): string => (value ? 'true' : 'false');
 
@@ -12,4 +12,4 @@ export const getAbsoluteUrl = (relativePath: string): string =>
     : `http://localhost:3000/${relativePath}`;
 
 export const formatDate = (date: Date, formatString: string): string =>
-  format(utcToZonedTime(date, 'Europe/London'), formatString, { timeZone: 'Europe/London' });
+  format(toZonedTime(date, 'Europe/London'), formatString, { timeZone: 'Europe/London' });

@@ -1,5 +1,4 @@
 import React from 'react';
-import { EventContent } from '@/content.types';
 import Link from 'next/link';
 
 const EventTalksTbc = () => (

@@ -5,7 +5,7 @@ import Box from '@/components/Box';
 import SponsorBox from '@/components/SponsorBox';
 import { getSponsorContent } from '@/util/data/sponsors';
 import { SponsorContent } from '@/content.types';
-import { Row, Col } from 'reactstrap';
+import { Row, Col } from '@/components/Grid';
 import Container from '@/components/Container';
 
 type SponsorsProps = {

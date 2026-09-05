@@ -5,7 +5,7 @@ import Hero from '@/components/Hero';
 import { getEvent, getEventKeys } from '@/util/data/events';
 import { EventContent, isTalk, SpeakerContent, SponsorContent } from '@/content.types';
 import EventDetails from '@/components/EventDetails';
-import { Col, Row } from 'reactstrap';
+import { Col, Row } from '@/components/Grid';
 import Container from '@/components/Container';
 import EventInfo from '@/components/EventInfo';
 import EventAgenda from '@/components/EventAgenda';

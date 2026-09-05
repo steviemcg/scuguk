@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <header
       ref={navRef}
-      onBlur={(e) => {
+      onBlur={() => {
         closeMobileNav();
       }}
       className={cn(styles.header, { [styles['header--mobileNavActive']]: mobileNavActive })}

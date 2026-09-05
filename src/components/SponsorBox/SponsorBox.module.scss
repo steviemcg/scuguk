@@ -1,17 +1,14 @@
-@use '/src/styles/theme/settings/colors';
-@use '/src/styles/theme/settings/media';
-@use '/src/styles/theme/settings/vars';
-
-@import '/node_modules/bootstrap/scss/functions';
-@import '/node_modules/bootstrap/scss/variables';
+@use '../../styles/theme/settings/colors';
+@use '../../styles/theme/settings/media';
+@use '../../styles/theme/settings/vars';
 
 .sponsorBox {
   border-radius: 0.25rem;
-  margin-bottom: $spacer * 3;
-  padding: $spacer * 2;
+  margin-bottom: vars.$spacer * 3;
+  padding: vars.$spacer * 2;
 
   &__imageWrapper {
-    margin-bottom: $spacer * 2;
+    margin-bottom: vars.$spacer * 2;
 
     img {
       max-width: 100%;
@@ -24,19 +21,19 @@
   &__title {
     font-weight: bold;
     font-size: 1.25rem;
-    margin-bottom: $spacer * 0.5;
+    margin-bottom: vars.$spacer * 0.5;
   }
 
   p {
-    margin: 0 0 $spacer * 1.5 0;
+    margin: 0 0 vars.$spacer * 1.5 0;
   }
 
   &__badge {
     border-radius: 9999px;
     background-color: #f7fafc;
     font-weight: 600;
-    padding: $spacer * 0.25 $spacer;
-    margin-left: -$spacer;
+    padding: vars.$spacer * 0.25 vars.$spacer;
+    margin-left: -1 * vars.$spacer;
 
     a {
       color: #4a5568;

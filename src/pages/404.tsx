@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Container from '@/components/Container';
 import styles from './404.module.scss';
 

@@ -1,30 +1,51 @@
 # Sitecore User Group UK
 
-Now with NextJS!
+The site behind [scug.co.uk](https://scug.co.uk) — Next.js 16 + Payload 3 + Postgres.
 
-## Wishlist
+> **This branch is mid-overhaul.** Production still runs the previous static-export build
+> from `master` on Netlify. The plan, what is done, and what is still open are in
+> **[`docs/epics/payload-overhaul.md`](docs/epics/payload-overhaul.md)** — read that before
+> starting work. Agent-facing conventions are in [`AGENTS.md`](AGENTS.md).
 
-- Add support for dietary requirements when booking attendance
+## Getting started
 
-## Getting Started
-
-### Local Install 
-
-1. cd to the project folder, e.g: `C:\Projects\scuguk\src`
-2. run: `npm install`
-3. run: `npm install --global yarn`
-
-### Local Development
-
-1. run: `yarn prebuild` to copy over all the images 
-2. run one of the following to start the development server:
+Node 22+ and [pnpm](https://pnpm.io). `.nvmrc` pins the Node major.
 
 ```bash
-yarn dev
+pnpm install
+cp .env.local.example .env.local   # then fill in PAYLOAD_SECRET and DATABASE_URL
+pnpm prebuild                      # copies content images into public/data (see below)
+pnpm dev                           # http://localhost:8000
 ```
 
-Open [http://localhost:8000](http://localhost:8000) with your browser to see the Site.
+The public site is at `/`; the Payload admin is at `/admin`. On first run, `/admin` offers a
+first-user wizard — create yourself an account there.
 
-**_Notes:_**
-* Before you commit a new or updated event, run `yarn build` to generate all the files and then `yarn events` to generate the socials image. If you're updating an event with new speakers, you will need to delete the old generated event image _before_ rebuilding.
-* You can use `<p className="alert alert-warning"></p>` in the `intro` field for a callout block, such as highlighting a change of venue.
+`DATABASE_URL` must point at a Postgres. **The public pages render without one** (they still
+read YAML from `src/data/`), but `/admin` returns a 500 until it is set.
+
+## Scripts
+
+| Script | What |
+| --- | --- |
+| `pnpm dev` | Dev server on **port 8000** (not 3000) |
+| `pnpm build` / `pnpm start` | Production build and server |
+| `pnpm typecheck` | `tsc --noEmit` |
+| `pnpm lint` / `pnpm lint:fix` | ESLint + Prettier |
+| `pnpm prebuild` | Copies `src/data/**` sibling images into `public/data/` — **a new event's image 404s until this runs.** Also runs automatically before `pnpm build`. |
+| `pnpm payload:generate:types` | Regenerates `src/payload-types.ts` after editing a collection |
+| `pnpm payload:generate:importmap` | Regenerates the admin import map after adding a custom admin component |
+| `pnpm payload:migrate` / `:create` | Database migrations |
+
+## Content today
+
+Events, speakers and sponsors are still YAML under `src/data/`, one file per item, with the
+filename as the key. Moving them into Payload collections is plan 2 of the epic.
+
+`<p className="alert alert-warning">` inside an event's `intro` is the house callout block —
+that field is HTML rendered into JSX, so it takes `className`, not `class`.
+
+## Environment variables
+
+See `.env.local.example`. `PAYLOAD_SECRET` and `DATABASE_URL` are required;
+`BLOB_READ_WRITE_TOKEN` is optional locally and uploads fall back to disk without it.

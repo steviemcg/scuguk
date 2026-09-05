@@ -1,7 +1,7 @@
 import { EventAbstract, SponsorContent } from '@/content.types';
 import Link from 'next/link';
 import React from 'react';
-import { Col, Row } from 'reactstrap';
+import { Col, Row } from '@/components/Grid';
 import Button from '../Button';
 import ClockIcon from '../Icons/clock-icon.svg';
 import MapIcon from '../Icons/map-icon.svg';
@@ -13,7 +13,7 @@ type EventNextProps = Omit<EventAbstract, 'date' | 'sponsors'> & {
   sponsors: Omit<SponsorContent, 'lastSponsorDate'>[];
 };
 
-const EventNext = ({ eventKey, excerpt, dateTimestamp, venue, sponsors, title }: EventNextProps) => {
+const EventNext = ({ eventKey, dateTimestamp, venue, title }: EventNextProps) => {
   const eventUrl = `/events/${eventKey}`;
 
   return (

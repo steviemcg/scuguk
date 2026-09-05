@@ -11,10 +11,11 @@ target: >
   `scuguk` is deleted.
 ---
 
-> **Status 2026-09-05.** Discovery done and written up below. **Nothing has been built and
-> nothing has been decided** beyond "Payload, in a worktree" — the six open decisions in
-> *Decisions still open* are the gate on plan 1. Everything in *Target architecture* is
-> marked `proposed` and stays that way until Steve or Jeremy says otherwise.
+> **Status 2026-09-05.** Discovery done. **Host = Vercel, database = Neon, scope = everything
+> into Payload** — all three decided by Steve on 2026-09-05 and recorded under *Decisions*.
+> Plan 1 (the scaffold) is **built and the public site is verified against production; the
+> Payload admin is not** — there is no database to point it at yet (N5). D4 (attendee login),
+> D5 (Mailchimp) and D6 (handover mechanics) are still open and block nothing immediately.
 >
 > **One thing found here wants fixing regardless of what this epic decides:** the SQL row
 > behind the **September 2026** event page has its date stored as **2023-09-26** instead of
@@ -197,32 +198,38 @@ route-group split are the config quirks worth copying rather than rediscovering.
 
 ---
 
+## Decisions
+
+**D1 — Host: Vercel** *(decided — Steve, 2026-09-05)*. `D:\vdp` proves the
+Vercel + Payload + Neon path works, and Vercel has been a **sponsor of the group since
+2025-11-25** (`src/data/sponsors/vercel.yml`). Accepted cost: a DNS cutover off Netlify DNS and
+a migration off Netlify Forms. Netlify *could* have run Next SSR — this was "why fight it", not
+"impossible".
+
+**D2 — Database: Neon Postgres** *(decided — Steve, 2026-09-05, following D1)*. Free tier,
+provisioned through the Vercel Marketplace, matches `D:\vdp`. Azure SQL was ruled out by
+Payload having no SQL Server adapter, not by preference.
+
+**D3 — Scope: everything into Payload** *(decided — Steve, 2026-09-05)*. Events, speakers,
+sponsors and RSVPs all become Payload collections. **The accepted loss is PR review of
+content** — Payload drafts/versions give preview and rollback, but not
+review-by-another-person-before-publish. Recorded here so nobody later reads the absence of a
+PR flow as an oversight. Jeremy has not seen this yet (N3).
+
+### Follow-on decision this forces — design system
+
+Under D3 every page eventually re-renders from Payload data, so the components get rewritten
+either way. **Keep the existing look: Bootstrap 5 CSS + the SCSS modules under
+`src/styles/theme/`, ported as-is.** Not Tailwind, despite `D:\vdp` using it — redesigning a
+site people already like is a different project with a different risk profile, and it is not
+in this epic's target. **Drop `reactstrap`** though: it is used for nothing but `Row`/`Col`
+across 8 files, and plain `<div className="row">` on the Bootstrap grid removes a React 19
+compatibility unknown for free. *(proposed — mine, 2026-09-05; say so if you want the redesign
+in scope after all.)*
+
+---
+
 ## Decisions still open
-
-None of these are mine to make. Each is `proposed` with a recommendation and the fact that
-drives it.
-
-**D1 — Host: Vercel or stay on Netlify?**
-*Recommend Vercel.* Facts: `D:\vdp` proves the Vercel+Payload+Neon path works and removes a
-class of unknowns; Vercel has been a **sponsor of the group since 2025-11-25**
-(`src/data/sponsors/vercel.yml`). Against: DNS and the contact form are on Netlify today, so
-this is a DNS cutover plus a form migration, and Netlify has hosted this site without
-complaint for years. Netlify *can* run Next SSR — this is not a "must", it is a "why fight it".
-
-**D2 — Database: Neon, or something else Postgres?**
-*Recommend Neon* (free tier, Vercel Marketplace provisions it, matches `D:\vdp`). Azure SQL is
-ruled out by Payload having no adapter for it, not by preference.
-
-**D3 — Scope: everything into Payload, or only the dynamic half?**
-This is the fork described above. Two coherent answers:
-  - **(a) Everything.** Events, speakers, sponsors and RSVPs all become Payload collections.
-    Maximum simplification, and non-developers can add an event. Loses PR review of content.
-  - **(b) Split.** Content stays as YAML in git (keep the PR flow); only events' *dynamic*
-    half — capacity, RSVPs, attendees — moves to Postgres, keyed by the existing `eventKey`
-    instead of a hand-copied GUID. Kills the double-entry bug and the cron without giving up
-    review. Smaller change, but keeps two content systems.
-  Steve's Slack outline points at (a). Worth a sentence from Jeremy, since he is the one who
-  will be adding events.
 
 **D4 — Attendee login: keep Auth0, or replace it?**
 Auth0's free tier and the existing `LoginSubjects` rows are real; but it is a fifth account in
@@ -251,8 +258,9 @@ rather than staying under `steviemcg`.
 |---|---|---|---|
 | N1 | **Netlify access** — a personal access token, or add Claude via the Netlify MCP/plugin | Cannot see the site config, the Forms submissions, the DNS records or the build settings. No Netlify CLI installed either (`npm i -g netlify-cli`). | Steve |
 | N2 | **Azure SQL firewall + credentials** for server `scuguk` (UK South, admin `scuguk-admin`) | Need row counts and a data export to size the migration and answer D4. The password is not in the App Service app settings — it is in connection string `scuguk`. | Steve |
-| N3 | **Jeremy's answer on D3** (and a sanity check on D1) | He is the one who will add events; the scope fork should not be decided without him. | Jeremy |
+| N3 | **Tell Jeremy what D3 costs him** — content moves out of git, so no more PR review of an event page before it publishes | Decided without him on 2026-09-05; he is the one who will be adding events, so he should get the chance to push back before plan 3 makes it irreversible. | Steve → Jeremy |
 | N4 | **Auth0 tenant access** (`scug.eu.auth0.com`) | Only if D4 lands on "keep Auth0". | Steve |
+| N5 | **A Postgres to point at** — either say "provision Neon through the Vercel Marketplace" (free tier, and it creates a Vercel project + starts deploying, which is why it has not been done unasked) or start Docker Desktop for a local one | `/admin` has never been loaded. Plan 1 is not finishable without it. | Steve |
 
 ---
 
@@ -260,24 +268,39 @@ rather than staying under `steviemcg`.
 
 | # | Plan | Status | Notes |
 |---|---|---|---|
-| 0 | Discovery + `AGENTS.md` + this doc | **done** — this commit | Current state verified against Azure, GitHub, DNS on 2026-09-05 |
-| 1 | Scaffold Next 16 + Payload 3 + Postgres alongside the existing site | **blocked** on D1, D2, D3 | Copy the config shape from `D:\vdp`, not from memory |
+| 0 | Discovery + `AGENTS.md` + this doc | **done** — `7afaeca` | Current state verified against Azure, GitHub, DNS on 2026-09-05 |
+| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **built, half-verified** | Site half verified (see below); `/admin` **not** verified — no database exists yet (N5) |
 | 2 | Model events/speakers/sponsors as collections; import the 21 YAML events, 35 speakers, 14 sponsors | not started | Import script, not hand-entry |
-| 3 | Port the RSVP/attendance API to route handlers; migrate the SQL data | not started | Blocked on N2 and D4. Decide the 18 orphan rows. |
-| 4 | Replace the Puppeteer share-image pipeline with `next/og` | not started | Independent of the rest — could go first as a standalone win |
-| 5 | Contact form → Payload collection + Resend | not started | Blocked on D1 (Netlify Forms is host-coupled) |
-| 6 | Cut DNS over; delete the cron, the Azure RG, and the `scuguk.api` repo | not started | The exit criterion |
+| 3 | Port the pages to App Router reading from Payload; drop `reactstrap`, keep the SCSS | not started | Where `output: 'export'` and the nightly cron die |
+| 4 | Port the RSVP/attendance API to route handlers; migrate the SQL data | not started | Blocked on N2 and D4. Decide the 18 orphan rows. |
+| 5 | Replace the Puppeteer share-image pipeline with `next/og`, reading from Payload | not started | Was a candidate to go first; under D3 it would have had to be built twice |
+| 6 | Contact form → Payload collection + Resend | not started | Netlify Forms is host-coupled, so this lands with the cutover |
+| 7 | Cut DNS over; delete the cron, the Azure RG, and the `scuguk.api` repo | not started | The exit criterion |
 
 ---
 
 ## What can be tested right now
 
-Nothing new — plan 0 produced documentation only. The existing site is unchanged and still
-builds:
+In the worktree `.claude/worktrees/payload-overhaul` (branch `worktree-payload-overhaul`):
 
 ```bash
-yarn install && yarn prebuild && yarn dev   # http://localhost:8000
+pnpm install && pnpm prebuild && pnpm dev   # http://localhost:8000
 ```
 
-Live: <https://scug.co.uk> · API: <https://api.scug.co.uk/events/future> (public, no auth) ·
-Admin: none exists yet.
+**Verified** (2026-09-05, on `pnpm build && pnpm start`):
+
+| Check | Result |
+| --- | --- |
+| `pnpm build` | passes — 53 pages, all 21 events + their `/ad` variants prerendered |
+| `pnpm typecheck` | passes |
+| `pnpm lint` | passes (2 known `no-img-element` warnings, owned by plan 3) |
+| `/`, `/events`, `/sponsors`, `/events/2026-09-london-sitecore-usergroup` | HTTP 200, render identically to production |
+| reactstrap → `@/components/Grid` | grid classes byte-identical to <https://scug.co.uk> across 5 pages, including the two most nested ones |
+| `/admin` | **HTTP 500 — unverified.** `missing secret key`, then it would need a database. Nothing about the admin has been proven to work. |
+
+**Not verified, and why:** there is no Postgres to point at. Docker Desktop is not running on
+this machine and no Neon database has been provisioned, so `/admin` has never been loaded. That
+is N5 below and it is the whole of what stands between plan 1 and done.
+
+Production is untouched: <https://scug.co.uk> still serves the `master` static export, and the
+old API at <https://api.scug.co.uk/events> still answers.
