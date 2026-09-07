@@ -1,0 +1,64 @@
+eventId: febafa73-3c73-4d49-bbda-fe6cf08d1487
+title: London Sitecore User Group - September 2026
+excerpt: >
+  Time for another London user group, and we're looking for speakers. 
+  Do you have something to talk about?
+intro: >
+  <p>
+    It's been a while since we've had a meet-up in London and lots of Sitecore stuff has happened. 
+    So we're looking at an event on the 24th September at Sitecore's latest office in Paddington.
+  </p>
+  <p>
+    So we're looking for some speakers!
+    Do you have something Sitecore-related you want to talk about?
+    Can it fit into a 20-minute-ish session?
+    Then the floor can be yours to discuss anything you like:
+  </p>
+  <ul>
+    <li>Done something cool in a project?</li>
+    <li>Learned a new thing you think could be worth sharing?</li>
+    <li>Got an opinion to share?</li>
+  </ul>
+  <p>
+    All topics considered! And we can provide advice if you're new to doing this. 
+  </p>
+  <p>
+    If you do have an idea, please get in touch! 
+    We have a <a href="/contact">contact form</a> here, or you can message any of the organisers wherever they're sharing this event.
+  </p>
+  <p>
+    And even if you're not interested in speaking, you can stick the date in your diary and come along to listen.
+  </p>
+date: !!timestamp 2026-09-24 17:45:00+00:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: true
+talksTbc: true
+sponsors:
+  - sitecore
+venue:
+  name: Sitecore
+  address: 5 Merchant Square, London, W2 1AY
+location: London
+agenda:
+  - type: item
+    time: '17:45'
+    description: Arrival and networking
+  - type: tbd
+    time: '18:00'
+  - type: item
+    time: '18:30'
+    description: Break
+  - type: tbd
+    time: '18:45'
+  - type: item
+    time: '19:15'
+    description: Break
+  - type: tbd
+    time: '19:30'
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: We're planning a Sitecore user group in London on 24th September. Could you be a speaker?
