@@ -11,11 +11,17 @@ target: >
   `scuguk` is deleted.
 ---
 
-> **Status 2026-09-05.** Discovery done. **Host = Vercel, database = Neon, scope = everything
-> into Payload, repo stays public** — all decided by Steve on 2026-09-05 and recorded under
-> *Decisions* and *D6*. Plan 1 (the scaffold) is **built and the public site is verified against
-> production; the Payload admin is not** — there is no database to point it at yet (N5).
-> D4 (attendee login) and D5 (Mailchimp) are still open and block nothing immediately.
+> **Status 2026-09-09.** **Host = Vercel, database = Neon, scope = everything into Payload,
+> repo stays public, Mailchimp stays exactly as it is** — all decided by Steve and recorded
+> under *Decisions* and *D6*. Plan 1 (the scaffold) is **built and the public site is verified
+> against production; the Payload admin is not** — nothing has a database to point at yet (N5).
+> The one decision still genuinely open is **D4, how attendees sign in to RSVP**; it blocks
+> plan 4 only.
+>
+> **New on 2026-09-09, and it widens the problem this epic exists to solve:** Steve believes the
+> Netlify account hosting the live site belongs to **Alex Washtell**, not to him. If so the
+> handover is not Steve → Jeremy but a three-person problem, and nobody in the conversation can
+> currently reach the hosting. Unverified; see *D6 → Who owns the hosting*.
 >
 > **Three things want doing regardless of what this epic decides:**
 >
@@ -23,7 +29,8 @@ target: >
 >    instead of 2026-09-24, so the RSVP API reports no upcoming events at all. Blast radius in
 >    *Current architecture* §2. A one-column `UPDATE`, needs N2.
 > 2. A **Google Maps API key** sat in the public git history for six years and is still live
->    unless restricted. *D6 → Audit*, N7.
+>    unless restricted — now tracked as
+>    [issue #242](https://github.com/steviemcg/scuguk/issues/242), off the critical path.
 > 3. **Prepay the domain and put a GitHub org around the repo** — the two cheapest, largest
 >    reductions in bus-factor available, and neither depends on any decision here. *D6 →
 >    Recommended, not yet done*.
@@ -238,17 +245,37 @@ in scope after all.)*
 ## Decisions still open
 
 **D4 — Attendee login: keep Auth0, or replace it?**
-Auth0's free tier and the existing `LoginSubjects` rows are real; but it is a fifth account in
-a stack we are shrinking, and the SPA client id is hardcoded in `src/pages/_app.tsx:26`.
-Payload has its own auth, but it is built for editors, not for hundreds of attendees signing in
-with socials. *No recommendation yet* — this needs a look at how many distinct users are
-actually in the `Users` table. **Blocked on: reading the production database** (see below).
 
-**D5 — Newsletter: keep Mailchimp?**
-It holds real subscribers with regional segmentation (`NewsletterForm.tsx` posts five region
-groups), and the API tags RSVP-ers with the event key. Migrating it is a separate project with
-its own consent questions. *Recommend leaving Mailchimp exactly as it is* and re-pointing only
-the RSVP tagging call.
+First, what the login is actually for. Measured from the public API on 2026-09-09
+(`curl https://api.scug.co.uk/events`, no auth needed):
+
+- **955 yes-RSVPs across 39 events.** Distinct people will be far fewer — regulars attend many —
+  but this is not a vestigial feature with three rows in it.
+- **11 of the 39 events set `capacityIsLimited`.** Capacity and the waitlist
+  (`attendingWaiting`) are genuinely used, on about a quarter of events. **This rules out
+  dropping to an anonymous form**, which cannot cap numbers or run a waitlist honestly.
+- Every event has at least one RSVP. 4 events are online.
+
+So the login serves three things: capacity + waitlist, "see who else is coming", and tagging the
+RSVP-er in Mailchimp. Four ways to serve them:
+
+| | Option | Trade |
+|---|---|---|
+| **a** | **Keep Auth0.** | Works today, free tier, social login is the lowest-friction sign-in there is. Cost: a fifth account in a stack being shrunk, and a login wall in front of RSVPing. The do-nothing option. |
+| **b** | **Payload auth for attendees** — a second auth-enabled collection alongside `users`. | Payload ships forgot-password and email verification, and Resend is already needed for plan 6. Cost: email+password is much higher friction than "sign in with Google", and a volunteer group would start storing credentials for a few hundred people — a liability it does not have today. |
+| **c** | **Magic link / passwordless.** RSVP with an email address, get a signed link, click to confirm or change. | No passwords, no accounts, no credential liability, no login wall — and capacity and waitlist still work because the email address is the identity. Removes Auth0 from the stack entirely. Cost: more code than (a), and it is the option nobody has built yet. |
+| **d** | **No identity at all, just a form.** | Ruled out by the 11 capacity-limited events above: anyone could RSVP fifty times and nobody could change their mind. |
+
+*Leaning (c), with (a) as the do-nothing fallback if plan 4 runs late* — it is the only option
+that removes an account **and** removes friction. **Still not decided, and one number would
+sharpen it:** how many distinct rows are in the `Users` table. That needs N2 (database access).
+
+**D5 — Newsletter: keep Mailchimp, unchanged** *(decided — Steve, 2026-09-09)*. It holds real
+subscribers with regional segmentation (`NewsletterForm.tsx:8` posts five region groups) and the
+API tags RSVP-ers with the event key. Migrating it is a separate project with its own consent
+questions. Only the RSVP tagging call gets re-pointed when the API moves; the list, the form and
+the account stay exactly as they are. Note `servers.mcsv.net` is already in the domain's SPF
+record — leave it there.
 
 ---
 
@@ -300,9 +327,44 @@ attendee RSVPs — is in the database, not the repo, and stays that way under Pa
 Outlook address, so it survives changing provider and does not become another account tied to
 whoever registered it. Use it to *receive*: form submissions, service notifications, domain
 renewal warnings, password resets — things that currently land in Steve's inbox and die there
-when he stops reading. Use it as the actual login only for services with no multi-user model.
-Not as the username for all eight services: a shared credential is one that everybody who has
-ever held it keeps, with no record of who did what.
+when he stops reading. Not as the username for all eight services: a shared credential is one
+that everybody who has ever held it keeps, with no record of who did what.
+
+**Mail is already on forwardemail.net, and both existing forwarders point at one person**
+*(forced — `host -t txt scug.co.uk`, 2026-09-09)*:
+
+```
+forward-email=steve:steviemcg+scug@gmail.com
+forward-email=newsletter:steviemcg+scug@gmail.com
+v=spf1 include:spf.forwardemail.net include:_spf.google.com include:servers.mcsv.net ?all
+google-site-verification=…
+```
+
+So `steve@` and `newsletter@scug.co.uk` both land in Steve's personal Gmail and nowhere else.
+That is the bus-factor problem in miniature, already live. **Adding `contact@` to two people is
+worth less than repointing `newsletter@` to two people**, because `newsletter@` already receives
+things.
+
+Multiple recipients per alias are supported on the free plan; repeat the alias rather than
+relying on bare-address parsing, which means something different:
+
+```
+forward-email=contact:steve@…,contact:jeremy@…
+```
+
+Three things about the free plan that matter later:
+
+- **Receive/forward only — no SMTP.** You cannot *send as* `contact@scug.co.uk` without the paid
+  add-on. Fine for plan 6, because Resend sends the contact-form mail; but a human *replying* to
+  a notification would reply from their own address unless something else is arranged.
+- **Free-plan aliases are publicly searchable.** Anyone can discover that `contact@scug.co.uk`
+  forwards to a particular personal address. Low stakes for a public user group, but it does
+  publish the personal addresses.
+- **SPF is at three includes already** (`forwardemail`, `google`, `mcsv`), and plan 6 adds
+  Resend as a fourth. SPF has a hard 10-DNS-lookup limit and each include expands to several —
+  worth counting before adding, not after mail starts failing. Separately, the record ends
+  `?all` (neutral), which means nothing is ever marked as a forgery; `~all` would be the normal
+  choice. *(observation — not a decision, and not urgent.)*
 
 ### Recommended, not yet done
 
@@ -330,11 +392,43 @@ ever held it keeps, with no record of who did what.
   (`src/data/sponsors/vercel.yml`), so there is plausibly a human to ask. It would resolve both
   Vercel problems below at once.
 
+### Who owns the hosting — the assumption that turned out to be wrong
+
+This doc, and `AGENTS.md`, described Netlify without naming an owner, and the handover
+conversation has been framed throughout as *Steve → Jeremy*. On 2026-09-09 Steve said he
+believes **Alex Washtell** holds the Netlify account, not him.
+
+If that is right, the bus factor is worse than recorded: the live site is hosted on the account
+of a **third person who is not in the handover conversation at all** — and it is consistent with
+what the repo shows (Alex has 113 commits and 83 PRs, more than twice Steve's). It also means
+**N1 (Netlify access) cannot be satisfied by Steve**, which is why it has not moved.
+
+**Unverified, and cheap to settle**: log in to Netlify, or see who receives the deploy
+notifications. DNS delegation is confirmed still Netlify's (`dns[1-4].p05.nsone.net`,
+2026-09-09), so whoever owns that account owns the DNS too — which is the domain's *operational*
+control even though Namecheap holds the registration.
+
+### Where the Vercel account should live
+
+Steve asked "my personal Vercel, or…?" — and the answer changed once the shared address was
+decided. **Neither personal account. Register the Vercel account itself to
+`contact@scug.co.uk`, with the password in a shared vault** *(proposed — mine, 2026-09-09)*.
+
+That is Jeremy's original Slack suggestion, and for *this* service it is the right one. The
+argument against a shared credential — that everybody who has ever held it keeps it, with no
+audit trail — is an argument against using one as the username for all eight services. It is not
+an argument against using one for a **rebuildable** service whose only alternative is welding it
+to a named individual, which is the mistake being unwound. The Hobby one-seat limit stops
+mattering when the *account* is the shared thing rather than a team inside it.
+
+It also avoids repeating exactly what happened with Netlify: hosting quietly ending up on
+whoever set it up.
+
 ### The two Vercel problems this leaves
 
-1. **Hobby is one seat.** Free Vercel has no collaborators at all; Pro is $20/user/month. So
-   "Steve's personal Vercel" means Jeremy cannot get in — acceptable only because the deploy is
-   rebuildable, which is the whole argument of the sorting rule above.
+1. **Hobby is one seat.** Free Vercel has no collaborators at all; Pro is $20/user/month. The
+   shared-account answer above sidesteps this rather than solving it — two people cannot act
+   *as themselves*, and there is no record of who deployed what.
 2. **Hobby is non-commercial only, and the sponsor logos are a real question.** Vercel's fair
    use guidelines prohibit "the inclusion of advertisements" and "advertising the sale of a
    product or service" on Hobby, and state explicitly that even asking for donations counts as
@@ -387,13 +481,14 @@ Moving content out of git is not free, and neither of these existed before the d
 
 | # | Need | Why | Who |
 |---|---|---|---|
-| N1 | **Netlify access** — a personal access token, or add Claude via the Netlify MCP/plugin | Cannot see the site config, the Forms submissions, the DNS records or the build settings. No Netlify CLI installed either (`npm i -g netlify-cli`). | Steve |
+| N1 | **Netlify access** — but first, **whose account is it?** Steve believes Alex Washtell holds it (2026-09-09, unverified) | Cannot see the site config, the Forms submissions, the DNS records or the build settings. If it is Alex's, Steve cannot grant this and the handover has a third person in it. See D6 → *Who owns the hosting*. | Steve → Alex? |
 | N2 | **Azure SQL firewall + credentials** for server `scuguk` (UK South, admin `scuguk-admin`) | Need row counts and a data export to size the migration and answer D4. The password is not in the App Service app settings — it is in connection string `scuguk`. | Steve |
 | N3 | **Tell Jeremy what D3 costs him** — content moves out of git, so no more PR review of an event page before it publishes | Decided without him on 2026-09-05; he is the one who will be adding events, so he should get the chance to push back before plan 3 makes it irreversible. | Steve → Jeremy |
 | N4 | **Auth0 tenant access** (`scug.eu.auth0.com`) | Only if D4 lands on "keep Auth0". | Steve |
 | N5 | **A Postgres to point at** — either say "provision Neon through the Vercel Marketplace" (free tier, and it creates a Vercel project + starts deploying, which is why it has not been done unasked) or start Docker Desktop for a local one | `/admin` has never been loaded. Plan 1 is not finishable without it. | Steve |
 | N6 | **Whether Mailchimp's free tier allows a second user** | It is the third of the three irreplaceable assets in D6 and the one least is known about. If it is single-user, it is the strongest case for the shared mailbox being the actual login. | Steve |
-| N7 | **The Google Maps key in the public history** — restrict to `scug.co.uk` referrers or delete it | Six years exposed; billing exposure on Steve's Google Cloud account. Independent of every decision in this doc. | Steve |
+| ~~N7~~ | **The Google Maps key in the public history** — now tracked as **[issue #242, "Restrict or delete the legacy Google Maps API key exposed in git history"](https://github.com/steviemcg/scuguk/issues/242)** | Off the critical path by Steve's decision, 2026-09-09. Still needs doing: six years exposed, billing exposure on the owning Google Cloud project, and the 5 forks keep the history whatever this repo does. | Steve |
+| N8 | **Repoint `newsletter@scug.co.uk`** (and add `contact@`) to two people, not just Steve's Gmail | Both existing forwarders go to one personal inbox. `newsletter@` already receives mail, so fixing it is worth more than adding a new alias. See D6. | Steve |
 
 ---
 
