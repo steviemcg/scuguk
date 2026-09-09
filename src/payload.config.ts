@@ -7,7 +7,11 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 
+import { Events } from './collections/Events';
+import { Locations } from './collections/Locations';
 import { Media } from './collections/Media';
+import { Speakers } from './collections/Speakers';
+import { Sponsors } from './collections/Sponsors';
 import { Users } from './collections/Users';
 
 const filename = fileURLToPath(import.meta.url);
@@ -31,7 +35,7 @@ export default buildConfig({
     },
   },
   editor: lexicalEditor({}),
-  collections: [Users, Media],
+  collections: [Events, Speakers, Sponsors, Locations, Media, Users],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

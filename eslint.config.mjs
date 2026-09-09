@@ -20,6 +20,19 @@ export default [
     },
   },
   {
+    // Node scripts, not browser code: the import/verify tooling in .claude/scripts and
+    // src/scripts runs under node and legitimately uses console, process and fetch.
+    files: ['.claude/scripts/**/*.{js,mjs,ts}', 'src/scripts/**/*.ts', '*.config.{js,mjs,ts}'],
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        fetch: 'readonly',
+        URL: 'readonly',
+      },
+    },
+  },
+  {
     ignores: [
       'node_modules',
       '.next',

@@ -67,8 +67,12 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    users: User;
+    events: Event;
+    speakers: Speaker;
+    sponsors: Sponsor;
+    locations: Location;
     media: Media;
+    users: User;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -76,8 +80,12 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    speakers: SpeakersSelect<false> | SpeakersSelect<true>;
+    sponsors: SponsorsSelect<false> | SponsorsSelect<true>;
+    locations: LocationsSelect<false> | LocationsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -118,30 +126,182 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * One per meet-up. The slug is the URL: /events/<slug>.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "events".
  */
-export interface User {
+export interface Event {
   id: number;
-  name?: string | null;
+  title: string;
+  /**
+   * The URL segment. Changing it breaks existing links — add a redirect.
+   */
+  slug: string;
+  /**
+   * Start time, UK local. This alone decides whether the event is upcoming.
+   */
+  date: string;
+  /**
+   * Minutes. Used for the calendar links.
+   */
+  duration: number;
+  dateConfirmed?: boolean | null;
+  /**
+   * Shows the "not all talks are scheduled, get in touch" note.
+   */
+  talksTbc?: boolean | null;
+  /**
+   * Offer an "attending online" RSVP option.
+   */
+  showOnlineRsvp?: boolean | null;
+  /**
+   * One paragraph, used on listings and as the share description.
+   */
+  excerpt: string;
+  /**
+   * The body of the event page. Imported from the YAML `intro`, which was raw HTML.
+   */
+  intro?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  location: number | Location;
+  venue: {
+    name: string;
+    /**
+     * Blank for online events.
+     */
+    address?: string | null;
+  };
+  /**
+   * Saving the event updates each sponsor’s "last sponsored" date.
+   */
+  sponsors?: (number | Sponsor)[] | null;
+  /**
+   * Optional in-page image. 5 of the imported events have one.
+   */
+  image?: (number | null) | Media;
+  /**
+   * Uncheck to keep the image out of the page body.
+   */
+  showEventImage?: boolean | null;
+  /**
+   * The running order, in order.
+   */
+  agenda?:
+    | (
+        | {
+            /**
+             * 24-hour, e.g. 18:45. Free text — it is printed, never parsed.
+             */
+            time: string;
+            title: string;
+            /**
+             * The YAML had both a `speaker` and a `speakers` field; they are one list here.
+             */
+            speakers?: (number | Speaker)[] | null;
+            /**
+             * The YAML had a plain `description` and an HTML `descriptionHtml`, never both. Both import into this field.
+             */
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            /**
+             * Just the id, not the URL — the embed builds the rest.
+             */
+            youtubeVideoId?: string | null;
+            /**
+             * Slides, demos, blog posts. 8 imported entries have these.
+             */
+            links?:
+              | {
+                  text: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'talk';
+          }
+        | {
+            /**
+             * 24-hour, e.g. 18:45. Free text — it is printed, never parsed.
+             */
+            time: string;
+            /**
+             * e.g. "Arrival and networking".
+             */
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'item';
+          }
+        | {
+            /**
+             * 24-hour, e.g. 18:45. Free text — it is printed, never parsed.
+             */
+            time: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'tbd';
+          }
+      )[]
+    | null;
+  /**
+   * Search and social. Falls back to the title and excerpt.
+   */
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  /**
+   * The GUID of the matching row in the old Azure SQL Events table. Kept only so plan 4 can attach the existing RSVPs to the right event; delete the field once that has run.
+   */
+  legacyEventId?: string | null;
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  sessions?:
-    | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
-      }[]
-    | null;
-  password?: string | null;
-  collection: 'users';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations".
+ */
+export interface Location {
+  id: number;
+  /**
+   * As shown on the event page, e.g. "London", "Online".
+   */
+  name: string;
+  /**
+   * Backdrop for the event advert. Optional — "Online" has never had one, and the page copes.
+   */
+  image?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -193,6 +353,90 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sponsors".
+ */
+export interface Sponsor {
+  id: number;
+  title: string;
+  /**
+   * Was the YAML filename. Only the importer depends on it.
+   */
+  slug: string;
+  /**
+   * Usually an SVG.
+   */
+  logo?: (number | null) | Media;
+  /**
+   * Tick when the logo is dark and needs a light backing. One of the 14 imported sponsors sets this.
+   */
+  darkLogo?: boolean | null;
+  website: string;
+  /**
+   * One line, shown on the /sponsors page.
+   */
+  description: string;
+  /**
+   * Keep the sponsor on its events but leave it off the /sponsors listing.
+   */
+  hideOnPage?: boolean | null;
+  /**
+   * Maintained automatically from the events that name this sponsor. Seeded from the old YAML value for the four sponsors whose events predate this repo.
+   */
+  lastSponsoredAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "speakers".
+ */
+export interface Speaker {
+  id: number;
+  name: string;
+  /**
+   * Was the YAML filename. Only the importer depends on it.
+   */
+  slug: string;
+  /**
+   * Job title, e.g. "Solutions Architect".
+   */
+  title?: string | null;
+  company?: string | null;
+  /**
+   * Optional. Two of the 35 imported speakers have no photo and the agenda falls back to a silhouette.
+   */
+  photo?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  name?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
+  password?: string | null;
+  collection: 'users';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -216,12 +460,28 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'users';
-        value: number | User;
+        relationTo: 'events';
+        value: number | Event;
+      } | null)
+    | ({
+        relationTo: 'speakers';
+        value: number | Speaker;
+      } | null)
+    | ({
+        relationTo: 'sponsors';
+        value: number | Sponsor;
+      } | null)
+    | ({
+        relationTo: 'locations';
+        value: number | Location;
       } | null)
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: number | User;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -267,26 +527,113 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users_select".
+ * via the `definition` "events_select".
  */
-export interface UsersSelect<T extends boolean = true> {
-  name?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
-  sessions?:
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  date?: T;
+  duration?: T;
+  dateConfirmed?: T;
+  talksTbc?: T;
+  showOnlineRsvp?: T;
+  excerpt?: T;
+  intro?: T;
+  location?: T;
+  venue?:
     | T
     | {
-        id?: T;
-        createdAt?: T;
-        expiresAt?: T;
+        name?: T;
+        address?: T;
       };
+  sponsors?: T;
+  image?: T;
+  showEventImage?: T;
+  agenda?:
+    | T
+    | {
+        talk?:
+          | T
+          | {
+              time?: T;
+              title?: T;
+              speakers?: T;
+              description?: T;
+              youtubeVideoId?: T;
+              links?:
+                | T
+                | {
+                    text?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        item?:
+          | T
+          | {
+              time?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        tbd?:
+          | T
+          | {
+              time?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  legacyEventId?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "speakers_select".
+ */
+export interface SpeakersSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  title?: T;
+  company?: T;
+  photo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sponsors_select".
+ */
+export interface SponsorsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  logo?: T;
+  darkLogo?: T;
+  website?: T;
+  description?: T;
+  hideOnPage?: T;
+  lastSponsoredAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations_select".
+ */
+export interface LocationsSelect<T extends boolean = true> {
+  name?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -338,6 +685,29 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+  sessions?:
+    | T
+    | {
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
       };
 }
 /**

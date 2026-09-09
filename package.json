@@ -31,7 +31,8 @@
     "payload:generate:importmap": "payload generate:importmap",
     "payload:migrate": "payload migrate",
     "payload:migrate:create": "payload migrate:create",
-    "lint:fix": "eslint . --fix && prettier --write ."
+    "lint:fix": "eslint . --fix && prettier --write .",
+    "import:content": "cross-env NODE_OPTIONS=--no-deprecation tsx --env-file=.env.local src/scripts/import-yaml-content.ts"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",
@@ -57,14 +58,18 @@
     "@eslint/js": "^9.20.0",
     "@next/eslint-plugin-next": "16.2.4",
     "@svgr/webpack": "^8.1.0",
+    "@types/jsdom": "^30.0.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "concurrently": "^9.1.2",
     "copyfiles": "^2.4.1",
+    "cross-env": "^10.1.0",
     "eslint": "^9.20.0",
+    "jsdom": "^30.0.1",
     "prettier": "^3.4.2",
     "sass": "^1.83.4",
+    "tsx": "^4.23.13",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.0"
   },

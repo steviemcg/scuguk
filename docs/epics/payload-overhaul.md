@@ -15,10 +15,11 @@ target: >
 > everything into Payload, repo stays public, Mailchimp unchanged, Vercel's non-commercial
 > restriction accepted** — all decided by Steve and recorded under *Decisions* and *D6*.
 >
-> **Plan 1 is done.** The Payload admin has been loaded against a local Postgres, and the public
-> site renders identically to production — evidence in *What can be tested right now*. The one
-> decision still genuinely open is **D4, how attendees sign in to RSVP**, and it blocks plan 4
-> only. Next is plan 2: model the collections and import the YAML content.
+> **Plans 1 and 2 are done.** The Payload admin is loaded against a local Postgres and all 21
+> events, 35 speakers, 14 sponsors and 109 agenda entries are in it, with the rich text
+> verified rather than assumed — evidence in *What can be tested right now*. The one decision
+> still genuinely open is **D4, how attendees sign in to RSVP**, and it blocks plan 4 only.
+> Next is plan 3: render the public pages from Payload instead of from YAML.
 >
 > **Four things want doing regardless of what this epic decides**, none on the critical path:
 >
@@ -524,7 +525,7 @@ Moving content out of git is not free, and neither of these existed before the d
 |---|---|---|---|
 | 0 | Discovery + `AGENTS.md` + this doc | **done** — `7afaeca` | Current state verified against Azure, GitHub, DNS on 2026-09-05 |
 | 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **done** — `dc41f08`, admin verified 2026-09-09 | `/admin` loads, schema pushed, first-user wizard renders. Evidence below. |
-| 2 | Model events/speakers/sponsors as collections; import the 21 YAML events, 35 speakers, 14 sponsors | not started | Import script, not hand-entry |
+| 2 | Model events/speakers/sponsors as collections; import the 21 YAML events, 35 speakers, 14 sponsors | **done** — verified 2026-09-09 | 21 events, 109 agenda entries, 35 speakers, 14 sponsors, 4 locations, 55 media. Counts and rich-text fidelity checked, see below. |
 | 3 | Port the pages to App Router reading from Payload; drop `reactstrap`, keep the SCSS | not started | Where `output: 'export'` and the nightly cron die |
 | 4 | Port the RSVP/attendance API to route handlers; migrate the SQL data | not started | Blocked on N2 and D4. Decide the 18 orphan rows. |
 | 5 | Replace the Puppeteer share-image pipeline with `next/og`, reading from Payload | not started | Was a candidate to go first; under D3 it would have had to be built twice |
@@ -553,13 +554,26 @@ pnpm install && pnpm prebuild && pnpm dev   # http://localhost:8000
 | `/admin` | **HTTP 200** in 11.7s cold (2026-09-09). Payload connected, pushed its schema, and served the first-user wizard, correctly titled "Create first user — Sitecore User Group UK". |
 | Database schema | 9 tables created by the schema push: `users`, `users_sessions`, `media`, `payload_kv`, `payload_locked_documents(_rels)`, `payload_migrations`, `payload_preferences(_rels)`. |
 
-**Still unverified, and honestly so:** no user has been created and nothing has been entered
-through the admin, so the collection editors, media upload and Vercel Blob path have not been
-exercised. The wizard rendering proves Payload boots, reaches Postgres and serves its UI —
-not that authoring works. Creating the first user is Steve's to do (it sets a password).
+### Plan 2 — the content is in Payload (verified 2026-09-09)
 
-Also unverified in a *deployed* environment: everything above is local. No Neon database, no
-Vercel project, nothing published.
+`pnpm import:content --write`, then checked three ways rather than taking the script's word:
+
+| Check | Result |
+| --- | --- |
+| Row counts, straight from Postgres | 21 events · 35 speakers · 14 sponsors · 4 locations · 55 media |
+| Agenda blocks, per block table | 53 talk + 53 item + 3 tbd = **109**, matching the YAML inventory exactly; 18 link rows; 72 relationship rows |
+| Every event has a location | `select count(location_id) from events` → 21 of 21 |
+| Rich text survived the HTML→Lexical conversion | 9 links (matching the 9 `<a>` tags in the source), 3 lists / 8 list items, 3 headings, and 28 text nodes carrying bold / italic / underline. `.claude/scripts/verify-import.mjs` |
+| The sponsor-date drift is gone | The hook rewrote all three: Sitecore 2024-11-14 → **2026-09-24**, UNRVLD 2024-03-06 → **2026-03-19**, Avanade 2023-01-11 → **2023-02-01**. The four sponsors with no events kept their seeded YAML dates. |
+| A spot-check through the API and the admin UI | The March 2026 event: title, date, venue, both sponsors, all 7 agenda entries with the right speakers attached, `legacyEventId` carried over, and the intro rendering in the editor with its bold and underline intact. |
+
+**One known loss, and it was reported rather than swallowed:** two events wrap a paragraph in
+`<p className="alert alert-warning">`. Lexical keeps the text and drops the class, so those
+callouts are ordinary paragraphs until plan 3 gives them a Callout block.
+
+**Still unverified:** nothing has been *authored* through the admin — the import writes through
+Payload's local API, which is not the same code path as a human filling in the form and hitting
+Save. And everything above is local: no Neon database, no Vercel project, nothing deployed.
 
 Production is untouched: <https://scug.co.uk> still serves the `master` static export, and the
 old API at <https://api.scug.co.uk/events> still answers.

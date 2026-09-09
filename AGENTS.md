@@ -175,6 +175,53 @@ prettier-ignored.
 
 ---
 
+## The Payload content model
+
+Five collections in `src/collections/`, plus the agenda blocks in `src/blocks/agenda.ts`:
+
+- **`events`** — one per meet-up. `slug` is the URL and was the YAML filename. `agenda` is a
+  blocks field (`talk` / `item` / `tbd`); `location`, `sponsors` and each talk's `speakers` are
+  relationships. **`legacyEventId` holds the old Azure SQL GUID** and exists only so plan 4 can
+  attach the existing RSVPs to the right event — delete the field once that has run.
+- **`speakers`**, **`sponsors`**, **`locations`**, **`media`**, **`users`** (editors — *not*
+  RSVP identities, which are still Auth0).
+
+Things worth knowing before you change any of it:
+
+- **`sponsors.lastSponsoredAt` is maintained by a hook, not by a person**
+  (`src/hooks/syncSponsorDates.ts`, fired `afterChange` on Events). It orders the /sponsors
+  page. As a hand-typed YAML field it had drifted on 3 of 14 — Sitecore's said 2024-11-14
+  against a real latest event of 2026-09-24. It is read-only in the admin for that reason. The
+  hook only ever moves the date forward; removing a sponsor from an event does not roll it back.
+- **`locations` exists because the YAML had none.** The old code lowercased the event's
+  `location` string into an image path, which is why "Online" (3 events) silently had no image.
+- **Media accepts `application/xml`** (`src/collections/Media.ts`). That is not a mistake: 10 of
+  the 14 sponsor logos are SVGs and Payload sniffs an SVG's content as `application/xml`, so
+  `image/*` alone rejects them with "Invalid MIME type: application/xml".
+
+### Importing the YAML content
+
+```bash
+pnpm import:content              # dry run — reports and writes nothing
+pnpm import:content --write      # write
+pnpm import:content --write --fresh   # wipe the imported collections first
+```
+
+`src/scripts/import-yaml-content.ts`. Idempotent — keyed on the slug that was the filename, so
+a rerun updates rather than duplicates. It converts the raw-HTML `intro` to Lexical via
+`convertHTMLToLexical` + jsdom, and reports every lossy or ambiguous case rather than swallowing
+it. **It does not touch RSVP data**; that is still Azure SQL until plan 4.
+
+Two checking scripts sit in `.claude/scripts/`: `inspect-yaml-shape.mjs` (what keys the YAML
+*actually* uses, which is not what `src/content.types.ts` says) and `verify-import.mjs` (proves
+links, lists and inline formatting survived the HTML conversion — needs `pnpm dev` running).
+
+**Known loss, owned by plan 3:** two events wrap a paragraph in
+`<p className="alert alert-warning">`. Lexical keeps the text and drops the class, so those
+callouts render as ordinary paragraphs until a Callout block exists.
+
+---
+
 ## Config quirks worth not rediscovering
 
 Each of these cost a failed build during the migration. `D:\vdp` (GitHub `steviemcg/vdah`) is

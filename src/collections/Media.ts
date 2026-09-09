@@ -13,7 +13,10 @@ export const Media: CollectionConfig = {
       { name: 'portrait', width: 400, height: 400, position: 'centre' },
       { name: 'wide', width: 1200, height: 630, position: 'centre' },
     ],
-    mimeTypes: ['image/*'],
+    // `application/xml` is not a mistake: 10 of the 14 sponsor logos are SVGs, and
+    // Payload sniffs an SVG's content as application/xml rather than image/svg+xml,
+    // so `image/*` alone rejects them with "Invalid MIME type: application/xml".
+    mimeTypes: ['image/*', 'image/svg+xml', 'application/xml'],
     adminThumbnail: 'thumbnail',
   },
   admin: {
