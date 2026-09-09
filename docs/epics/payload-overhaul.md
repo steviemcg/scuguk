@@ -507,7 +507,7 @@ Moving content out of git is not free, and neither of these existed before the d
 
 | # | Need | Why | Who |
 |---|---|---|---|
-| N1 | **Netlify access** — but first, **whose account is it?** Steve believes Alex Washtell holds it (2026-09-09, unverified) | Cannot see the site config, the Forms submissions, the DNS records or the build settings. If it is Alex's, Steve cannot grant this and the handover has a third person in it. See D6 → *Who owns the hosting*. | Steve → Alex? |
+| N1 | **Netlify access** — a personal access token, or add Claude via the Netlify MCP/plugin. The account is **Steve's** (settled 2026-09-09) | Cannot otherwise see the site config, the Forms submissions, the DNS records or the build settings. No Netlify CLI installed either (`npm i -g netlify-cli`). Lower priority now that the migration moves off Netlify anyway — the one thing genuinely wanted from it is the archive of contact-form submissions. | Steve |
 | N2 | **Azure SQL firewall + credentials** for server `scuguk` (UK South, admin `scuguk-admin`) | Need row counts and a data export to size the migration and answer D4. The password is not in the App Service app settings — it is in connection string `scuguk`. | Steve |
 | N3 | **Tell Jeremy what D3 costs him** — content moves out of git, so no more PR review of an event page before it publishes | Decided without him on 2026-09-05; he is the one who will be adding events, so he should get the chance to push back before plan 3 makes it irreversible. | Steve → Jeremy |
 | N4 | **Auth0 tenant access** (`scug.eu.auth0.com`) | Only if D4 lands on "keep Auth0". | Steve |
