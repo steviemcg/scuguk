@@ -11,27 +11,29 @@ target: >
   `scuguk` is deleted.
 ---
 
-> **Status 2026-09-09.** **Host = Vercel, database = Neon, scope = everything into Payload,
-> repo stays public, Mailchimp stays exactly as it is** — all decided by Steve and recorded
-> under *Decisions* and *D6*. Plan 1 (the scaffold) is **built and the public site is verified
-> against production; the Payload admin is not** — nothing has a database to point at yet (N5).
-> The one decision still genuinely open is **D4, how attendees sign in to RSVP**; it blocks
-> plan 4 only.
+> **Status 2026-09-09.** **Host = Vercel on a new group-owned account, database = Neon, scope =
+> everything into Payload, repo stays public, Mailchimp unchanged, Vercel's non-commercial
+> restriction accepted** — all decided by Steve and recorded under *Decisions* and *D6*.
 >
-> **New on 2026-09-09, and it widens the problem this epic exists to solve:** Steve believes the
-> Netlify account hosting the live site belongs to **Alex Washtell**, not to him. If so the
-> handover is not Steve → Jeremy but a three-person problem, and nobody in the conversation can
-> currently reach the hosting. Unverified; see *D6 → Who owns the hosting*.
+> **Plan 1 is done.** The Payload admin has been loaded against a local Postgres, and the public
+> site renders identically to production — evidence in *What can be tested right now*. The one
+> decision still genuinely open is **D4, how attendees sign in to RSVP**, and it blocks plan 4
+> only. Next is plan 2: model the collections and import the YAML content.
 >
-> **Three things want doing regardless of what this epic decides:**
+> **Four things want doing regardless of what this epic decides**, none on the critical path:
 >
-> 1. The SQL row behind the **September 2026** event page has its date stored as **2023-09-26**
+> 1. ⏰ **The nightly rebuild is switched off** (`state=disabled_inactivity`), so the homepage's
+>    idea of "next event" is frozen at the 7 September deploy. Harmless until **25 September**,
+>    when the finished London event will sit there as "Next Event" until somebody pushes a
+>    commit. One command to re-enable; plan 3 deletes the mechanism for good. *Current
+>    architecture* §1.
+> 2. The SQL row behind the **September 2026** event page has its date stored as **2023-09-26**
 >    instead of 2026-09-24, so the RSVP API reports no upcoming events at all. Blast radius in
 >    *Current architecture* §2. A one-column `UPDATE`, needs N2.
-> 2. A **Google Maps API key** sat in the public git history for six years and is still live
+> 3. A **Google Maps API key** sat in the public git history for six years and is still live
 >    unless restricted — now tracked as
 >    [issue #242](https://github.com/steviemcg/scuguk/issues/242), off the critical path.
-> 3. **Prepay the domain and put a GitHub org around the repo** — the two cheapest, largest
+> 4. **Prepay the domain and put a GitHub org around the repo** — the two cheapest, largest
 >    reductions in bus-factor available, and neither depends on any decision here. *D6 →
 >    Recommended, not yet done*.
 
@@ -94,11 +96,35 @@ Verified 2026-09-05; the verifying command for each part is in `AGENTS.md` § *T
 
 ### Four things about this that are load-bearing
 
-**1. There is no server, so a cron job stands in for the passage of time.**
+**1. There is no server, so a cron job stands in for the passage of time — and the cron is off.**
 `next.config.js` sets `output: 'export'`. `getUpcomingEvents()`
 (`src/util/data/events.ts:19`) compares each event's date to `new Date()` **at build time**.
 So `.github/workflows/main.yml` POSTs a Netlify build hook every night at 02:00 UTC purely so
 that yesterday's event stops being tomorrow's. Nothing else in the repo needs that cron.
+
+⚠️ **It has been switched off and nobody noticed.** The workflow is `state=disabled_inactivity`
+— GitHub disables scheduled workflows in repositories that go quiet — and there are no runs in
+the retained history *(forced — verified 2026-09-09:
+`gh api repos/steviemcg/scuguk/actions/workflows` returns `disabled_inactivity` for
+"Schedule Netlify Build"; `.../workflows/main.yml/runs` returns `total_count: 0`)*.
+
+The site's idea of "which event is next" is therefore frozen at the last deploy, **7 September
+2026**. That is harmless today, because the 24 September event is genuinely still upcoming.
+**It stops being harmless on 25 September**, when a finished event will sit on the homepage as
+"Next Event" until somebody happens to push a commit.
+
+Two ways to fix it, and they are not equivalent:
+
+- **Now, on `master`:** re-enable the workflow (`gh api -X PUT
+  repos/steviemcg/scuguk/actions/workflows/main.yml/enable`, or the button in the Actions tab).
+  One command, restores the intended behaviour, and it will silently switch itself off again the
+  next time the repo goes quiet for 60 days.
+- **Permanently, via this epic:** plan 3 deletes the whole mechanism. With a server rendering the
+  page, "is this event in the future?" is answered when the visitor asks, not when the build ran.
+
+This is the epic's argument in miniature: the workaround for having no server had itself failed
+silently, and the failure was invisible because its only symptom is a stale homepage on a day
+nobody happened to look.
 
 **2. Every event is defined twice, nothing joins the halves — and they have already drifted.**
 `src/data/events/{key}.yml` carries `eventId: <guid>`. That GUID is a primary key in Azure SQL
@@ -392,50 +418,50 @@ Three things about the free plan that matter later:
   (`src/data/sponsors/vercel.yml`), so there is plausibly a human to ask. It would resolve both
   Vercel problems below at once.
 
-### Who owns the hosting — the assumption that turned out to be wrong
+### Who owns the hosting — settled
 
-This doc, and `AGENTS.md`, described Netlify without naming an owner, and the handover
-conversation has been framed throughout as *Steve → Jeremy*. On 2026-09-09 Steve said he
-believes **Alex Washtell** holds the Netlify account, not him.
+Briefly recorded here as Alex Washtell's on 2026-09-09; **that was wrong and is retracted the
+same day.** Steve reached `app.netlify.com/projects/scuguk/overview` in his own browser, so the
+Netlify account is his and the handover really is Steve → Jeremy. DNS delegation is confirmed
+still Netlify's (`dns[1-4].p05.nsone.net`, 2026-09-09), so that account also holds the
+operational control of the domain even though Namecheap holds the registration.
 
-If that is right, the bus factor is worse than recorded: the live site is hosted on the account
-of a **third person who is not in the handover conversation at all** — and it is consistent with
-what the repo shows (Alex has 113 commits and 83 PRs, more than twice Steve's). It also means
-**N1 (Netlify access) cannot be satisfied by Steve**, which is why it has not moved.
-
-**Unverified, and cheap to settle**: log in to Netlify, or see who receives the deploy
-notifications. DNS delegation is confirmed still Netlify's (`dns[1-4].p05.nsone.net`,
-2026-09-09), so whoever owns that account owns the DNS too — which is the domain's *operational*
-control even though Namecheap holds the registration.
+Kept rather than deleted because the misreading is instructive: nobody could say from the repo,
+the DNS or the build config who owned the hosting, and it took a screenshot to settle. That is
+the documentation gap this epic exists to close.
 
 ### Where the Vercel account should live
 
-Steve asked "my personal Vercel, or…?" — and the answer changed once the shared address was
-decided. **Neither personal account. Register the Vercel account itself to
-`contact@scug.co.uk`, with the password in a shared vault** *(proposed — mine, 2026-09-09)*.
+**A new Vercel account, registered to the group** *(decided — Steve, 2026-09-09: "I'm going to
+create a new vercel account later")*. Not either personal account.
 
 That is Jeremy's original Slack suggestion, and for *this* service it is the right one. The
 argument against a shared credential — that everybody who has ever held it keeps it, with no
 audit trail — is an argument against using one as the username for all eight services. It is not
 an argument against using one for a **rebuildable** service whose only alternative is welding it
 to a named individual, which is the mistake being unwound. The Hobby one-seat limit stops
-mattering when the *account* is the shared thing rather than a team inside it.
+mattering when the *account* is the shared thing rather than a team inside it. Register it to
+`contact@scug.co.uk` and keep the password in a shared vault.
 
-It also avoids repeating exactly what happened with Netlify: hosting quietly ending up on
-whoever set it up.
+### The one Vercel problem this leaves
 
-### The two Vercel problems this leaves
+**Hobby is one seat.** Free Vercel has no collaborators at all; Pro is $20/user/month. The
+group-account answer above sidesteps this rather than solving it — two people cannot act *as
+themselves*, and there is no record of who deployed what. Accepted, because the deploy is
+rebuildable; the Open Source Program application is the route to a real team if it lands.
+### Vercel's non-commercial restriction — raised, and accepted
 
-1. **Hobby is one seat.** Free Vercel has no collaborators at all; Pro is $20/user/month. The
-   shared-account answer above sidesteps this rather than solving it — two people cannot act
-   *as themselves*, and there is no record of who deployed what.
-2. **Hobby is non-commercial only, and the sponsor logos are a real question.** Vercel's fair
-   use guidelines prohibit "the inclusion of advertisements" and "advertising the sale of a
-   product or service" on Hobby, and state explicitly that even asking for donations counts as
-   commercial. This site has a `/sponsors` page and per-event sponsor logos linking to UNRVLD,
-   EPAM and Sitecore. **Counterweight: the site is already on a free individual Netlify plan
-   with the same logos and has been for years without trouble**, so this is not new or acute.
-   Vercel's docs say to ask support if unsure — worth one email before cutting DNS over.
+Vercel's fair use guidelines restrict Hobby to non-commercial use and prohibit "the inclusion of
+advertisements", stating explicitly that even asking for donations counts as commercial. The
+site has a `/sponsors` page and per-event sponsor logos linking to UNRVLD, EPAM and Sitecore, so
+the question is real.
+
+**Steve has accepted the risk** *(decided — Steve, 2026-09-09: "i'll own that risk. we don't
+charge any money, sponsors get a logo in return for venue + food")*. No money changes hands; a
+logo in exchange for a room and catering is not a sale. The site has also been on a free
+individual Netlify plan with the same logos for years without trouble. **Do not raise this
+again** — if Vercel ever objects, the answer is the Open Source Program or a Pro seat, not a
+redesign.
 
 ### Audit of the public history (done, 2026-09-05)
 
@@ -485,7 +511,7 @@ Moving content out of git is not free, and neither of these existed before the d
 | N2 | **Azure SQL firewall + credentials** for server `scuguk` (UK South, admin `scuguk-admin`) | Need row counts and a data export to size the migration and answer D4. The password is not in the App Service app settings — it is in connection string `scuguk`. | Steve |
 | N3 | **Tell Jeremy what D3 costs him** — content moves out of git, so no more PR review of an event page before it publishes | Decided without him on 2026-09-05; he is the one who will be adding events, so he should get the chance to push back before plan 3 makes it irreversible. | Steve → Jeremy |
 | N4 | **Auth0 tenant access** (`scug.eu.auth0.com`) | Only if D4 lands on "keep Auth0". | Steve |
-| N5 | **A Postgres to point at** — either say "provision Neon through the Vercel Marketplace" (free tier, and it creates a Vercel project + starts deploying, which is why it has not been done unasked) or start Docker Desktop for a local one | `/admin` has never been loaded. Plan 1 is not finishable without it. | Steve |
+| ~~N5~~ | ~~A Postgres to point at~~ — **done 2026-09-09.** Steve started Docker Desktop; a dedicated `scuguk-postgres` container runs on **5433**, deliberately not the `boss-postgres` on 5432 that belongs to another project. Command in `AGENTS.md` § *The local database*. | Unblocked plan 1. A hosted Neon database is still needed before anything deploys, but nothing is waiting on it today. | — |
 | N6 | **Whether Mailchimp's free tier allows a second user** | It is the third of the three irreplaceable assets in D6 and the one least is known about. If it is single-user, it is the strongest case for the shared mailbox being the actual login. | Steve |
 | ~~N7~~ | **The Google Maps key in the public history** — now tracked as **[issue #242, "Restrict or delete the legacy Google Maps API key exposed in git history"](https://github.com/steviemcg/scuguk/issues/242)** | Off the critical path by Steve's decision, 2026-09-09. Still needs doing: six years exposed, billing exposure on the owning Google Cloud project, and the 5 forks keep the history whatever this repo does. | Steve |
 | N8 | **Repoint `newsletter@scug.co.uk`** (and add `contact@`) to two people, not just Steve's Gmail | Both existing forwarders go to one personal inbox. `newsletter@` already receives mail, so fixing it is worth more than adding a new alias. See D6. | Steve |
@@ -497,7 +523,7 @@ Moving content out of git is not free, and neither of these existed before the d
 | # | Plan | Status | Notes |
 |---|---|---|---|
 | 0 | Discovery + `AGENTS.md` + this doc | **done** — `7afaeca` | Current state verified against Azure, GitHub, DNS on 2026-09-05 |
-| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **built, half-verified** | Site half verified (see below); `/admin` **not** verified — no database exists yet (N5) |
+| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **done** — `dc41f08`, admin verified 2026-09-09 | `/admin` loads, schema pushed, first-user wizard renders. Evidence below. |
 | 2 | Model events/speakers/sponsors as collections; import the 21 YAML events, 35 speakers, 14 sponsors | not started | Import script, not hand-entry |
 | 3 | Port the pages to App Router reading from Payload; drop `reactstrap`, keep the SCSS | not started | Where `output: 'export'` and the nightly cron die |
 | 4 | Port the RSVP/attendance API to route handlers; migrate the SQL data | not started | Blocked on N2 and D4. Decide the 18 orphan rows. |
@@ -524,11 +550,16 @@ pnpm install && pnpm prebuild && pnpm dev   # http://localhost:8000
 | `pnpm lint` | passes (2 known `no-img-element` warnings, owned by plan 3) |
 | `/`, `/events`, `/sponsors`, `/events/2026-09-london-sitecore-usergroup` | HTTP 200, render identically to production |
 | reactstrap → `@/components/Grid` | grid classes byte-identical to <https://scug.co.uk> across 5 pages, including the two most nested ones |
-| `/admin` | **HTTP 500 — unverified.** `missing secret key`, then it would need a database. Nothing about the admin has been proven to work. |
+| `/admin` | **HTTP 200** in 11.7s cold (2026-09-09). Payload connected, pushed its schema, and served the first-user wizard, correctly titled "Create first user — Sitecore User Group UK". |
+| Database schema | 9 tables created by the schema push: `users`, `users_sessions`, `media`, `payload_kv`, `payload_locked_documents(_rels)`, `payload_migrations`, `payload_preferences(_rels)`. |
 
-**Not verified, and why:** there is no Postgres to point at. Docker Desktop is not running on
-this machine and no Neon database has been provisioned, so `/admin` has never been loaded. That
-is N5 below and it is the whole of what stands between plan 1 and done.
+**Still unverified, and honestly so:** no user has been created and nothing has been entered
+through the admin, so the collection editors, media upload and Vercel Blob path have not been
+exercised. The wizard rendering proves Payload boots, reaches Postgres and serves its UI —
+not that authoring works. Creating the first user is Steve's to do (it sets a password).
+
+Also unverified in a *deployed* environment: everything above is local. No Neon database, no
+Vercel project, nothing published.
 
 Production is untouched: <https://scug.co.uk> still serves the `master` static export, and the
 old API at <https://api.scug.co.uk/events> still answers.
