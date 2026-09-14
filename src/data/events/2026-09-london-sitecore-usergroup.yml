@@ -1,12 +1,12 @@
 eventId: febafa73-3c73-4d49-bbda-fe6cf08d1487
 title: London Sitecore User Group - September 2026
 excerpt: >
-  We've got AI. We've got optimisation. We've got sociaising. It's all going on at the London Sitecore user group on the 24th September.
+  We've got AI. We've got optimisation. We've got SEO/GEO. We've got sociaising. It's all going on at the London Sitecore user group on the 24th September.
 intro: >
   <p>
     Come and join us at Sitecore's latest office space near Paddington in London, for a meetup with a wide spread of content.
     We've got AI thoughts from outside our community, details on how you can make use of the data Sitecore already has to guide
-    optimisations, plus a third thing to be announced nearer the time.
+    optimisations, plus up to date info on SEO/GEO trends and how Scrunch fits into that landscape.
   </p>
   <p>
     Plus the usual pizza and drinks, and the chance to chat to other community members about what's important or challenging
@@ -47,10 +47,13 @@ agenda:
   - type: item
     time: '19:20'
     description: Break
-  - type: tbd
+  - type: talk
     time: '19:30'
+    speaker: sumithdamodaran
+    title: "Scrunch, SEO & GEO - what do you need to know?"
+    description: "Get the lowdown on Scrunch and how it fits in with the SEO/GEO landscape from Sitecore's own Sumith and Surya."
   - type: item
     time: '20:00'
     description: Close
 meta:
-  description: We've got AI. We've got optimisation. We've got socialising. It's all going on at the London Sitecore user group on the 24th September
+  description: We've got AI. We've got optimisation. We've got SEO/GEO. We've got socialising. It's all going on at the London Sitecore user group on the 24th September
