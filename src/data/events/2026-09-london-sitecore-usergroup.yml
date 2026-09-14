@@ -39,7 +39,7 @@ agenda:
   - type: item
     time: '18:20'
     description: Break
-- type: talk
+  - type: talk
     time: '18:35'
     speaker: toheebolagoke
     title: "From AI Assistants to AI Agents: Building Smarter Digital Experiences"
