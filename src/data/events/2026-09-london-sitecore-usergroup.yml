@@ -49,7 +49,9 @@ agenda:
     description: Break
   - type: talk
     time: '19:30'
-    speaker: suryashanmugam
+    speakers: 
+      - sumithdamodaran
+      - suryashanmugam
     title: "Beyond Search: AEO, GEO and the Architecture of AI Discovery"
     description: "AI is changing how people discover brands, services and information. We’ll look at the rapidly evolving AEO/GEO landscape, what organisations should be doing to improve visibility in AI-generated answers, and then go under the hood with Scrunch — exploring the architecture, APIs, MCP and technical patterns that enable teams to measure, understand and optimise their presence across AI discovery platforms."
   - type: item
