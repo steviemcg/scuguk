@@ -39,16 +39,16 @@ agenda:
   - type: item
     time: '18:20'
     description: Break
-  - type: tbd
+- type: talk
     time: '18:35'
-  - type: item
-    time: '19:05'
-    description: Break
-  - type: talk
-    time: '19:15'
     speaker: toheebolagoke
     title: "From AI Assistants to AI Agents: Building Smarter Digital Experiences"
     description: AI is moving beyond chatbots and copilots toward autonomous agents that can understand context, make decisions, and take action. In this practical session, we’ll explore how AI agents can enhance digital experiences, automate workflows, and create more personalised user journeys, with real-world examples and a live demonstration of an AI-powered workflow.
+  - type: item
+    time: '19:20'
+    description: Break
+  - type: tbd
+    time: '19:30'
   - type: item
     time: '20:00'
     description: Close
