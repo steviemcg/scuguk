@@ -59,9 +59,14 @@ const EventAgendaTalk = ({
               )}
               <div className={styles.eventAgenda__speakerDetailsColumn}>
                 <span className={styles.eventAgenda__speakerName}>{speaker.name}</span>
-                {speaker.title && speaker.company && (
+                {speaker.title && speaker.company ? (
                     <span className={styles.eventAgenda__speakerTitle}>
                         {speaker.title} at {speaker.company}
+                    </span>
+                ) : (
+                    <span className={styles.eventAgenda__speakerTitle}>
+                        {speaker.title}
+                        {speaker.company}
                     </span>
                 )}
               </div>
