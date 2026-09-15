@@ -1,35 +1,22 @@
 eventId: febafa73-3c73-4d49-bbda-fe6cf08d1487
 title: London Sitecore User Group - September 2026
 excerpt: >
-  Time for another London user group, and we're looking for speakers. 
-  Do you have something to talk about?
+  We've got AI. We've got optimisation. We've got SEO/GEO. We've got sociaising. It's all going on at the London Sitecore user group on the 24th September.
 intro: >
   <p>
-    It's been a while since we've had a meet-up in London and lots of Sitecore stuff has happened. 
-    So we're looking at an event on the 24th September at Sitecore's latest office in Paddington.
+    Come and join us at Sitecore's latest office space near Paddington in London, for a meetup with a wide spread of content.
+    We've got AI thoughts from outside our community, details on how you can make use of the data Sitecore already has to guide
+    optimisations, plus up to date info on SEO/GEO trends and how Scrunch fits into that landscape.
   </p>
   <p>
-    So we're looking for some speakers!
-    Do you have something Sitecore-related you want to talk about?
-    Can it fit into a 20-minute-ish session?
-    Then the floor can be yours to discuss anything you like:
+    Plus the usual pizza and drinks, and the chance to chat to other community members about what's important or challenging
+    for your work right now.
   </p>
-  <ul>
-    <li>Done something cool in a project?</li>
-    <li>Learned a new thing you think could be worth sharing?</li>
-    <li>Got an opinion to share?</li>
-  </ul>
+  <p>Please use the sign up button under "Attendance" below so building security will let you in.</p>
   <p>
-    All topics considered! And we can provide advice if you're new to doing this. 
+    Hope we'll see you there...
   </p>
-  <p>
-    If you do have an idea, please get in touch! 
-    We have a <a href="/contact">contact form</a> here, or you can message any of the organisers wherever they're sharing this event.
-  </p>
-  <p>
-    And even if you're not interested in speaking, you can stick the date in your diary and come along to listen.
-  </p>
-date: !!timestamp 2026-09-24 17:45:00+00:00
+date: !!timestamp 2026-09-24 17:45:00+01:00
 duration: 150
 dateConfirmed: true
 showOnlineRsvp: true
@@ -45,20 +32,31 @@ agenda:
   - type: item
     time: '17:45'
     description: Arrival and networking
-  - type: tbd
+  - type: talk
     time: '18:00'
+    speaker: mattdresser
+    title: "Exploring Sitecore Cache Stats for Smarter Optimization"
+    description: "Matt will walk through how to analyse Sitecore caches and use a LINQPad script to aggregate the data for clear, actionable optimization recommendations."    
   - type: item
-    time: '18:30'
+    time: '18:20'
     description: Break
-  - type: tbd
-    time: '18:45'
+  - type: talk
+    time: '18:35'
+    speaker: toheebolagoke
+    title: "From AI Assistants to AI Agents: Building Smarter Digital Experiences"
+    description: AI is moving beyond chatbots and copilots toward autonomous agents that can understand context, make decisions, and take action. In this practical session, we’ll explore how AI agents can enhance digital experiences, automate workflows, and create more personalised user journeys, with real-world examples and a live demonstration of an AI-powered workflow.
   - type: item
-    time: '19:15'
+    time: '19:20'
     description: Break
-  - type: tbd
+  - type: talk
     time: '19:30'
+    speakers: 
+      - sumithdamodaran
+      - suryashanmugam
+    title: "Beyond Search: AEO, GEO and the Architecture of AI Discovery"
+    description: "AI is changing how people discover brands, services and information. We’ll look at the rapidly evolving AEO/GEO landscape, what organisations should be doing to improve visibility in AI-generated answers, and then go under the hood with Scrunch — exploring the architecture, APIs, MCP and technical patterns that enable teams to measure, understand and optimise their presence across AI discovery platforms."
   - type: item
     time: '20:00'
     description: Close
 meta:
-  description: We're planning a Sitecore user group in London on 24th September. Could you be a speaker?
+  description: We've got AI. We've got optimisation. We've got SEO/GEO. We've got socialising. It's all going on at the London Sitecore user group on the 24th September
