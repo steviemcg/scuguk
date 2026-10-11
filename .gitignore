@@ -41,3 +41,6 @@ next-env.d.ts
 /public/data
 # Local Netlify folder
 .netlify
+
+# The code loop's worktrees.
+.claude/worktrees/
