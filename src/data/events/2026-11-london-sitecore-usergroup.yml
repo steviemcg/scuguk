@@ -42,8 +42,11 @@ agenda:
   - type: item
     time: '19:10'
     description: Break
-  - type: tbd 
+  - type: talk
     time: '19:20'
+    speaker: peterclisby
+    title: Build with Design Studio and Agentic Studio
+    description: Learn how Design Studio fits into the SitecoreAI world, how you can use it to prototype components. Find out how agentic flows fit into this world, and how you can control setup and permissions.
   - type: item
     time: '20:00'
     description: Close
