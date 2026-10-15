@@ -62,5 +62,5 @@ event, stays as it was at the last deploy.
   the first goal answers.
 - **Alex Washtell** (`AlexKasaku`) and **Adam Seabridge** (`fluxdigital`) have write access; both have committed events and
   styling since 2021.
-- **Landing:** not decided yet. The code loop as configured lands on `master` itself after the build passes; Steve to
-  confirm or ask for pull requests instead.
+- **Landing:** every change the code loop makes reaches `master` as a pull request, for now (Steve, 2026-10-15);
+  `AlwaysPr` in `.claude/agentloop/config.ps1`.
