@@ -39,8 +39,11 @@ $Cfg = @{
   MergeLabel    = 'integrate:merge'
   PrLabel       = 'integrate:pr'
   MaxIntegrationPushRetries = 3
-  # master requires Netlify's deploy-preview check. The loop pushes master as Steve, an admin, and admins are not held to
-  # the protection (enforce_admins off; no direct push tried yet), so no preview is built: the build runs here instead. yarn 1 through npx (not installed globally); --ignore-engines because .nvmrc says Node 18.
+  # Every change as a pull request for now, never pushed to master by the loop (Steve, 2026-10-15, claude-config #44).
+  AlwaysPr      = $true
+  # The build, run by Land-Work.ps1 -CheckOnly before an agent declares its route. With AlwaysPr the change then also gets
+  # Netlify's deploy preview on its pull request. yarn 1 through npx (not installed globally); --ignore-engines because
+  # .nvmrc says Node 18.
   LandChecks    = @(@{ Name = 'yarn build'
                        Run  = 'npx --yes yarn@1.22.22 install --frozen-lockfile --ignore-engines && npx --yes yarn@1.22.22 build' })
 
