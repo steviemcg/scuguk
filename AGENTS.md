@@ -42,8 +42,9 @@ Both pass on `master` as of 2026-10-12 (Node 24.13.1). The loop runs the same pa
 (`LandChecks` in `.claude/agentloop/config.ps1`). `yarn dev` serves the site on http://localhost:8000 to look at a
 change. `yarn events` (the social images, through puppeteer) has not been run on this machine.
 
-A pull request gets a public Netlify preview at `https://deploy-preview-<number>--scuguk.netlify.app`. A branch the
-loop lands directly gets none, so its change is checked on https://scug.co.uk once Netlify has deployed it.
+A pull request gets a public Netlify preview at `https://deploy-preview-<number>--scuguk.netlify.app`. Every change
+the code loop makes reaches `master` as a pull request for now (Landing, under People), so each one can be checked on
+its preview before it merges.
 
 ## Deploy
 
