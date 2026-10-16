@@ -71,6 +71,7 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
   const [eventAttendance, setEventAttendance] = useState<EventApiAttendance | undefined>(undefined);
   const [eventItem, setEventItem] = useState<EventApiItem | undefined>(undefined);
   const [error, setError] = useState<boolean>(false);
+  const [loadError, setLoadError] = useState<boolean>(false);
 
   const fetchAttendees = useCallback(async () => {
     const attendance = await fetchEventAttendance(eventId, await getIdTokenClaims());
@@ -86,7 +87,7 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
     async (isAttending: boolean, isOnline: boolean) => {
       try {
         await updateEventAttendance(eventId, isAttending, isOnline, await getIdTokenClaims());
-        fetchAttendees();
+        fetchAttendees().catch(() => setLoadError(true));
         setError(false);
       } catch {
         setError(true);
@@ -100,8 +101,9 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
 
   useEffect(() => {
     if (!authIsLoading && isAuthenticated) {
-      fetchEventItem();
-      fetchAttendees();
+      Promise.all([fetchEventItem(), fetchAttendees()])
+        .then(() => setLoadError(false))
+        .catch(() => setLoadError(true));
     }
   }, [authIsLoading, fetchEventItem, fetchAttendees, isAuthenticated]);
 
@@ -111,53 +113,62 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
       <Box theme='green' heading='Attendance'>
         <section className={styles.eventAttendance}>
           {isAuthenticated ? (
-            eventItem &&
-            eventAttendance && (
-              <>
-                <div className={styles.eventAttendance__actions}>
-                  <button
-                    className={cn(styles.eventAttendance__actionYes, {
-                      [styles['eventAttendance__actionYes--active']]:
-                        eventAttendance.loggedInUserResponded && eventAttendance.loggedInUserAttending,
-                    })}
-                    onClick={() => {
-                      if (!eventAttendance.loggedInUserAttending) {
-                        updateAttendance(true, false);
-                      }
-                    }}
-                  >
-                    <ThumbsUpIcon /> I would like to attend
-                  </button>
-                  <button
-                    className={cn(styles.eventAttendance__actionNo, {
-                      [styles['eventAttendance__actionNo--active']]:
-                        eventAttendance.loggedInUserResponded && !eventAttendance.loggedInUserAttending,
-                    })}
-                    onClick={() => {
-                      if (eventAttendance.loggedInUserAttending) {
-                        updateAttendance(false, false);
-                      }
-                    }}
-                  >
-                    I will not attend <ThumbsDownIcon />
-                  </button>
+            <>
+              {loadError && (
+                <div className={styles.eventAttendance__error}>
+                  Due to an error we cannot load attendance details at this time. To register your attendance, please{' '}
+                  <Link href='/contact'>
+                    <span>contact us</span> directly.
+                  </Link>
                 </div>
-                {error && (
-                  <div className={styles.eventAttendance__error}>
-                    Due to an error we cannot update your attendance details at this time. To register your attendance,
-                    please{' '}
-                    <Link href='/contact'>
-                      <span>contact us</span> directly.
-                    </Link>
+              )}
+              {eventItem && eventAttendance && (
+                <>
+                  <div className={styles.eventAttendance__actions}>
+                    <button
+                      className={cn(styles.eventAttendance__actionYes, {
+                        [styles['eventAttendance__actionYes--active']]:
+                          eventAttendance.loggedInUserResponded && eventAttendance.loggedInUserAttending,
+                      })}
+                      onClick={() => {
+                        if (!eventAttendance.loggedInUserAttending) {
+                          updateAttendance(true, false);
+                        }
+                      }}
+                    >
+                      <ThumbsUpIcon /> I would like to attend
+                    </button>
+                    <button
+                      className={cn(styles.eventAttendance__actionNo, {
+                        [styles['eventAttendance__actionNo--active']]:
+                          eventAttendance.loggedInUserResponded && !eventAttendance.loggedInUserAttending,
+                      })}
+                      onClick={() => {
+                        if (eventAttendance.loggedInUserAttending) {
+                          updateAttendance(false, false);
+                        }
+                      }}
+                    >
+                      I will not attend <ThumbsDownIcon />
+                    </button>
                   </div>
-                )}
-                <EventAttendeesDetails
-                  capacityIsLimited={eventItem.capacityIsLimited}
-                  capacity={eventItem.capacity}
-                  {...eventAttendance}
-                />
-              </>
-            )
+                  {error && (
+                    <div className={styles.eventAttendance__error}>
+                      Due to an error we cannot update your attendance details at this time. To register your
+                      attendance, please{' '}
+                      <Link href='/contact'>
+                        <span>contact us</span> directly.
+                      </Link>
+                    </div>
+                  )}
+                  <EventAttendeesDetails
+                    capacityIsLimited={eventItem.capacityIsLimited}
+                    capacity={eventItem.capacity}
+                    {...eventAttendance}
+                  />
+                </>
+              )}
+            </>
           ) : (
             <div className={styles.eventAttendance__actions}>
               <button className={cn(styles.eventAttendance__actionYes)} onClick={() => loginWithPopup()}>
