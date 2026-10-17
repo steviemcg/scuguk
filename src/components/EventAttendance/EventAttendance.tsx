@@ -87,7 +87,9 @@ const EventAttendance = ({ eventId }: EventAttendanceProps) => {
     async (isAttending: boolean, isOnline: boolean) => {
       try {
         await updateEventAttendance(eventId, isAttending, isOnline, await getIdTokenClaims());
-        fetchAttendees().catch(() => setLoadError(true));
+        fetchAttendees()
+          .then(() => setLoadError(false))
+          .catch(() => setLoadError(true));
         setError(false);
       } catch {
         setError(true);
