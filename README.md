@@ -11,8 +11,8 @@ Now with NextJS!
 ### Local Install 
 
 1. cd to the project folder, e.g: `C:\Projects\scuguk\src`
-2. run: `npm install`
-3. run: `npm install --global yarn`
+2. run: `npm install --global yarn`
+3. run: `yarn install`
 
 ### Local Development
 
