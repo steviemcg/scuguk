@@ -55,6 +55,12 @@ The pages are only rebuilt when something deploys. The GitHub Action "Schedule N
 02:00) is disabled by GitHub for inactivity, so anything that depends on today's date, such as the homepage's next
 event, stays as it was at the last deploy.
 
+The Netlify scheduled function `netlify/functions/rebuild-after-event.mjs` (#256) runs daily at 05:00 UTC, reads
+`/data/event-dates.json` from the live site (written by `scripts/export-event-dates.js` in `prebuild`) and POSTs to a
+build hook when an event was the day before, UK time. It reads the hook from the Netlify environment variable
+`REBUILD_HOOK_URL`; until that is set it logs and builds nothing. Scheduled functions run on the published production
+deploy only, never on a deploy preview.
+
 ## People
 
 - **Steve** owns the repository and the Netlify, Azure and Auth0 accounts behind it, and decides what the loops do here.
