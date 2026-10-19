@@ -1,17 +1,19 @@
-// Rebuilds the site the morning after each event, so the homepage's next event moves on by itself (#256).
+// Rebuilds the site after each event, so the homepage's next event moves on by itself (#256).
 //
-// The site is a static export: anything that compares an event's date with today is frozen at the last deploy.
-// This runs daily, reads the event dates the last deploy published at /data/event-dates.json, and POSTs to the build
-// hook only when an event took place yesterday, UK time. The hook is the Netlify environment variable
+// The site is a static export: anything that compares an event's date with now is frozen at the last deploy. This runs
+// daily and reads /data/event-dates.json from the live site, which holds every event's date and the time the live build
+// was made. It POSTs to the build hook when an event has started since that build: the morning after an evening event.
+// A failed morning (the file unreadable, the hook or the build failing) leaves the old build live, so the next run
+// tries again; once the rebuild is live its later build time stops it. The hook is the Netlify environment variable
 // REBUILD_HOOK_URL; without it the function logs and does nothing.
 
-const ukDate = (date) =>
-  new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
-
-// The events whose UK calendar date was the day before `now`.
-export const eventsYesterday = (events, now) => {
-  const yesterday = ukDate(new Date(now.getTime() - 24 * 60 * 60 * 1000));
-  return events.filter((event) => ukDate(new Date(event.date)) === yesterday);
+// The events that started after the live build was made and by `now`.
+export const eventsSinceBuild = ({ builtAt, events }, now) => {
+  const built = new Date(builtAt);
+  return events.filter((event) => {
+    const date = new Date(event.date);
+    return date > built && date <= now;
+  });
 };
 
 export default async (req, context) => {
@@ -22,21 +24,22 @@ export default async (req, context) => {
     return new Response('Could not read event dates', { status: 502 });
   }
 
-  const { events } = await response.json();
-  const held = eventsYesterday(events, new Date());
+  const dates = await response.json();
+  const held = eventsSinceBuild(dates, new Date());
   if (held.length === 0) {
-    console.log('No event yesterday; nothing to rebuild.');
-    return new Response('No event yesterday');
+    console.log(`No event since the live build (${dates.builtAt}); nothing to rebuild.`);
+    return new Response('No event since the live build');
   }
 
+  const keys = held.map((e) => e.key).join(', ');
   const hook = process.env.REBUILD_HOOK_URL;
   if (!hook) {
-    console.error(`Event yesterday (${held.map((e) => e.key).join(', ')}) but REBUILD_HOOK_URL is not set.`);
+    console.error(`Event since the live build (${keys}) but REBUILD_HOOK_URL is not set.`);
     return new Response('REBUILD_HOOK_URL is not set', { status: 500 });
   }
 
   const build = await fetch(hook, { method: 'POST', body: '{}' });
-  console.log(`Event yesterday (${held.map((e) => e.key).join(', ')}); build hook answered ${build.status}.`);
+  console.log(`Event since the live build (${keys}); build hook answered ${build.status}.`);
   return new Response(`Build hook answered ${build.status}`, { status: build.ok ? 200 : 502 });
 };
 

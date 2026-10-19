@@ -14,7 +14,7 @@ Each goal becomes a GitHub milestone of the same name once approved; none exists
   contact-form submission without Steve's Azure subscription, Auth0 tenant or Mailchimp login being involved, and the
   Azure resource group `scuguk` is deleted (the epic's exit criterion; its work is on the unpushed branch above).
 - **The live site stays right until then.** Done when the homepage's next event moves on by itself after an event has
-  happened (the nightly rebuild is disabled, see Deploy), RSVPs work for the next event, and the Google Maps API key
+  happened (see Deploy), RSVPs work for the next event, and the Google Maps API key
   exposed in git history is restricted or deleted (#242).
 
 The open issues from January 2020 (#11 to #28) are about the site before its Next.js rewrite and sit under neither goal.
@@ -51,15 +51,16 @@ Reaching `master` deploys to production: the Netlify site `scuguk` (Steve's acco
 `out/` to https://scug.co.uk. It is static, with no server; a failed build leaves the previous deploy live. Netlify
 records no GitHub deployment, so the loop has no Deployed (verify) turn here.
 
-The pages are only rebuilt when something deploys. The GitHub Action "Schedule Netlify Build" (a nightly rebuild at
-02:00) is disabled by GitHub for inactivity, so anything that depends on today's date, such as the homepage's next
-event, stays as it was at the last deploy.
+The pages are only rebuilt when something deploys, so anything that depends on today's date, such as the homepage's
+next event, stays as it was at the last deploy. The GitHub Action "Schedule Netlify Build" that rebuilt nightly was
+deleted in #256 (GitHub had disabled it for inactivity); its build hook URL is still in git history.
 
-The Netlify scheduled function `netlify/functions/rebuild-after-event.mjs` (#256) runs daily at 05:00 UTC, reads
-`/data/event-dates.json` from the live site (written by `scripts/export-event-dates.js` in `prebuild`) and POSTs to a
-build hook when an event was the day before, UK time. It reads the hook from the Netlify environment variable
-`REBUILD_HOOK_URL`; until that is set it logs and builds nothing. Scheduled functions run on the published production
-deploy only, never on a deploy preview.
+The Netlify scheduled function `netlify/functions/rebuild-after-event.mjs` (#256) runs daily at 05:00 UTC. It reads
+`/data/event-dates.json` from the live site (every event's date and the time that build was made, written by
+`scripts/export-event-dates.js` in `prebuild`) and POSTs to a build hook when an event has started since the live
+build. A failed morning is retried the next day; once the rebuild is live it stops. It reads the hook from the Netlify
+environment variable `REBUILD_HOOK_URL`; until that is set it logs and builds nothing. Scheduled functions run on the
+published production deploy only, never on a deploy preview.
 
 ## People
 

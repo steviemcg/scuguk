@@ -1,6 +1,6 @@
-// Writes the date of every event to public/data/event-dates.json, so it is published at /data/event-dates.json.
-// The scheduled function netlify/functions/rebuild-after-event.mjs reads it from the live site to decide whether
-// yesterday was an event and the site needs rebuilding.
+// Writes the date of every event, and the time of this build, to public/data/event-dates.json, so it is published at
+// /data/event-dates.json. The scheduled function netlify/functions/rebuild-after-event.mjs reads it from the live site
+// to tell whether an event has started since the live build was made, and the site needs rebuilding.
 const fs = require('fs');
 const path = require('path');
 const yaml = require('yaml');
@@ -17,5 +17,5 @@ const events = fs
   });
 
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
-fs.writeFileSync(outFile, JSON.stringify({ events }, null, 2));
+fs.writeFileSync(outFile, JSON.stringify({ builtAt: new Date().toISOString(), events }, null, 2));
 console.log(`Wrote ${events.length} event dates to ${outFile}`);
