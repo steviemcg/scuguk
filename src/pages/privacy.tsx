@@ -50,13 +50,21 @@ export default function Privacy() {
             </p>
 
             <h2>How long we keep your information</h2>
-            <p>[TO FILL: how long RSVP, contact-form and newsletter information is kept]</p>
+            <ul>
+              <li>Contact-form messages submitted through Netlify Forms are kept for 12 months.</li>
+              <li>
+                RSVP details (name, email address, profile picture and attendance answers), handled through Auth0 and our
+                RSVP API, are kept until you ask us to delete them.
+              </li>
+              <li>Newsletter details submitted to Mailchimp are kept until you unsubscribe.</li>
+            </ul>
 
             <h2>Your choices and requests</h2>
             <p>
               You can ask us for a copy of the information we hold about you, ask us to correct it, or ask us to delete
-              it. To make a privacy request, contact us at [TO FILL: contact address for privacy requests]. You can also
-              raise a concern with the UK Information Commissioner&apos;s Office.
+              it. To make a privacy request, contact us at{' '}
+              <a href='mailto:newsletter@scug.co.uk'>newsletter@scug.co.uk</a>. You can also raise a concern with the UK
+              Information Commissioner&apos;s Office.
             </p>
           </Box>
         </Container>
