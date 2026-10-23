@@ -30,8 +30,11 @@ agenda:
     description: Arrival and networking
   - type: talk 
     time: '18:00'
-    speaker: haraldgreve
-    title: Title to be announced
+    speakers:
+      - haraldgreve
+      - ronnielawson
+    title: Content Discovery at Macmillan. Using Sitecore, Yext and Azure Cognitive Services to support our users.
+    description: Discoverability is crucially important to Macmillan, as we support people affected by cancer with access to our information and services. In this talk, Ronnie will demonstrate how Yext has been integrated with Sitecore to enhance content discovery across platforms beyond our website. Harald will walk through the architecture and implementation of a contextual semantic search platform using Sitecore and Azure Cognitive Services, covering the practical challenges of introducing AI-driven search capabilities into an enterprise environment, as well as some of our early learnings.
   - type: item
     time: '18:30'
     description: Break
