@@ -48,6 +48,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 0 5px;
   }
 
   &__speaker {
@@ -59,6 +60,7 @@
     flex-basis: 0;
     flex-grow: 1;
     width: 180px;
+    margin: 0 -20px;
   }
 
   &__profileImage {
