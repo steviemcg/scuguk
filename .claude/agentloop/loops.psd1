@@ -11,11 +11,6 @@
     @{ Task = 'Scuguk-Filing'; Kind = 'monitor'; Daily = '04:45'; StartWhenAvailable = $true; TimeLimit = 'PT60M'
        Arguments = '"{agentloop}\run-hidden.vbs" "{agentloop}\monitor\Monitor.ps1" -Repo "{repo}"' }
 
-    # The code loop: issues labelled `agent`, worked in worktrees and landed on master (CodeLoop.ps1 runs config.ps1).
-    @{ Task = 'Scuguk-AgentLoop'; Kind = 'code'; Every = 'PT5M'
-       Arguments = '"{agentloop}\run-hidden.vbs" "{agentloop}\CodeLoop.ps1" -Repo "{repo}"'
-       Requires = @('Goals', 'Definition of done', 'Verify', 'Deploy', 'People') }
-
     # The daily steering run (claude-config #16); the ready feed also starts it early when its queue runs dry.
     @{ Task = 'Scuguk-Steer'; Kind = 'steer'; Daily = '07:20'; StartWhenAvailable = $true; TimeLimit = 'PT45M'
        Arguments = '"{agentloop}\run-hidden.vbs" "{agentloop}\steer\Steer.ps1" -Repo "{repo}"'
