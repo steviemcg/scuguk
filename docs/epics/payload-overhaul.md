@@ -21,6 +21,13 @@ target: >
 > 16 sponsors, 4 locations and 64 media**. Nothing in plans 3 to 7 has started. The text below is
 > the 2026-09-09 status, kept as written except where a line is marked "Corrected".
 >
+> **Rewritten 2026-11-12.** This branch was rewritten on 12 November 2026, before its first push, to
+> keep a local database password out of a public repository. Five commits changed hash
+> (`7005670`→`f963124`, `31e1067`→`708a1c6`, `db600ce`→`deb3bab`, and the merge and the commit after it);
+> `7afaeca`, `dc41f08` and the other earlier ones kept theirs. The unrewritten commits remain on the
+> local branch `worktree-payload-overhaul`, which was left untouched. The documented docker command now
+> binds the database to localhost only and takes the password from `.env.local`.
+>
 > **Status 2026-09-09.** **Host = Vercel on a new group-owned account, database = Neon, scope =
 > everything into Payload, repo stays public, Mailchimp unchanged, Vercel's non-commercial
 > restriction accepted** — all decided by Steve and recorded under *Decisions* and *D6*.
@@ -544,7 +551,7 @@ Moving content out of git is not free, and neither of these existed before the d
 | # | Plan | Status | Notes |
 |---|---|---|---|
 | 0 | Discovery + `AGENTS.md` + this doc | **done** — `7afaeca` | Current state verified against Azure, GitHub, DNS on 2026-09-05 |
-| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **done** — `dc41f08`, admin verified 2026-09-09; **re-verified 2026-11-12 on the merged branch** (merge commit `f50a488` on `payload-overhaul`) | `/admin` loads, schema pushed, first-user wizard renders. Evidence below. On 2026-11-12: `yarn build` and `yarn typecheck` pass, `yarn lint` has 0 errors and the 2 known warnings, the public pages checked return 200, and `/admin` and `/admin/login` load against the local database. |
+| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **done** — `dc41f08`, admin verified 2026-09-09; **re-verified 2026-11-12 on the merged branch** (merge commit `e75278d` on `payload-overhaul`) | `/admin` loads, schema pushed, first-user wizard renders. Evidence below. On 2026-11-12: `yarn build` and `yarn typecheck` pass, `yarn lint` has 0 errors and the 2 known warnings, the public pages checked return 200, and `/admin` and `/admin/login` load against the local database. |
 | 2 | Model events/speakers/sponsors as collections; import the YAML events, speakers, sponsors | **done** — verified 2026-09-09 (21 events, 109 agenda entries, 35 speakers, 14 sponsors, 4 locations, 55 media); **re-run 2026-11-12 on the merged branch: 23 events, 118 agenda entries, 40 speakers, 16 sponsors, 4 locations, 64 media** | September: counts and rich-text fidelity checked, see below. 2026-11-12: counts, repeatability and the November event checked; rich text for the new events was not. |
 | 3 | Port the pages to App Router reading from Payload; drop `reactstrap`, keep the SCSS | not started | Where `output: 'export'` and the nightly cron die |
 | 4 | Port the RSVP/attendance API to route handlers; migrate the SQL data | not started | Blocked on N2 and D4. Decide the 18 orphan rows. |

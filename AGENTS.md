@@ -222,15 +222,21 @@ Payload needs a Postgres. **Give it its own container on its own port** — this
 runs `boss-postgres` on 5432 for an unrelated project, and pointing at that would put Payload's
 schema push into someone else's database:
 
+Pick a password, put it in `.env.local` as `DATABASE_URL`, and pass the same value to the container
+(here from that file; **do not commit the value**). **Bind the port to localhost only** (`127.0.0.1:`),
+because `-p 5433:5432` alone publishes the database on every network interface of the machine:
+
 ```bash
+PGPASS=<password from .env>   # the same password that is in DATABASE_URL in .env.local
 docker run -d --name scuguk-postgres \
-  -e POSTGRES_USER=scuguk -e POSTGRES_PASSWORD=<password from .env> -e POSTGRES_DB=scuguk \
-  -p 5433:5432 -v scuguk-pgdata:/var/lib/postgresql/data postgres:16-alpine
+  -e POSTGRES_USER=scuguk -e POSTGRES_PASSWORD="$PGPASS" -e POSTGRES_DB=scuguk \
+  -p 127.0.0.1:5433:5432 -v scuguk-pgdata:/var/lib/postgresql/data postgres:16-alpine
 ```
 
 `DATABASE_URL=postgres://scuguk:<password from .env>@localhost:5433/scuguk`. The postgres adapter
 pushes the schema on first connect in development, so there is no migration to run — the tables
-appear when `/admin` is first loaded. `/admin` then offers a first-user wizard.
+appear when `/admin` is first loaded. `/admin` then offers a first-user wizard. The data lives in the
+`scuguk-pgdata` volume, so removing and recreating the container keeps it.
 
 Local credentials only; they are in `.env.local`, which is gitignored.
 
