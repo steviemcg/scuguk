@@ -1,9 +1,9 @@
 /**
  * One-shot import of the YAML content in `src/data/**` into Payload.
  *
- *   pnpm import:content            # dry run — reports what it would do, writes nothing
- *   pnpm import:content --write    # actually write
- *   pnpm import:content --write --fresh   # delete imported docs first, then write
+ *   yarn import:content            # dry run — reports what it would do, writes nothing
+ *   yarn import:content --write    # actually write
+ *   yarn import:content --write --fresh   # delete imported docs first, then write
  *
  * Idempotent: every collection is keyed on the slug that was the YAML filename, so a
  * second run updates rather than duplicates. That matters because this will be run more

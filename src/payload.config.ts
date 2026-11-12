@@ -18,7 +18,7 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 // Media storage is opt-in on the presence of the token so that a fresh clone can run
-// `pnpm dev` against a local database with no Vercel account at all — uploads then land
+// `yarn dev` against a local database with no Vercel account at all — uploads then land
 // on local disk under `media/`. Deployed environments always have the token, because
 // the Vercel Blob integration injects it. Do not "simplify" this to an unconditional
 // plugin without giving local dev another way to boot.

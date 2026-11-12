@@ -3,7 +3,7 @@
  * anything: inline formatting, links and list structure are the parts most likely to be
  * lost, and the loss would be invisible until someone opened the page.
  *
- * Needs `pnpm dev` running. Run: node .claude/scripts/verify-import.mjs
+ * Needs `yarn dev` running. Run: node .claude/scripts/verify-import.mjs
  */
 const BASE = process.env.BASE_URL ?? 'http://localhost:8000';
 
@@ -22,7 +22,7 @@ function walk(node) {
 }
 
 const res = await fetch(`${BASE}/api/events?limit=100&depth=0`);
-if (!res.ok) throw new Error(`GET /api/events -> ${res.status}. Is pnpm dev running?`);
+if (!res.ok) throw new Error(`GET /api/events -> ${res.status}. Is yarn dev running?`);
 const { docs } = await res.json();
 
 let introCount = 0;

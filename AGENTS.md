@@ -20,7 +20,71 @@ git; a separate .NET API on Azure handles event RSVPs. **Maintainers: Steve McGi
 (steviemcg) and Jeremy Davis (jermdavis).**
 
 An overhaul is in flight — see **`docs/epics/payload-overhaul.md`** before doing any
-implementation work. Read it first; it is the durable record and this file is not.
+implementation work. Read it first; it is the durable record and this file is not. It lives on
+branch `payload-overhaul`, merged with `master` on 2026-11-12; production still runs `master`.
+
+**This file combines two things that were written separately:** how the repository and its agent
+loop work today (from `master`: *Goals* to *People and the loop*, below), and how the overhaul
+works (the rest). Where they differ, the overhaul sections describe this branch and the `master`
+sections describe what is deployed.
+
+---
+
+## Goals
+
+**Draft by Claude, 2026-10-12, for Steve to approve; merging the pull request that adds this
+section to `master` is that approval.** Each goal becomes a GitHub milestone of the same name
+once approved; none exists yet. Sources: the Payload epic (`docs/epics/payload-overhaul.md`) and
+issue #242.
+
+- **One stack a second maintainer can be handed.** Done when Jeremy can add an event, see its RSVPs
+  and read a contact-form submission without Steve's Azure subscription, Auth0 tenant or Mailchimp
+  login being involved, and the Azure resource group `scuguk` is deleted (the epic's exit criterion).
+- **The live site stays right until then.** Done when the homepage's next event moves on by itself
+  after an event has happened (the nightly rebuild is disabled, see *Build and deploy chain*), RSVPs
+  work for the next event, and the Google Maps API key exposed in git history is restricted or
+  deleted (#242).
+
+The open issues from January 2020 (#11 to #28) are about the site before its Next.js rewrite and
+sit under neither goal.
+
+## Definition of done
+
+For a change to **`master`** (the static export that is deployed):
+
+- `yarn build` passes: every event page and its `/ad` page generate.
+- A new or changed event carries its social image, made with `yarn events` after `yarn build`; when
+  speakers change, the old image is deleted before rebuilding.
+- An event whose key (its URL) changes keeps the old URL working with a 301 in `netlify.toml`.
+- A visible change is checked at phone and desktop width.
+
+For a change to **this branch**: `yarn typecheck`, `yarn lint` and `yarn build` pass, and the
+checks in the epic's *What can be tested right now* still hold. `yarn events` and the `/ad`
+image generation do not exist here (plan 5 replaces them with `next/og`).
+
+## Verify
+
+From the worktree root: `yarn install --frozen-lockfile`, then `yarn build`. A pull request to
+`master` gets a public Netlify preview at `https://deploy-preview-<number>--scuguk.netlify.app`;
+a branch the loop lands directly gets none, so its change is checked on https://scug.co.uk once
+Netlify has deployed it. Netlify records no GitHub deployment, so the loop has no Deployed
+(verify) turn here.
+
+## People and the loop
+
+- **Steve** owns the repository and the Netlify, Azure and Auth0 accounts behind it, and decides
+  what the loops do here.
+- **Jeremy Davis** (`jermdavis`) writes the event pages, as pull requests from his fork. He raised
+  the access problem the first goal answers.
+- **Alex Washtell** (`AlexKasaku`) and **Adam Seabridge** (`fluxdigital`) have write access; both
+  have committed events and styling since 2021.
+- **The code loop** runs in `agentloopd` (Doorbell's daemon), not from this repository. Its
+  settings, landing checks and scheduled jobs are this project's settings in Doorbell
+  (`/admin/project-settings`). `.claude/agentloop/config.ps1`, `desk/config.ps1` and `loops.psd1`
+  were deleted from `master` on 2026-10-27 (#280, #281) and stay deleted here. Only
+  `.claude/agentloop/desk/prompts/about.md` remains: the Desk's description of the site, which
+  describes `master`'s workflow. **Landing:** every change the code loop makes reaches `master` as a
+  pull request, for now (Steve, 2026-10-15).
 
 ---
 
@@ -138,14 +202,15 @@ The site and the Payload admin are one Next app: `src/pages/**` (unchanged, Page
 
 ## Local development
 
-Node **22+** (`.nvmrc`), package manager **pnpm** (`pnpm-lock.yaml`; the yarn and npm lockfiles
-are gone).
+Node **22+** (`.nvmrc`), package manager **yarn 1.x** (`yarn.lock` is the only lockfile; `master`
+moved to it in October 2026 and the overhaul followed). Yarn is not installed globally on the
+shared machine, so use `npx --yes yarn@1.22.22 <command>` or `npm install --global yarn`.
 
 ```bash
-pnpm install
+yarn install
 cp .env.local.example .env.local   # PAYLOAD_SECRET + DATABASE_URL
-pnpm prebuild   # copies data images into public/data — required, or images 404
-pnpm dev        # http://localhost:8000  (port 8000, not 3000)
+yarn prebuild   # copies data images into public/data — required, or images 404
+yarn dev        # http://localhost:8000  (port 8000, not 3000)
 ```
 
 **The public pages render with no database** — they still read YAML from `src/data/`. Only
@@ -169,8 +234,8 @@ appear when `/admin` is first loaded. `/admin` then offers a first-user wizard.
 
 Local credentials only; they are in `.env.local`, which is gitignored.
 
-After editing a collection run `pnpm payload:generate:types`; after adding a custom admin
-component run `pnpm payload:generate:importmap`. Both outputs are committed and
+After editing a collection run `yarn payload:generate:types`; after adding a custom admin
+component run `yarn payload:generate:importmap`. Both outputs are committed and
 prettier-ignored.
 
 ---
@@ -202,9 +267,9 @@ Things worth knowing before you change any of it:
 ### Importing the YAML content
 
 ```bash
-pnpm import:content              # dry run — reports and writes nothing
-pnpm import:content --write      # write
-pnpm import:content --write --fresh   # wipe the imported collections first
+yarn import:content              # dry run — reports and writes nothing
+yarn import:content --write      # write
+yarn import:content --write --fresh   # wipe the imported collections first
 ```
 
 `src/scripts/import-yaml-content.ts`. Idempotent — keyed on the slug that was the filename, so
@@ -214,7 +279,7 @@ it. **It does not touch RSVP data**; that is still Azure SQL until plan 4.
 
 Two checking scripts sit in `.claude/scripts/`: `inspect-yaml-shape.mjs` (what keys the YAML
 *actually* uses, which is not what `src/content.types.ts` says) and `verify-import.mjs` (proves
-links, lists and inline formatting survived the HTML conversion — needs `pnpm dev` running).
+links, lists and inline formatting survived the HTML conversion — needs `yarn dev` running).
 
 **Known loss, owned by plan 3:** two events wrap a paragraph in
 `<p className="alert alert-warning">`. Lexical keeps the text and drops the class, so those
@@ -274,7 +339,7 @@ the working reference for the Payload half.
   while `master` still deploys to Netlify; plan 6 replaces the mechanism outright.
 - **Known lint warnings, owned by plan 3:** two `@next/next/no-img-element` warnings
   (`EventDetails.tsx:25`, `404.tsx:9`). Both are content images that become Payload media, so
-  they are fixed by the port rather than suppressed. `pnpm lint` fails on errors, not warnings
+  they are fixed by the port rather than suppressed. `yarn lint` fails on errors, not warnings
   — deliberately, so a tracked warning doesn't block an unrelated change.
 
 ---

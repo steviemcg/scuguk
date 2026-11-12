@@ -1,0 +1,3 @@
+The website of the Sitecore User Group UK (SCUGUK), a Next.js site on Netlify with the group's events, speakers and attendance booking. An event is added or updated in the repository's event data, and `yarn build` then `yarn events` generate the files and the socials image (an updated event with new speakers needs the old generated image deleted first). A callout such as a venue change goes in the event's `intro` field.
+
+Questions are likely to be about how to add or change an event or speaker, what is on the site, or how to build and run it locally (README.md). A defect or a change becomes an issue in steviemcg/scuguk.

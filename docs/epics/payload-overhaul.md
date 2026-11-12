@@ -11,6 +11,16 @@ target: >
   `scuguk` is deleted.
 ---
 
+> **Update 2026-11-12: the branch was brought up to date with `master` and re-checked.**
+> `master` had moved 16 commits since 2026-09-09 (a November 2026 London event and a Manchester
+> September 2026 event, dependency updates, and the agent loop handed to a daemon). `master` was
+> merged in (not rebased, so the original commits keep their hashes). The package manager is now
+> **yarn**, with `yarn.lock` as the only lockfile (it was pnpm on this branch). Plans 1 and 2 were
+> re-verified on the merged branch; the evidence is in *What can be tested right now* →
+> *Re-verified 2026-11-12*. The import now holds **23 events, 118 agenda entries, 40 speakers,
+> 16 sponsors, 4 locations and 64 media**. Nothing in plans 3 to 7 has started. The text below is
+> the 2026-09-09 status, kept as written except where a line is marked "Corrected".
+>
 > **Status 2026-09-09.** **Host = Vercel on a new group-owned account, database = Neon, scope =
 > everything into Payload, repo stays public, Mailchimp unchanged, Vercel's non-commercial
 > restriction accepted** — all decided by Steve and recorded under *Decisions* and *D6*.
@@ -24,13 +34,23 @@ target: >
 > **Four things want doing regardless of what this epic decides**, none on the critical path:
 >
 > 1. ⏰ **The nightly rebuild is switched off** (`state=disabled_inactivity`), so the homepage's
->    idea of "next event" is frozen at the 7 September deploy. Harmless until **25 September**,
->    when the finished London event will sit there as "Next Event" until somebody pushes a
->    commit. One command to re-enable; plan 3 deletes the mechanism for good. *Current
->    architecture* §1.
+>    idea of "next event" is frozen at the last deploy. One command to re-enable; plan 3 deletes
+>    the mechanism for good. *Current architecture* §1.
+>    **Corrected 2026-11-12:** still disabled (`gh api repos/steviemcg/scuguk/actions/workflows`
+>    lists "Schedule Netlify Build" as `disabled_inactivity`). The 25 September date passed
+>    without harm: `master` has deployed several times since, and <https://scug.co.uk/> showed
+>    "Next Event" = `2026-11-london-sitecore-usergroup` when loaded on 2026-11-12. It will go
+>    stale again on **20 November 2026**, the day after the 19 November London event, unless
+>    something deploys.
 > 2. The SQL row behind the **September 2026** event page has its date stored as **2023-09-26**
 >    instead of 2026-09-24, so the RSVP API reports no upcoming events at all. Blast radius in
 >    *Current architecture* §2. A one-column `UPDATE`, needs N2.
+>    **Corrected 2026-11-12:** the September London row is still wrong (`2023-09-26`), and so is
+>    the new **Manchester September 2026** row (`2023-09-10`, against `2026-09-17` in
+>    `src/data/events/2026-09-manchester-meetup.yml`). Both events are now in the past. The API's
+>    `/events/future` returns one row, November London (`2026-11-19`, 17 yes-RSVPs, and its
+>    `eventId` matches the YAML), so "reports no upcoming events" no longer shows. The year typo
+>    has now happened twice (`curl https://api.scug.co.uk/events`).
 > 3. A **Google Maps API key** sat in the public git history for six years and is still live
 >    unless restricted — now tracked as
 >    [issue #242](https://github.com/steviemcg/scuguk/issues/242), off the critical path.
@@ -524,8 +544,8 @@ Moving content out of git is not free, and neither of these existed before the d
 | # | Plan | Status | Notes |
 |---|---|---|---|
 | 0 | Discovery + `AGENTS.md` + this doc | **done** — `7afaeca` | Current state verified against Azure, GitHub, DNS on 2026-09-05 |
-| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **done** — `dc41f08`, admin verified 2026-09-09 | `/admin` loads, schema pushed, first-user wizard renders. Evidence below. |
-| 2 | Model events/speakers/sponsors as collections; import the 21 YAML events, 35 speakers, 14 sponsors | **done** — verified 2026-09-09 | 21 events, 109 agenda entries, 35 speakers, 14 sponsors, 4 locations, 55 media. Counts and rich-text fidelity checked, see below. |
+| 1 | Scaffold Next 16 + Payload 3 + Postgres **in place**, existing pages still rendering | **done** — `dc41f08`, admin verified 2026-09-09; **re-verified 2026-11-12 on the merged branch** (`payload-overhaul`, commit in the git log under "Merge origin/master") | `/admin` loads, schema pushed, first-user wizard renders. Evidence below. On 2026-11-12: `yarn build` and `yarn typecheck` pass, `yarn lint` has 0 errors and the 2 known warnings, the public pages checked return 200, and `/admin` and `/admin/login` load against the local database. |
+| 2 | Model events/speakers/sponsors as collections; import the YAML events, speakers, sponsors | **done** — verified 2026-09-09 (21 events, 109 agenda entries, 35 speakers, 14 sponsors, 4 locations, 55 media); **re-run 2026-11-12 on the merged branch: 23 events, 118 agenda entries, 40 speakers, 16 sponsors, 4 locations, 64 media** | September: counts and rich-text fidelity checked, see below. 2026-11-12: counts, repeatability and the November event checked; rich text for the new events was not. |
 | 3 | Port the pages to App Router reading from Payload; drop `reactstrap`, keep the SCSS | not started | Where `output: 'export'` and the nightly cron die |
 | 4 | Port the RSVP/attendance API to route handlers; migrate the SQL data | not started | Blocked on N2 and D4. Decide the 18 orphan rows. |
 | 5 | Replace the Puppeteer share-image pipeline with `next/og`, reading from Payload | not started | Was a candidate to go first; under D3 it would have had to be built twice |
@@ -536,13 +556,21 @@ Moving content out of git is not free, and neither of these existed before the d
 
 ## What can be tested right now
 
-In the worktree `.claude/worktrees/payload-overhaul` (branch `worktree-payload-overhaul`):
+In the worktree `.claude/worktrees/payload-overhaul-merge` (branch `payload-overhaul`, pushed to
+`origin/payload-overhaul`). The original worktree `.claude/worktrees/payload-overhaul` (branch
+`worktree-payload-overhaul`, the eight commits as of 2026-09-09) is kept unchanged.
 
 ```bash
-pnpm install && pnpm prebuild && pnpm dev   # http://localhost:8000
+npx --yes yarn@1.22.22 install --ignore-engines   # --ignore-engines only because this machine runs Node 24.13
+yarn prebuild && yarn dev                          # http://localhost:8000
 ```
 
-**Verified** (2026-09-05, on `pnpm build && pnpm start`):
+The database is the `scuguk-postgres` container on 5433 (`AGENTS.md`, *The local database*).
+Its data lives in the Docker volume `scuguk-pgdata`, which outlived the container: the container
+had been removed, and recreating it with the same volume brought the September import back.
+
+**Verified** (2026-09-05, on `pnpm build && pnpm start`; the package manager was pnpm then and is
+yarn since 2026-11-12, so the commands in this and the next section are as they were run):
 
 | Check | Result |
 | --- | --- |
@@ -570,6 +598,27 @@ pnpm install && pnpm prebuild && pnpm dev   # http://localhost:8000
 **One known loss, and it was reported rather than swallowed:** two events wrap a paragraph in
 `<p className="alert alert-warning">`. Lexical keeps the text and drops the class, so those
 callouts are ordinary paragraphs until plan 3 gives them a Callout block.
+
+### Re-verified 2026-11-12, on the merged branch
+
+`master` (`3cccbc8`) merged into `payload-overhaul`; dependencies installed with yarn 1.22.22
+(`yarn.lock` regenerated by that install; no `pnpm-lock.yaml` and no `package-lock.json`).
+
+| Check | Result |
+| --- | --- |
+| `yarn typecheck` | passes. It needs `next-env.d.ts`, which `yarn build` or `yarn dev` generates, so run one of those first |
+| `yarn lint` | 0 errors and the 2 known `no-img-element` warnings. Prettier flagged `EventAgenda.tsx`, where `master`'s edit used 4-space indentation; it was reformatted |
+| `yarn build` | passes; `/`, `/events`, `/sponsors`, `/contact`, `/newsletter`, and the `/events/[key]` and `/events/[key]/ad` pages generate |
+| `yarn dev`, then `curl` | `/`, `/events`, `/sponsors`, `/events/2026-11-london-sitecore-usergroup`, `/events/2026-09-manchester-meetup` and `/api/events?limit=1` all HTTP 200. `/admin` HTTP 200 (48 s cold); `/admin/login` is titled "Login — Sitecore User Group UK". A user already exists in the database, so the first-user wizard was not seen this time |
+| Schema push | the 18 `public` tables were already there from September and the dev server connected without error; nothing new was pushed because no collection changed |
+| Import, before | row counts straight from Postgres before the run: 21 events, 109 agenda entries, 35 speakers, 14 sponsors, 4 locations, 55 media |
+| `yarn import:content` | dry run, then `--write`, then `--write` again; all exit 0 and each reports 23 events, 118 agenda entries, 40 speakers, 16 sponsors, 4 locations, 64 media, with 6 warnings (the "Online" location has no image, two speakers have no image, the two alert callouts, and one agenda entry with no `type`) |
+| Import, after | **23 events, 118 agenda entries, 40 speakers, 16 sponsors, 4 locations, 64 media**, equal to the YAML inventory. After the second `--write` there were no duplicate slugs in `events` and no duplicate filenames in `media` (`count(*) - count(distinct …)` = 0 for each), so the import is repeatable |
+| New content | `2026-11-london-sitecore-usergroup` (2026-11-19) is in `events` with its three talks, including "A comparison of the stand-alone Sitecore Search and SitecoreAI Search", and Michael Haahr and Benj Bayfield are linked to it. `2026-09-manchester-meetup` (2026-09-17) is in too |
+
+Not re-checked on 2026-11-12: the HTML to Lexical conversion of the new events' `intro` text
+(`.claude/scripts/verify-import.mjs`), the `syncSponsorDates` hook on the two new sponsors
+(Macmillan and XCentium), and an authored edit through the admin.
 
 **Still unverified:** nothing has been *authored* through the admin — the import writes through
 Payload's local API, which is not the same code path as a human filling in the form and hitting

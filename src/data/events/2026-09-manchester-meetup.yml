@@ -1,0 +1,34 @@
+eventId: 572601fa-929f-4cae-88bc-686802831af1
+title: Manchester Sitecore Meetup - September 2026
+excerpt: Join us for an informal meetup. Have a drink and chat all things Sitecore.
+intro: >
+  <p>Rather than a formal "listen to talks" type user group, we thought we'd try something different for a change. Come and join us in <b><i>Northern Monk Refectory</i></b> on Tarrif St, for a very informal chat and a drink.</p>
+  <p>Bring your questions and opinions about anything Sitecore related:</p>
+  <ul>
+    <li>Maybe about what Scrunch is and why Sitecore bought it?</li>
+    <li>What's interesting about release of v10.5 and the DXP's future'?</li>
+    <li>Your thoughts on what sort of user group events you're interested in.</li>
+    <li>Vent for sympathy about your project challenges!</li>
+    <li>Or just bring your sparkling wit...</li>
+  </ul>
+  <p>All welcome, all topics accepted.</p>
+  <p>Depending on whether there's a bunch of sign-ups, we might book a table or two. But the basic plan is to sit about and chat about whatever people want, rather than do anything organised.</p>
+date: !!timestamp 2026-09-17 17:30:00+01:00
+duration: 150
+dateConfirmed: true
+showOnlineRsvp: true
+showEventImage: true
+talksTbc: false
+venue: 
+  name: Northern Monk Refectory
+  address: 10 Tariff St, M1 2FF
+location: Manchester
+agenda:
+  - type: item
+    time: '17:30'
+    description: Arrival and networking
+  - type: item
+    time: '20:00'
+    description: Close
+meta:
+  description: An informal meet-up for anyone doing anything Sitecore related in the Manchester area. Come join us for a chat!
