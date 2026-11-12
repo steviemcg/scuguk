@@ -39,7 +39,7 @@ npx --yes yarn@1.22.22 build
 ```
 
 Both pass on `master` as of 2026-10-12 (Node 24.13.1). The loop runs the same pair before it lands anything
-(`LandChecks` in `.claude/agentloop/config.ps1`). `yarn dev` serves the site on http://localhost:8000 to look at a
+(`LandChecks` in Doorbell's project settings at `/admin/project-settings`). `yarn dev` serves the site on http://localhost:8000 to look at a
 change. `yarn events` (the social images, through puppeteer) has not been run on this machine.
 
 A pull request gets a public Netlify preview at `https://deploy-preview-<number>--scuguk.netlify.app`. A branch the
@@ -63,4 +63,4 @@ event, stays as it was at the last deploy.
 - **Alex Washtell** (`AlexKasaku`) and **Adam Seabridge** (`fluxdigital`) have write access; both have committed events and
   styling since 2021.
 - **Landing:** every change the code loop makes reaches `master` as a pull request, for now (Steve, 2026-10-15);
-  `AlwaysPr` in `.claude/agentloop/config.ps1`.
+  `AlwaysPr` in Doorbell's project settings at `/admin/project-settings`.
