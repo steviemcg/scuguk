@@ -14,6 +14,9 @@ const Footer = () => {
         </Link>
 
         <p>Copyright &copy; {year} Sitecore User Group UK</p>
+        <nav className={styles.footer__nav} aria-label='Footer'>
+          <Link href='/privacy'>Privacy policy</Link>
+        </nav>
       </Container>
     </footer>
   );
